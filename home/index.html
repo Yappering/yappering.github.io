@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base target="_blank">
+    <title>Home | Shop Archives</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/tabicon.png" type="image/x-icon"/>
+    <meta content="Shop Archives" property="og:title" />
+    <meta content="Your one stop place for all Discord Collectibles" property="og:description" />
+    <meta content="https://yapper.shop/" property="og:url" />
+    <meta content="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/EmbedImage.png" property="og:image" />
+    <meta content="#FF007A" data-react-helmet="true" name="theme-color" />
+    <style>
+        body {
+            background-color: #313338;
+            color: white;
+            transition: background-color 0.4s ease-in-out;
+
+            font-family: 'gg sans', sans-serif;
+            font-family: 'gg sans Normal', sans-serif;
+            font-family: 'gg sans Medium', sans-serif;
+            font-family: 'gg sans SemiBold', sans-serif; 
+        }
+
+        .gg-sans {
+            font-family: 'gg sans', sans-serif;
+            font-family: 'gg sans Normal', sans-serif;
+            font-family: 'gg sans Medium', sans-serif;
+            font-family: 'gg sans SemiBold', sans-serif;                                   
+        }
+
+        .housing {
+            position: fixed;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .server-list {
+            left: auto;
+            width: 70px;
+            height: 100%;
+            background-color: #1E1F22;
+            position: fixed;
+        }
+
+        .dm-list {
+            left: auto;
+            width: 250px;
+            height: 100%;
+            margin-left: 70px;
+            background-color: #2B2D31;
+            position: fixed;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: fit-content;
+        }
+
+        .home-housing {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            background-color: #615DED;
+        }
+
+        .server-avatar {
+            margin-top: 10px;
+        }
+
+        .server-icon {
+            display: flex;
+            width: 50px;
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 1000px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .server-icon-selected {
+            border-radius: 10px;
+        }
+
+        .server-pill {
+            left: auto;
+            width: 5px;
+            height: 50px;
+            background-color: white;
+            margin-top: -50px;
+            border-radius: 100px;
+        }
+
+        .server-home {
+            background-color: #615DED;
+        }
+
+        .dm-button {
+            display: flex;
+            width: 230px;
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #2B2D31;
+            color: #B1B5BB;
+            transition: background-color 0.1s, color 0.1s ease-in-out;
+        }
+
+        .dm-button:hover {
+            background-color: #404248;
+            color: white;
+        }
+
+        .dm-button-text {
+            margin-left: 10px;
+            margin-top: 13px;
+            font-weight: 600;
+            font-size: large;
+        }
+
+        .dm-new-icon {
+            margin-top: 15px;
+            margin-left: auto;
+            margin-right: 10px;
+            background-color: #E2373E;
+            border-radius: 999px;
+            width: 50px;
+            font-size: medium;
+            font-weight: 600;
+            color: white;
+        }
+
+        .dm-button-selected {
+            background-color: #404248;
+            color: white;
+        }
+
+        .divider {
+            background-color: #B1B5BB;
+            display: flex;
+            width: 230px;
+            height: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+        }
+
+        .dm-divider {
+            color: #B1B5BB;
+            display: flex;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: small;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="housing">
+        <div class="sidebar">
+            <div class="dm-list">
+                <div style="overflow: auto; height: 100%;">
+                    <button class="dm-button dm-button-selected">
+                        <p class="dm-button-text">
+                            Home
+                        </p>
+                    </button>
+                    <button class="dm-button" onclick="location.href='./shop';">
+                        <p class="dm-button-text">
+                            Shop
+                        </p>
+                        <div class="dm-new-icon">
+                            NEW
+                        </div>
+                    </button>
+                    <button class="dm-button" onclick="location.href='./pplus';">
+                        <p class="dm-button-text">
+                            Profiles Plus
+                        </p>
+                        <div class="dm-new-icon">
+                            NEW
+                        </div>
+                    </button>
+                    <div class="dm-divider">
+                        NEWS
+                    </div>
+                    <div data-news-tabs>
+                        <template data-news-template>
+                            <button class="dm-button" data-news-button>
+                                <p class="dm-button-text" data-news-title></p>
+                                <div class="dm-new-icon" style="display: none;">
+                                    NEW
+                                </div>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            <div class="server-list">
+                <div class="server-avatar">
+                    <button class="server-icon server-icon-selected server-home" onclick="location.href='./home';">
+                    </button>
+                    <div class="server-pill">
+                    </div>
+                </div>
+                <div class="server-avatar">
+                    <button class="server-icon server-home" onclick="location.href='./home';">
+                    </button>
+                </div>
+            </div>
+            <div style="width: 320px;">
+
+            </div>
+        </div>
+        <div class="home-housing">
+
+        </div>
+    </div>
+
+    
+    <script>
+        const NewsTab = document.querySelector("[data-news-template]");
+        const NewsTabsHolder = document.querySelector("[data-news-tabs]");
+
+        fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/news')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(user => {
+                    const card = NewsTab.content.cloneNode(true).children[0];
+                    const newstitle = card.querySelector("[data-news-title]");
+                    const newsButton = card;  // Corrected the selection of the button element
+
+                    newstitle.textContent = user.title;
+
+                    // Set the button's click event to redirect to the URL stored in the API
+                    newsButton.onclick = function() {
+                        window.location.href = user.url;
+                    };
+
+                    // Check if 'isNew' is true, and show the "NEW" icon if it is
+                    if (user.isNew === "true") {
+                        card.querySelector(".dm-new-icon").style.display = 'block';
+                    }
+
+                    NewsTabsHolder.append(card);
+                });
+            })
+            .catch(error => console.error('Error fetching the API:', error));
+    </script>
+</body>
+
+</html>

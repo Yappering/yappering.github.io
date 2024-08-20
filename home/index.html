@@ -29,6 +29,10 @@
             font-family: 'gg sans SemiBold', sans-serif;                                   
         }
 
+        .abcgintonord {
+            font-family: "Abcgintonord 800",sans-serif                              
+        }
+
         .housing {
             position: fixed;
             display: flex;
@@ -58,6 +62,15 @@
         .sidebar {
             height: 100%;
             width: fit-content;
+        }
+
+        .top-bar {
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            background-color: #2B2D31;
+            margin-left: 70px;
+            box-shadow: 0 0 0 2px #1E1F22;
         }
 
         .home-housing {
@@ -96,7 +109,8 @@
         }
 
         .server-home {
-            background-color: #615DED;
+            background-image: url(https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/tabicon.png);
+            background-size: 100%;
         }
 
         .dm-button {
@@ -117,6 +131,27 @@
         .dm-button:hover {
             background-color: #404248;
             color: white;
+        }
+
+        .dm-button-fetching {
+            background-color: #404248;
+            color: white;
+        }
+
+        .dm-button-text-fetching {
+            height: 15px;
+            width: 140px;
+            margin-left: 10px;
+            margin-top: 16px;
+            border-radius: 9999px;
+            background-color: #B1B5BB;
+            animation: dm-button-text-fetching-anim 2s infinite;
+        }
+
+        @keyframes dm-button-text-fetching-anim {
+	        0% {background-color: #B1B5BB;}
+            50% {background-color: #676d75;}
+	        100% {background-color: #B1B5BB;}
         }
 
         .dm-button-text {
@@ -164,6 +199,42 @@
             font-size: small;
         }
 
+        .center-text {
+            text-align: center;
+        }
+
+        .refresh-button {
+            background-color: rgb(89, 102, 243);
+            color: white;
+            height: 30px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .refresh-button:hover {
+            background-color: rgb(71, 81, 192);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+
+
+
+
+        .home-tab {
+            background-color: #404248;
+            color: white;
+        }
+
+        .home-tab .dm-new-icon {
+            display: none;
+        }
+
     </style>
 </head>
 
@@ -171,28 +242,40 @@
     <div class="housing">
         <div class="sidebar">
             <div class="dm-list">
-                <div style="overflow: auto; height: 100%;">
-                    <button class="dm-button dm-button-selected">
-                        <p class="dm-button-text">
-                            Home
-                        </p>
-                    </button>
-                    <button class="dm-button" onclick="location.href='/shop';">
-                        <p class="dm-button-text">
-                            Shop
-                        </p>
-                        <div class="dm-new-icon">
-                            NEW
+                <div style="overflow: auto; height: 100%; margin-top: 50px;">
+                    <div data-mains-tabs>
+                        <template data-mains-template>
+                            <button class="dm-button" data-mains-button>
+                                <p class="dm-button-text" data-mains-title></p>
+                                <div class="dm-new-icon" style="display: none;">
+                                    NEW
+                                </div>
+                            </button>
+                        </template>
+                        <div id="loading-api-dm-mains">
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
                         </div>
-                    </button>
-                    <button class="dm-button" onclick="location.href='/pplus';">
-                        <p class="dm-button-text">
-                            Profiles Plus
-                        </p>
-                        <div class="dm-new-icon">
-                            NEW
+                        <div style="text-align: center;" class="hidden" id="mains-fetch-error">
+                            <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
+                            <h2>Well, this is awkward.</h2>
+                            <p>Hmmm, we weren&#8217;t able to load mains. Check back later.</p>
+                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
                         </div>
-                    </button>
+                    </div>
                     <div class="dm-divider">
                         NEWS
                     </div>
@@ -205,6 +288,29 @@
                                 </div>
                             </button>
                         </template>
+                        <div id="loading-api-dm-news">
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                            <button class="dm-button dm-button-fetching" style="cursor: default;">
+                                <div class="dm-button-text-fetching"></div>
+                            </button>
+                        </div>
+                        <div style="text-align: center;" class="hidden" id="news-fetch-error">
+                            <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
+                            <h2>Well, this is awkward.</h2>
+                            <p>Hmmm, we weren&#8217;t able to load news. Check back later.</p>
+                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -216,16 +322,19 @@
                     </div>
                 </div>
                 <div class="server-avatar">
-                    <button class="server-icon server-home" onclick="location.href='/home';">
+                    <button class="server-icon" onclick="location.href='/home';">
                     </button>
                 </div>
             </div>
             <div style="width: 320px;">
-
             </div>
         </div>
+        <div class="top-bar">
+        </div>
         <div class="home-housing">
-
+            <h1 class="center-text" style="font-size: 44px; margin-top: 100px;">Welcome to</h1>
+            <h1 class="center-text abcgintonord" style="font-size: 74px; margin-top: -10px; font-weight: 800;">Shop Archives</h1>
+            <h4 class="center-text" style="font-size: 24px;">Under Construction...</h4>
         </div>
     </div>
 
@@ -244,6 +353,10 @@
 
                     newstitle.textContent = user.title;
 
+                    if (user.titleText) {
+                        newsButton.title = user.titleText;
+                    }
+
                     // Set the button's click event to redirect to the URL stored in the API
                     newsButton.onclick = function() {
                         window.location.href = user.url;
@@ -255,9 +368,55 @@
                     }
 
                     NewsTabsHolder.append(card);
+
+                    document.getElementById("loading-api-dm-news").classList.add('hidden');
                 });
             })
-            .catch(error => console.error('Error fetching the API:', error));
+            .catch(error => {
+                console.error('Error fetching the API:', error);
+                document.getElementById("loading-api-dm-news").classList.add('hidden');
+                document.getElementById("news-fetch-error").classList.remove('hidden');
+            });
+
+        const mainsTab = document.querySelector("[data-mains-template]");
+        const mainsTabsHolder = document.querySelector("[data-mains-tabs]");
+
+        fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/marketing')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(user => {
+                    const card = mainsTab.content.cloneNode(true).children[0];
+                    const mainstitle = card.querySelector("[data-mains-title]");
+                    const mainsButton = card;  // Corrected the selection of the button element
+
+                    mainstitle.textContent = user.title;
+
+                    mainsButton.classList.add(user.class);
+
+                    if (user.titleText) {
+                        mainsButton.title = user.titleText;
+                    }
+
+                    // Set the button's click event to redirect to the URL stored in the API
+                    mainsButton.onclick = function() {
+                        window.location.href = user.url;
+                    };
+
+                    // Check if 'isNew' is true, and show the "NEW" icon if it is
+                    if (user.isNew === "true") {
+                        card.querySelector(".dm-new-icon").style.display = 'block';
+                    }
+
+                    mainsTabsHolder.append(card);
+
+                    document.getElementById("loading-api-dm-mains").classList.add('hidden');
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching the API:', error);
+                document.getElementById("loading-api-dm-mains").classList.add('hidden');
+                document.getElementById("mains-fetch-error").classList.remove('hidden');
+            });
     </script>
 </body>
 

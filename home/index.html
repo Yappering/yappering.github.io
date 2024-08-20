@@ -109,7 +109,7 @@
         }
 
         .server-home {
-            background-image: url(https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/tabicon.png);
+            background-image: url(data:image/webp;base64,UklGRtQDAABXRUJQVlA4WAoAAAAQAAAAXwAAXwAAQUxQSCYBAAABD9D/iAhIjiVJkpVXRRmWxqnsnzgmO8cvQv5FsGRHjC8OinWxKRDRf4Vp2zB1p/vJAixudjLZJWxXnhyZDH/AGAwNcDzW8VUJPwe+AlpeXIGGDeiCdCdggTrpLQFhAApQYCC9JpfH2ZjCo/urDrkRDMCEnyBdWAXDQIMNSBoCaCdmMwCkBCAcietYztRvcvkzllMbNpDTcXJtk30NPf0XEpABfbAh0d7G8d8k7OkvOMkB9G8Oec4Z5yUMf0IdI/0Jv5mEBqDYh6MAmFoywta3wMQSaCdmBbCBX5tkAIiGl3gEYgVYCvVMDr1BbaYhWGwUEHBRT9REYvEZKy3YrjySsHkBEAGzmmViwFftQLEpTUEAbvWnAnPEAPAcoLABfIQAbiDhZABWUDggiAIAAJAOAJ0BKmAAYAA+kUKaSKWkIqEtWIjAsBIJQBiHIzbgDzquoA9ADpbvJAaIK2GWXU+ulfLsFNiQwvqprIh1Eq3LkeaZnyOqhP+BjbpKzzM3+2/wWUAZ7NASpL9zGWKl70y0uXeVdg9BRUduTGE2paYGLX1lRd+HxIfbcCwAAP7PgK//npn/3L/9bexnyzm/kOKVzGvdWOUO/7WtN0oal0+yTnHTkPZxorG/gwz7DKR9jJXHnIZukSNofgl1pVLeZ43IMEAalg+xHOz24rrrNuNlZP7LkRHA2Mel5GTga2ezNVMvCvF5rSxF/VpJicGS16YHYSSXeQwhQvWVYjQ4z0LODTvfExSfnjEkOII/hNc5ZNt8dLlFFyCgzCC1ZgjI2m56WRZbLVqdflO80IJHvpTzf960fz3NW+VVPEs5rKgfJgu4bMJQb0JEXfkAz4Ul0NgFTyO3jetlzvEbivwnGdZkwHZQ9yqvTBBMqO8l76ZYHcfmvhuTufJ2CK892oouf8nf896TzfBfxUuYIDxM9+0brdNfJroHlPzYanKA15Siqkbw5Y01sn+0NSq56lk97MebULxWtBssRoVs/vWr9Dn5RwDz5K6jASQZ/+MJuGGDp5iE7Qj7TevSb73fjohj3ta/ghE6Gsh1HHgTqwdjkL26HlkoT97QKQ0Ep8JzwFxX7L9etLjf42ft9fSFUV0MfSOI0V8Jeehqp8xbDrra3XNs+UQT1qYkX19A3FQwORbaJ8Mw0/Fv5WuUzrH8VHbJqSH+n+Veuoz2Q6+PiLqkhZDKPgvj8M9FtorJcxwvJgYmBtT6BIl/1OXxee33wv+ROFX9lXonnmsyfFlSCfV50UBlmpdYwAAAAA==);
             background-size: 100%;
         }
 
@@ -140,8 +140,28 @@
 
         .dm-button-text-fetching {
             height: 15px;
-            width: 140px;
             margin-left: 10px;
+            margin-top: 16px;
+            border-radius: 9999px;
+            background-color: #B1B5BB;
+            animation: dm-button-text-fetching-anim 2s infinite;
+        }
+
+        .dm-button-text-fetching-var-1 {
+            width: 100px;
+        }
+        .dm-button-text-fetching-var-2 {
+            width: 120px;
+        }
+        .dm-button-text-fetching-var-3 {
+            width: 80px;
+        }
+
+        .dm-button-tag-fetching {
+            height: 15px;
+            width: 40px;
+            margin-left: auto;
+            margin-right: 10px;
             margin-top: 16px;
             border-radius: 9999px;
             background-color: #B1B5BB;
@@ -243,73 +263,50 @@
         <div class="sidebar">
             <div class="dm-list">
                 <div style="overflow: auto; height: 100%; margin-top: 50px;">
-                    <div data-mains-tabs>
-                        <template data-mains-template>
-                            <button class="dm-button" data-mains-button>
-                                <p class="dm-button-text" data-mains-title></p>
-                                <div class="dm-new-icon" style="display: none;">
-                                    NEW
-                                </div>
-                            </button>
-                        </template>
-                        <div id="loading-api-dm-mains">
+                    <div>
+                        <div>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
+                                <div class="dm-button-tag-fetching"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-2"></div>
+                                <div class="dm-button-tag-fetching"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
+                                <div class="dm-button-tag-fetching"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
+                                <div class="dm-button-tag-fetching"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
+                                <div class="dm-button-tag-fetching"></div>
                             </button>
-                        </div>
-                        <div style="text-align: center;" class="hidden" id="mains-fetch-error">
-                            <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
-                            <h2>Well, this is awkward.</h2>
-                            <p>Hmmm, we weren&#8217;t able to load mains. Check back later.</p>
-                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
                         </div>
                     </div>
                     <div class="dm-divider">
-                        NEWS
+                        Direct Messages
                     </div>
-                    <div data-news-tabs>
-                        <template data-news-template>
-                            <button class="dm-button" data-news-button>
-                                <p class="dm-button-text" data-news-title></p>
-                                <div class="dm-new-icon" style="display: none;">
-                                    NEW
-                                </div>
-                            </button>
-                        </template>
-                        <div id="loading-api-dm-news">
+                    <div>
+                        <div>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-2"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
                             </button>
                             <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching"></div>
+                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
                             </button>
-                        </div>
-                        <div style="text-align: center;" class="hidden" id="news-fetch-error">
-                            <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
-                            <h2>Well, this is awkward.</h2>
-                            <p>Hmmm, we weren&#8217;t able to load news. Check back later.</p>
-                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
                         </div>
                     </div>
                 </div>
@@ -320,10 +317,6 @@
                     </button>
                     <div class="server-pill">
                     </div>
-                </div>
-                <div class="server-avatar">
-                    <button class="server-icon" onclick="location.href='/home';">
-                    </button>
                 </div>
             </div>
             <div style="width: 320px;">
@@ -337,87 +330,6 @@
             <h4 class="center-text" style="font-size: 24px;">Under Construction...</h4>
         </div>
     </div>
-
-    
-    <script>
-        const NewsTab = document.querySelector("[data-news-template]");
-        const NewsTabsHolder = document.querySelector("[data-news-tabs]");
-
-        fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/news')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(user => {
-                    const card = NewsTab.content.cloneNode(true).children[0];
-                    const newstitle = card.querySelector("[data-news-title]");
-                    const newsButton = card;  // Corrected the selection of the button element
-
-                    newstitle.textContent = user.title;
-
-                    if (user.titleText) {
-                        newsButton.title = user.titleText;
-                    }
-
-                    // Set the button's click event to redirect to the URL stored in the API
-                    newsButton.onclick = function() {
-                        window.location.href = user.url;
-                    };
-
-                    // Check if 'isNew' is true, and show the "NEW" icon if it is
-                    if (user.isNew === "true") {
-                        card.querySelector(".dm-new-icon").style.display = 'block';
-                    }
-
-                    NewsTabsHolder.append(card);
-
-                    document.getElementById("loading-api-dm-news").classList.add('hidden');
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching the API:', error);
-                document.getElementById("loading-api-dm-news").classList.add('hidden');
-                document.getElementById("news-fetch-error").classList.remove('hidden');
-            });
-
-        const mainsTab = document.querySelector("[data-mains-template]");
-        const mainsTabsHolder = document.querySelector("[data-mains-tabs]");
-
-        fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/marketing')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(user => {
-                    const card = mainsTab.content.cloneNode(true).children[0];
-                    const mainstitle = card.querySelector("[data-mains-title]");
-                    const mainsButton = card;  // Corrected the selection of the button element
-
-                    mainstitle.textContent = user.title;
-
-                    mainsButton.classList.add(user.class);
-
-                    if (user.titleText) {
-                        mainsButton.title = user.titleText;
-                    }
-
-                    // Set the button's click event to redirect to the URL stored in the API
-                    mainsButton.onclick = function() {
-                        window.location.href = user.url;
-                    };
-
-                    // Check if 'isNew' is true, and show the "NEW" icon if it is
-                    if (user.isNew === "true") {
-                        card.querySelector(".dm-new-icon").style.display = 'block';
-                    }
-
-                    mainsTabsHolder.append(card);
-
-                    document.getElementById("loading-api-dm-mains").classList.add('hidden');
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching the API:', error);
-                document.getElementById("loading-api-dm-mains").classList.add('hidden');
-                document.getElementById("mains-fetch-error").classList.remove('hidden');
-            });
-    </script>
 </body>
 
 </html>

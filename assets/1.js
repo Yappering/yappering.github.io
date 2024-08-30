@@ -37,6 +37,7 @@ fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/main-tabs')
         document.getElementById("loading-api-dm-mains").classList.add('hidden');
         document.getElementById("mains-fetch-error").classList.remove('hidden');
     });
+    
 
 function reFetchMainTabs() {
     document.getElementById("loading-api-dm-mains").classList.remove('hidden');

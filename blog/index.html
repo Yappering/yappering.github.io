@@ -3,256 +3,26 @@
 
 <head>
     <base target="_blank">
-    <title>Page Not Found | Shop Archives</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/tabicon.png" type="image/x-icon"/>
+    <title>Blog | Shop Archives</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta content="Shop Archives" property="og:title" />
     <meta content="Your one stop place for all Discord Collectibles" property="og:description" />
-    <meta content="https://yapper.shop/" property="og:url" />
+    <meta content="https://yapper.shop/blog/" property="og:url" />
     <meta content="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/EmbedImage.png" property="og:image" />
     <meta content="#FF007A" data-react-helmet="true" name="theme-color" />
+    <link rel="stylesheet" href="/styles.css">
     <style>
-        body {
-            background-color: #313338;
-            color: white;
-            transition: background-color 0.4s ease-in-out;
-
-            font-family: 'gg sans', sans-serif;
-            font-family: 'gg sans Normal', sans-serif;
-            font-family: 'gg sans Medium', sans-serif;
-            font-family: 'gg sans SemiBold', sans-serif; 
-        }
-
-        .gg-sans {
-            font-family: 'gg sans', sans-serif;
-            font-family: 'gg sans Normal', sans-serif;
-            font-family: 'gg sans Medium', sans-serif;
-            font-family: 'gg sans SemiBold', sans-serif;                                   
-        }
-
-        .abcgintonord {
-            font-family: "Abcgintonord 800",sans-serif                              
-        }
-
-        .housing {
-            position: fixed;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-        }
-
-        .server-list {
-            left: auto;
-            width: 70px;
-            height: 100%;
-            background-color: #1E1F22;
-            position: fixed;
-        }
-
-        .dm-list {
-            left: auto;
-            width: 250px;
-            height: 100%;
-            margin-left: 70px;
-            background-color: #2B2D31;
-            position: fixed;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: fit-content;
-        }
-
-        .top-bar {
-            height: 50px;
-            width: 100%;
-            position: fixed;
-            background-color: #2B2D31;
-            margin-left: 70px;
-            box-shadow: 0 0 0 2px #1E1F22;
-        }
-
-        .home-housing {
-            width: 100%;
-            height: 100%;
-            margin-left: auto;
-            background-color: #615DED;
-        }
-
-        .server-avatar {
-            margin-top: 10px;
-        }
-
-        .server-icon {
-            display: flex;
-            width: 50px;
-            height: 50px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 1000px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .server-icon-selected {
-            border-radius: 10px;
-        }
-
-        .server-pill {
-            left: auto;
-            width: 5px;
-            height: 50px;
-            background-color: white;
-            margin-top: -50px;
-            border-radius: 100px;
-        }
-
-        .server-home {
-            background-image: url(data:image/webp;base64,UklGRtQDAABXRUJQVlA4WAoAAAAQAAAAXwAAXwAAQUxQSCYBAAABD9D/iAhIjiVJkpVXRRmWxqnsnzgmO8cvQv5FsGRHjC8OinWxKRDRf4Vp2zB1p/vJAixudjLZJWxXnhyZDH/AGAwNcDzW8VUJPwe+AlpeXIGGDeiCdCdggTrpLQFhAApQYCC9JpfH2ZjCo/urDrkRDMCEnyBdWAXDQIMNSBoCaCdmMwCkBCAcietYztRvcvkzllMbNpDTcXJtk30NPf0XEpABfbAh0d7G8d8k7OkvOMkB9G8Oec4Z5yUMf0IdI/0Jv5mEBqDYh6MAmFoywta3wMQSaCdmBbCBX5tkAIiGl3gEYgVYCvVMDr1BbaYhWGwUEHBRT9REYvEZKy3YrjySsHkBEAGzmmViwFftQLEpTUEAbvWnAnPEAPAcoLABfIQAbiDhZABWUDggiAIAAJAOAJ0BKmAAYAA+kUKaSKWkIqEtWIjAsBIJQBiHIzbgDzquoA9ADpbvJAaIK2GWXU+ulfLsFNiQwvqprIh1Eq3LkeaZnyOqhP+BjbpKzzM3+2/wWUAZ7NASpL9zGWKl70y0uXeVdg9BRUduTGE2paYGLX1lRd+HxIfbcCwAAP7PgK//npn/3L/9bexnyzm/kOKVzGvdWOUO/7WtN0oal0+yTnHTkPZxorG/gwz7DKR9jJXHnIZukSNofgl1pVLeZ43IMEAalg+xHOz24rrrNuNlZP7LkRHA2Mel5GTga2ezNVMvCvF5rSxF/VpJicGS16YHYSSXeQwhQvWVYjQ4z0LODTvfExSfnjEkOII/hNc5ZNt8dLlFFyCgzCC1ZgjI2m56WRZbLVqdflO80IJHvpTzf960fz3NW+VVPEs5rKgfJgu4bMJQb0JEXfkAz4Ul0NgFTyO3jetlzvEbivwnGdZkwHZQ9yqvTBBMqO8l76ZYHcfmvhuTufJ2CK892oouf8nf896TzfBfxUuYIDxM9+0brdNfJroHlPzYanKA15Siqkbw5Y01sn+0NSq56lk97MebULxWtBssRoVs/vWr9Dn5RwDz5K6jASQZ/+MJuGGDp5iE7Qj7TevSb73fjohj3ta/ghE6Gsh1HHgTqwdjkL26HlkoT97QKQ0Ep8JzwFxX7L9etLjf42ft9fSFUV0MfSOI0V8Jeehqp8xbDrra3XNs+UQT1qYkX19A3FQwORbaJ8Mw0/Fv5WuUzrH8VHbJqSH+n+Veuoz2Q6+PiLqkhZDKPgvj8M9FtorJcxwvJgYmBtT6BIl/1OXxee33wv+ROFX9lXonnmsyfFlSCfV50UBlmpdYwAAAAA==);
-            background-size: 100%;
-        }
-
-        .dm-button {
-            display: flex;
-            width: 230px;
-            height: 50px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            background-color: #2B2D31;
-            color: #B1B5BB;
-            transition: background-color 0.1s, color 0.1s ease-in-out;
-        }
-
-        .dm-button:hover {
-            background-color: #404248;
-            color: white;
-        }
-
-        .dm-button-fetching {
-            background-color: #404248;
-            color: white;
-        }
-
-        .dm-button-text-fetching {
-            height: 15px;
-            margin-left: 10px;
-            margin-top: 16px;
-            border-radius: 9999px;
-            background-color: #B1B5BB;
-            animation: dm-button-text-fetching-anim 2s infinite;
-        }
-
-        .dm-button-text-fetching-var-1 {
-            width: 100px;
-        }
-        .dm-button-text-fetching-var-2 {
-            width: 120px;
-        }
-        .dm-button-text-fetching-var-3 {
-            width: 80px;
-        }
-
-        .dm-button-tag-fetching {
-            height: 15px;
-            width: 40px;
-            margin-left: auto;
-            margin-right: 10px;
-            margin-top: 16px;
-            border-radius: 9999px;
-            background-color: #B1B5BB;
-            animation: dm-button-text-fetching-anim 2s infinite;
-        }
-
-        @keyframes dm-button-text-fetching-anim {
-	        0% {background-color: #B1B5BB;}
-            50% {background-color: #676d75;}
-	        100% {background-color: #B1B5BB;}
-        }
-
-        .dm-button-text {
-            margin-left: 10px;
-            margin-top: 13px;
-            font-weight: 600;
-            font-size: large;
-        }
-
-        .dm-new-icon {
-            margin-top: 15px;
-            margin-left: auto;
-            margin-right: 10px;
-            background-color: #E2373E;
-            border-radius: 999px;
-            width: 50px;
-            font-size: medium;
-            font-weight: 600;
-            color: white;
-        }
-
-        .dm-button-selected {
-            background-color: #404248;
-            color: white;
-        }
-
-        .divider {
-            background-color: #B1B5BB;
-            display: flex;
-            width: 230px;
-            height: 5px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 5px;
-        }
-
-        .dm-divider {
-            color: #B1B5BB;
-            display: flex;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-size: small;
-        }
-
-        .center-text {
-            text-align: center;
-        }
-
-        .refresh-button {
-            background-color: rgb(89, 102, 243);
-            color: white;
-            height: 30px;
-            width: 100px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
-        }
-
-        .refresh-button:hover {
-            background-color: rgb(71, 81, 192);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-
-
-
-
         .home-tab {
             background-color: #404248;
             color: white;
         }
 
         .home-tab .dm-new-icon {
-            display: none;
+            display: none !important;
+        }
+
+        [alt="Blog"] {
+            border-radius: 10px;
         }
 
     </style>
@@ -263,73 +33,72 @@
         <div class="sidebar">
             <div class="dm-list">
                 <div style="overflow: auto; height: 100%; margin-top: 50px;">
-                    <div>
-                        <div>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
-                                <div class="dm-button-tag-fetching"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-2"></div>
-                                <div class="dm-button-tag-fetching"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
-                                <div class="dm-button-tag-fetching"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
-                                <div class="dm-button-tag-fetching"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
-                                <div class="dm-button-tag-fetching"></div>
-                            </button>
-                        </div>
-                    </div>
                     <div class="dm-divider">
-                        Direct Messages
+                        Shop Archives
                     </div>
-                    <div>
-                        <div>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-2"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-1"></div>
-                            </button>
-                            <button class="dm-button dm-button-fetching" style="cursor: default;">
-                                <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
-                            </button>
-                        </div>
-                    </div>
+                    <button class="dm-button dm-button-selected">
+                        <p class="dm-button-text"># blog</p>
+                    </button>
                 </div>
             </div>
             <div class="server-list">
                 <div class="server-avatar">
-                    <button class="server-icon server-icon-selected server-home" onclick="location.href='/home';">
+                    <button class="server-icon server-home" onclick="location.href='/home';">
                     </button>
-                    <div class="server-pill">
+                </div>
+                <hr style="opacity: 0;">
+                <div data-servers>
+                </div>
+                <template data-servers-template>
+                    <div class="server-avatar" data-servers-button>
+                        <img class="server-icon" src="" data-server-icon>
+                        </img>
                     </div>
+                </template>
+                <div class="server-pill">
                 </div>
             </div>
             <div style="width: 320px;">
             </div>
         </div>
         <div class="top-bar">
+            <h2 style="margin-left: 260px; margin-top: 10px;"># blog</h2>
         </div>
-        <div class="home-housing">
-            <h1 class="center-text" style="font-size: 44px; margin-top: 100px;">Page Not Found</h1>
-            <h1 class="center-text abcgintonord" style="font-size: 74px; margin-top: -10px; font-weight: 800;">404</h1>
-            <h4 class="center-text" style="font-size: 24px;">The page you&#8217;re looking for doesn&#8217;t exist... yet</h4>
+        <div class="blog-housing" style="overflow: auto;">
+            <div>
+                <template data-blog-message-template>
+                    <div class="blog-message-message-holder">
+                        <img src="" style="height: 60px; scale: 1.3;" data-blog-message-deco>
+                        <img src="" style="border-radius: 999px; height: 60px; margin-left: -65px;" data-blog-message-avatar>
+                        <a class="message-author" data-blog-message-username></a>
+                        <a class="message-time" data-blog-message-time></a> <div class="new-item-tag-1" style="display: none;">NEW</div>
+                        <p style="margin-top: 10px; margin-left: 80px;" data-blog-message-content-1></p>
+                        <p style="margin-top: 10px; margin-left: 80px;" data-blog-message-content-2></p>
+                        <p style="margin-top: 10px; margin-left: 80px;" data-blog-message-content-3></p>
+                    </div>
+                </template>
+                <div class="blog-message-holder" style="margin-bottom: 80px;" data-blog-messages-output> 
+                </div>
+            </div>
         </div>
     </div>
+    <div class="modal-housing hidden" id="modal-housing">
+        <div class="modal">
+            <div class="modal-innder">
+                <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">You Lost?</h1>
+                <h2 style="margin-top: -40px;">We don&#8217;t blame you</h2>
+                <p>The new user interface might confuse you if it&#8217;s you&#8217;re first time here, but don&#8217;t worry, the old user interface is still available.</p>
+                <p>Getting used to a new user interface can be confusing, that&#8217;s why our team has decided to make an up-to-date version of the old user interface so you can use the same layout you&#8217;re used to with even more features.</p>
+                <button class="refresh-button" onclick="location.href='https://old.yapper.shop/';">Use Old UI</button>
+                <p>Or feel free to stay and learn the new user interface with a cleaner look just like Discord!</p>
+                <button class="refresh-button" onclick="closeLostModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="/assets/4.js"></script>
+    <script src="/assets/8.js"></script>
 </body>
 
 </html>

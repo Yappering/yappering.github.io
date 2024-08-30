@@ -3,21 +3,21 @@
 
 <head>
     <base target="_blank">
-    <title>Home | Shop Archives</title>
+    <title>Miscellaneous | Shop Archives</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta content="Shop Archives" property="og:title" />
     <meta content="Your one stop place for all Discord Collectibles" property="og:description" />
-    <meta content="https://yapper.shop/" property="og:url" />
+    <meta content="https://yapper.shop/miscellaneous/" property="og:url" />
     <meta content="https://raw.githubusercontent.com/Yappering/developer/main/assets/5.png" property="og:image" />
     <meta content="#FF007A" data-react-helmet="true" name="theme-color" />
     <link rel="stylesheet" href="/styles.css">
     <style>
-        .home-tab {
+        .miscellaneous-tab {
             background-color: #404248;
             color: white;
         }
 
-        .home-tab .dm-new-icon {
+        .miscellaneous-tab .dm-new-icon {
             display: none !important;
         }
 
@@ -68,7 +68,7 @@
                             <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
                             <h2>Well, this is awkward.</h2>
                             <p>Hmmm, we weren&#8217;t able to load mains. Check back later.</p>
-                            <button class="refresh-button" onclick="reFetchMainTabs()">Refresh Page</button>
+                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
                         </div>
                     </div>
                     <div class="dm-divider">
@@ -109,7 +109,7 @@
                             <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
                             <h2>Well, this is awkward.</h2>
                             <p>Hmmm, we weren&#8217;t able to load news. Check back later.</p>
-                            <button class="refresh-button" onclick="reFetchNewsTabs()">Refresh Page</button>
+                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
                         </div>
                     </div>
                 </div>
@@ -135,13 +135,90 @@
             </div>
         </div>
         <div class="top-bar">
-            <h2 style="margin-left: 260px; margin-top: 10px;">Home</h2>
+            <h2 style="margin-left: 260px; margin-top: 10px;">Discord Shop</h2>
         </div>
-        <div class="home-housing">
-            <h1 class="center-text" style="font-size: 44px; margin-top: 50px;">Welcome to</h1>
-            <h1 class="center-text abcgintonord" style="font-size: 74px; margin-top: -10px; font-weight: 800;">Shop Archives</h1>
-            <h4 class="center-text" style="font-size: 24px;">The place to go for all your Discord collectibles needs such as</h4>
-            <h4 class="center-text" style="font-size: 24px; margin-top: -30px;">unpublished items, asset links, (maybe) leaks and more community related things like Profiles Plus!</h4>
+        <div class="shop-housing" style="overflow: auto; margin-top: 0px;">
+            <div style="text-align: center; margin-top: 10px;" class="hidden" id="failed-to-load-shop">
+                <img style="width: 200px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
+                <h2>Well, this is awkward.</h2>
+                <p>Hmmm, we weren&#8217;t able to load the shop. Check back later.</p>
+                <button class="refresh-button" onclick="reFetchCollectibles()">Reload</button>
+            </div>
+            <div class="shop-container" style="overflow: auto;">
+                <div class="shop-category" style="margin-top: 50px;">
+                    <div class="shop-notice">
+                        <p class="shop-notice-text">Notice: All 'collectibles' on this page have been made by Discord NOT by our team</p>
+                    </div>
+                    <template data-shop-category-template>
+                        <div>
+                            <div class="shop-category-banner">
+                                <img class="shop-category-banner-img" src="" data-shop-category-banner-image>
+                                <div class="shop-category-logo-holder">
+                                    <img class="shop-category-banner-logo" src="" id="shop-banner-logo" data-shop-category-logo-image>
+                                </div>
+                                <div class="shop-category-text-holder">
+                                    <p style="font-size: 18px;" data-shop-category-desc></p>
+                                </div>
+                                <!-- Timer Display -->
+                                <div class="shop-expiry-timer" style="display: none;">
+                                    <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
+                                </div>
+                            </div>
+                            <div class="shop-category-card-holder">
+                            </div>
+                        </div>
+                    </template>
+                    <div data-shop-output>
+                    </div>
+
+                    <div class="shop-category-loading" id="shop-category-loading">
+                        <div>
+                            <div class="shop-category-banner-loading">
+                            </div>
+                            <div class="shop-category-card-holder-loading">
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="shop-category-banner-loading">
+                            </div>
+                            <div class="shop-category-card-holder-loading">
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                                <div class="shop-category-card-loading">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal-housing hidden" id="modal-housing">
@@ -161,12 +238,8 @@
     
     <script src="/assets/1.js"></script>
     <script src="/assets/4.js"></script>
+    <script src="/assets/9.js"></script>
     <script src="/assets/10.js"></script>
-    <script>
-        if (/Android|iPhone/i.test(navigator.userAgent) ) {
-            window.location.href='https://m.yapper.shop';
-        }
-    </script>
 </body>
 
 </html>

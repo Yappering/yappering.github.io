@@ -37,7 +37,6 @@ fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/main-tabs')
         document.getElementById("loading-api-dm-mains").classList.add('hidden');
         document.getElementById("mains-fetch-error").classList.remove('hidden');
     });
-    
 
 function reFetchMainTabs() {
     document.getElementById("loading-api-dm-mains").classList.remove('hidden');
@@ -82,6 +81,51 @@ function reFetchMainTabs() {
             document.getElementById("mains-fetch-error").classList.remove('hidden');
         });
 }
+
+
+const funTab = document.querySelector("[data-fun-template]");
+const funTabsHolder = document.querySelector("[data-fun-output]");
+
+fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/fun')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(user => {
+            const card = funTab.content.cloneNode(true).children[0];
+            const funtitle = card.querySelector("[data-fun-title]");
+            const funButton = card;  // Corrected the selection of the button element
+
+            funtitle.textContent = user.title;
+
+            funButton.classList.add(user.class);
+
+            if (user.titleText) {
+                funButton.title = user.titleText;
+            }
+
+            // Set the button's click event to redirect to the URL stored in the API
+            funButton.onclick = function() {
+                window.location.href = user.url;
+            };
+
+            // Check if 'isNew' is true, and show the "NEW" icon if it is
+            if (user.isNew === "true") {
+                card.querySelector(".dm-new-icon").style.display = 'block';
+            }
+
+            funTabsHolder.append(card);
+
+            document.getElementById("loading-api-dm-fun").classList.add('hidden');
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching the API:', error);
+        document.getElementById("loading-api-dm-fun").classList.add('hidden');
+
+    });
+
+
+
+
 
 
 const NewsTab = document.querySelector("[data-news-template]");

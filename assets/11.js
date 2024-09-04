@@ -1,10 +1,5 @@
 
-let apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/collectibles';
-
-if (localStorage.items_in_shop == "true") {
-    apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/collectibles-in-shop';
-}
-
+let apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/leaks';
 
 fetch(apiUrl)
     .then(response => response.json())
@@ -100,12 +95,11 @@ fetch(apiUrl)
                             <p class="bundle-description shop-card-summary">${bundleDescription}</p>
                             <div class="shop-price-container">
                                 <a style="font-size: large; font-weight: 900;">${price}</a>
-                                <a>${priceNitro} with Nitro</a>
+                                <a>${priceNitro}</a>
                             </div>
                         </div>
                         <div class="card-button-container">
-                            <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
-                            <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                            <button title="Unable to confirm if the item has been added to Profiles Plus" class="card-button card-button-disabled">Unable to confirm item availability</button>
                         </div>
                         <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
                     `;
@@ -119,12 +113,11 @@ fetch(apiUrl)
                             <p class="shop-card-summary">${item.summary}</p>
                             <div class="shop-price-container">
                                 <a style="font-size: large; font-weight: 900;">${price}</a>
-                                <a>${priceNitro} with Nitro</a>
+                                <a>${priceNitro}</a>
                             </div>
                         </div>
                         <div class="card-button-container">
-                            <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
-                            <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                            <button title="Unable to confirm if the item has been added to Profiles Plus" class="card-button card-button-disabled">Unable to confirm item availability</button>
                         </div>
                         <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
                     `;

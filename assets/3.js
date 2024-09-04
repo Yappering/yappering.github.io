@@ -1,4 +1,4 @@
-if (localStorage.dev != "true") {
+if (localStorage.unreleased_profiles_plus != "true") {
     
     const template = document.querySelector("[data-shop-category-template]");
     const output = document.querySelector("[data-shop-output]");
@@ -203,7 +203,7 @@ if (localStorage.dev != "true") {
 
 
 
-if (localStorage.dev == "true") {
+if (localStorage.unreleased_profiles_plus == "true") {
     
     const template = document.querySelector("[data-shop-category-template]");
     const output = document.querySelector("[data-shop-output]");

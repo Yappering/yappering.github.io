@@ -176,10 +176,64 @@
 
         </div>
         <div class="home-housing">
-            <h1 class="center-text" style="font-size: 44px; margin-top: 50px;">Welcome to</h1>
-            <h1 class="center-text abcgintonord" style="font-size: 74px; margin-top: -10px; font-weight: 800;">Shop Archives</h1>
-            <h4 class="center-text" style="font-size: 24px;">The place to go for all your Discord collectibles needs such as</h4>
-            <h4 class="center-text" style="font-size: 24px; margin-top: -30px;">unpublished items, asset links, (maybe) leaks and more community related things like Profiles Plus!</h4>
+            <img class="home-page-preview-banner" src="https://cdn.yapper.shop/discord-assets/1.jpg">
+            <div style="margin-top: -250px; margin-bottom: 50px; position: relative; z-index: 1;">
+                <img src="https://cdn.discordapp.com/app-assets/1096190356233670716/1277733175224701010.png?size=4096" style="height: 130px;">
+                <button class="home-page-preview-button" onclick="location.href='/shop';">Shop the Vault Collection</button>
+                <p style="font-size: 18px; margin-left: 20px; margin-top: -10px;">Long-awaited treasures from times past have made their return… What will you find?</p>
+            </div>
+            <template data-shop-category-template>
+                <div>
+                    <div class="shop-category-banner" style="display: none;">
+                        <img class="shop-category-banner-img" src="" data-shop-category-banner-image>
+                        <div class="shop-category-logo-holder">
+                            <img class="shop-category-banner-logo" src="" id="shop-banner-logo" data-shop-category-logo-image>
+                        </div>
+                        <div class="shop-category-text-holder">
+                            <p style="font-size: 18px;" data-shop-category-desc></p>
+                        </div>
+                        <!-- Timer Display -->
+                        <div class="shop-expiry-timer" style="display: none;">
+                            <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
+                        </div>
+                    </div>
+                    <div class="shop-category-card-holder">
+                    </div>
+                </div>
+            </template>
+            <div data-shop-output>
+            </div>
+
+            <div style="display: flex; width: 1300px; margin-left: auto; margin-right: auto;">
+                <div onclick="location.href='/shop';" style="width: 550px; margin-left: auto; margin-right: auto; cursor: pointer;">
+                    <img style="width: 550px;" src="https://cdn.yapper.shop/discord-assets/2.png">
+                </div>
+                <div onclick="location.href='/shop';" style="width: 550px; margin-left: auto; margin-right: auto; cursor: pointer;">
+                    <img style="width: 550px;" src="https://cdn.yapper.shop/discord-assets/3.png">
+                </div>
+            </div>
+            <h2 style="margin-left: 60px;">Popular Picks</h2>
+            <template data-shop-category-template-p>
+                <div>
+                    <div class="shop-category-banner" style="display: none;">
+                        <img class="shop-category-banner-img" src="" data-shop-category-banner-image-p>
+                        <div class="shop-category-logo-holder">
+                            <img class="shop-category-banner-logo" src="" id="shop-banner-logo" data-shop-category-logo-image-p>
+                        </div>
+                        <div class="shop-category-text-holder">
+                            <p style="font-size: 18px;" data-shop-category-desc-p></p>
+                        </div>
+                        <!-- Timer Display -->
+                        <div class="shop-expiry-timer" style="display: none;">
+                            <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
+                        </div>
+                    </div>
+                    <div class="shop-category-card-holder">
+                    </div>
+                </div>
+            </template>
+            <div data-shop-output-p>
+            </div>
         </div>
     </div>
     <div class="modal-housing" id="modal-housing"></div>
@@ -188,11 +242,7 @@
     <script src="/assets/1.js"></script>
     <script src="/assets/4.js"></script>
     <script src="/assets/10.js"></script>
-    <script>
-        if (/Android|iPhone/i.test(navigator.userAgent) ) {
-            window.location.href='https://m.yapper.shop';
-        }
-    </script>
+    <script src="/assets/12.js"></script>
 </body>
 
 </html>

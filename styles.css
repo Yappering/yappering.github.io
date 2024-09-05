@@ -65,8 +65,11 @@ body {
     width: 100%;
     height: 100%;
     margin-left: auto;
-    background-color: #615DED;
+    background-color: #404248;
     margin-top: 50px;
+    overflow: auto;
+    margin-top: 0px;
+    overflow-x: hidden;
 }
 
 .shop-housing {
@@ -76,6 +79,7 @@ body {
     background-color: #404248;
     margin-top: 50px;
     overflow: auto;
+    overflow-x: hidden;
 }
 
 .blog-housing {
@@ -84,6 +88,7 @@ body {
     margin-left: auto;
     background-color: #404248;
     margin-top: 50px;
+    overflow-x: hidden;
 }
 
 .blog-message-bar-holder {
@@ -635,7 +640,7 @@ body {
     height: 100px; /* Adjust height as needed */
     object-fit: cover;
     background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/ff84fa219ab7e996ec26.png');
-    background-size: 80%; /* Ensures the background image covers the whole element */
+    background-size: 83%; /* Ensures the background image covers the whole element */
     background-position: center; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     border-radius: 10px;
@@ -702,7 +707,7 @@ body {
 /* Deco Card Image */
 .deco-card img {
     background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/6d8f0708e196aaad2550.png');
-    background-size: 80%; /* Ensures the background image covers the whole element */
+    background-size: 83%; /* Ensures the background image covers the whole element */
     background-position: center; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     scale: 0.75;
@@ -899,6 +904,27 @@ body {
 
 .shop-notice-text {
     margin-top: 5px;
+}
+
+.home-page-preview-banner {
+    width: 100%;
+    height: 294.56px;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom,#000 60%,rgba(0,0,0,0)100%);
+    margin-top: 50px;
+}
+
+.home-page-preview-button {
+    position: absolute;
+    height: 40px;
+    width: 200px;
+    margin-top: 60px;
+    right: 50px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
 }
 
 #failed-to-load-shop {

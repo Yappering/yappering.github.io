@@ -1,9 +1,18 @@
-
 let apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/collectibles';
 
-if (localStorage.items_in_shop == "true") {
+if (localStorage.items_in_shop_yes == "true") {
     apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/collectibles-in-shop';
+    if (localStorage.shop_have_no_bundles == "true") {
+        apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/collectibles-in-shop-nb';
+    }
 }
+
+if (localStorage.items_in_shop_yes != "true") {
+    if (localStorage.shop_have_no_bundles == "true") {
+        apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/collectibles-nb';
+    }
+}
+
 
 
 fetch(apiUrl)

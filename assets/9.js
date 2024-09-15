@@ -92,7 +92,6 @@ fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/miscellaneous')
                             </div>
                         </div>
                         <div class="card-button-container">
-                            <button class="card-button" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';" title="Open this item in the Discord Shop">Open In Shop</button>
                             <button title="Unable to confirm if the item has been added to Profiles Plus" class="card-button card-button-disabled">Unable to confirm item availability</button>
                         </div>
                         <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
@@ -111,7 +110,6 @@ fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/miscellaneous')
                             </div>
                         </div>
                         <div class="card-button-container">
-                            <button class="card-button" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';" title="Open this item in the Discord Shop">Open In Shop</button>
                             <button title="Unable to confirm if the item has been added to Profiles Plus" class="card-button card-button-disabled">Unable to confirm item availability</button>
                         </div>
                         <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>

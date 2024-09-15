@@ -19,6 +19,90 @@ function openLostModal() {
 `;
 }
 
+function openMobileModal() {
+    const lost_modal = document.getElementById('modal-housing');
+    lost_modal.innerHTML = `
+    <div class="modal-housing-1" id="modal-housing-1">
+        <div class="lost-modal">
+            <div class="lost-modal-inner">
+                <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">Looks like you're on mobile</h1>
+                <p>Would you like to use the mobile client?</p>
+                <button class="refresh-button" onclick="location.href='https://m.yapper.shop/';">Yes</button>
+                <button class="refresh-button" onclick="closeMobileModal()">No</button>
+            </div>
+        </div>
+    </div>
+`;
+}
+
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    openMobileModal()
+}
+
+function openOptionsModal() {
+    const options_modal = document.getElementById('modal-housing');
+    options_modal.innerHTML = `
+    <div class="modal-housing-1" id="modal-housing-1">
+        <div class="lost-modal">
+            <div class="lost-modal-inner">
+                <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">Options</h1>
+                <div>
+                    <div class="experiment-card-holder">
+                        <div class="experiment-card" id="is-in-shop-box-option">
+                            <p>Shop: Hide removed items</p>
+                            <p class="experiment-subtext">This will hide all categories that are not currently in the shop</p>
+                            <input class="options-toggle-box" onclick="inShopIsChecked()" style="cursor: pointer; scale: 2; posision: center;" id="is-in-shop-box" type="checkbox">
+                        </div>
+                        <div class="experiment-card">
+                            <p>Shop: Hide bundles</p>
+                            <p class="experiment-subtext">This will hide all bundles in the shop page</p>
+                            <input class="options-toggle-box" onclick="noBundlesInShopIsChecked()" style="cursor: pointer; scale: 2; posision: center;" id="no-bundles-in-shop-box" type="checkbox">
+                        </div>
+                    </div>
+                </div>
+                <button class="refresh-button" onclick="closeLostModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    `;
+
+    if (localStorage.items_in_shop_yes == "true") {
+        document.getElementById("is-in-shop-box").checked = true;
+    }
+
+    if (localStorage.items_in_shop_yes == "none") {
+        document.getElementById("is-in-shop-box").checked = true;
+    }
+
+    if (localStorage.items_in_shop != "true") {
+        if (localStorage.items_in_shop != "none") {
+            document.getElementById("is-in-shop-box-option").style.display = 'none';
+        }
+    }
+
+
+    if (localStorage.shop_have_no_bundles == "true") {
+        document.getElementById("no-bundles-in-shop-box").checked = true;
+    }
+}
+
+function inShopIsChecked() {
+    if (localStorage.items_in_shop_yes != "true") {
+        localStorage.items_in_shop_yes = "true"
+    }
+    else {
+        localStorage.items_in_shop_yes = "false"
+    }
+}
+
+function noBundlesInShopIsChecked() {
+    if (localStorage.shop_have_no_bundles != "true") {
+        localStorage.shop_have_no_bundles = "true"
+    }
+    else {
+        localStorage.shop_have_no_bundles = "false"
+    }
+}
 
 function openDevModal() {
     const dev_modal = document.getElementById('modal-housing');
@@ -28,6 +112,7 @@ function openDevModal() {
             <div class="dev-modal-inner">
                 <h1 class="center-text" style="font-size: 54px; margin-top: -10px; margin-bottom: -5px;">Dev Options</h1>
                 <button class="refresh-button" onclick="closeDevModal()">Close</button>
+                <button class="refresh-button" onclick="turnOffDevMode()">Safe Mode</button>
                 <hr>
                 <div>
                     <h2>Experiments</h2>
@@ -38,6 +123,25 @@ function openDevModal() {
                             <p class="experiment-subtext">2024-09_items_in_shop</p>
                             <button class="refresh-button" onclick="itemsCurrentlyInShop1()" id="2024-09_items_in_shop-1">Override 1</button>
                             <button class="refresh-button" onclick="itemsCurrentlyInShop0()" id="2024-09_items_in_shop-0">No Override</button>
+                            <button class="refresh-button" onclick="itemsCurrentlyInShop00()" id="2024-09_items_in_shop-00">Override -1</button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <h2>Modals</h2>
+                    <div class="experiment-card-holder">
+                        <div class="experiment-card">
+                            <p>Lost</p>
+                            <button class="refresh-button" onclick="openLostModal()">Open</button>
+                        </div>
+                        <div class="experiment-card">
+                            <p>Dev</p>
+                            <button class="refresh-button" onclick="openDevModal()">Open</button>
+                        </div>
+                        <div class="experiment-card">
+                            <p>Options</p>
+                            <button class="refresh-button" onclick="openOptionsModal()">Open</button>
                         </div>
                     </div>
                 </div>
@@ -72,6 +176,7 @@ function openDevModal() {
                 </div>
                 <hr>
                 <button class="refresh-button" onclick="closeDevModal()">Close</button>
+                <button class="refresh-button" onclick="turnOffDevMode()">Safe Mode</button>
             </div>
         </div>
     </div>
@@ -80,11 +185,22 @@ function openDevModal() {
     
     if (localStorage.items_in_shop == "true") {
         document.getElementById("2024-09_items_in_shop-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-09_items_in_shop-00").classList.remove('refresh-button-selected');
     }
     
     if (localStorage.items_in_shop != "true") {
+        if (localStorage.items_in_shop != "false") {
+            document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-09_items_in_shop-0").classList.add('refresh-button-selected');
+            document.getElementById("2024-09_items_in_shop-00").classList.remove('refresh-button-selected');
+        }
+    }
+
+    if (localStorage.items_in_shop == "false") {
         document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-09_items_in_shop-0").classList.add('refresh-button-selected');
+        document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-09_items_in_shop-00").classList.add('refresh-button-selected');
     }
     
     
@@ -117,6 +233,11 @@ function closeDevModal() {
     dev_modal.innerHTML = ``;
 }
 
+function closeMobileModal() {
+    const mobile_modal = document.getElementById('modal-housing');
+    mobile_modal.innerHTML = ``;
+}
+
 function closeLostModal() {
     const lost_modal = document.getElementById('modal-housing');
     lost_modal.innerHTML = ``;
@@ -130,32 +251,50 @@ if (localStorage.dev == "true") {
 }
 
 
+function turnOffDevMode() {
+    localStorage.dev = "false"
+    location.reload();
+}
+
+function dev() {
+    localStorage.dev = "true"
+    location.reload();
+}
+
+
 
 function itemsCurrentlyInShop0() {
-    localStorage.items_in_shop = "false"
+    localStorage.items_in_shop = "none"
     document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
     document.getElementById("2024-09_items_in_shop-0").classList.add('refresh-button-selected');
+    document.getElementById("2024-09_items_in_shop-00").classList.remove('refresh-button-selected');
 }
 
 function itemsCurrentlyInShop1() {
     localStorage.items_in_shop = "true"
     document.getElementById("2024-09_items_in_shop-1").classList.add('refresh-button-selected');
     document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-09_items_in_shop-00").classList.remove('refresh-button-selected');
+}
+
+function itemsCurrentlyInShop00() {
+    localStorage.items_in_shop = "false"
+    document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-09_items_in_shop-00").classList.add('refresh-button-selected');
 }
 
 
 
 
 function secret404ButtonHide() {
-    document.getElementById("404-mains-button").classList.add('hidden');
-    localStorage.not_found_found = "false"
+    localStorage.not_found_found = "none"
     console.log('hide 404 button')
     document.getElementById("2024-09_not_found-1").classList.remove('refresh-button-selected');
     document.getElementById("2024-09_not_found-2").classList.add('refresh-button-selected');
 }
 
 function secret404ButtonShow() {
-    document.getElementById("404-mains-button").classList.remove('hidden');
     localStorage.not_found_found = "true"
     console.log('show 404 button')
     document.getElementById("2024-09_not_found-1").classList.add('refresh-button-selected');
@@ -165,7 +304,7 @@ function secret404ButtonShow() {
 
 
 function unreleasedProfilesPlusItemsFalse() {
-    localStorage.unreleased_profiles_plus = "false"
+    localStorage.unreleased_profiles_plus = "none"
     console.log('hide Unreleased Profiles Plus Items')
     document.getElementById("2024-09_profiles_plus-1").classList.remove('refresh-button-selected');
     document.getElementById("2024-09_profiles_plus-2").classList.add('refresh-button-selected');

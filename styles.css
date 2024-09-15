@@ -202,6 +202,28 @@ body {
     padding-inline: 5px;
 }
 
+#open-dev-tools-button {
+    margin-top: -50px;
+    right: 150px;
+    cursor: pointer;
+    position: absolute;
+}
+
+#open-lost-tools-button {
+    margin-top: -50px;
+    right: 90px;
+    cursor: pointer;
+    position: absolute;
+}
+
+#open-options-tools-button {
+    margin-top: -47px;
+    right: 118px;
+    cursor: pointer;
+    position: absolute;
+    scale: 1.3;
+}
+
 #storageItems div {
     margin-top: 3px;
 }

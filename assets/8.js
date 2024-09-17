@@ -39,13 +39,9 @@ fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/news')
     .then(data => {
         data.forEach(user => {
             const message = messageTemplate.content.cloneNode(true).children[0];
-
-
-            const messageAvatar = message.querySelector("[data-blog-message-avatar]");
-            messageAvatar.src = user.message_avatar;
-
-            const messageUsername = message.querySelector("[data-blog-message-username]");
-            messageUsername.textContent = user.message_username;
+            
+            const newstitle = message.querySelector("[data-news-title]");
+            newstitle.textContent = user.title;
 
             const messageTime = message.querySelector("[data-blog-message-time]");
             messageTime.textContent = user.message_time;

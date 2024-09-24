@@ -51,12 +51,12 @@ function openOptionsModal() {
                         <div class="experiment-card" id="is-in-shop-box-option">
                             <p>Shop: Hide removed items</p>
                             <p class="experiment-subtext">This will hide all categories that are not currently in the shop</p>
-                            <input class="options-toggle-box" onclick="inShopIsChecked()" style="cursor: pointer; scale: 2; posision: center;" id="is-in-shop-box" type="checkbox">
+                            <input class="options-toggle-box" onclick="inShopIsChecked(); fetchData();" style="cursor: pointer; scale: 2; posision: center;" id="is-in-shop-box" type="checkbox">
                         </div>
                         <div class="experiment-card">
                             <p>Shop: Hide bundles</p>
                             <p class="experiment-subtext">This will hide all bundles in the shop page</p>
-                            <input class="options-toggle-box" onclick="noBundlesInShopIsChecked()" style="cursor: pointer; scale: 2; posision: center;" id="no-bundles-in-shop-box" type="checkbox">
+                            <input class="options-toggle-box" onclick="noBundlesInShopIsChecked(); fetchData();" style="cursor: pointer; scale: 2; posision: center;" id="no-bundles-in-shop-box" type="checkbox">
                         </div>
                     </div>
                 </div>
@@ -392,4 +392,9 @@ function displayLocalStorage() {
         // Append the item div to the container
         storageItems.appendChild(itemDiv);
     }
+}
+
+
+function fetchData() {
+    console.log('fetchData() has no done anything, you are not in the shop tab (maybe, this is just here so it doesnt give the error)')
 }

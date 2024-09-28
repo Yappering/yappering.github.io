@@ -6,13 +6,25 @@ function openLostModal() {
     <div class="modal-housing-1" id="modal-housing-1">
         <div class="lost-modal">
             <div class="lost-modal-inner">
-                <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">You Lost?</h1>
-                <h2 style="margin-top: -40px;">We don&#8217;t blame you</h2>
-                <p>The new user interface might confuse you if it&#8217;s you&#8217;re first time here, but don&#8217;t worry, the old user interface is still available.</p>
-                <p>Getting used to a new user interface can be confusing, that&#8217;s why our team has decided to make an up-to-date version of the old user interface so you can use the same layout you&#8217;re used to with even more features.</p>
-                <button class="refresh-button" onclick="location.href='https://old.yapper.shop/';">Use Old UI</button>
-                <p>Or feel free to stay and learn the new user interface with a cleaner look just like Discord!</p>
+                <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">Help</h1>
+                Old user interface:
+                <button class="refresh-button" onclick="location.href='https://old.yapper.shop/';">Old UI</button>
+                <hr style="opacity: 0">
+                Discord Server:
+                <button class="refresh-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb/';">Discord</button>
+                <hr style="opacity: 0">
+                Github:
+                <button class="refresh-button" onclick="location.href='https://github.com/Yappering/';">Github</button>
+                <hr style="opacity: 0">
+                Trella on Youtube:
+                <button class="refresh-button" onclick="location.href='https://www.youtube.com/@Trell_ie';">Youtube</button>
+                <hr style="opacity: 0">
+                DTACat on Youtube:
+                <button class="refresh-button" onclick="location.href='https://www.youtube.com/@DTACat';">Youtube</button>
+                <hr style="opacity: 0">
                 <button class="refresh-button" onclick="closeLostModal()">Close</button>
+                <hr style="opacity: 0">
+                App Version: Stable 62
             </div>
         </div>
     </div>

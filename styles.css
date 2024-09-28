@@ -1,3 +1,5 @@
+@import url(https://cdn.yapper.shop/custom-collectibles/marketing.css);
+
 body {
     background-color: #313338;
     color: white;
@@ -856,6 +858,75 @@ body {
 
 
 
+
+
+
+
+
+
+.item-tool-card-big {
+    display: block;
+    background-color: #313338;
+    width: 500px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+.item-tool-card-big .shop-category-card {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item-tool-card-big .input-field:not(.json-input-field) {
+    background-color: #2B2D31;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+.item-tool-card-big .json-input-field {
+    background-color: #2B2D31;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+
+.item-tool-card-big input {
+    background-color: #1E1F22;
+    border: none;
+    padding: 10px;
+    outline: none;
+    caret-color: white;
+    border-radius: 5px;
+    color: white;
+    width: 350px;
+}
+
+.item-tool-card-big textarea {
+    background-color: #1E1F22;
+    border: none;
+    outline: none;
+    caret-color: white;
+    border-radius: 5px;
+    color: white;
+}
+
+.item-tool-card-big button {
+    background-color: #464FBF;
+    border: none;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
 
 
 

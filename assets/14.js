@@ -355,6 +355,10 @@ document.getElementById('custom-effect-copy-button').addEventListener('click', f
 
 
 
+
+
+
+
 document.getElementById('convert-button').addEventListener('click', function() {
   try {
       // Parse the input JSON
@@ -373,10 +377,10 @@ document.getElementById('convert-button').addEventListener('click', function() {
           name: name,
           summary: summary,
           sku_id: sku_id,
-          price: "price",
-          price_nitro: "price2",
+          price: null,
+          price_nitro: null,
           unpublished_at: null,
-          isNew: "false",
+          isNew: "true",
           emojiCopy: null,
           items: [
               {

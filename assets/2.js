@@ -85,7 +85,7 @@ function fetchData() {
                 function createCard(item, sku, price, priceNitro, emojiCopy, isBundle = false, isNew = false) {
                     const card = document.createElement('div');
                     card.classList.add('shop-category-card');
-    
+                
                     // Determine card class based on item type
                     if (item.item_type === 'deco') {
                         card.classList.add('deco-card');
@@ -118,7 +118,6 @@ function fetchData() {
                             </div>
                             <div class="card-button-container">
                                 <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
-                                <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
                             </div>
                             <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
                         `;
@@ -137,7 +136,6 @@ function fetchData() {
                             </div>
                             <div class="card-button-container">
                                 <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
-                                <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
                             </div>
                             <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
                         `;
@@ -163,8 +161,135 @@ function fetchData() {
                         });
                     });
     
+                    card.addEventListener('click', () => openModal(item, sku, price, priceNitro, emojiCopy));
+
                     return card;
                 }
+                
+
+                // Function to open the modal
+                function openModal(item, sku, price, priceNitro, emojiCopy) {
+                    let description = item.summary; // Default description for non-bundle items
+                
+                    // If the item is a bundle, construct the description
+                    if (item.bundled_products && Array.isArray(item.bundled_products)) {
+                        let decoName = '', effectName = '';
+                        
+                        // Loop through bundled products to find decoration and effect names
+                        item.bundled_products.forEach(bundledItem => {
+                            if (bundledItem.item_type === 'deco') {
+                                decoName = bundledItem.name;
+                            } else if (bundledItem.item_type === 'effect') {
+                                effectName = bundledItem.name;
+                            }
+                        });
+                
+                        // Create bundle description if both decoration and effect exist
+                        if (decoName && effectName) {
+                            description = `Bundle Includes: ${decoName} Decoration & ${effectName} Profile Effect`;
+                        }
+                    }
+                
+                    const modalContent = `
+                        <div class="modal-content">
+                            <div class="modal-left">
+                                <h4>SKU ID: ${sku}</h4>
+                                <h3>${item.name}</h3>
+                                <p>${description}</p>
+                                <div class="modal-prices">
+                                    <p style="font-weight: bold;">${price}</p>
+                                    <p>${priceNitro} with Nitro</p>
+                                </div>
+                                <div class="modal-buttons">
+                                    <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                    <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                                </div>
+                            </div>
+                            <div class="modal-right">
+                                ${item.bundled_products && Array.isArray(item.bundled_products) ? 
+                                    item.bundled_products.map(bundledItem => `
+                                        <div class="bundled-item">
+                                            <img src="${bundledItem.static}" 
+                                                 data-static="${bundledItem.static}"
+                                                 data-animated="${bundledItem.animated}" 
+                                                 alt="${bundledItem.name}" 
+                                                 id="${getImageType(bundledItem)}">
+                                        </div>
+                                    `).join('') : 
+                                    `<div class="single-item">
+                                        <img src="${item.static}" 
+                                             data-static="${item.static}"
+                                             data-animated="${item.animated}" 
+                                             alt="${item.name}" 
+                                             id="${getImageType(item)}">
+                                    </div>`
+                                }
+                            </div>
+                        </div>
+                    `;
+                
+                    const modal = document.createElement('div');
+                    modal.classList.add('shop-item-info-modal');
+                
+                    // Append modal content
+                    modal.innerHTML = modalContent;
+                
+                    // Add show class for animation
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10); // Slight delay to trigger the animation
+                
+                    // Close modal when clicked outside the modal content
+                    modal.addEventListener('click', (event) => {
+                        if (event.target === modal) {
+                            modal.classList.remove('show'); // Start close animation
+                            modal.addEventListener('transitionend', () => modal.remove()); // Remove after animation
+                        }
+                    });
+                
+                    // Add hover effect for animated images
+                    const modalRight = modal.querySelector('.modal-right');
+                    modalRight.addEventListener('mouseenter', () => {
+                        modalRight.querySelectorAll('img').forEach(img => {
+                            const animatedSrc = img.getAttribute('data-animated');
+                            if (animatedSrc) {
+                                img.src = animatedSrc; // Change to animated image
+                            }
+                        });
+                    });
+                
+                    modalRight.addEventListener('mouseleave', () => {
+                        modalRight.querySelectorAll('img').forEach(img => {
+                            const staticSrc = img.getAttribute('data-static');
+                            if (staticSrc) {
+                                img.src = staticSrc; // Revert to static image
+                            }
+                        });
+                    });
+                
+                    document.body.appendChild(modal);
+                }
+                
+                // Function to get image type based on item properties
+                function getImageType(item) {
+                    // Check if the item has a type field and return appropriate ID
+                    if (item.item_type === 'deco') {
+                        return 'avatar-decoration'; // Change this to match your needs
+                    } else if (item.item_type === 'effect') {
+                        return 'profile-effect'; // Change this to match your needs
+                    } else if (item.bundled_products) {
+                        return 'bundle'; // For bundles
+                    }
+                    return 'unknown-type'; // Fallback for undefined types
+                }
+                
+                
+                
+                
+                
+                
+
+                
     
                 // Sort and display the products: Bundle, Decoration, Effect
                 const bundleProducts = [];
@@ -237,7 +362,7 @@ function copyEmoji(emoji) {
 
 // Redirect to Google if emojiCopy is null
 function redirectToGoogle() {
-    window.location.href = 'https://google.com';
+    window.location.href = 'https://discord.gg/Mcwh7hGcWb';
 }
 
 // Initial data fetch when the page loads

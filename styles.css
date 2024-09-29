@@ -606,6 +606,15 @@ body {
 
 
 
+.street-fighter-banner-decoration {
+    position: absolute;
+    display: block;
+    width: 1280px;
+    height: 289px;
+    z-index: 200;
+}
+
+
 
 
 
@@ -661,8 +670,9 @@ body {
 }
 
 .bundled-item:has([class="effect"]) {
-    margin-top: -160px;
-    margin-left: -200px;
+    position: absolute;
+    left: 65px;
+    top: 70px;
     transform: rotate(-10deg);
     scale: 1.5;
     pointer-events: none;
@@ -681,8 +691,9 @@ body {
 }
 
 .bundled-item:has([class="deco"]) {
-    margin-top: -160px;
-    margin-left: 145px;
+    position: absolute;
+    right: 35px;
+    top: 95px;
     transform: rotate(10deg);
     scale: 1.5;
     z-index: 1;
@@ -862,8 +873,6 @@ body {
 
 
 
-
-
 .item-tool-card-big {
     display: block;
     background-color: #313338;
@@ -927,6 +936,122 @@ body {
     color: white;
     cursor: pointer;
 }
+
+
+
+
+.shop-item-info-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0; /* Start hidden */
+    transform: scale(0); /* Start small */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition for opacity and scale */
+}
+
+.shop-item-info-modal.show {
+    opacity: 1; /* Fully visible */
+    transform: scale(1); /* Full size */
+}
+
+.modal-content {
+    background-color: #2B2D31;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 800px; /* Fixed width */
+    height: 600px; /* Fixed height */
+    overflow: hidden; /* Hide overflow */
+}
+
+.modal-left {
+    flex: 1;
+    overflow-y: auto; /* Allow scrolling for content */
+    max-height: 100%; /* Make sure it doesn't exceed modal height */
+    padding-right: 20px; /* Space between left and right content */
+}
+
+.modal-right {
+    flex: 0 0 400px; /* Fixed width for the right side */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1F22;
+    height: 640px !important;
+    margin-top: -20px;
+    margin-right: -20px;
+}
+
+.bundled-item img {
+    max-width: 100%; /* Constrain image width */
+    max-height: 100%; /* Constrain image height */
+    object-fit: cover; /* Crop images if they exceed the bounds */
+}
+
+.modal-content #avatar-decoration {
+    width: 300px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    object-fit: cover;
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/6d8f0708e196aaad2550.png');
+    background-size: 83%; /* Ensures the background image covers the whole element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.modal-content #profile-effect {
+    width: 350px; /* Adjust width as needed */
+    height: 550px; /* Adjust height as needed */
+    object-fit: cover;
+    object-position: top;
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/352db5d6852138aabc88.png');
+    background-size: cover; /* Ensures the background image covers the whole element */
+    background-position: top; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.modal-content .bundled-item #avatar-decoration {
+    width: 300px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    object-fit: cover;
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/ff84fa219ab7e996ec26.png');
+    background-size: 83%; /* Ensures the background image covers the whole element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.modal-content .bundled-item #profile-effect {
+    width: 200px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    object-fit: cover;
+    object-position: top;
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/352db5d6852138aabc88.png');
+    background-size: cover; /* Ensures the background image covers the whole element */
+    background-position: top; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+* {
+    text-decoration: none !important;
+}
+
+
+
 
 
 

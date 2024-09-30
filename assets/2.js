@@ -348,55 +348,47 @@ function fetchData() {
                 document.getElementById("shop-category-loading").classList.add('hidden');
                 output.append(category);
             });
-            document.getElementById('1285465421339693076').innerHTML = `
-            <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1285465421356732426.png?size=4096" data-shop-category-banner-image="" alt="Street Fighter 6">
-            <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/19.png">
-            <div class="shop-category-text-holder">
-                <p style="font-size: 18px;" data-shop-category-desc="">Hit the streets with Street Fighter.</p>
-            </div>
-            `;
-            document.getElementById('1252404112650407998').innerHTML = `
-            <img class="shop-category-banner-img" src="https://cdn.yapper.shop/discord-assets/15.jpg" data-shop-category-banner-image="" alt="Palworld">
-            <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/14.png">
-            <img style="position: absolute; left: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/12.png">
-            <img style="position: absolute; right: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/13.png">
-            <div class="shop-category-logo-holder">
-                <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/9.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
-            </div>
-            <div class="shop-category-text-holder">
-                <p style="font-size: 18px;" data-shop-category-desc="">New island, new Pals, new adventures!</p>
-            </div>
-            `;
-            document.getElementById('1220513972189663413').innerHTML = `
-            <div class="shop-category-banner-img" style="background: rgb(255, 70, 85);" data-shop-category-banner-image="" alt="VALORANT"></div>
-            <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/24.png">
-            <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/20.png">
-            <img style="position: absolute; right: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/22.png">
-            <div class="shop-category-logo-holder">
-                <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/21.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
-            </div>
-            <div class="shop-category-text-holder">
-                <p style="font-size: 18px;" data-shop-category-desc="">DEFY DEFINITION</p>
-            </div>
-            `;
 
-            document.getElementById('1268362891946627103').innerHTML = `
-            <div class="1268362891946627103-image"></div>
-            <img src="https://cdn.discordapp.com/avatar-decoration-presets/a_90e0dce3cc48c4a9607b6d41209c737e.png?size=4096&amp;passthrough=false" data-animated="https://cdn.discordapp.com/avatar-decoration-presets/a_90e0dce3cc48c4a9607b6d41209c737e.png?size=4096&amp;passthrough=true" alt="VALORANT Champions 2024" data-original-src="https://cdn.discordapp.com/avatar-decoration-presets/a_90e0dce3cc48c4a9607b6d41209c737e.png?size=4096&amp;passthrough=false">
-            <div class="card-bottom">
-                <a class="item-credits">SKU ID: 1268362891946627103</a>
-                <h3>VALORANT Champions 2024</h3>
-                <p class="shop-card-summary">All paths end here.</p>
-                <div class="shop-price-container">
-                    <a style="font-size: large; font-weight: 900;">US$15.99</a>
-                    <a>US$11.99 with Nitro</a>
+            const street_fighter_banner = document.getElementById('1285465421339693076');
+            if (street_fighter_banner) {  // Check if element exists
+                document.getElementById('1285465421339693076').innerHTML = `
+                <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1285465421356732426.png?size=4096" data-shop-category-banner-image="" alt="Street Fighter 6">
+                <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/19.png">
+                <div class="shop-category-text-holder">
+                    <p style="font-size: 18px;" data-shop-category-desc="">Hit the streets with Street Fighter.</p>
                 </div>
-            </div>
-            <div class="card-button-container">
-                <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=1268362891946627103';">Open In Shop</button>
-            </div>
-            <div class="new-item-tag" style="display: none;">NEW</div>
-            `;
+                `;
+            }
+            const palworld_banner = document.getElementById('1252404112650407998');
+            if (palworld_banner) {  // Check if element exists
+                document.getElementById('1252404112650407998').innerHTML = `
+                <img class="shop-category-banner-img" src="https://cdn.yapper.shop/discord-assets/15.jpg" data-shop-category-banner-image="" alt="Palworld">
+                <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/14.png">
+                <img style="position: absolute; left: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/12.png">
+                <img style="position: absolute; right: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/13.png">
+                <div class="shop-category-logo-holder">
+                    <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/9.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
+                </div>
+                <div class="shop-category-text-holder">
+                    <p style="font-size: 18px;" data-shop-category-desc="">New island, new Pals, new adventures!</p>
+                </div>
+                `;
+            }
+            const valorant_banner = document.getElementById('1220513972189663413');
+            if (valorant_banner) {  // Check if element exists
+                document.getElementById('1220513972189663413').innerHTML = `
+                <div class="shop-category-banner-img" style="background: rgb(255, 70, 85);" data-shop-category-banner-image="" alt="VALORANT"></div>
+                <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/24.png">
+                <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/20.png">
+                <img style="position: absolute; right: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/22.png">
+                <div class="shop-category-logo-holder">
+                    <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/21.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
+                </div>
+                <div class="shop-category-text-holder">
+                    <p style="font-size: 18px;" data-shop-category-desc="">DEFY DEFINITION</p>
+                </div>
+                `;
+            }
         })
         .catch(error => {
             console.error('Error fetching the API:', error);

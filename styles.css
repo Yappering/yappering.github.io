@@ -1082,14 +1082,7 @@ body {
 
 [id*="1268362891946627103"] {
     box-shadow: -4px -4px 25px 0 rgba(220,48,48,.3),4px 4px 25px 0 rgba(99,5,160,.3) !important;
-}
-[class*="1268362891946627103-image"] {
-    position: absolute !important;
-    width: 100% !important;
-    height: 290px !important;
-    scale: 1 !important;
-    border-radius: 0px !important;
-    background-image: linear-gradient(180deg,rgba(19,19,19,0)60%,#6305a0 200%), url(https://cdn.yapper.shop/discord-assets/25.jpg) !important;
+    background-image: linear-gradient(180deg,rgba(19,19,19,0)40%,#6305a0 120%), url(https://cdn.yapper.shop/discord-assets/25.jpg) !important;
 }
 
 

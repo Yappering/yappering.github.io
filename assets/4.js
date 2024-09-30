@@ -24,7 +24,7 @@ function openLostModal() {
                 <hr style="opacity: 0">
                 <button class="refresh-button" onclick="closeLostModal()">Close</button>
                 <hr style="opacity: 0">
-                App Version: Stable 72
+                App Version: Stable 75
             </div>
         </div>
     </div>
@@ -63,12 +63,12 @@ function openOptionsModal() {
                         <div class="experiment-card" id="is-in-shop-box-option">
                             <p>Shop: Hide removed items</p>
                             <p class="experiment-subtext">This will hide all categories that are not currently in the shop</p>
-                            <input class="options-toggle-box" onclick="inShopIsChecked(); fetchData();" style="cursor: pointer; scale: 2; posision: center;" id="is-in-shop-box" type="checkbox">
+                            <input class="options-toggle-box" onclick="inShopIsChecked();" style="cursor: pointer; scale: 2; posision: center;" id="is-in-shop-box" type="checkbox">
                         </div>
                         <div class="experiment-card">
                             <p>Shop: Hide bundles</p>
                             <p class="experiment-subtext">This will hide all bundles in the shop page</p>
-                            <input class="options-toggle-box" onclick="noBundlesInShopIsChecked(); fetchData();" style="cursor: pointer; scale: 2; posision: center;" id="no-bundles-in-shop-box" type="checkbox">
+                            <input class="options-toggle-box" onclick="noBundlesInShopIsChecked();" style="cursor: pointer; scale: 2; posision: center;" id="no-bundles-in-shop-box" type="checkbox">
                         </div>
                     </div>
                 </div>
@@ -105,6 +105,9 @@ function inShopIsChecked() {
     else {
         localStorage.items_in_shop_yes = "false"
     }
+    if (typeof fetchData === 'function') {
+        fetchData();
+    }
 }
 
 function noBundlesInShopIsChecked() {
@@ -114,6 +117,46 @@ function noBundlesInShopIsChecked() {
     else {
         localStorage.shop_have_no_bundles = "false"
     }
+    if (typeof fetchData === 'function') {
+        fetchData();
+    }
+}
+
+function openDownloadsModal() {
+    const downloads_modal = document.getElementById('modal-housing');
+    downloads_modal.innerHTML = `
+    <div class="modal-housing-1" id="modal-housing-1">
+        <div class="dev-modal">
+            <div class="dev-modal-inner">
+                <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">Manual Downloads</h1>
+                <div>
+                    <div class="experiment-card-holder">
+                        <div class="experiment-card">
+                            <p>Collctibles Marketing</p>
+                            <p class="experiment-subtext">collectibles-marketing-downloads</p>
+                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/1.zip">
+                                <button class="card-button">1 Valorant Champions</button>
+                            </a>
+                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/2.zip">
+                                <button class="card-button">2 Dojo</button>
+                            </a>
+                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/3.zip">
+                                <button class="card-button">3 The Vault</button>
+                            </a>
+                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/4.zip">
+                                <button class="card-button">4 Autumn Equinox</button>
+                            </a>
+                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/5.zip">
+                                <button class="card-button">5 Street Fighter</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="refresh-button" onclick="closeLostModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    `;
 }
 
 function openDevModal() {
@@ -154,6 +197,10 @@ function openDevModal() {
                         <div class="experiment-card">
                             <p>Options</p>
                             <button class="refresh-button" onclick="openOptionsModal()">Open</button>
+                        </div>
+                        <div class="experiment-card">
+                            <p>Downloads</p>
+                            <button class="refresh-button" onclick="openDownloadsModal()">Open</button>
                         </div>
                     </div>
                 </div>
@@ -404,9 +451,4 @@ function displayLocalStorage() {
         // Append the item div to the container
         storageItems.appendChild(itemDiv);
     }
-}
-
-
-function fetchData() {
-    console.log('fetchData() has no done anything, you are not in the shop tab (maybe, this is just here so it doesnt give the error)')
 }

@@ -588,6 +588,13 @@ body {
     z-index: 1;
 }
 
+.discordLogo_be5025 {
+    position: absolute;
+    top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .shop-category-banner-logo {
     width: auto;
     max-width: 530px;
@@ -1051,8 +1058,39 @@ body {
 }
 
 
+[src*="1289009898176118885"],
+[src*="1282816432060633161"],
+[src*="1285724287151636602"],
+[src*="1277733175224701010"],
+[src*="1271173898846601349"],
+[src*="1266108772980625530"],
+[src*="1265056547986341950"],
+[src*="1256321669388308596"] {
+    display: none;
+}
 
+.shop-category-banner:has(
+[src*="1289009898176118885"],
+[src*="1282816432060633161"],
+[src*="1285724287151636602"],
+[src*="1277733175224701010"],
+[src*="1271173898846601349"],
+[src*="1266108772980625530"],
+[src*="1265056547986341950"]) .discordLogo_be5025 {
+    display: none;
+}
 
+[id*="1268362891946627103"] {
+    box-shadow: -4px -4px 25px 0 rgba(220,48,48,.3),4px 4px 25px 0 rgba(99,5,160,.3) !important;
+}
+[class*="1268362891946627103-image"] {
+    position: absolute !important;
+    width: 100% !important;
+    height: 290px !important;
+    scale: 1 !important;
+    border-radius: 0px !important;
+    background-image: linear-gradient(180deg,rgba(19,19,19,0)60%,#6305a0 200%), url(https://cdn.yapper.shop/discord-assets/25.jpg) !important;
+}
 
 
 

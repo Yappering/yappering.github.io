@@ -208,6 +208,10 @@ function fetchData() {
                                 <div class="modal-buttons">
                                     <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
                                     <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                                    <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-products/${sku}.zip">
+                                        <button class="card-button">Download Data (Experimental)</button>
+                                    </a>
+                                    <p class="experiment-subtext" style="text-align: center;">Please note that not all collectibles have downloadable data, this button will most likely send you to a 404 page</p>
                                 </div>
                             </div>
                             <div class="modal-right">

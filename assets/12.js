@@ -30,6 +30,14 @@ fetch(apiUrl)
                 category.querySelector("[data-shop-category-logo-image]").classList.add('shop-logo-sway');
             }
 
+            const previewCategoryButton = category.querySelector("[data-preview-new-categoey-button]");
+
+            const newCategoryName = user.name;
+
+            previewCategoryButton.innerHTML = `
+                <button class="home-page-preview-button" onclick="location.href='/shop';">Shop the ${newCategoryName} Collection</button>
+            `;
+
             // Handle expiry timer
             const expiryTimer = category.querySelector(".shop-expiry-timer");
             const timerElement = category.querySelector("#shop-expiry-timer");

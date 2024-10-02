@@ -206,9 +206,17 @@ body {
 
 #open-dev-tools-button {
     margin-top: -50px;
+    right: 180px;
+    cursor: pointer;
+    position: absolute;
+}
+
+#open-downloads-button {
+    margin-top: -50px;
     right: 150px;
     cursor: pointer;
     position: absolute;
+    scale: 0.95;
 }
 
 #open-lost-tools-button {
@@ -1058,6 +1066,7 @@ body {
 }
 
 
+.shop-category-banner:has(
 [src*="1289009898176118885"],
 [src*="1282816432060633161"],
 [src*="1285724287151636602"],
@@ -1065,7 +1074,8 @@ body {
 [src*="1271173898846601349"],
 [src*="1266108772980625530"],
 [src*="1265056547986341950"],
-[src*="1256321669388308596"] {
+[src*="1256321669388308596"],
+[src*="1290863905551155200"]) .shop-category-logo-holder {
     display: none;
 }
 
@@ -1076,7 +1086,8 @@ body {
 [src*="1277733175224701010"],
 [src*="1271173898846601349"],
 [src*="1266108772980625530"],
-[src*="1265056547986341950"]) .discordLogo_be5025 {
+[src*="1265056547986341950"],
+[src*="1290863905551155200"]) .discordLogo_be5025 {
     display: none;
 }
 
@@ -1172,12 +1183,16 @@ body {
     margin-top: 50px;
 }
 
-.home-page-preview-button {
+#home-page-preview-button-container {
     position: absolute;
-    height: 40px;
-    width: 200px;
-    margin-top: 60px;
+    margin-top: -60px;
     right: 50px;
+}
+
+.home-page-preview-button {
+    height: 40px;
+    width: auto;
+    padding: 10px;
     cursor: pointer;
     border: none;
     border-radius: 5px;

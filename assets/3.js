@@ -178,8 +178,10 @@ fetch(apiUrl)
                             <h4>Made By: ${credits}</h4>
                             <h3>${item.name}</h3>
                             <p>${description}</p>
-                            <div class="modal-buttons">
-                                <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                            <div class="modal-left-bottom">
+                                <div class="modal-buttons">
+                                    <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-right">

@@ -30,7 +30,7 @@ function openLostModal() {
                 <hr style="opacity: 0">
                 <button class="refresh-button" onclick="closeLostModal()">Close</button>
                 <hr style="opacity: 0">
-                App Version: Stable 85
+                App Version: Stable 88
             </div>
         </div>
     </div>
@@ -138,37 +138,64 @@ function openDownloadsModal() {
                 <p style="margin-top: -50px;">Experimental</p>
                 <div>
                     <div class="experiment-card-holder">
-                        <div class="experiment-card">
-                            <p>Collctibles Marketing</p>
-                            <p class="experiment-subtext">download discords collectible marketing</p>
-                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/1.zip">
-                                <button class="card-button">1 Valorant Champions</button>
-                            </a>
-                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/2.zip">
-                                <button class="card-button">2 Dojo</button>
-                            </a>
-                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/3.zip">
-                                <button class="card-button">3 The Vault</button>
-                            </a>
-                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/4.zip">
-                                <button class="card-button">4 Autumn Equinox</button>
-                            </a>
-                            <a href="https://raw.githubusercontent.com/Yappering/zipped-data/refs/heads/main/collectibles-marketing/5.zip">
-                                <button class="card-button">5 Street Fighter</button>
-                            </a>
+                    <template id="downloadables-api-template">
+                        <div class="item experiment-card">
+                            <p class="name"></p>
+                            <p class="summary experiment-subtext"></p>
+                            <div class="downloadables"></div>
                         </div>
-                        <div class="experiment-card">
-                            <p>Coming Soon...</p>
-                            <p class="experiment-subtext">more downloadable data is coming soon</p>
-                        </div>
-                    </div>
+                    </template>
+                    <div class="experiment-card-holder" id="downloadables-output"></div>
                 </div>
                 <button class="refresh-button" onclick="closeLostModal()">Close</button>
             </div>
         </div>
     </div>
     `;
+    
+    // Fetch the data from the API
+    fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/downloadable-data')
+        .then(response => response.json())
+        .then(data => {
+            // Call the function to display the data
+            displayData(data);
+        })
+        .catch(error => {
+            console.error('Error fetching the API:', error);
+        });
+        
+        // Function to display the data in the HTML
+        function displayData(data) {
+        const content = document.getElementById('downloadables-output');
+        const template = document.getElementById('downloadables-api-template');
+        
+        data.forEach(item => {
+            // Clone the template
+            const clone = template.content.cloneNode(true);
+        
+            // Fill in the name and summary
+            clone.querySelector('.name').textContent = item.name;
+            clone.querySelector('.summary').textContent = item.summary;
+        
+            // Add buttons for downloadables
+            const downloadablesDiv = clone.querySelector('.downloadables');
+            item.downloadables.forEach(downloadable => {
+                const button = document.createElement('button');
+                button.textContent = downloadable.name;
+                button.classList.add('card-button');
+                button.addEventListener('click', () => {
+                    window.open(downloadable.url, '_blank');
+                });
+                downloadablesDiv.appendChild(button);
+            });
+        
+            // Append the cloned template to the content
+            content.appendChild(clone);
+        });
+    }
+
 }
+
 
 function openDevModal() {
     const dev_modal = document.getElementById('modal-housing');

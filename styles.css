@@ -991,6 +991,7 @@ body {
     overflow-y: auto; /* Allow scrolling for content */
     max-height: 100%; /* Make sure it doesn't exceed modal height */
     padding-right: 20px; /* Space between left and right content */
+    position: relative;
 }
 
 .modal-right {
@@ -1097,9 +1098,23 @@ body {
 }
 
 
+.want-this-item-promo {
+    width: 80%;
+    height: 80px;
+    border: 2px solid purple;
+    padding: none;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #1E1F22;
+}
 
-
-
+.modal-left-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+}
 
 .shop-expiry-timer-timer {
     text-align: center;

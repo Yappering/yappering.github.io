@@ -178,11 +178,7 @@ fetch('https://raw.githubusercontent.com/Yappering/api/main/v1/miscellaneous')
                             <div class="modal-left-bottom">
                                 <div class="modal-buttons">
                                     <button title="Unable to confirm if the item has been added to Profiles Plus" class="card-button card-button-disabled">Unable to confirm item availability</button>
-                                    <a href="https://item.yapper.shop/sku/${sku}/data.zip">
-                                        <button class="card-button">Download Data</button>
-                                    </a>
                                 </div>
-                                <p class="experiment-subtext" style="text-align: center;">Please note that not all collectibles have downloadable data, this button will most likely send you to a 404 page</p>
                             </div>
                         </div>
                         <div class="modal-right">

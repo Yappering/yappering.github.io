@@ -1,19 +1,17 @@
-
 let apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/profiles-plus';
 
+const unreleased_profiles_plus_token = localStorage.getItem('token');
+
 if (localStorage.unreleased_profiles_plus == "true") {
-    if (localStorage.token == "gguihruhgdihgguihruhgdihdriuh37uwgedriuh37uwggguihruhgdihdriuh37uwgee") {
-        apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/profiles-plus-u';
-    } else {
-        apiUrl = '';
-        console.error ('403 (forbidden) You are not allowed to display unpublished Profiles Plus items')
-    }
+    apiUrl = 'https://raw.githubusercontent.com/Yappering/private-api/refs/heads/main/V1/profiles-plus';
 }
+
+const apiUrlWithToken = `${apiUrl}?token=${unreleased_profiles_plus_token}`;
 
 const template = document.querySelector("[data-shop-category-template]");
 const output = document.querySelector("[data-shop-output]");
 
-fetch(apiUrl)
+fetch(apiUrlWithToken)
     .then(response => response.json())
     .then(data => {
         data.forEach(user => {

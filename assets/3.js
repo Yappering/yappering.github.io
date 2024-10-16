@@ -3,7 +3,7 @@ let apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/profiles-p
 const unreleased_profiles_plus_token = localStorage.getItem('token');
 
 if (localStorage.unreleased_profiles_plus == "true") {
-    apiUrl = 'https://raw.githubusercontent.com/Yappering/private-api/refs/heads/main/V1/profiles-plus';
+    apiUrl = 'https://raw.githubusercontent.com/Yappering/private-api/refs/heads/main/v2/profiles-plus-u';
 }
 
 const apiUrlWithToken = `${apiUrl}?token=${unreleased_profiles_plus_token}`;

@@ -351,6 +351,16 @@ function fetchData() {
                 output.append(category);
             });
 
+            const dnd_banner = document.getElementById('1293373563494993952');
+            if (dnd_banner) {  // Check if element exists
+                document.getElementById('1293373563494993952').innerHTML = `
+                <img class="shop-category-banner-img" src="https://cdn.yapper.shop/discord-assets/32.png" data-shop-category-banner-image="" alt="Street Fighter 6">
+                <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/31.png">
+                <div class="shop-category-text-holder">
+                    <p style="font-size: 18px;" data-shop-category-desc="">The ultimate adventurer\u2019s pack.</p>
+                </div>
+                `;
+            }
             const street_fighter_banner = document.getElementById('1285465421339693076');
             if (street_fighter_banner) {  // Check if element exists
                 document.getElementById('1285465421339693076').innerHTML = `

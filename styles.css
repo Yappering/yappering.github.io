@@ -582,6 +582,43 @@ body {
     outline-offset: -2px;
 }
 
+.potion-card-holder {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 240px;
+    background-color: #313338;
+    scale: 0.9;
+    object-fit: cover;
+    border-radius: 32px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    outline: 2px solid rgba(16, 17, 19, 0.4);
+    outline-offset: -2px;
+}
+
+.potion-card-loading {
+    display: flex;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 240px;
+    background-color: #313338;
+    scale: 0.9;
+    object-fit: cover;
+    border-radius: 32px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    outline: 2px solid rgba(16, 17, 19, 0.4);
+    outline-offset: -2px;
+    animation: shop-fetching-anim 4s infinite;
+}
+
 .shop-category-banner-img {
     width: 100%;
     height: 100%;
@@ -592,6 +629,14 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.potion-card-preview-holder {
+    position: absolute;
+    top: 40%;
+    left: 10%;
     transform: translate(-50%, -50%);
     z-index: 1;
 }
@@ -610,12 +655,56 @@ body {
     max-height: 160px;
 }
 
+.potion-card-preview {
+    scale: 80%;
+}
+
 
 
 .shop-category-text-holder {
     position: absolute;
     z-index: 1; /* Ensure the text is above the banner */
     margin-top: 190px; /* Space between the logo and the text */
+    text-align: center;
+}
+
+.potion-card-text-holder {
+    position: absolute;
+    z-index: 1; /* Ensure the text is above the banner */
+    margin-top: -60px; /* Space between the logo and the text */
+    left: 20%;
+    text-align: center;
+}
+
+.potion-card-title-holder {
+    position: absolute;
+    z-index: 1; /* Ensure the text is above the banner */
+    margin-top: -160px; /* Space between the logo and the text */
+    left: 20%;
+    text-align: center;
+}
+
+.potion-card-price-holder {
+    position: absolute;
+    z-index: 1; /* Ensure the text is above the banner */
+    margin-top: 160px; /* Space between the logo and the text */
+    right: 17%;
+    text-align: center;
+}
+
+.potion-card-sku-holder {
+    position: absolute;
+    z-index: 1; /* Ensure the text is above the banner */
+    margin-top: 170px; /* Space between the logo and the text */
+    left: 3%;
+    text-align: center;
+}
+
+.potion-card-button-holder {
+    position: absolute;
+    z-index: 1; /* Ensure the text is above the banner */
+    margin-top: 160px; /* Space between the logo and the text */
+    right: 3%;
     text-align: center;
 }
 
@@ -649,8 +738,28 @@ body {
     border: 2px solid #1E1F22;
 }
 
+.shop-category-card-standard {
+    background-color: #111214;
+    border-radius: 25px;
+    color: white;
+    font-family: 'gg sans', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 350px; /* Fixed height for the entire card */
+    overflow: hidden; /* Prevents content from overflowing */
+    position: relative; /* Allows positioning of the card bottom */
+    border: none;
+}
+
 /* Card Hover Effect */
 .shop-category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.shop-category-card-standard:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
@@ -749,6 +858,19 @@ body {
     backdrop-filter: blur(50px);
 }
 
+.shop-category-card-standard .card-bottom {
+    background: none;
+    border-radius: 0 0 8px 8px;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px; /* Fixed height for the card bottom */
+    box-sizing: border-box; /* Includes padding in height calculation */
+    backdrop-filter: none;
+}
+
 /* Item Name */
 .card-bottom h3 {
     margin: 0;
@@ -763,6 +885,12 @@ body {
     color: #b1b5bb;
 }
 
+.shop-category-card-standard .card-bottom p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #ffffff;
+}
+
 /* Deco Card Image */
 .deco-card img {
     background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/6d8f0708e196aaad2550.png');
@@ -770,6 +898,16 @@ body {
     background-position: center; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
     scale: 0.75;
+    border-radius: 15px;
+}
+
+[class="shop-category-card-standard deco-card"] img {
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/6d8f0708e196aaad2550.png');
+    background-size: 83%; /* Ensures the background image covers the whole element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    scale: 0.45;
+    margin-top: -80px;
     border-radius: 15px;
 }
 
@@ -785,8 +923,32 @@ body {
     background-repeat: no-repeat; /* Prevents the background image from repeating */
 }
 
-.effect-card .card-bottom {
-    background-color: #1e1f22b7;
+[class="shop-category-card-standard effect-card"] img {
+    border-radius: 10px;
+    width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+[class="shop-category-card-standard effect-card"] img {
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/352db5d6852138aabc88.png');
+    background-size: cover; /* Ensures the background image covers the whole element */
+    background-position: top; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
+
+[class="shop-category-card-standard effect-card"] {
+    background-image: none;
+}
+
+[class="shop-category-card-standard effect-card"] .card-bottom {
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0)) !important;
+}
+
+[class="shop-category-card-standard bundle-card"] .card-bottom {
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0)) !important;
 }
 
 /* Container Holding Cards */
@@ -802,12 +964,32 @@ body {
     padding-right: 20px;
 }
 
+.shop-category-card-holder-standard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Center the grid horizontally */
+    max-width: 1200px; /* Limit the width of the card holder */
+    margin: 0 auto; /* Center the card holder container */
+    padding: 20px 0; /* Add some space between the banner and cards */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     .shop-category-card-holder {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -865,10 +1047,18 @@ body {
     transform: translateX(-50%) translateY(0); /* Slide up to final position */
 }
 
+.shop-category-card-standard:hover .card-button-container {
+    opacity: 1; /* Fade in */
+    transform: translateX(-50%) translateY(0); /* Slide up to final position */
+}
+
 .shop-category-card:hover .shop-card-summary {
     opacity: 0; /* Fade out description */
 }
 
+.shop-category-card-standard:hover .shop-card-summary {
+    opacity: 0; /* Fade out description */
+}
 
 .shop-price-container {
     position: absolute;
@@ -881,6 +1071,11 @@ body {
 .shop-category-card:hover .shop-price-container {
     opacity: 0; /* Fade out description */
 }
+
+.shop-category-card-standard:hover .shop-price-container {
+    opacity: 0; /* Fade out description */
+}
+
 
 
 
@@ -1092,10 +1287,37 @@ body {
     display: none;
 }
 
+
 [id*="1268362891946627103"] {
     box-shadow: -4px -4px 25px 0 rgba(220,48,48,.3),4px 4px 25px 0 rgba(99,5,160,.3) !important;
     background-image: linear-gradient(180deg,rgba(19,19,19,0)40%,#6305a0 120%), url(https://cdn.yapper.shop/discord-assets/25.jpg) !important;
 }
+
+
+
+
+
+.modal-right:has([src*="/custom-collectibles/windowkill/"]) {
+    background-image: url(https://cdn.yapper.shop/assets/56.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal-right:has([src*="/custom-collectibles/paper-beach/"]) {
+    background-image: url(https://cdn.yapper.shop/assets/48.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal-right:has([src*="/custom-collectibles/bopl-battle/"]) {
+    background-image: url(https://cdn.yapper.shop/assets/62.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 
 
 .want-this-item-promo {
@@ -1184,6 +1406,18 @@ body {
     margin-top: 60px;
     border-radius: 10px;
     border: 2px solid #464FBF;
+}
+
+.shop-warning {
+    text-align: center;
+    background-color: #bf464663;
+    height: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 2px solid #bf4646;
 }
 
 .shop-notice-text {

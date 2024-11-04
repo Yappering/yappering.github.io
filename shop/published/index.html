@@ -3,22 +3,26 @@
 
 <head>
     <base target="_blank">
-    <title>Home | Shop Archives</title>
+    <title>Shop | Shop Archives</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta content="Shop Archives" property="og:title" />
     <meta content="Your one stop place for all Discord Collectibles" property="og:description" />
-    <meta content="https://yapper.shop/" property="og:url" />
+    <meta content="https://yapper.shop/shop/" property="og:url" />
     <meta content="https://raw.githubusercontent.com/Yappering/developer/main/assets/5.png" property="og:image" />
     <meta content="#FF007A" data-react-helmet="true" name="theme-color" />
     <link rel="stylesheet" href="/styles.css">
     <style>
-        .home-tab {
+        .shop-tab {
             background-color: #404248;
             color: white;
         }
 
-        .home-tab .dm-new-icon {
+        .shop-tab .dm-new-icon {
             display: none !important;
+        }
+
+        .shop-category-card {
+            cursor: pointer;
         }
 
     </style>
@@ -68,7 +72,7 @@
                             <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
                             <h2>Well, this is awkward.</h2>
                             <p>Hmmm, we weren&#8217;t able to load mains. Check back later.</p>
-                            <button class="refresh-button" onclick="reFetchMainTabs()">Refresh Page</button>
+                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
                         </div>
                     </div>
                     <div class="dm-divider">
@@ -144,7 +148,7 @@
                             <img style="width: 100px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
                             <h2>Well, this is awkward.</h2>
                             <p>Hmmm, we weren&#8217;t able to load news. Check back later.</p>
-                            <button class="refresh-button" onclick="reFetchNewsTabs()">Refresh Page</button>
+                            <button class="refresh-button" onClick="window.location.reload();">Refresh Page</button>
                         </div>
                     </div>
                 </div>
@@ -170,69 +174,55 @@
             </div>
         </div>
         <div class="top-bar">
-            <h2 style="margin-left: 260px; margin-top: 10px;">Home</h2>
+            <h2 style="margin-left: 260px; margin-top: 10px;">Discord Shop</h2>
             <div id="open-help-modals-buttons-holder"></div>
         </div>
-        <div class="home-housing">
-            <template data-shop-category-template>
-                <div>
-                    <div>
-                        <div id="home-page-preview-banner-container">
-                            <img class="home-page-preview-banner" src="" data-shop-category-banner-image>
-                        </div>
-                        <div style="margin-top: -250px; margin-bottom: 50px; position: relative; z-index: 1;">
-                            <h2 style="margin-left: 20px; margin-top: -40px; position: absolute;">What's new on Discord</h2>
-                            <div id="home-page-preview-logo-container">
-                                <img src="" style="height: 130px;" data-shop-category-logo-image>
-                            </div>
-                            <div id="home-page-preview-button-container" data-preview-new-categoey-button>
-                            </div>
-                            <div id="home-page-preview-desc-container">
-                                <p style="font-size: 18px; margin-left: 20px; margin-top: -10px;" data-shop-category-desc></p>
-                            </div>
-                        </div>
-                        <!-- Timer Display -->
-                        <div class="shop-expiry-timer" style="display: none;">
-                            <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
-                        </div>
+        <div class="shop-housing" style="overflow: auto; margin-top: 0px;">
+            <div class="shop-container" style="overflow: auto;">
+                <div class="shop-category" style="margin-top: 50px;">
+                    <div class="shop-notice">
+                        <p class="shop-notice-text">Notice: This page is updated automatically</p>
                     </div>
-                    <div class="shop-category-card-holder">
+                    <template data-potion-card-template>
+                        <div>
+                            <div class="potion-card-holder" data-potion-card-holder>
+                                <div class="potion-card-sku-holder">
+                                    <p style="font-size: 18px;" data-potion-card-sku></p>
+                                </div>
+                                <div class="potion-card-title-holder-1">
+                                    <p style="font-size: 30px;" data-potion-card-title></p>
+                                </div>
+                                <div class="potion-card-text-holder-1">
+                                    <p style="font-size: 18px;" data-potion-card-desc></p>
+                                </div>
+                                <div class="potion-card-price-holder-1">
+                                    <p style="font-size: 25px;" data-potion-card-price></p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <div data-shop-output>
                     </div>
-                </div>
-            </template>
-            <div data-shop-output>
-            </div>
-            
-            <h2 style="margin-left: 60px;">What's new for Profiles Plus</h2>
-            <div style="display: flex; width: 1300px; margin-left: auto; margin-right: auto;" data-shop-output-plus>
-                <template data-shop-category-template-plus>
-                    <div onclick="location.href='/pplus';" style="width: 550px; margin-left: auto; margin-right: auto; cursor: pointer;">
-                        <img style="width: 550px;" src="" data-shop-preview-image-plus>
-                    </div>
-                </template>
-            </div>
 
-            <h2 style="margin-left: 60px;">Popular Picks</h2>
-            <template data-shop-category-template-p>
-                <div>
-                    <div class="shop-category-banner" style="display: none;">
-                        <img class="shop-category-banner-img" src="" data-shop-category-banner-image-p>
-                        <div class="shop-category-logo-holder">
-                            <img class="shop-category-banner-logo" src="" id="shop-banner-logo" data-shop-category-logo-image-p>
+                    <div class="shop-category-loading" id="shop-category-loading">
+                        <div>
+                            <div class="potion-card-loading">
+                            </div>
+                            <div class="potion-card-loading">
+                            </div>
+                            <div class="potion-card-loading">
+                            </div>
+                            <div class="potion-card-loading">
+                            </div>
                         </div>
-                        <div class="shop-category-text-holder">
-                            <p style="font-size: 18px;" data-shop-category-desc-p></p>
-                        </div>
-                        <!-- Timer Display -->
-                        <div class="shop-expiry-timer" style="display: none;">
-                            <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
-                        </div>
-                    </div>
-                    <div class="shop-category-card-holder">
                     </div>
                 </div>
-            </template>
-            <div data-shop-output-p>
+            </div>
+            <div style="text-align: center; margin-top: 10px;" class="hidden" id="failed-to-load-shop">
+                <img style="width: 200px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
+                <h2>Well, this is awkward.</h2>
+                <p>Hmmm, we weren&#8217;t able to load the shop. Check back later.</p>
+                <button class="refresh-button" onclick="reFetchCollectibles()">Reload</button>
             </div>
         </div>
     </div>
@@ -242,7 +232,7 @@
     <script src="/assets/1.js"></script>
     <script src="/assets/4.js"></script>
     <script src="/assets/10.js"></script>
-    <script src="/assets/12.js"></script>
+    <script src="/assets/17.js"></script>
 </body>
 
 </html>

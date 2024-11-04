@@ -6,7 +6,6 @@ const open_help_modals_buttons_holder = document.getElementById('open-help-modal
     <svg title="Downloads" x="0" y="0" onclick="openDownloadsModal()" id="open-downloads-button" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.3837 15.2952V20.7776H3.61379V15.2952H0.390625V22.3892C0.390625 23.2787 1.11115 24 2.00461 24H21.9929C22.8855 24 23.6068 23.2795 23.6068 22.3892V15.2952H20.3837Z" fill="white"/><path d="M11.7028 14.7516L7.08818 9.17553C7.08818 9.17553 6.38607 8.51264 7.14742 8.51264C7.90878 8.51264 9.74773 8.51264 9.74773 8.51264C9.74773 8.51264 9.74773 8.06672 9.74773 7.37901C9.74773 5.41837 9.74773 1.85016 9.74773 0.39549C9.74773 0.39549 9.64445 0 10.2401 0C10.8405 0 13.4705 0 13.9004 0C14.3295 0 14.3199 0.333044 14.3199 0.333044C14.3199 1.74368 14.3199 5.43519 14.3199 7.33178C14.3199 7.94663 14.3199 8.34532 14.3199 8.34532C14.3199 8.34532 15.7946 8.34532 16.72 8.34532C17.6439 8.34532 16.9482 9.03943 16.9482 9.03943C16.9482 9.03943 13.0221 14.2513 12.4745 14.7981C12.0806 15.1943 11.7028 14.7516 11.7028 14.7516Z" fill="white"/></svg>
 `;
 
-
 function openLostModal() {
     const lost_modal = document.getElementById('modal-housing');
     lost_modal.innerHTML = `
@@ -31,7 +30,7 @@ function openLostModal() {
                 <hr style="opacity: 0">
                 <button class="refresh-button" onclick="closeLostModal()">Close</button>
                 <hr style="opacity: 0">
-                App Version: Stable 98
+                App Version: Stable 109
             </div>
         </div>
     </div>
@@ -197,6 +196,7 @@ function openDownloadsModal() {
 
 }
 
+
 function openDevModal() {
     const dev_modal = document.getElementById('modal-housing');
     dev_modal.innerHTML = `
@@ -211,6 +211,28 @@ function openDevModal() {
                     <h2>Experiments</h2>
                     <p class="experiment-subtext">Test out new features</p>
                     <div class="experiment-card-holder">
+
+
+                        <div class="experiment-card">
+                            <p>Top Selling Item Tag</p>
+                            <p class="experiment-subtext">2024-11_top_selling_item_tag</p>
+                            <button class="refresh-button" onclick="topSellingItemTag2()" id="2024-11_top_selling_item_tag-2" title="show popular tag on all items">Override 2</button>
+                            <button class="refresh-button" onclick="topSellingItemTag1()" id="2024-11_top_selling_item_tag-1" title="show popular tag on popular items">Override 1</button>
+                            <button class="refresh-button" onclick="topSellingItemTag0()" id="2024-11_top_selling_item_tag-0">No Override</button>
+                            <button class="refresh-button" onclick="topSellingItemTag00()" id="2024-11_top_selling_item_tag-00">Override -1</button>
+                        </div>
+
+
+                        <div class="experiment-card">
+                            <p>Item Data Downloads</p>
+                            <p class="experiment-subtext">2024-11_item_data_downloads</p>
+                            <button class="refresh-button" onclick="itemDataDownloads2()" id="2024-11_item_data_downloads-2" title="show download button on modal and card">Override 2</button>
+                            <button class="refresh-button" onclick="itemDataDownloads1()" id="2024-11_item_data_downloads-1" title="show download button on modal">Override 1</button>
+                            <button class="refresh-button" onclick="itemDataDownloads0()" id="2024-11_item_data_downloads-0">No Override</button>
+                            <button class="refresh-button" onclick="itemDataDownloads00()" id="2024-11_item_data_downloads-00">Override -1</button>
+                        </div>
+
+
                         <div class="experiment-card">
                             <p>Show Items That Are Currently In The Discord Shop</p>
                             <p class="experiment-subtext">2024-09_items_in_shop</p>
@@ -218,6 +240,8 @@ function openDevModal() {
                             <button class="refresh-button" onclick="itemsCurrentlyInShop0()" id="2024-09_items_in_shop-0">No Override</button>
                             <button class="refresh-button" onclick="itemsCurrentlyInShop00()" id="2024-09_items_in_shop-00">Override -1</button>
                         </div>
+
+                        
                     </div>
                 </div>
                 <hr>
@@ -278,6 +302,75 @@ function openDevModal() {
         </div>
     </div>
     `;
+
+
+    if (localStorage.top_selling_item != "true") {
+        if (localStorage.top_selling_item != "false") {
+            if (localStorage.top_selling_item != "two") {
+                document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_top_selling_item_tag-0").classList.add('refresh-button-selected');
+                document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+            }
+        }
+    }
+
+    if (localStorage.top_selling_item == "two") {
+        document.getElementById("2024-11_top_selling_item_tag-2").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+    }
+    
+    if (localStorage.top_selling_item == "true") {
+        document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+    }
+
+    if (localStorage.top_selling_item == "false") {
+        document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_top_selling_item_tag-00").classList.add('refresh-button-selected');
+    }
+
+
+
+    if (localStorage.item_data_downloads != "true") {
+        if (localStorage.item_data_downloads != "false") {
+            if (localStorage.item_data_downloads != "two") {
+                document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_item_data_downloads-0").classList.add('refresh-button-selected');
+                document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+            }
+        }
+    }
+
+    if (localStorage.item_data_downloads == "two") {
+        document.getElementById("2024-11_item_data_downloads-2").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+    }
+    
+    if (localStorage.item_data_downloads == "true") {
+        document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+    }
+    
+    if (localStorage.item_data_downloads == "false") {
+        document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_item_data_downloads-00").classList.add('refresh-button-selected');
+    }
+
+
     
     
     if (localStorage.items_in_shop == "true") {
@@ -303,6 +396,12 @@ function openDevModal() {
     
     
     if (localStorage.not_found_found == "true") {
+        const fourohfour = document.getElementById("404-mains-button");
+    if (fourohfour) {  // Check if element exists
+        if (localStorage.not_found_found == "true") {
+            document.getElementById("404-mains-button").classList.remove('hidden');
+        }
+    }
         document.getElementById("2024-09_not_found-1").classList.add('refresh-button-selected');
     }
     
@@ -348,6 +447,14 @@ if (localStorage.dev == "true") {
 }
 
 
+const fourohfour = document.getElementById("404-mains-button");
+if (fourohfour) {  // Check if element exists
+    if (localStorage.not_found_found == "true") {
+        document.getElementById("404-mains-button").classList.remove('hidden');
+    }
+}
+
+
 function turnOffDevMode() {
     localStorage.dev = "false"
     location.reload();
@@ -357,6 +464,113 @@ function dev() {
     localStorage.dev = "true"
     location.reload();
 }
+
+
+function topSellingItemTag2() {
+    localStorage.top_selling_item = "two"
+    document.getElementById("2024-11_top_selling_item_tag-2").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+}
+
+function topSellingItemTag1() {
+    localStorage.top_selling_item = "true"
+    document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-1").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+}
+
+function topSellingItemTag0() {
+    localStorage.top_selling_item = "none"
+    document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-0").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+}
+
+function topSellingItemTag00() {
+    localStorage.top_selling_item = "false"
+    document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_top_selling_item_tag-00").classList.add('refresh-button-selected');
+}
+
+
+
+
+function itemDataDownloads2() {
+    localStorage.item_data_downloads = "two"
+    document.getElementById("2024-11_item_data_downloads-2").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+}
+
+function itemDataDownloads1() {
+    localStorage.item_data_downloads = "true"
+    document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+}
+
+function itemDataDownloads0() {
+    localStorage.item_data_downloads = "none"
+    document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+}
+
+function itemDataDownloads00() {
+    localStorage.item_data_downloads = "false"
+    document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.add('refresh-button-selected');
+}
+
+
+
+
+
+function itemDataDownloads2() {
+    localStorage.item_data_downloads = "two"
+    document.getElementById("2024-11_item_data_downloads-2").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+}
+
+function itemDataDownloads1() {
+    localStorage.item_data_downloads = "true"
+    document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+}
+
+function itemDataDownloads0() {
+    localStorage.item_data_downloads = "none"
+    document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+}
+
+function itemDataDownloads00() {
+    localStorage.item_data_downloads = "false"
+    document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_item_data_downloads-00").classList.add('refresh-button-selected');
+}
+
+
+
 
 
 
@@ -385,6 +599,12 @@ function itemsCurrentlyInShop00() {
 
 
 function secret404ButtonHide() {
+    const fourohfour = document.getElementById("404-mains-button");
+    if (fourohfour) {  // Check if element exists
+        if (localStorage.not_found_found == "true") {
+            document.getElementById("404-mains-button").classList.add('hidden');
+        }
+    }
     localStorage.not_found_found = "none"
     console.log('hide 404 button')
     document.getElementById("2024-09_not_found-1").classList.remove('refresh-button-selected');
@@ -392,6 +612,12 @@ function secret404ButtonHide() {
 }
 
 function secret404ButtonShow() {
+    const fourohfour = document.getElementById("404-mains-button");
+    if (fourohfour) {  // Check if element exists
+        if (localStorage.not_found_found == "true") {
+            document.getElementById("404-mains-button").classList.remove('hidden');
+        }
+    }
     localStorage.not_found_found = "true"
     console.log('show 404 button')
     document.getElementById("2024-09_not_found-1").classList.add('refresh-button-selected');

@@ -81,201 +81,683 @@ function fetchData() {
                 } else {
                     expiryTimer.style.display = 'none';
                 }
-    
-                const cardHolder = category.querySelector(".shop-category-card-holder");
-    
-                // Function to create a card
-                function createCard(item, sku, price, priceNitro, emojiCopy, isBundle = false, isNew = false) {
-                    const card = document.createElement('div');
-                    card.classList.add('shop-category-card');
 
-                    card.id = sku;
-                
-                    // Determine card class based on item type
-                    if (item.item_type === 'deco') {
-                        card.classList.add('deco-card');
-                    } else if (item.item_type === 'effect') {
-                        card.classList.add('effect-card');
-                    } else if (isBundle) {
-                        card.classList.add('bundle-card');
-                    }
-    
-                    // Card content based on item type
-                    if (isBundle && item.bundled_products) {
-                        const bundleDescription = `Bundle Includes: ${item.bundled_products.filter(product => product.item_type === 'deco').map(deco => deco.name).join(', ')} Decoration & ${item.bundled_products.filter(product => product.item_type === 'effect').map(effect => effect.name).join(', ')} Profile Effect`;
-    
-                        card.innerHTML = `
-                            <div class="bundle-items">
-                                ${item.bundled_products.map(bundledItem => `
-                                    <div class="bundled-item">
-                                        <img src="${bundledItem.static}" class="${bundledItem.item_type}" data-animated="${bundledItem.animated}" alt="${bundledItem.name}">
-                                    </div>
-                                `).join('')}
-                            </div>
-                            <div class="card-bottom">
-                                <a class="item-credits">SKU ID: ${sku}</a>
-                                <h3>${item.name}</h3>
-                                <p class="bundle-description shop-card-summary">${bundleDescription}</p>
-                                <div class="shop-price-container">
-                                    <a style="font-size: large; font-weight: 900;">${price}</a>
-                                    <a>${priceNitro} with Nitro</a>
-                                </div>
-                            </div>
-                            <div class="card-button-container">
-                                <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
-                            </div>
-                            <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
-                        `;
-    
-                    } else {
-                        card.innerHTML = `
-                            <img src="${item.static}" data-animated="${item.animated}" alt="${item.name}">
-                            <div class="card-bottom">
-                                <a class="item-credits">SKU ID: ${sku}</a>
-                                <h3>${item.name}</h3>
-                                <p class="shop-card-summary">${item.summary}</p>
-                                <div class="shop-price-container">
-                                    <a style="font-size: large; font-weight: 900;">${price}</a>
-                                    <a>${priceNitro} with Nitro</a>
-                                </div>
-                            </div>
-                            <div class="card-button-container">
-                                <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
-                            </div>
-                            <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
-                        `;
-                    }
-    
-                    // Add hover effect for the entire card to animate images
-                    card.addEventListener('mouseenter', function () {
-                        const imgs = card.querySelectorAll('img');
-                        imgs.forEach(img => {
-                            if (img.hasAttribute('data-animated')) {
-                                img.dataset.originalSrc = img.src; // Save original src
-                                img.src = img.getAttribute('data-animated'); // Switch to animated src
-                            }
-                        });
-                    });
-    
-                    card.addEventListener('mouseleave', function () {
-                        const imgs = card.querySelectorAll('img');
-                        imgs.forEach(img => {
-                            if (img.hasAttribute('data-animated') && img.dataset.originalSrc) {
-                                img.src = img.dataset.originalSrc; // Restore original src
-                            }
-                        });
-                    });
-    
-                    card.addEventListener('click', () => openModal(item, sku, price, priceNitro, emojiCopy));
 
-                    return card;
-                }
-                
-
-                // Function to open the modal
-                function openModal(item, sku, price, priceNitro, emojiCopy) {
-                    let description = item.summary; // Default description for non-bundle items
-                
-                    // If the item is a bundle, construct the description
-                    if (item.bundled_products && Array.isArray(item.bundled_products)) {
-                        let decoName = '', effectName = '';
-                        
-                        // Loop through bundled products to find decoration and effect names
-                        item.bundled_products.forEach(bundledItem => {
-                            if (bundledItem.item_type === 'deco') {
-                                decoName = bundledItem.name;
-                            } else if (bundledItem.item_type === 'effect') {
-                                effectName = bundledItem.name;
-                            }
-                        });
-                
-                        // Create bundle description if both decoration and effect exist
-                        if (decoName && effectName) {
-                            description = `Bundle Includes: ${decoName} Decoration & ${effectName} Profile Effect`;
+                if (localStorage.item_data_downloads == "two") {
+                    // Function to create a card
+                    function createCard(item, sku, price, priceNitro, emojiCopy, popular = false, isBundle = false, isNew = false) {
+                        const card = document.createElement('div');
+                        if (localStorage.standard_cards == "true") {
+                            card.classList.add('shop-category-card-standard');
+                        } else {
+                            card.classList.add('shop-category-card');
                         }
-                    }
-                
-                    const modalContent = `
-                        <div class="modal-content">
-                            <div class="modal-left">
-                                <h4>SKU ID: ${sku}</h4>
-                                <h3>${item.name}</h3>
-                                <p>${description}</p>
-                                <div class="modal-prices">
-                                    <a style="font-size: 20px;">${price}</a>
-                                    <a>${priceNitro} with Nitro</a>
-                                </div>
-                                <div class="modal-left-bottom">
-                                    <div class="modal-buttons">
-                                        <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
-                                        <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-right">
-                                ${item.bundled_products && Array.isArray(item.bundled_products) ? 
-                                    item.bundled_products.map(bundledItem => `
+    
+                        card.id = sku;
+                    
+                        // Determine card class based on item type
+                        if (item.item_type === 'deco') {
+                            card.classList.add('deco-card');
+                        } else if (item.item_type === 'effect') {
+                            card.classList.add('effect-card');
+                        } else if (isBundle) {
+                            card.classList.add('bundle-card');
+                        }
+
+                        if (localStorage.top_selling_item == "true") {
+                            if (popular == "true") {
+                                card.classList.add('shop-category-card-top-selling');
+                            }
+                        }
+
+                        if (localStorage.top_selling_item == "none") {
+                            if (popular == "true") {
+                                card.classList.add('shop-category-card-top-selling');
+                            }
+                        }
+
+                        if (localStorage.top_selling_item == "two") {
+                            card.classList.add('shop-category-card-top-selling');
+                        }
+        
+                        // Card content based on item type
+                        if (isBundle && item.bundled_products) {
+                            const bundleDescription = `Bundle Includes: ${item.bundled_products.filter(product => product.item_type === 'deco').map(deco => deco.name).join(', ')} Decoration & ${item.bundled_products.filter(product => product.item_type === 'effect').map(effect => effect.name).join(', ')} Profile Effect`;
+        
+                            card.innerHTML = `
+                                <div class="bundle-items">
+                                    ${item.bundled_products.map(bundledItem => `
                                         <div class="bundled-item">
-                                            <img src="${bundledItem.static}" 
-                                                 data-static="${bundledItem.static}"
-                                                 data-animated="${bundledItem.animated}" 
-                                                 alt="${bundledItem.name}" 
-                                                 id="${getImageType(bundledItem)}">
+                                            <img src="${bundledItem.static}" class="${bundledItem.item_type}" data-animated="${bundledItem.animated}" alt="${bundledItem.name}">
                                         </div>
-                                    `).join('') : 
-                                    `<div class="single-item">
-                                        <img src="${item.static}" 
-                                             data-static="${item.static}"
-                                             data-animated="${item.animated}" 
-                                             alt="${item.name}" 
-                                             id="${getImageType(item)}">
-                                    </div>`
-                                }
-                            </div>
-                        </div>
-                    `;
-                
-                    const modal = document.createElement('div');
-                    modal.classList.add('shop-item-info-modal');
-                
-                    // Append modal content
-                    modal.innerHTML = modalContent;
-                
-                    // Add show class for animation
-                    setTimeout(() => {
-                        modal.classList.add('show');
-                    }, 10); // Slight delay to trigger the animation
-                
-                    // Close modal when clicked outside the modal content
-                    modal.addEventListener('click', (event) => {
-                        if (event.target === modal) {
-                            modal.classList.remove('show'); // Start close animation
-                            modal.addEventListener('transitionend', () => modal.remove()); // Remove after animation
+                                    `).join('')}
+                                </div>
+                                <div class="card-bottom">
+                                    <a class="item-credits">SKU ID: ${sku}</a>
+                                    <h3>${item.name}</h3>
+                                    <p class="bundle-description shop-card-summary">${bundleDescription}</p>
+                                    <div class="shop-price-container">
+                                        <a style="font-size: large; font-weight: 900;">${price}</a>
+                                        <a>${priceNitro} with Nitro</a>
+                                    </div>
+                                </div>
+                                <div class="card-button-container">
+                                    <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                    <a href="https://item.yapper.shop/sku/${sku}/data.zip">
+                                        <button class="card-button">Download Data</button>
+                                    </a>
+                                </div>
+                                <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
+                                <div class="top-selling-tag" style="display: ${popular ? 'block' : 'none'};" id="top-selling-tag">MOST POPULAR</div>
+                            `;
+        
+                        } else {
+                            card.innerHTML = `
+                                <img src="${item.static}" data-animated="${item.animated}" alt="${item.name}">
+                                <div class="card-bottom">
+                                    <a class="item-credits">SKU ID: ${sku}</a>
+                                    <h3>${item.name}</h3>
+                                    <p class="shop-card-summary">${item.summary}</p>
+                                    <div class="shop-price-container">
+                                        <a style="font-size: large; font-weight: 900;">${price}</a>
+                                        <a>${priceNitro} with Nitro</a>
+                                    </div>
+                                </div>
+                                <div class="card-button-container">
+                                    <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                    <a href="https://item.yapper.shop/sku/${sku}/data.zip">
+                                        <button class="card-button">Download Data</button>
+                                    </a>
+                                </div>
+                                <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
+                                <div class="top-selling-tag" style="display: ${popular ? 'block' : 'none'};" id="top-selling-tag">MOST POPULAR</div>
+                            `;
                         }
-                    });
-                
-                    // Add hover effect for animated images
-                    const modalRight = modal.querySelector('.modal-right');
-                    modalRight.addEventListener('mouseenter', () => {
-                        modalRight.querySelectorAll('img').forEach(img => {
-                            const animatedSrc = img.getAttribute('data-animated');
-                            if (animatedSrc) {
-                                img.src = animatedSrc; // Change to animated image
-                            }
+        
+                        // Add hover effect for the entire card to animate images
+                        card.addEventListener('mouseenter', function () {
+                            const imgs = card.querySelectorAll('img');
+                            imgs.forEach(img => {
+                                if (img.hasAttribute('data-animated')) {
+                                    img.dataset.originalSrc = img.src; // Save original src
+                                    img.src = img.getAttribute('data-animated'); // Switch to animated src
+                                }
+                            });
                         });
-                    });
-                
-                    modalRight.addEventListener('mouseleave', () => {
-                        modalRight.querySelectorAll('img').forEach(img => {
-                            const staticSrc = img.getAttribute('data-static');
-                            if (staticSrc) {
-                                img.src = staticSrc; // Revert to static image
-                            }
+        
+                        card.addEventListener('mouseleave', function () {
+                            const imgs = card.querySelectorAll('img');
+                            imgs.forEach(img => {
+                                if (img.hasAttribute('data-animated') && img.dataset.originalSrc) {
+                                    img.src = img.dataset.originalSrc; // Restore original src
+                                }
+                            });
                         });
-                    });
-                
-                    document.body.appendChild(modal);
+        
+                        card.addEventListener('click', () => openModal(item, sku, price, priceNitro, emojiCopy));
+    
+                        return card;
+                    }
+                } else {
+                    // Function to create a card
+                    function createCard(item, sku, price, priceNitro, emojiCopy, popular = false, isBundle = false, isNew = false) {
+                        const card = document.createElement('div');
+                        if (localStorage.standard_cards == "true") {
+                            card.classList.add('shop-category-card-standard');
+                        } else {
+                            card.classList.add('shop-category-card');
+                        }
+    
+                        card.id = sku;
+                    
+                        // Determine card class based on item type
+                        if (item.item_type === 'deco') {
+                            card.classList.add('deco-card');
+                        } else if (item.item_type === 'effect') {
+                            card.classList.add('effect-card');
+                        } else if (isBundle) {
+                            card.classList.add('bundle-card');
+                        }
+
+                        if (localStorage.top_selling_item == "true") {
+                            if (popular == "true") {
+                                card.classList.add('shop-category-card-top-selling');
+                            }
+                        }
+
+                        if (localStorage.top_selling_item == "none") {
+                            if (popular == "true") {
+                                card.classList.add('shop-category-card-top-selling');
+                            }
+                        }
+
+                        if (localStorage.top_selling_item == "two") {
+                            card.classList.add('shop-category-card-top-selling');
+                        }
+        
+                        // Card content based on item type
+                        if (isBundle && item.bundled_products) {
+                            const bundleDescription = `Bundle Includes: ${item.bundled_products.filter(product => product.item_type === 'deco').map(deco => deco.name).join(', ')} Decoration & ${item.bundled_products.filter(product => product.item_type === 'effect').map(effect => effect.name).join(', ')} Profile Effect`;
+        
+                            card.innerHTML = `
+                                <div class="bundle-items">
+                                    ${item.bundled_products.map(bundledItem => `
+                                        <div class="bundled-item">
+                                            <img src="${bundledItem.static}" class="${bundledItem.item_type}" data-animated="${bundledItem.animated}" alt="${bundledItem.name}">
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div class="card-bottom">
+                                    <a class="item-credits">SKU ID: ${sku}</a>
+                                    <h3>${item.name}</h3>
+                                    <p class="bundle-description shop-card-summary">${bundleDescription}</p>
+                                    <div class="shop-price-container">
+                                        <a style="font-size: large; font-weight: 900;">${price}</a>
+                                        <a>${priceNitro} with Nitro</a>
+                                    </div>
+                                </div>
+                                <div class="card-button-container">
+                                    <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                </div>
+                                <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
+                                <div class="top-selling-tag" style="display: ${popular ? 'block' : 'none'};" id="top-selling-tag">MOST POPULAR</div>
+                            `;
+        
+                        } else {
+                            card.innerHTML = `
+                                <img src="${item.static}" data-animated="${item.animated}" alt="${item.name}">
+                                <div class="card-bottom">
+                                    <a class="item-credits">SKU ID: ${sku}</a>
+                                    <h3>${item.name}</h3>
+                                    <p class="shop-card-summary">${item.summary}</p>
+                                    <div class="shop-price-container">
+                                        <a style="font-size: large; font-weight: 900;">${price}</a>
+                                        <a>${priceNitro} with Nitro</a>
+                                    </div>
+                                </div>
+                                <div class="card-button-container">
+                                    <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                </div>
+                                <div class="new-item-tag" style="display: ${isNew ? 'block' : 'none'};">NEW</div>
+                                <div class="top-selling-tag" style="display: ${popular ? 'block' : 'none'};" id="top-selling-tag">MOST POPULAR</div>
+                            `;
+                        }
+        
+                        // Add hover effect for the entire card to animate images
+                        card.addEventListener('mouseenter', function () {
+                            const imgs = card.querySelectorAll('img');
+                            imgs.forEach(img => {
+                                if (img.hasAttribute('data-animated')) {
+                                    img.dataset.originalSrc = img.src; // Save original src
+                                    img.src = img.getAttribute('data-animated'); // Switch to animated src
+                                }
+                            });
+                        });
+        
+                        card.addEventListener('mouseleave', function () {
+                            const imgs = card.querySelectorAll('img');
+                            imgs.forEach(img => {
+                                if (img.hasAttribute('data-animated') && img.dataset.originalSrc) {
+                                    img.src = img.dataset.originalSrc; // Restore original src
+                                }
+                            });
+                        });
+        
+                        card.addEventListener('click', () => openModal(item, sku, price, priceNitro, emojiCopy));
+    
+                        return card;
+                    }
                 }
+
+
+                if (localStorage.item_data_downloads == "true") {
+                    // Function to open the modal
+                    function openModal(item, sku, price, priceNitro, emojiCopy) {
+                        let description = item.summary; // Default description for non-bundle items
+                    
+                        // If the item is a bundle, construct the description
+                        if (item.bundled_products && Array.isArray(item.bundled_products)) {
+                            let decoName = '', effectName = '';
+                            
+                            // Loop through bundled products to find decoration and effect names
+                            item.bundled_products.forEach(bundledItem => {
+                                if (bundledItem.item_type === 'deco') {
+                                    decoName = bundledItem.name;
+                                } else if (bundledItem.item_type === 'effect') {
+                                    effectName = bundledItem.name;
+                                }
+                            });
+                    
+                            // Create bundle description if both decoration and effect exist
+                            if (decoName && effectName) {
+                                description = `Bundle Includes: ${decoName} Decoration & ${effectName} Profile Effect`;
+                            }
+                        }
+    
+                        
+                    
+                        const modalContent = `
+                            <div class="modal-content">
+                                <div class="modal-left">
+                                    <h4>SKU ID: ${sku}</h4>
+                                    <h3>${item.name}</h3>
+                                    <p>${description}</p>
+                                    <div class="modal-prices">
+                                        <a style="font-size: 20px;">${price}</a>
+                                        <a>${priceNitro} with Nitro</a>
+                                    </div>
+                                    <div class="modal-left-bottom">
+                                        <div class="modal-buttons">
+                                            <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                            <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                                            <a href="https://item.yapper.shop/sku/${sku}/data.zip">
+                                                <button class="card-button">Download Data</button>
+                                            </a>
+                                        </div>
+                                        <p class="experiment-subtext" style="text-align: center;">Please note that not all collectibles have downloadable data, this button will most likely send you to a 404 page</p>
+                                    </div>
+                                </div>
+                                <div class="modal-right">
+                                    ${item.bundled_products && Array.isArray(item.bundled_products) ? 
+                                        item.bundled_products.map(bundledItem => `
+                                            <div class="bundled-item">
+                                                <img src="${bundledItem.static}" 
+                                                     data-static="${bundledItem.static}"
+                                                     data-animated="${bundledItem.animated}" 
+                                                     alt="${bundledItem.name}" 
+                                                     id="${getImageType(bundledItem)}">
+                                            </div>
+                                        `).join('') : 
+                                        `<div class="single-item">
+                                            <img src="${item.static}" 
+                                                 data-static="${item.static}"
+                                                 data-animated="${item.animated}" 
+                                                 alt="${item.name}" 
+                                                 id="${getImageType(item)}">
+                                        </div>`
+                                    }
+                                </div>
+                            </div>
+                        `;
+                    
+                        const modal = document.createElement('div');
+                        modal.classList.add('shop-item-info-modal');
+                    
+                        // Append modal content
+                        modal.innerHTML = modalContent;
+                    
+                        // Add show class for animation
+                        setTimeout(() => {
+                            modal.classList.add('show');
+                        }, 10); // Slight delay to trigger the animation
+                    
+                        // Close modal when clicked outside the modal content
+                        modal.addEventListener('click', (event) => {
+                            if (event.target === modal) {
+                                modal.classList.remove('show'); // Start close animation
+                                modal.addEventListener('transitionend', () => modal.remove()); // Remove after animation
+                            }
+                        });
+                    
+                        // Add hover effect for animated images
+                        const modalRight = modal.querySelector('.modal-right');
+                        modalRight.addEventListener('mouseenter', () => {
+                            modalRight.querySelectorAll('img').forEach(img => {
+                                const animatedSrc = img.getAttribute('data-animated');
+                                if (animatedSrc) {
+                                    img.src = animatedSrc; // Change to animated image
+                                }
+                            });
+                        });
+                    
+                        modalRight.addEventListener('mouseleave', () => {
+                            modalRight.querySelectorAll('img').forEach(img => {
+                                const staticSrc = img.getAttribute('data-static');
+                                if (staticSrc) {
+                                    img.src = staticSrc; // Revert to static image
+                                }
+                            });
+                        });
+                    
+                        document.body.appendChild(modal);
+                    }
+                }
+
+                if (localStorage.item_data_downloads == "two") {
+                    // Function to open the modal
+                    function openModal(item, sku, price, priceNitro, emojiCopy) {
+                        let description = item.summary; // Default description for non-bundle items
+                    
+                        // If the item is a bundle, construct the description
+                        if (item.bundled_products && Array.isArray(item.bundled_products)) {
+                            let decoName = '', effectName = '';
+                            
+                            // Loop through bundled products to find decoration and effect names
+                            item.bundled_products.forEach(bundledItem => {
+                                if (bundledItem.item_type === 'deco') {
+                                    decoName = bundledItem.name;
+                                } else if (bundledItem.item_type === 'effect') {
+                                    effectName = bundledItem.name;
+                                }
+                            });
+                    
+                            // Create bundle description if both decoration and effect exist
+                            if (decoName && effectName) {
+                                description = `Bundle Includes: ${decoName} Decoration & ${effectName} Profile Effect`;
+                            }
+                        }
+    
+                        
+                    
+                        const modalContent = `
+                            <div class="modal-content">
+                                <div class="modal-left">
+                                    <h4>SKU ID: ${sku}</h4>
+                                    <h3>${item.name}</h3>
+                                    <p>${description}</p>
+                                    <div class="modal-prices">
+                                        <a style="font-size: 20px;">${price}</a>
+                                        <a>${priceNitro} with Nitro</a>
+                                    </div>
+                                    <div class="modal-left-bottom">
+                                        <div class="modal-buttons">
+                                            <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                            <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                                            <a href="https://item.yapper.shop/sku/${sku}/data.zip">
+                                                <button class="card-button">Download Data</button>
+                                            </a>
+                                        </div>
+                                        <p class="experiment-subtext" style="text-align: center;">Please note that not all collectibles have downloadable data, this button will most likely send you to a 404 page</p>
+                                    </div>
+                                </div>
+                                <div class="modal-right">
+                                    ${item.bundled_products && Array.isArray(item.bundled_products) ? 
+                                        item.bundled_products.map(bundledItem => `
+                                            <div class="bundled-item">
+                                                <img src="${bundledItem.static}" 
+                                                     data-static="${bundledItem.static}"
+                                                     data-animated="${bundledItem.animated}" 
+                                                     alt="${bundledItem.name}" 
+                                                     id="${getImageType(bundledItem)}">
+                                            </div>
+                                        `).join('') : 
+                                        `<div class="single-item">
+                                            <img src="${item.static}" 
+                                                 data-static="${item.static}"
+                                                 data-animated="${item.animated}" 
+                                                 alt="${item.name}" 
+                                                 id="${getImageType(item)}">
+                                        </div>`
+                                    }
+                                </div>
+                            </div>
+                        `;
+                    
+                        const modal = document.createElement('div');
+                        modal.classList.add('shop-item-info-modal');
+                    
+                        // Append modal content
+                        modal.innerHTML = modalContent;
+                    
+                        // Add show class for animation
+                        setTimeout(() => {
+                            modal.classList.add('show');
+                        }, 10); // Slight delay to trigger the animation
+                    
+                        // Close modal when clicked outside the modal content
+                        modal.addEventListener('click', (event) => {
+                            if (event.target === modal) {
+                                modal.classList.remove('show'); // Start close animation
+                                modal.addEventListener('transitionend', () => modal.remove()); // Remove after animation
+                            }
+                        });
+                    
+                        // Add hover effect for animated images
+                        const modalRight = modal.querySelector('.modal-right');
+                        modalRight.addEventListener('mouseenter', () => {
+                            modalRight.querySelectorAll('img').forEach(img => {
+                                const animatedSrc = img.getAttribute('data-animated');
+                                if (animatedSrc) {
+                                    img.src = animatedSrc; // Change to animated image
+                                }
+                            });
+                        });
+                    
+                        modalRight.addEventListener('mouseleave', () => {
+                            modalRight.querySelectorAll('img').forEach(img => {
+                                const staticSrc = img.getAttribute('data-static');
+                                if (staticSrc) {
+                                    img.src = staticSrc; // Revert to static image
+                                }
+                            });
+                        });
+                    
+                        document.body.appendChild(modal);
+                    }
+                }
+
+                if (localStorage.item_data_downloads == "false") {
+                    // Function to open the modal
+                    function openModal(item, sku, price, priceNitro, emojiCopy) {
+                        let description = item.summary; // Default description for non-bundle items
+                    
+                        // If the item is a bundle, construct the description
+                        if (item.bundled_products && Array.isArray(item.bundled_products)) {
+                            let decoName = '', effectName = '';
+                            
+                            // Loop through bundled products to find decoration and effect names
+                            item.bundled_products.forEach(bundledItem => {
+                                if (bundledItem.item_type === 'deco') {
+                                    decoName = bundledItem.name;
+                                } else if (bundledItem.item_type === 'effect') {
+                                    effectName = bundledItem.name;
+                                }
+                            });
+                    
+                            // Create bundle description if both decoration and effect exist
+                            if (decoName && effectName) {
+                                description = `Bundle Includes: ${decoName} Decoration & ${effectName} Profile Effect`;
+                            }
+                        }
+    
+                        
+                    
+                        const modalContent = `
+                            <div class="modal-content">
+                                <div class="modal-left">
+                                    <h4>SKU ID: ${sku}</h4>
+                                    <h3>${item.name}</h3>
+                                    <p>${description}</p>
+                                    <div class="modal-prices">
+                                        <a style="font-size: 20px;">${price}</a>
+                                        <a>${priceNitro} with Nitro</a>
+                                    </div>
+                                    <div class="modal-left-bottom">
+                                        <div class="modal-buttons">
+                                            <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                            <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-right">
+                                    ${item.bundled_products && Array.isArray(item.bundled_products) ? 
+                                        item.bundled_products.map(bundledItem => `
+                                            <div class="bundled-item">
+                                                <img src="${bundledItem.static}" 
+                                                     data-static="${bundledItem.static}"
+                                                     data-animated="${bundledItem.animated}" 
+                                                     alt="${bundledItem.name}" 
+                                                     id="${getImageType(bundledItem)}">
+                                            </div>
+                                        `).join('') : 
+                                        `<div class="single-item">
+                                            <img src="${item.static}" 
+                                                 data-static="${item.static}"
+                                                 data-animated="${item.animated}" 
+                                                 alt="${item.name}" 
+                                                 id="${getImageType(item)}">
+                                        </div>`
+                                    }
+                                </div>
+                            </div>
+                        `;
+                    
+                        const modal = document.createElement('div');
+                        modal.classList.add('shop-item-info-modal');
+                    
+                        // Append modal content
+                        modal.innerHTML = modalContent;
+                    
+                        // Add show class for animation
+                        setTimeout(() => {
+                            modal.classList.add('show');
+                        }, 10); // Slight delay to trigger the animation
+                    
+                        // Close modal when clicked outside the modal content
+                        modal.addEventListener('click', (event) => {
+                            if (event.target === modal) {
+                                modal.classList.remove('show'); // Start close animation
+                                modal.addEventListener('transitionend', () => modal.remove()); // Remove after animation
+                            }
+                        });
+                    
+                        // Add hover effect for animated images
+                        const modalRight = modal.querySelector('.modal-right');
+                        modalRight.addEventListener('mouseenter', () => {
+                            modalRight.querySelectorAll('img').forEach(img => {
+                                const animatedSrc = img.getAttribute('data-animated');
+                                if (animatedSrc) {
+                                    img.src = animatedSrc; // Change to animated image
+                                }
+                            });
+                        });
+                    
+                        modalRight.addEventListener('mouseleave', () => {
+                            modalRight.querySelectorAll('img').forEach(img => {
+                                const staticSrc = img.getAttribute('data-static');
+                                if (staticSrc) {
+                                    img.src = staticSrc; // Revert to static image
+                                }
+                            });
+                        });
+                    
+                        document.body.appendChild(modal);
+                    }
+                }
+
+                if (localStorage.item_data_downloads != "true") {
+                    if (localStorage.item_data_downloads != "false") {
+                        if (localStorage.item_data_downloads != "two") {
+                            // Function to open the modal
+                            function openModal(item, sku, price, priceNitro, emojiCopy) {
+                                let description = item.summary; // Default description for non-bundle items
+                            
+                                // If the item is a bundle, construct the description
+                                if (item.bundled_products && Array.isArray(item.bundled_products)) {
+                                    let decoName = '', effectName = '';
+                                    
+                                    // Loop through bundled products to find decoration and effect names
+                                    item.bundled_products.forEach(bundledItem => {
+                                        if (bundledItem.item_type === 'deco') {
+                                            decoName = bundledItem.name;
+                                        } else if (bundledItem.item_type === 'effect') {
+                                            effectName = bundledItem.name;
+                                        }
+                                    });
+                            
+                                    // Create bundle description if both decoration and effect exist
+                                    if (decoName && effectName) {
+                                        description = `Bundle Includes: ${decoName} Decoration & ${effectName} Profile Effect`;
+                                    }
+                                }
+            
+                                
+                            
+                                const modalContent = `
+                                    <div class="modal-content">
+                                        <div class="modal-left">
+                                            <h4>SKU ID: ${sku}</h4>
+                                            <h3>${item.name}</h3>
+                                            <p>${description}</p>
+                                            <div class="modal-prices">
+                                                <a style="font-size: 20px;">${price}</a>
+                                                <a>${priceNitro} with Nitro</a>
+                                            </div>
+                                            <div class="modal-left-bottom">
+                                                <div class="modal-buttons">
+                                                    <button class="card-button" title="Open item in the Discord shop" onclick="location.href='https://discord.com/shop#itemSkuId=${sku}';">Open In Shop</button>
+                                                    <button class="card-button ${emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${emojiCopy ? `copyEmoji('${emojiCopy}')` : `redirectToGoogle()`}" title="${emojiCopy ? 'Copy P+ emoji to clipboard' : 'Request item in our Discord server'}">${emojiCopy ? 'Copy P+ Emoji' : 'Request to P+'}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-right">
+                                            ${item.bundled_products && Array.isArray(item.bundled_products) ? 
+                                                item.bundled_products.map(bundledItem => `
+                                                    <div class="bundled-item">
+                                                        <img src="${bundledItem.static}" 
+                                                             data-static="${bundledItem.static}"
+                                                             data-animated="${bundledItem.animated}" 
+                                                             alt="${bundledItem.name}" 
+                                                             id="${getImageType(bundledItem)}">
+                                                    </div>
+                                                `).join('') : 
+                                                `<div class="single-item">
+                                                    <img src="${item.static}" 
+                                                         data-static="${item.static}"
+                                                         data-animated="${item.animated}" 
+                                                         alt="${item.name}" 
+                                                         id="${getImageType(item)}">
+                                                </div>`
+                                            }
+                                        </div>
+                                    </div>
+                                `;
+                            
+                                const modal = document.createElement('div');
+                                modal.classList.add('shop-item-info-modal');
+                            
+                                // Append modal content
+                                modal.innerHTML = modalContent;
+                            
+                                // Add show class for animation
+                                setTimeout(() => {
+                                    modal.classList.add('show');
+                                }, 10); // Slight delay to trigger the animation
+                            
+                                // Close modal when clicked outside the modal content
+                                modal.addEventListener('click', (event) => {
+                                    if (event.target === modal) {
+                                        modal.classList.remove('show'); // Start close animation
+                                        modal.addEventListener('transitionend', () => modal.remove()); // Remove after animation
+                                    }
+                                });
+                            
+                                // Add hover effect for animated images
+                                const modalRight = modal.querySelector('.modal-right');
+                                modalRight.addEventListener('mouseenter', () => {
+                                    modalRight.querySelectorAll('img').forEach(img => {
+                                        const animatedSrc = img.getAttribute('data-animated');
+                                        if (animatedSrc) {
+                                            img.src = animatedSrc; // Change to animated image
+                                        }
+                                    });
+                                });
+                            
+                                modalRight.addEventListener('mouseleave', () => {
+                                    modalRight.querySelectorAll('img').forEach(img => {
+                                        const staticSrc = img.getAttribute('data-static');
+                                        if (staticSrc) {
+                                            img.src = staticSrc; // Revert to static image
+                                        }
+                                    });
+                                });
+                            
+                                document.body.appendChild(modal);
+                            }
+                        }
+                    }
+                }
+
                 
                 // Function to get image type based on item properties
                 function getImageType(item) {
@@ -309,18 +791,19 @@ function fetchData() {
                     const price = product.price || "";
                     const priceNitro = product.price_nitro || "";
                     const emojiCopy = product.emojiCopy || ""; // Get emojiCopy from the product
+                    const popular = product.popular || "";
     
                     // Check if the product is a bundle
                     if (product.bundled_products) {
                         // Add bundle card with bundled items
-                        bundleProducts.push({ product, sku, price, priceNitro, emojiCopy, isNew });
+                        bundleProducts.push({ product, sku, price, priceNitro, emojiCopy, popular, isNew });
                     } else {
                         // Handle individual items
                         product.items.forEach(item => {
                             if (item.item_type === 'deco') {
-                                decorationProducts.push({ item, sku, price, priceNitro, emojiCopy, isNew });
+                                decorationProducts.push({ item, sku, price, priceNitro, emojiCopy, popular, isNew });
                             } else if (item.item_type === 'effect') {
-                                effectProducts.push({ item, sku, price, priceNitro, emojiCopy, isNew });
+                                effectProducts.push({ item, sku, price, priceNitro, emojiCopy, popular, isNew });
                             }
                         });
                     }
@@ -328,22 +811,49 @@ function fetchData() {
 
                 // Display bundles first
                 if (localStorage.shop_have_no_bundles != "true") {
-                    bundleProducts.forEach(({ product, sku, price, priceNitro, emojiCopy, isNew }) => {
-                        const card = createCard(product, sku, price, priceNitro, emojiCopy, true, isNew);
-                        cardHolder.append(card);
+                    bundleProducts.forEach(({ product, sku, price, priceNitro, emojiCopy, popular, isNew }) => {
+                        const card = createCard(product, sku, price, priceNitro, emojiCopy, popular, true, isNew);
+
+                        if (localStorage.standard_cards == "true") {
+                            const cardHolder = category.querySelector(".shop-category-card-holder-standard");
+                            cardHolder.append(card);
+                            cardHolder.classList.remove('hidden');
+                        } else {
+                            const cardHolder = category.querySelector(".shop-category-card-holder");
+                            cardHolder.append(card);
+                            cardHolder.classList.remove('hidden');
+                        }
                     });
                 }
 
                 // Then display decoration products
-                decorationProducts.forEach(({ item, sku, price, priceNitro, emojiCopy, isNew }) => {
-                    const card = createCard(item, sku, price, priceNitro, emojiCopy, false, isNew);
-                    cardHolder.append(card);
+                decorationProducts.forEach(({ item, sku, price, priceNitro, emojiCopy, popular, isNew }) => {
+                    const card = createCard(item, sku, price, priceNitro, emojiCopy, popular, false, isNew);
+
+                    if (localStorage.standard_cards == "true") {
+                        const cardHolder = category.querySelector(".shop-category-card-holder-standard");
+                        cardHolder.append(card);
+                        cardHolder.classList.remove('hidden');
+                    } else {
+                        const cardHolder = category.querySelector(".shop-category-card-holder");
+                        cardHolder.append(card);
+                        cardHolder.classList.remove('hidden');
+                    }
                 });
 
                 // Finally, display effect products
-                effectProducts.forEach(({ item, sku, price, priceNitro, emojiCopy, isNew }) => {
-                    const card = createCard(item, sku, price, priceNitro, emojiCopy, false, isNew);
-                    cardHolder.append(card);
+                effectProducts.forEach(({ item, sku, price, priceNitro, emojiCopy, popular, isNew }) => {
+                    const card = createCard(item, sku, price, priceNitro, emojiCopy, popular, false, isNew);
+
+                    if (localStorage.standard_cards == "true") {
+                        const cardHolder = category.querySelector(".shop-category-card-holder-standard");
+                        cardHolder.append(card);
+                        cardHolder.classList.remove('hidden');
+                    } else {
+                        const cardHolder = category.querySelector(".shop-category-card-holder");
+                        cardHolder.append(card);
+                        cardHolder.classList.remove('hidden');
+                    }
                 });
 
                 // Append the category to the output section

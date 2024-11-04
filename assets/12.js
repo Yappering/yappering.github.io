@@ -176,6 +176,29 @@ fetch(apiUrl)
     });
 
 
+let apiUrlplus = 'https://raw.githubusercontent.com/Yappering/api/main/v1/home-page-p-plus';
+
+fetch(apiUrlplus)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(user => {
+            const template = document.querySelector("[data-shop-category-template-plus]");
+            const output = document.querySelector("[data-shop-output-plus]");
+
+            const category = template.content.cloneNode(true).children[0];
+
+            const oneImage = category.querySelector("[data-shop-preview-image-plus]");
+            oneImage.src = user.src;
+            oneImage.alt = user.name;
+
+            output.append(category);
+        });
+
+    })
+    .catch(error => {
+        console.error('Error fetching the API:', error);
+    });
+
 
 
 let apiUrlp = 'https://raw.githubusercontent.com/Yappering/api/main/v1/popular-picks';

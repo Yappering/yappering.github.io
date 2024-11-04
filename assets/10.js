@@ -3,3 +3,11 @@ if (localStorage.items_in_shop != "false") {
         localStorage.items_in_shop = "none"
     }
 }
+
+if (localStorage.top_selling_item != "false") {
+    if (localStorage.top_selling_item != "none") {
+        if (localStorage.top_selling_item != "two") {
+            localStorage.top_selling_item = "true"
+        }
+    }
+}

@@ -3,7 +3,7 @@
 
 <head>
     <base target="_blank">
-    <title>Published Listings | Shop Archives</title>
+    <title>Shop Assets | Shop Archives</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta content="Shop Archives" property="og:title" />
     <meta content="Your one stop place for all Discord Collectibles" property="og:description" />
@@ -12,12 +12,12 @@
     <meta content="#FF007A" data-react-helmet="true" name="theme-color" />
     <link rel="stylesheet" href="/styles.css">
     <style>
-        .published-listings-tab {
+        .shop-assets-tab {
             background-color: #404248;
             color: white;
         }
 
-        .published-listings-tab .dm-new-icon {
+        .shop-assets-tab .dm-new-icon {
             display: none !important;
         }
     </style>
@@ -169,30 +169,42 @@
             </div>
         </div>
         <div class="top-bar">
-            <h2 style="margin-left: 260px; margin-top: 10px;">Published Listings</h2>
+            <h2 style="margin-left: 260px; margin-top: 10px;">Shop Assets</h2>
             <div id="open-help-modals-buttons-holder"></div>
         </div>
         <div class="shop-housing" style="overflow: auto; margin-top: 0px;">
             <div class="shop-container" style="overflow: auto;">
                 <div class="shop-category" style="margin-top: 50px;">
                     <div class="shop-notice">
-                        <p class="shop-notice-text">Notice: This page is updated automatically</p>
+                        <p class="shop-notice-text">Notice: All assets on this page have been made by Discord NOT by our team</p>
                     </div>
-                    <template data-potion-card-template>
+                    <div class="shop-notice-1">
+                        <p class="shop-notice-text">Notice: If an asset does not load, that most likely means that category does not have that asset</p>
+                    </div>
+                    <template data-shop-category-template>
                         <div>
-                            <div class="potion-card-holder" data-potion-card-holder>
-                                <div class="potion-card-sku-holder">
-                                    <p style="font-size: 18px;" data-potion-card-sku></p>
+                            <div class="shop-category-assets-holder">
+                                <div class="shop-category-logo-holder-preview">
+                                    <img class="shop-category-banner-logo-preview" src="" data-shop-category-logo-image-1>
                                 </div>
-                                <div class="potion-card-title-holder-1">
-                                    <p style="font-size: 30px;" data-potion-card-title></p>
+                                <a>Banner</a>
+                                <div class="shop-category-banner-asset" data-shop-category-banner>
+                                    <img class="shop-category-banner-img" src="" data-shop-category-banner-image>
                                 </div>
-                                <div class="potion-card-text-holder-1">
-                                    <p style="font-size: 18px;" data-potion-card-desc></p>
-                                </div>
-                                <div class="potion-card-price-holder-1">
-                                    <p style="font-size: 25px;" data-potion-card-price></p>
-                                </div>
+                                <a>Logo</a>
+                                <img class="shop-category-banner-logo-asset" src="" data-shop-category-logo-image>
+                                <a>Mobile Background</a>
+                                <img class="shop-category-mobile_bg-asset" src="" data-shop-category-mobile_bg-image>
+                                <a>PDP Background</a>
+                                <img class="shop-category-pdp_bg-asset" src="" data-shop-category-pdp_bg-image>
+                                <a>Success Modal Background</a>
+                                <img class="shop-category-success_modal_bg-asset" src="" data-shop-category-success_modal_bg-image>
+                                <a>Mobile Banner</a>
+                                <img class="shop-category-mobile_banner-asset" src="" data-shop-category-mobile_banner-image>
+                                <a>Featured Block</a>
+                                <img class="shop-category-featured_block-asset" src="" data-shop-category-featured_block-image>
+                                <a>Hero Banner</a>
+                                <img class="shop-category-hero_banner-asset" src="" data-shop-category-hero_banner-image>
                             </div>
                         </div>
                     </template>
@@ -201,13 +213,27 @@
 
                     <div class="shop-category-loading" id="shop-category-loading">
                         <div>
-                            <div class="potion-card-loading">
+                            <div class="shop-category-banner-loading">
                             </div>
-                            <div class="potion-card-loading">
+                        </div>
+                        <div>
+                            <div class="shop-category-banner-loading">
                             </div>
-                            <div class="potion-card-loading">
+                        </div>
+                        <div>
+                            <div class="shop-category-banner-loading">
                             </div>
-                            <div class="potion-card-loading">
+                        </div>
+                        <div>
+                            <div class="shop-category-banner-loading">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="shop-category-banner-loading">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="shop-category-banner-loading">
                             </div>
                         </div>
                     </div>
@@ -227,7 +253,7 @@
     <script src="/assets/1.js"></script>
     <script src="/assets/4.js"></script>
     <script src="/assets/10.js"></script>
-    <script src="/assets/17.js"></script>
+    <script src="/assets/18.js"></script>
 </body>
 
 </html>

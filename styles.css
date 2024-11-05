@@ -602,6 +602,79 @@ body {
     outline-offset: -2px;
 }
 
+.shop-category-assets-holder {
+    display: grid;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 1100px;
+    background-color: #313338;
+    object-fit: cover;
+    border-radius: 20px;
+    scale: 1;
+    overflow: hidden;
+    outline: 2px solid rgba(16, 17, 19, 0.4);
+    outline-offset: -2px;
+    cursor: pointer;
+}
+
+.shop-category-assets-holder {
+    height: 150px; /* Initial height */
+    transition: height 0.7s ease, scale 0.3s ease, border-radius 0.3s ease; /* Smooth transition */
+}
+
+.shop-category-assets-holder:hover {
+    scale: 1.05;
+    border-radius: 15px;
+}
+
+.shop-category-assets-holder a {
+    height: 0px;
+    opacity: 0;
+    transition: height 0.7s ease, opacity 0.7s ease;
+}
+
+.shop-category-assets-holder .shop-category-banner-logo-preview {
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+
+.shop-category-assets-holder .shop-category-banner-img {
+    filter: blur(10px);
+    transition: height 0.7s ease;
+}
+  
+.shop-category-assets-holder.expanded {
+    height: 3205px; /* Height when hovered */
+    scale: 1;
+    border-radius: 0px;
+}
+
+.shop-category-assets-holder.expanded a {
+    height: 21px;
+    opacity: 1;
+}
+
+.shop-category-assets-holder.expanded .shop-category-banner-logo-preview {
+    opacity: 0;
+}
+
+.shop-category-assets-holder.expanded .shop-category-banner-img {
+    filter: blur(0px);
+}
+  
+
+.shop-category-banner-asset {
+    width: 1100px;
+    height: 253px;
+    background-color: #313338;
+    object-fit: cover;
+    overflow: hidden;
+    outline: 2px solid rgba(16, 17, 19, 0.4);
+    outline-offset: -2px;
+}
+
 .potion-card-holder {
     display: flex;
     position: relative;
@@ -651,6 +724,65 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+}
+
+.shop-category-logo-holder-preview {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0%, -50%);
+    z-index: 1;
+    scale: 0.8;
+}
+
+.shop-category-banner-logo-preview {
+    width: auto;
+    max-height: 100px;
+    max-width: 530px;
+    object-fit: cover;
+}
+
+.shop-category-banner-logo-asset {
+    width: auto;
+    max-width: 530px;
+    max-height: 160px;
+    object-fit: cover;
+}
+
+.shop-category-mobile_bg-asset {
+    width: 260px;
+    height: 560px;
+    object-fit: cover;
+}
+
+.shop-category-pdp_bg-asset {
+    width: 400px;
+    height: 560px;
+    object-fit: cover;
+}
+
+.shop-category-success_modal_bg-asset {
+    width: 880px;
+    height: 456px;
+    object-fit: cover;
+}
+
+.shop-category-mobile_banner-asset {
+    width: 1026px;
+    height: 252px;
+    object-fit: cover;
+}
+
+.shop-category-featured_block-asset {
+    width: 518px;
+    height: 232px;
+    object-fit: cover;
+}
+
+.shop-category-hero_banner-asset {
+    width: 1030px;
+    height: 310px;
+    object-fit: cover;
 }
 
 .potion-card-preview-holder {

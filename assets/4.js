@@ -30,7 +30,7 @@ function openLostModal() {
                 <hr style="opacity: 0">
                 <button class="refresh-button" onclick="closeLostModal()">Close</button>
                 <hr style="opacity: 0">
-                App Version: Stable 111
+                App Version: Stable 116
             </div>
         </div>
     </div>
@@ -198,229 +198,233 @@ function openDownloadsModal() {
 
 
 function openDevModal() {
-    const dev_modal = document.getElementById('modal-housing');
-    dev_modal.innerHTML = `
-    <div class="modal-housing-1" id="modal-housing-1">
-        <div class="dev-modal">
-            <div class="dev-modal-inner">
-                <h1 class="center-text" style="font-size: 54px; margin-top: -10px; margin-bottom: -5px;">Dev Options</h1>
-                <button class="refresh-button" onclick="closeDevModal()">Close</button>
-                <button class="refresh-button" onclick="turnOffDevMode()">Safe Mode</button>
-                <hr>
-                <div>
-                    <h2>Experiments</h2>
-                    <p class="experiment-subtext">Test out new features</p>
-                    <div class="experiment-card-holder">
-
-
-                        <div class="experiment-card">
-                            <p>Top Selling Item Tag</p>
-                            <p class="experiment-subtext">2024-11_top_selling_item_tag</p>
-                            <button class="refresh-button" onclick="topSellingItemTag2()" id="2024-11_top_selling_item_tag-2" title="show popular tag on all items">Override 2</button>
-                            <button class="refresh-button" onclick="topSellingItemTag1()" id="2024-11_top_selling_item_tag-1" title="show popular tag on popular items">Override 1</button>
-                            <button class="refresh-button" onclick="topSellingItemTag0()" id="2024-11_top_selling_item_tag-0">No Override</button>
-                            <button class="refresh-button" onclick="topSellingItemTag00()" id="2024-11_top_selling_item_tag-00">Override -1</button>
-                        </div>
-
-
-                        <div class="experiment-card">
-                            <p>Item Data Downloads</p>
-                            <p class="experiment-subtext">2024-11_item_data_downloads</p>
-                            <button class="refresh-button" onclick="itemDataDownloads2()" id="2024-11_item_data_downloads-2" title="show download button on modal and card">Override 2</button>
-                            <button class="refresh-button" onclick="itemDataDownloads1()" id="2024-11_item_data_downloads-1" title="show download button on modal">Override 1</button>
-                            <button class="refresh-button" onclick="itemDataDownloads0()" id="2024-11_item_data_downloads-0">No Override</button>
-                            <button class="refresh-button" onclick="itemDataDownloads00()" id="2024-11_item_data_downloads-00">Override -1</button>
-                        </div>
-
-
-                        <div class="experiment-card">
-                            <p>Show Items That Are Currently In The Discord Shop</p>
-                            <p class="experiment-subtext">2024-09_items_in_shop</p>
-                            <button class="refresh-button" onclick="itemsCurrentlyInShop1()" id="2024-09_items_in_shop-1">Override 1</button>
-                            <button class="refresh-button" onclick="itemsCurrentlyInShop0()" id="2024-09_items_in_shop-0">No Override</button>
-                            <button class="refresh-button" onclick="itemsCurrentlyInShop00()" id="2024-09_items_in_shop-00">Override -1</button>
-                        </div>
-
-                        
-                    </div>
-                </div>
-                <hr>
-                <div>
-                    <h2>Modals</h2>
-                    <div class="experiment-card-holder">
-                        <div class="experiment-card">
-                            <p>Lost</p>
-                            <button class="refresh-button" onclick="openLostModal()">Open</button>
-                        </div>
-                        <div class="experiment-card">
-                            <p>Dev</p>
-                            <button class="refresh-button" onclick="openDevModal()">Open</button>
-                        </div>
-                        <div class="experiment-card">
-                            <p>Options</p>
-                            <button class="refresh-button" onclick="openOptionsModal()">Open</button>
-                        </div>
-                        <div class="experiment-card">
-                            <p>Downloads</p>
-                            <button class="refresh-button" onclick="openDownloadsModal()">Open</button>
+    if (localStorage.dev == "true") {
+        const dev_modal = document.getElementById('modal-housing');
+        dev_modal.innerHTML = `
+        <div class="modal-housing-1" id="modal-housing-1">
+            <div class="dev-modal">
+                <div class="dev-modal-inner">
+                    <h1 class="center-text" style="font-size: 54px; margin-top: -10px; margin-bottom: -5px;">Dev Options</h1>
+                    <button class="refresh-button" onclick="closeDevModal()">Close</button>
+                    <button class="refresh-button" onclick="turnOffDevMode()">Safe Mode</button>
+                    <hr>
+                    <div>
+                        <h2>Experiments</h2>
+                        <p class="experiment-subtext">Test out new features</p>
+                        <div class="experiment-card-holder">
+    
+    
+                            <div class="experiment-card">
+                                <p>Top Selling Item Tag</p>
+                                <p class="experiment-subtext">2024-11_top_selling_item_tag</p>
+                                <button class="refresh-button" onclick="topSellingItemTag2()" id="2024-11_top_selling_item_tag-2" title="show popular tag on all items">Override 2</button>
+                                <button class="refresh-button" onclick="topSellingItemTag1()" id="2024-11_top_selling_item_tag-1" title="show popular tag on popular items">Override 1</button>
+                                <button class="refresh-button" onclick="topSellingItemTag0()" id="2024-11_top_selling_item_tag-0">No Override</button>
+                                <button class="refresh-button" onclick="topSellingItemTag00()" id="2024-11_top_selling_item_tag-00">Override -1</button>
+                            </div>
+    
+    
+                            <div class="experiment-card">
+                                <p>Item Data Downloads</p>
+                                <p class="experiment-subtext">2024-11_item_data_downloads</p>
+                                <button class="refresh-button" onclick="itemDataDownloads2()" id="2024-11_item_data_downloads-2" title="show download button on modal and card">Override 2</button>
+                                <button class="refresh-button" onclick="itemDataDownloads1()" id="2024-11_item_data_downloads-1" title="show download button on modal">Override 1</button>
+                                <button class="refresh-button" onclick="itemDataDownloads0()" id="2024-11_item_data_downloads-0">No Override</button>
+                                <button class="refresh-button" onclick="itemDataDownloads00()" id="2024-11_item_data_downloads-00">Override -1</button>
+                            </div>
+    
+    
+                            <div class="experiment-card">
+                                <p>Show Items That Are Currently In The Discord Shop</p>
+                                <p class="experiment-subtext">2024-09_items_in_shop</p>
+                                <button class="refresh-button" onclick="itemsCurrentlyInShop1()" id="2024-09_items_in_shop-1">Override 1</button>
+                                <button class="refresh-button" onclick="itemsCurrentlyInShop0()" id="2024-09_items_in_shop-0">No Override</button>
+                                <button class="refresh-button" onclick="itemsCurrentlyInShop00()" id="2024-09_items_in_shop-00">Override -1</button>
+                            </div>
+    
+                            
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div>
-                    <h2>Debug</h2>
-                    <p class="experiment-subtext">Overrides</p>
-                    <div class="experiment-card-holder">
-                        <div class="experiment-card">
-                            <p>Unreleased Profiles Plus Items</p>
-                            <p class="experiment-subtext">2024-09_profiles_plus</p>
-                            <button class="refresh-button" onclick="unreleasedProfilesPlusItemsTrue()" id="2024-09_profiles_plus-1">Override 1</button>
-                            <button class="refresh-button" onclick="unreleasedProfilesPlusItemsFalse()" id="2024-09_profiles_plus-2">No Override</button>
-                        </div>
-                        <div class="experiment-card">
-                            <p>Show 404 Button</p>
-                            <p class="experiment-subtext">2024-09_not_found</p>
-                            <button class="refresh-button" onclick="secret404ButtonShow()" id="2024-09_not_found-1">Override 1</button>
-                            <button class="refresh-button" onclick="secret404ButtonHide()" id="2024-09_not_found-2">No Override</button>
+                    <hr>
+                    <div>
+                        <h2>Modals</h2>
+                        <div class="experiment-card-holder">
+                            <div class="experiment-card">
+                                <p>Lost</p>
+                                <button class="refresh-button" onclick="openLostModal()">Open</button>
+                            </div>
+                            <div class="experiment-card">
+                                <p>Dev</p>
+                                <button class="refresh-button" onclick="openDevModal()">Open</button>
+                            </div>
+                            <div class="experiment-card">
+                                <p>Options</p>
+                                <button class="refresh-button" onclick="openOptionsModal()">Open</button>
+                            </div>
+                            <div class="experiment-card">
+                                <p>Downloads</p>
+                                <button class="refresh-button" onclick="openDownloadsModal()">Open</button>
+                            </div>
                         </div>
                     </div>
+                    <hr>
+                    <div>
+                        <h2>Debug</h2>
+                        <p class="experiment-subtext">Overrides</p>
+                        <div class="experiment-card-holder">
+                            <div class="experiment-card">
+                                <p>Unreleased Profiles Plus Items</p>
+                                <p class="experiment-subtext">2024-09_profiles_plus</p>
+                                <button class="refresh-button" onclick="unreleasedProfilesPlusItemsTrue()" id="2024-09_profiles_plus-1">Override 1</button>
+                                <button class="refresh-button" onclick="unreleasedProfilesPlusItemsFalse()" id="2024-09_profiles_plus-2">No Override</button>
+                            </div>
+                            <div class="experiment-card">
+                                <p>Show 404 Button</p>
+                                <p class="experiment-subtext">2024-09_not_found</p>
+                                <button class="refresh-button" onclick="secret404ButtonShow()" id="2024-09_not_found-1">Override 1</button>
+                                <button class="refresh-button" onclick="secret404ButtonHide()" id="2024-09_not_found-2">No Override</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <h2>Local Storage Overrides</h2>
+                        <p class="experiment-subtext">Refresh the page for changes to take effect</p>
+                        <button class="refresh-button" style="opacity: 0; pointer-events: none;">Save</button>
+                        <input type="text" class="dev-local-storage-input-1" id="keyInput" placeholder="Enter key">
+                        <input type="text" class="dev-local-storage-input-1" id="valueInput" placeholder="Enter value">
+                        <button class="refresh-button" onclick="saveToLocalStorage()">Save</button>
+                        <div id="storageItems"></div>
+                    </div>
+                    <hr>
+                    <button class="refresh-button" onclick="closeDevModal()">Close</button>
+                    <button class="refresh-button" onclick="turnOffDevMode()">Safe Mode</button>
                 </div>
-                <hr>
-                <div>
-                    <h2>Local Storage Overrides</h2>
-                    <p class="experiment-subtext">Refresh the page for changes to take effect</p>
-                    <button class="refresh-button" style="opacity: 0; pointer-events: none;">Save</button>
-                    <input type="text" class="dev-local-storage-input-1" id="keyInput" placeholder="Enter key">
-                    <input type="text" class="dev-local-storage-input-1" id="valueInput" placeholder="Enter value">
-                    <button class="refresh-button" onclick="saveToLocalStorage()">Save</button>
-                    <div id="storageItems"></div>
-                </div>
-                <hr>
-                <button class="refresh-button" onclick="closeDevModal()">Close</button>
-                <button class="refresh-button" onclick="turnOffDevMode()">Safe Mode</button>
             </div>
         </div>
-    </div>
-    `;
-
-
-    if (localStorage.top_selling_item != "true") {
-        if (localStorage.top_selling_item != "false") {
-            if (localStorage.top_selling_item != "two") {
-                document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_top_selling_item_tag-0").classList.add('refresh-button-selected');
-                document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+        `;
+    
+    
+        if (localStorage.top_selling_item != "true") {
+            if (localStorage.top_selling_item != "false") {
+                if (localStorage.top_selling_item != "two") {
+                    document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+                    document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+                    document.getElementById("2024-11_top_selling_item_tag-0").classList.add('refresh-button-selected');
+                    document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+                }
             }
         }
-    }
-
-    if (localStorage.top_selling_item == "two") {
-        document.getElementById("2024-11_top_selling_item_tag-2").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
-    }
     
-    if (localStorage.top_selling_item == "true") {
-        document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-1").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
-    }
-
-    if (localStorage.top_selling_item == "false") {
-        document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_top_selling_item_tag-00").classList.add('refresh-button-selected');
-    }
-
-
-
-    if (localStorage.item_data_downloads != "true") {
-        if (localStorage.item_data_downloads != "false") {
-            if (localStorage.item_data_downloads != "two") {
-                document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_item_data_downloads-0").classList.add('refresh-button-selected');
-                document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+        if (localStorage.top_selling_item == "two") {
+            document.getElementById("2024-11_top_selling_item_tag-2").classList.add('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+        }
+        
+        if (localStorage.top_selling_item == "true") {
+            document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-1").classList.add('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('refresh-button-selected');
+        }
+    
+        if (localStorage.top_selling_item == "false") {
+            document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_top_selling_item_tag-00").classList.add('refresh-button-selected');
+        }
+    
+    
+    
+        if (localStorage.item_data_downloads != "true") {
+            if (localStorage.item_data_downloads != "false") {
+                if (localStorage.item_data_downloads != "two") {
+                    document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+                    document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+                    document.getElementById("2024-11_item_data_downloads-0").classList.add('refresh-button-selected');
+                    document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+                }
             }
         }
-    }
-
-    if (localStorage.item_data_downloads == "two") {
-        document.getElementById("2024-11_item_data_downloads-2").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
-    }
     
-    if (localStorage.item_data_downloads == "true") {
-        document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-1").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
-    }
-    
-    if (localStorage.item_data_downloads == "false") {
-        document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_item_data_downloads-00").classList.add('refresh-button-selected');
-    }
-
-
+        if (localStorage.item_data_downloads == "two") {
+            document.getElementById("2024-11_item_data_downloads-2").classList.add('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+        }
+        
+        if (localStorage.item_data_downloads == "true") {
+            document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-1").classList.add('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-00").classList.remove('refresh-button-selected');
+        }
+        
+        if (localStorage.item_data_downloads == "false") {
+            document.getElementById("2024-11_item_data_downloads-2").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_item_data_downloads-00").classList.add('refresh-button-selected');
+        }
     
     
-    if (localStorage.items_in_shop == "true") {
-        document.getElementById("2024-09_items_in_shop-1").classList.add('refresh-button-selected');
-        document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-09_items_in_shop-00").classList.remove('refresh-button-selected');
-    }
-    
-    if (localStorage.items_in_shop != "true") {
-        if (localStorage.items_in_shop != "false") {
-            document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
-            document.getElementById("2024-09_items_in_shop-0").classList.add('refresh-button-selected');
+        
+        
+        if (localStorage.items_in_shop == "true") {
+            document.getElementById("2024-09_items_in_shop-1").classList.add('refresh-button-selected');
+            document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
             document.getElementById("2024-09_items_in_shop-00").classList.remove('refresh-button-selected');
         }
-    }
-
-    if (localStorage.items_in_shop == "false") {
-        document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-09_items_in_shop-00").classList.add('refresh-button-selected');
-    }
-    
-    
-    
-    if (localStorage.not_found_found == "true") {
-        const fourohfour = document.getElementById("404-mains-button");
-    if (fourohfour) {  // Check if element exists
-        if (localStorage.not_found_found == "true") {
-            document.getElementById("404-mains-button").classList.remove('hidden');
+        
+        if (localStorage.items_in_shop != "true") {
+            if (localStorage.items_in_shop != "false") {
+                document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
+                document.getElementById("2024-09_items_in_shop-0").classList.add('refresh-button-selected');
+                document.getElementById("2024-09_items_in_shop-00").classList.remove('refresh-button-selected');
+            }
         }
-    }
-        document.getElementById("2024-09_not_found-1").classList.add('refresh-button-selected');
-    }
     
-    if (localStorage.not_found_found != "true") {
-        document.getElementById("2024-09_not_found-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-09_not_found-2").classList.add('refresh-button-selected');
-    }
+        if (localStorage.items_in_shop == "false") {
+            document.getElementById("2024-09_items_in_shop-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-09_items_in_shop-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-09_items_in_shop-00").classList.add('refresh-button-selected');
+        }
+        
+        
+        
+        if (localStorage.not_found_found == "true") {
+            const fourohfour = document.getElementById("404-mains-button");
+        if (fourohfour) {  // Check if element exists
+            if (localStorage.not_found_found == "true") {
+                document.getElementById("404-mains-button").classList.remove('hidden');
+            }
+        }
+            document.getElementById("2024-09_not_found-1").classList.add('refresh-button-selected');
+        }
+        
+        if (localStorage.not_found_found != "true") {
+            document.getElementById("2024-09_not_found-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-09_not_found-2").classList.add('refresh-button-selected');
+        }
+        
+        
+        if (localStorage.unreleased_profiles_plus == "true") {
+            document.getElementById("2024-09_profiles_plus-1").classList.add('refresh-button-selected');
+        }
+        
+        if (localStorage.unreleased_profiles_plus != "true") {
+            document.getElementById("2024-09_profiles_plus-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-09_profiles_plus-2").classList.add('refresh-button-selected');
+        }
     
-    
-    if (localStorage.unreleased_profiles_plus == "true") {
-        document.getElementById("2024-09_profiles_plus-1").classList.add('refresh-button-selected');
+        displayLocalStorage();
+    }else {
+        console.error('403 (Forbidden)')
     }
-    
-    if (localStorage.unreleased_profiles_plus != "true") {
-        document.getElementById("2024-09_profiles_plus-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-09_profiles_plus-2").classList.add('refresh-button-selected');
-    }
-
-    displayLocalStorage();
 }
 
 

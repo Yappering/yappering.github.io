@@ -1,3 +1,4 @@
+
 let apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/profiles-plus';
 
 const unreleased_profiles_plus_token = localStorage.getItem('token');
@@ -16,6 +17,16 @@ fetch(apiUrlWithToken)
     .then(data => {
         data.forEach(user => {
             const category = template.content.cloneNode(true).children[0];
+
+            if (localStorage.epic_pplus_balls == "true") {
+                if (user.category_bg != null) {
+                    const marketing_bg = category.querySelector("[data-shop-category-marketing-bg]");
+                    marketing_bg.src = user.category_bg;
+                }
+            }
+
+            const banner = category.querySelector("[data-shop-category-banner]");
+            banner.id = user.sku_id;
 
             const bannerImage = category.querySelector("[data-shop-category-banner-image]");
             bannerImage.src = user.banner;
@@ -71,9 +82,11 @@ fetch(apiUrlWithToken)
             const cardHolder = category.querySelector(".shop-category-card-holder");
 
             // Function to create a card
-            function createCard(item, credits, emojiCopy, isBundle = false, isNew = false) {
+            function createCard(item, credits, pplus_id, emojiCopy, isBundle = false, isNew = false) {
                 const card = document.createElement('div');
                 card.classList.add('shop-category-card');
+
+                card.id = pplus_id;
             
                 // Determine card class based on item type
                 if (item.item_type === 'deco') {
@@ -82,6 +95,10 @@ fetch(apiUrlWithToken)
                     card.classList.add('effect-card');
                 } else if (isBundle) {
                     card.classList.add('bundle-card');
+                }
+
+                if (localStorage.epic_pplus_balls == "true") {
+                    card.classList.add('shop-category-card-transparent');
                 }
             
                 // Card content based on item type
@@ -268,32 +285,76 @@ fetch(apiUrlWithToken)
             user.products.forEach(product => {
                 const isNew = product.isNew === "true";
                 const credits = product.credits || ""; // Get credits from the product
+                const pplus_id = product.pplus_id || "";
                 const emojiCopy = product.emojiCopy || ""; // Get emojiCopy from the product
 
                 // Check if the product is a bundle
                 if (product.bundled_products) {
                     // Add bundle card with bundled items
-                    bundleProducts.push({ product, credits, emojiCopy, isNew });
+                    bundleProducts.push({ product, credits, pplus_id, emojiCopy, isNew });
                 } else {
                     // Handle individual items
                     product.items.forEach(item => {
                         if (item.item_type === 'deco') {
-                            decorationProducts.push({ item, credits, emojiCopy, isNew });
+                            decorationProducts.push({ item, credits, pplus_id, emojiCopy, isNew });
                         } else if (item.item_type === 'effect') {
-                            effectProducts.push({ item, credits, emojiCopy, isNew });
+                            effectProducts.push({ item, credits, pplus_id, emojiCopy, isNew });
                         }
                     });
                 }
             });
 
             // Append Bundle, Decoration, and Effect cards in that order
-            bundleProducts.forEach(({ product, credits, emojiCopy, isNew }) => cardHolder.appendChild(createCard(product, credits, emojiCopy, true, isNew)));
-            decorationProducts.forEach(({ item, credits, emojiCopy, isNew }) => cardHolder.appendChild(createCard(item, credits, emojiCopy, false, isNew)));
-            effectProducts.forEach(({ item, credits, emojiCopy, isNew }) => cardHolder.appendChild(createCard(item, credits, emojiCopy, false, isNew)));
+            bundleProducts.forEach(({ product, credits, pplus_id, emojiCopy, isNew }) => cardHolder.appendChild(createCard(product, credits, pplus_id, emojiCopy, true, isNew)));
+            decorationProducts.forEach(({ item, credits, pplus_id, emojiCopy, isNew }) => cardHolder.appendChild(createCard(item, credits, pplus_id, emojiCopy, false, isNew)));
+            effectProducts.forEach(({ item, credits, pplus_id, emojiCopy, isNew }) => cardHolder.appendChild(createCard(item, credits, pplus_id, emojiCopy, false, isNew)));
 
             document.getElementById("shop-category-loading").classList.add('hidden');
             output.append(category);
         });
+
+        if (localStorage.epic_pplus_balls == "true") {
+            const paper_beach2 = document.getElementById('profiles-plus-8');
+            if (paper_beach2) {  // Check if element exists
+                document.getElementById('profiles-plus-8').innerHTML = `
+                <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/5.png">
+                <div class="shop-category-condensed-logo-holder" style="left: 15%;">
+                    <img class="shop-category-banner-logo shop-logo-sway" src="https://cdn.yapper.shop/assets/1.png" id="shop-banner-logo">
+                </div>
+                `;
+            }
+    
+            const windowkill2 = document.getElementById('profiles-plus-4');
+            if (windowkill2) {  // Check if element exists
+                document.getElementById('profiles-plus-4').innerHTML = `
+                <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/87.png">
+                <div class="shop-category-condensed-logo-holder" style="right: -15%;">
+                    <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/assets/53.png" id="shop-banner-logo">
+                </div>
+                `;
+            }
+
+            const paper_beach = document.getElementById('profiles-plus-3');
+            if (paper_beach) {  // Check if element exists
+                document.getElementById('profiles-plus-3').innerHTML = `
+                <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/5.png">
+                <div class="shop-category-condensed-logo-holder" style="left: 15%;">
+                    <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/assets/1.png" id="shop-banner-logo">
+                </div>
+                `;
+            }
+
+            const bopl_battle = document.getElementById('profiles-plus-2');
+            if (bopl_battle) {  // Check if element exists
+                document.getElementById('profiles-plus-2').innerHTML = `
+                <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/93.png">
+                <div class="shop-category-condensed-logo-holder" style="right: -6%;">
+                    <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/assets/60.png" id="shop-banner-logo">
+                </div>
+                `;
+            }
+        }
+
     })
     .catch(error => {
         console.error('Error fetching the API:', error);

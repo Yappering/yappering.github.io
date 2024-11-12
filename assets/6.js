@@ -30,7 +30,7 @@ function openLostModal() {
                 <hr style="opacity: 0">
                 <button class="refresh-button" onclick="closeLostModal()">Close</button>
                 <hr style="opacity: 0">
-                App Version: Stable 116
+                App Version: Stable 121
             </div>
         </div>
     </div>
@@ -212,6 +212,15 @@ function openDevModal() {
                         <h2>Experiments</h2>
                         <p class="experiment-subtext">Test out new features</p>
                         <div class="experiment-card-holder">
+
+
+                            <div class="experiment-card">
+                                <p>Epic Profiles Plus Category Changes</p>
+                                <p class="experiment-subtext">2024-11_epic_profiles_plus_category_changes</p>
+                                <button class="refresh-button" onclick="epicProfilesPlusCategoryChanges1()" id="2024-11_epic_profiles_plus_category_changes-1">Override 1</button>
+                                <button class="refresh-button" onclick="epicProfilesPlusCategoryChanges0()" id="2024-11_epic_profiles_plus_category_changes-0">No Override</button>
+                                <button class="refresh-button" onclick="epicProfilesPlusCategoryChanges00()" id="2024-11_epic_profiles_plus_category_changes-00">Override -1</button>
+                            </div>
     
     
                             <div class="experiment-card">
@@ -303,6 +312,29 @@ function openDevModal() {
             </div>
         </div>
         `;
+
+
+
+        if (localStorage.epic_pplus_balls == "true") {
+            document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.add('refresh-button-selected');
+            document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
+        }
+        
+        if (localStorage.epic_pplus_balls != "true") {
+            if (localStorage.epic_pplus_balls != "false") {
+                document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.add('refresh-button-selected');
+                document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
+            }
+        }
+    
+        if (localStorage.epic_pplus_balls == "false") {
+            document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
+            document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.add('refresh-button-selected');
+        }
+
     
     
         if (localStorage.top_selling_item != "true") {
@@ -468,6 +500,29 @@ function dev() {
     localStorage.dev = "true"
     location.reload();
 }
+
+
+function epicProfilesPlusCategoryChanges0() {
+    localStorage.epic_pplus_balls = "none"
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
+}
+
+function epicProfilesPlusCategoryChanges1() {
+    localStorage.epic_pplus_balls = "true"
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.add('refresh-button-selected');
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
+}
+
+function epicProfilesPlusCategoryChanges00() {
+    localStorage.epic_pplus_balls = "false"
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
+    document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.add('refresh-button-selected');
+}
+
 
 
 function topSellingItemTag2() {

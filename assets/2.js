@@ -861,6 +861,16 @@ function fetchData() {
                 output.append(category);
             });
 
+            const arcane_banner = document.getElementById('1303490165284802580');
+            if (arcane_banner) {  // Check if element exists
+                document.getElementById('1303490165284802580').innerHTML = `
+                <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1303490165297123358.png?size=4096">
+                <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/35.png">
+                <div class="shop-category-text-holder">
+                    <p style="font-size: 18px;">The hunt is on.</p>
+                </div>
+                `;
+            }
             const dnd_banner = document.getElementById('1293373563494993952');
             if (dnd_banner) {  // Check if element exists
                 document.getElementById('1293373563494993952').innerHTML = `

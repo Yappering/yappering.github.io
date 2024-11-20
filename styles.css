@@ -74,6 +74,24 @@ body {
     overflow-x: hidden;
 }
 
+.options-sidebar-container {
+    position: absolute;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #313338;
+    width: 0px;
+    right: 0;
+    top: 80px;
+    height: 80%;
+    border-radius: 10px 0 0 10px;
+    transition: width 0.6s ease-in-out;
+}
+
+.options-sidebar-container-expanded {
+    width: 400px;
+}
+
 .shop-housing {
     width: 100%;
     height: 100%;
@@ -211,9 +229,24 @@ body {
     position: absolute;
 }
 
+#open-dev-tools-button-1 {
+    margin-top: -50px;
+    right: 120px;
+    cursor: pointer;
+    position: absolute;
+}
+
 #open-downloads-button {
     margin-top: -50px;
     right: 150px;
+    cursor: pointer;
+    position: absolute;
+    scale: 0.95;
+}
+
+#open-downloads-button-1 {
+    margin-top: -50px;
+    right: 121px;
     cursor: pointer;
     position: absolute;
     scale: 0.95;
@@ -229,6 +262,14 @@ body {
 #open-options-tools-button {
     margin-top: -47px;
     right: 118px;
+    cursor: pointer;
+    position: absolute;
+    scale: 1.3;
+}
+
+#open-options-tools-button-1 {
+    margin-top: -47px;
+    right: 85px;
     cursor: pointer;
     position: absolute;
     scale: 1.3;
@@ -1128,6 +1169,58 @@ body {
     border-radius: 15px;
 }
 
+
+.avatar-decoration-image {
+    border-radius: 15px;
+    width: 220px !important;
+    height: 220px !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+.avatar-decoration-image img {
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/6d8f0708e196aaad2550.png');
+    background-size: 83%; /* Ensures the background image covers the whole element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 220px !important;
+    height: 220px !important;
+    border-radius: 15px;
+}
+
+.type_1000 .avatar-decoration-image {
+    position: absolute;
+    left: 120px;
+    z-index: 2;
+    top: 50px;
+    transform: rotate(10deg);
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/ff84fa219ab7e996ec26.png');
+    background-size: 83%; /* Ensures the background image covers the whole element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.type_1000 .profile-effect-image {
+    position: absolute;
+    border-radius: 10px;
+    width: 160px;
+    height: 230px;
+    object-fit: cover;
+    object-position: top;
+    z-index: 1;
+    left: 40px;
+    top: 30px;
+    transform: rotate(-10deg);
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/352db5d6852138aabc88.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+
 [class="shop-category-card-standard deco-card"] img {
     background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/6d8f0708e196aaad2550.png');
     background-size: 83%; /* Ensures the background image covers the whole element */
@@ -1148,6 +1241,18 @@ body {
     background-size: cover; /* Ensures the background image covers the whole element */
     background-position: top; /* Centers the background image */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
+
+.type_1 {
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/352db5d6852138aabc88.png');
+    background-size: cover; /* Ensures the background image covers the whole element */
+    background-position: top; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
+
+.type_1 img {
+    border-radius: 10px;
+    width: 100%;
 }
 
 [class="shop-category-card-standard effect-card"] img {
@@ -1802,6 +1907,34 @@ body {
     border: 2px solid #bf4646;
 }
 
+.home-page-temporary-warning {
+    opacity: 0;
+    transform: translateY(-9999px);
+    transition: transform 0.5s;
+    animation: home-page-temporary-warning-anim 10s;
+    position: absolute;
+    z-index: 10;
+    margin-top: 70px;
+    margin-left: 15px;
+    width: 250px;
+}
+
+@keyframes home-page-temporary-warning-anim {
+    0% {opacity: 0; transform: translateY(-5px); border: 2px solid #bf4646; background-color: #bf464663;}
+    5% {opacity: 1; transform: translateY(0px);}
+    10% {border: 2px solid #7c2525; background-color: #b1303063;}
+    20% {border: 2px solid #bf4646; background-color: #bf464663;}
+    30% {border: 2px solid #7c2525; background-color: #b1303063;}
+    40% {border: 2px solid #bf4646; background-color: #bf464663;}
+    50% {border: 2px solid #7c2525; background-color: #b1303063;}
+    60% {border: 2px solid #bf4646; background-color: #bf464663;}
+    70% {border: 2px solid #7c2525; background-color: #b1303063;}
+    80% {border: 2px solid #bf4646; background-color: #bf464663;}
+    90% {border: 2px solid #7c2525; background-color: #b1303063;}
+    95% {opacity: 1; transform: translateY(0px);}
+    100% {transform: translateY(-5px); border: 2px solid #bf4646; background-color: #bf464663;}
+}
+
 .shop-notice-text {
     margin-top: 5px;
 }
@@ -1846,6 +1979,11 @@ body {
     background-repeat: no-repeat;
 }
 
+
+.shop-container {
+    overflow-x: hidden;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
@@ -1869,4 +2007,8 @@ body {
 
 .hidden {
     display: none !important;
+}
+
+body {
+    overflow-x: hidden;
 }

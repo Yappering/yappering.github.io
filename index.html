@@ -1,8 +1,64 @@
-<meta http-equiv="refresh" content="0; url=home" />
-<title>Loading... | Shop Archives</title>
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<meta content="Shop Archives" property="og:title" />
-<meta content="Your one stop place for all Discord Collectibles" property="og:description" />
-<meta content="https://yapper.shop/" property="og:url" />
-<meta content="https://raw.githubusercontent.com/Yappering/developer/main/assets/5.png" property="og:image" />
-<meta content="#FF007A" data-react-helmet="true" name="theme-color" />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base target="_blank">
+    <title>Loading... | Shop Archives</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta content="Shop Archives" property="og:title" />
+    <meta content="Your one stop place for all Discord Collectibles" property="og:description" />
+    <meta content="https://yapper.shop/" property="og:url" />
+    <meta content="https://raw.githubusercontent.com/Yappering/developer/main/assets/5.png" property="og:image" />
+    <meta content="#FF007A" data-react-helmet="true" name="theme-color" />
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="housing">
+        <div class="sidebar">
+            <div class="dm-list">
+                <div style="overflow: auto; height: 100%; margin-top: 50px;" id="clickable-side-tabs-container">
+                </div>
+            </div>
+            <div class="server-list">
+                <div class="server-avatar">
+                    <button class="server-icon server-icon-selected server-home" onclick="location.href='/home';">
+                    </button>
+                    <div class="server-pill">
+                    </div>
+                </div>
+                <hr style="opacity: 0;">
+                <div data-servers>
+                </div>
+                <template data-servers-template>
+                    <div class="server-avatar" data-servers-button>
+                        <img class="server-icon" src="" data-server-icon>
+                        </img>
+                    </div>
+                </template>
+            </div>
+            <div style="width: 320px;">
+            </div>
+        </div>
+        <div class="top-bar" id="top-bar-container">
+            <h2 style="margin-left: 260px; margin-top: 10px;">Home</h2>
+            <div id="open-help-modals-buttons-holder"></div>
+        </div>
+        <div class="home-housing" id="everything-housing-container">
+        </div>
+    </div>
+    <div class="modal-housing" id="modal-housing"></div>
+    <div class="options-sidebar-container" id="options-sidebar-container">
+    </div>
+
+    
+    <script src="/assets/10.js"></script>
+    <script src="/assets/19.js"></script>
+    <script>
+        if (localStorage.full_client_rework === "false") {
+            location.href='/home';
+        }
+    </script>
+</body>
+
+</html>

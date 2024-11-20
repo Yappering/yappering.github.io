@@ -1,3 +1,4 @@
+
 let apiUrl = 'https://raw.githubusercontent.com/Yappering/api/main/v1/collectibles';
 
 // Function to clear the shop data
@@ -81,6 +82,8 @@ function fetchData() {
                 } else {
                     expiryTimer.style.display = 'none';
                 }
+
+                const cardHolder = category.querySelector(".shop-category-card-holder");
 
 
                 if (localStorage.item_data_downloads == "two") {
@@ -772,19 +775,7 @@ function fetchData() {
                     return 'unknown-type'; // Fallback for undefined types
                 }
                 
-                
-                
-                
-                
-                
 
-                
-    
-                // Sort and display the products: Bundle, Decoration, Effect
-                const bundleProducts = [];
-                const decorationProducts = [];
-                const effectProducts = [];
-    
                 user.products.forEach(product => {
                     const isNew = product.isNew === "true";
                     const sku = product.sku_id || ""; // Get credits from the product
@@ -795,64 +786,12 @@ function fetchData() {
     
                     // Check if the product is a bundle
                     if (product.bundled_products) {
-                        // Add bundle card with bundled items
-                        bundleProducts.push({ product, sku, price, priceNitro, emojiCopy, popular, isNew });
+                        cardHolder.appendChild(createCard(product, sku, price, priceNitro, emojiCopy, popular, true, isNew));
                     } else {
                         // Handle individual items
                         product.items.forEach(item => {
-                            if (item.item_type === 'deco') {
-                                decorationProducts.push({ item, sku, price, priceNitro, emojiCopy, popular, isNew });
-                            } else if (item.item_type === 'effect') {
-                                effectProducts.push({ item, sku, price, priceNitro, emojiCopy, popular, isNew });
-                            }
+                            cardHolder.appendChild(createCard(item, sku, price, priceNitro, emojiCopy, popular, false, isNew));
                         });
-                    }
-                });
-
-                // Display bundles first
-                if (localStorage.shop_have_no_bundles != "true") {
-                    bundleProducts.forEach(({ product, sku, price, priceNitro, emojiCopy, popular, isNew }) => {
-                        const card = createCard(product, sku, price, priceNitro, emojiCopy, popular, true, isNew);
-
-                        if (localStorage.standard_cards == "true") {
-                            const cardHolder = category.querySelector(".shop-category-card-holder-standard");
-                            cardHolder.append(card);
-                            cardHolder.classList.remove('hidden');
-                        } else {
-                            const cardHolder = category.querySelector(".shop-category-card-holder");
-                            cardHolder.append(card);
-                            cardHolder.classList.remove('hidden');
-                        }
-                    });
-                }
-
-                // Then display decoration products
-                decorationProducts.forEach(({ item, sku, price, priceNitro, emojiCopy, popular, isNew }) => {
-                    const card = createCard(item, sku, price, priceNitro, emojiCopy, popular, false, isNew);
-
-                    if (localStorage.standard_cards == "true") {
-                        const cardHolder = category.querySelector(".shop-category-card-holder-standard");
-                        cardHolder.append(card);
-                        cardHolder.classList.remove('hidden');
-                    } else {
-                        const cardHolder = category.querySelector(".shop-category-card-holder");
-                        cardHolder.append(card);
-                        cardHolder.classList.remove('hidden');
-                    }
-                });
-
-                // Finally, display effect products
-                effectProducts.forEach(({ item, sku, price, priceNitro, emojiCopy, popular, isNew }) => {
-                    const card = createCard(item, sku, price, priceNitro, emojiCopy, popular, false, isNew);
-
-                    if (localStorage.standard_cards == "true") {
-                        const cardHolder = category.querySelector(".shop-category-card-holder-standard");
-                        cardHolder.append(card);
-                        cardHolder.classList.remove('hidden');
-                    } else {
-                        const cardHolder = category.querySelector(".shop-category-card-holder");
-                        cardHolder.append(card);
-                        cardHolder.classList.remove('hidden');
                     }
                 });
 
@@ -861,6 +800,15 @@ function fetchData() {
                 output.append(category);
             });
 
+            const kawaii_mode_banner = document.getElementById('1306330663213072494');
+            if (kawaii_mode_banner) {  // Check if element exists
+                document.getElementById('1306330663213072494').innerHTML = `
+                <video autoplay class="shop-category-banner-img" src="https://cdn.discordapp.com/assets/content/8f1e14026cd1810312c106ddd16cc2dca0d69144f8853c24ed2936bcf6defc48.webm" loop></video>
+                <div class="shop-category-text-holder">
+                    <p style="font-size: 18px;">The hunt is on.</p>
+                </div>
+                `;
+            }
             const arcane_banner = document.getElementById('1303490165284802580');
             if (arcane_banner) {  // Check if element exists
                 document.getElementById('1303490165284802580').innerHTML = `

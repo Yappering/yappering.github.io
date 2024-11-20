@@ -11,3 +11,9 @@ if (localStorage.top_selling_item != "false") {
         }
     }
 }
+
+if (localStorage.full_client_rework != "false") {
+    if (localStorage.full_client_rework != "none") {
+        localStorage.full_client_rework = "true"
+    }
+}

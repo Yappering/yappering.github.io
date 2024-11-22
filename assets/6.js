@@ -31,7 +31,7 @@ if (localStorage.full_client_rework != "true") {
                     <hr style="opacity: 0">
                     <button class="refresh-button" onclick="closeLostModal()">Close</button>
                     <hr style="opacity: 0">
-                    App Version: Stable 138
+                    App Version: Stable 142
                 </div>
             </div>
         </div>

@@ -4,6 +4,11 @@ if (localStorage.full_client_rework != "false") {
     prvapi = 'https://raw.githubusercontent.com/Yappering/private-api/refs/heads/main/v2';
     discordsupport = 'https://support.discord.com/hc/en-us/articles/';
     discordblog = 'https://discord.com/blog/';
+    apidesignedurl = 'https://api.yapper.shop/v2';
+
+    if (localStorage.api_designed_url != "false") {
+        api = apidesignedurl;
+    }
 
 
     COLLECTIBLES = '/collectibles-categories.json';
@@ -72,27 +77,6 @@ if (localStorage.full_client_rework != "false") {
     HELP_HD_STREAMING_POTION = "27343254089623"
 
     BLOG_AVATAR_DECORATIONS_PROFILE_EFFECTS = "avatar-decorations-collect-and-keep-the-newest-styles"
-    
-
-
-
-
-    fetch(api + LEAKS)
-    .then(response => response.json())
-    .then((data) => {
-        data.forEach(apiCategory => {
-            console.log(`Valid Leaks Check: True`);
-            document.getElementById('leaks-tab-loading').innerHTML = `
-                <button class="dm-button" id="leaks-tab" onclick="setParams({page: 'leaks'}); location.reload();">
-                    <p class="dm-button-text">Leaks</p>
-                </button>
-            `;
-        });
-    })
-    .catch(error => {
-        console.log(`Valid Leaks Check: False`);
-        document.getElementById('leaks-tab-loading').innerHTML = ``;
-    });
 
 
     const params = new URLSearchParams(window.location.search);
@@ -910,7 +894,13 @@ if (localStorage.full_client_rework != "false") {
 
         } else {
                 
-            apiUrl = api + HOME_PAGE_PREVIEW;
+            if (localStorage.unreleased_discord_collectibles == "true") {
+                const client_token = localStorage.getItem('token');
+                apiUrlRaw = prvapi + HOME_PAGE_PREVIEW;
+                apiUrl = `${apiUrlRaw}?token=${client_token}`;  
+            } else {
+                apiUrl = api + HOME_PAGE_PREVIEW;
+            }
 
             let profileEffectsCache = null;
             
@@ -927,7 +917,11 @@ if (localStorage.full_client_rework != "false") {
                         category.querySelector("[data-shop-category-banner-image]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.hero_banner}.png?size=4096`;
                         category.querySelector("[data-shop-category-banner-image]").alt = apiCategory.name;
     
-                        category.querySelector("[data-shop-category-logo-image]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.hero_logo}.png?size=4096`;
+                        if (apiCategory.hero_logo == null) {
+                            category.querySelector("[data-shop-category-logo-image]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.logo}.png?size=4096`;
+                        } else {
+                            category.querySelector("[data-shop-category-logo-image]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.hero_logo}.png?size=4096`;
+                        }
                         category.querySelector("[data-shop-category-logo-image]").alt = apiCategory.name;
                 
                         const summary = category.querySelector("[data-shop-category-desc]");
@@ -1293,10 +1287,6 @@ if (localStorage.full_client_rework != "false") {
                 <p class="dm-button-text">Shop</p>
             </button>
             <div id="leaks-tab-loading">
-                <button class="dm-button dm-button-fetching" style="cursor: default;">
-                    <div class="dm-button-text-fetching dm-button-text-fetching-var-3"></div>
-                    <div class="dm-button-tag-fetching"></div>
-                </button>
             </div>
             <button class="dm-button" id="potions-tab" onclick="setParams({page: 'consumables'}); location.reload();">
                 <p class="dm-button-text">Potions</p>
@@ -1346,7 +1336,6 @@ if (localStorage.full_client_rework != "false") {
             document.title = "Leaks | Shop Archives";
             apiUrl = api + LEAKS;
             createMainShopElement()
-            document.getElementById("leaks-tab").classList.add('dm-button-selected');
             document.getElementById("top-bar-container").innerHTML = `
                 <h2 style="margin-left: 260px; margin-top: 10px;">Leaks</h2>
                 <div id="open-help-modals-buttons-holder"></div>
@@ -1410,6 +1399,52 @@ if (localStorage.full_client_rework != "false") {
     }
 
     pageCheck();
+
+
+    
+    function leaksCheck() {
+        if (localStorage.override_leaks_button === "true") {
+            console.log(`Valid Leaks Check: Overridden`);
+            document.getElementById('leaks-tab-loading').innerHTML = `
+                <button class="dm-button" id="leaks-tab" onclick="setParams({page: 'leaks'}); location.reload();" title="New {apiCategory.name} Leaks">
+                    <p class="dm-button-text">Leaks</p>
+                    <div class="dm-new-icon">
+                        NEW
+                    </div>
+                </button>
+            `;
+            if (params.get("page") === "leaks") {
+                document.getElementById("leaks-tab").classList.add('dm-button-selected');
+            }
+        } else {
+            fetch(api + LEAKS)
+            .then(response => response.json())
+            .then((data) => {
+                data.forEach(apiCategory => {
+                    console.log(`Valid Leaks Check: True`);
+                    document.getElementById('leaks-tab-loading').innerHTML = `
+                        <button class="dm-button" id="leaks-tab" onclick="setParams({page: 'leaks'}); location.reload();" title="New ${apiCategory.name} Leaks">
+                            <p class="dm-button-text">Leaks</p>
+                            <div class="dm-new-icon">
+                                NEW
+                            </div>
+                        </button>
+                    `;
+                    if (params.get("page") === "leaks") {
+                        document.getElementById("leaks-tab").classList.add('dm-button-selected');
+                    }
+                });
+            })
+            .catch(error => {
+                console.log(`Valid Leaks Check: False`);
+                document.getElementById('leaks-tab-loading').innerHTML = ``;
+            });
+        }
+    }
+
+
+
+    leaksCheck();
 
 
 
@@ -2203,7 +2238,7 @@ if (localStorage.full_client_rework != "false") {
                     <button class="card-button" onclick="window.open('https://github.com/Yappering/');">Github</button>
                     <button class="card-button" onclick="window.open('https://www.youtube.com/@DTACat');">DTACat Youtube</button>
                 </div>
-                App Version: Dev 138
+                App Version: Stable 142
             `;
 
             if (localStorage.items_in_shop_yes == "true") {
@@ -2447,6 +2482,15 @@ if (localStorage.full_client_rework != "false") {
                             <h2>Experiments</h2>
                             <p class="experiment-subtext">Test out new features</p>
                             <div class="experiment-card-holder">
+
+
+                                <div class="experiment-card">
+                                    <p>API Designed Url</p>
+                                    <p class="experiment-subtext">2024-11_api_designed_url</p>
+                                    <button class="refresh-button" onclick="apiDesignedUrl1()" id="2024-11_api_designed_url-1" title="set api.yapper.shop as primary api request url">Override 1</button>
+                                    <button class="refresh-button" onclick="apiDesignedUrl0()" id="2024-11_api_designed_url-0">No Override</button>
+                                    <button class="refresh-button" onclick="apiDesignedUrl00()" id="2024-11_api_designed_url-00" title="use if client fails to fetch from api.yapper.shop">Override -1</button>
+                                </div>
     
     
                                 <div class="experiment-card">
@@ -2455,15 +2499,6 @@ if (localStorage.full_client_rework != "false") {
                                     <button class="refresh-button" onclick="fullClientRework1()" id="2024-11_full_client_rework-1">Override 1</button>
                                     <button class="refresh-button" onclick="fullClientRework0()" id="2024-11_full_client_rework-0">No Override</button>
                                     <button class="refresh-button" onclick="fullClientRework00()" id="2024-11_full_client_rework-00">Override -1</button>
-                                </div>
-    
-    
-                                <div class="experiment-card">
-                                    <p>Epic Profiles Plus Category Changes</p>
-                                    <p class="experiment-subtext">2024-11_epic_profiles_plus_category_changes</p>
-                                    <button class="refresh-button" onclick="epicProfilesPlusCategoryChanges1()" id="2024-11_epic_profiles_plus_category_changes-1">Override 1</button>
-                                    <button class="refresh-button" onclick="epicProfilesPlusCategoryChanges0()" id="2024-11_epic_profiles_plus_category_changes-0">No Override</button>
-                                    <button class="refresh-button" onclick="epicProfilesPlusCategoryChanges00()" id="2024-11_epic_profiles_plus_category_changes-00">Override -1</button>
                                 </div>
         
         
@@ -2516,7 +2551,13 @@ if (localStorage.full_client_rework != "false") {
                             <h2>Debug</h2>
                             <p class="experiment-subtext">Overrides</p>
                             <div class="experiment-card-holder">
-                            <div class="experiment-card">
+                                <div class="experiment-card">
+                                    <p>Show Leaks Button</p>
+                                    <p class="experiment-subtext">2024-11_override_leaks_button</p>
+                                    <button class="refresh-button" onclick="overrideLeaksButtonShow()" id="2024-11_override_leaks_button-1">Override 1</button>
+                                    <button class="refresh-button" onclick="overrideLeaksButtonHide()" id="2024-11_override_leaks_button-2">No Override</button>
+                                </div>
+                                <div class="experiment-card">
                                     <p>Project Joshua</p>
                                     <p class="experiment-subtext">2024-11_unreleased_discord_collectibles</p>
                                     <button class="refresh-button" onclick="unreleasedDiscordCollectiblesTrue()" id="2024-11_unreleased_discord_collectibles-1">Override 1</button>
@@ -2527,12 +2568,6 @@ if (localStorage.full_client_rework != "false") {
                                     <p class="experiment-subtext">2024-09_profiles_plus</p>
                                     <button class="refresh-button" onclick="unreleasedProfilesPlusItemsTrue()" id="2024-09_profiles_plus-1">Override 1</button>
                                     <button class="refresh-button" onclick="unreleasedProfilesPlusItemsFalse()" id="2024-09_profiles_plus-2">No Override</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Show 404 Button</p>
-                                    <p class="experiment-subtext">2024-09_not_found</p>
-                                    <button class="refresh-button" onclick="secret404ButtonShow()" id="2024-09_not_found-1">Override 1</button>
-                                    <button class="refresh-button" onclick="secret404ButtonHide()" id="2024-09_not_found-2">No Override</button>
                                 </div>
                             </div>
                         </div>
@@ -2553,6 +2588,28 @@ if (localStorage.full_client_rework != "false") {
                 </div>
             </div>
             `;
+
+
+
+            if (localStorage.api_designed_url == "true") {
+                document.getElementById("2024-11_api_designed_url-1").classList.add('refresh-button-selected');
+                document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
+            }
+            
+            if (localStorage.api_designed_url != "true") {
+                if (localStorage.api_designed_url != "false") {
+                    document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
+                    document.getElementById("2024-11_api_designed_url-0").classList.add('refresh-button-selected');
+                    document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
+                }
+            }
+        
+            if (localStorage.api_designed_url == "false") {
+                document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_api_designed_url-00").classList.add('refresh-button-selected');
+            }
     
     
     
@@ -2576,30 +2633,7 @@ if (localStorage.full_client_rework != "false") {
                 document.getElementById("2024-11_full_client_rework-0").classList.remove('refresh-button-selected');
                 document.getElementById("2024-11_full_client_rework-00").classList.add('refresh-button-selected');
             }
-    
-    
-    
-    
-    
-            if (localStorage.epic_pplus_balls == "true") {
-                document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.add('refresh-button-selected');
-                document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
-            }
-            
-            if (localStorage.epic_pplus_balls != "true") {
-                if (localStorage.epic_pplus_balls != "false") {
-                    document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
-                    document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.add('refresh-button-selected');
-                    document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
-                }
-            }
-        
-            if (localStorage.epic_pplus_balls == "false") {
-                document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.add('refresh-button-selected');
-            }
+
     
         
         
@@ -2670,7 +2704,19 @@ if (localStorage.full_client_rework != "false") {
             }
         
         
+
+            if (localStorage.override_leaks_button == "true") {
+                document.getElementById("2024-11_override_leaks_button-1").classList.add('refresh-button-selected');
+                document.getElementById("2024-11_override_leaks_button-2").classList.remove('refresh-button-selected');
+            }
             
+            if (localStorage.override_leaks_button != "true") {
+                document.getElementById("2024-11_override_leaks_button-1").classList.remove('refresh-button-selected');
+                document.getElementById("2024-11_override_leaks_button-2").classList.add('refresh-button-selected');
+            }
+
+
+
             if (localStorage.unreleased_discord_collectibles == "true") {
                 document.getElementById("2024-11_unreleased_discord_collectibles-1").classList.add('refresh-button-selected');
                 document.getElementById("2024-11_unreleased_discord_collectibles-2").classList.remove('refresh-button-selected');
@@ -2679,22 +2725,6 @@ if (localStorage.full_client_rework != "false") {
             if (localStorage.unreleased_discord_collectibles != "true") {
                 document.getElementById("2024-11_unreleased_discord_collectibles-1").classList.remove('refresh-button-selected');
                 document.getElementById("2024-11_unreleased_discord_collectibles-2").classList.add('refresh-button-selected');
-            }
-
-            
-            if (localStorage.not_found_found == "true") {
-                const fourohfour = document.getElementById("404-mains-button");
-            if (fourohfour) {  // Check if element exists
-                if (localStorage.not_found_found == "true") {
-                    document.getElementById("404-mains-button").classList.remove('hidden');
-                }
-            }
-                document.getElementById("2024-09_not_found-1").classList.add('refresh-button-selected');
-            }
-            
-            if (localStorage.not_found_found != "true") {
-                document.getElementById("2024-09_not_found-1").classList.remove('refresh-button-selected');
-                document.getElementById("2024-09_not_found-2").classList.add('refresh-button-selected');
             }
             
             
@@ -2749,6 +2779,30 @@ if (localStorage.full_client_rework != "false") {
         localStorage.dev = "true"
         location.reload();
     }
+
+
+
+
+    function apiDesignedUrl0() {
+        localStorage.api_designed_url = "none"
+        document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_api_designed_url-0").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
+    }
+    
+    function apiDesignedUrl1() {
+        localStorage.api_designed_url = "true"
+        document.getElementById("2024-11_api_designed_url-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
+    }
+    
+    function apiDesignedUrl00() {
+        localStorage.api_designed_url = "false"
+        document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_api_designed_url-00").classList.add('refresh-button-selected');
+    }
     
     
     
@@ -2772,29 +2826,6 @@ if (localStorage.full_client_rework != "false") {
         document.getElementById("2024-11_full_client_rework-1").classList.remove('refresh-button-selected');
         document.getElementById("2024-11_full_client_rework-0").classList.remove('refresh-button-selected');
         document.getElementById("2024-11_full_client_rework-00").classList.add('refresh-button-selected');
-    }
-    
-    
-    
-    function epicProfilesPlusCategoryChanges0() {
-        localStorage.epic_pplus_balls = "none"
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
-    }
-    
-    function epicProfilesPlusCategoryChanges1() {
-        localStorage.epic_pplus_balls = "true"
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.remove('refresh-button-selected');
-    }
-    
-    function epicProfilesPlusCategoryChanges00() {
-        localStorage.epic_pplus_balls = "false"
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_epic_profiles_plus_category_changes-00").classList.add('refresh-button-selected');
     }
     
     
@@ -2905,61 +2936,51 @@ if (localStorage.full_client_rework != "false") {
     
     
 
+    function overrideLeaksButtonHide() {
+        localStorage.override_leaks_button = "none"
+        document.getElementById("2024-11_override_leaks_button-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_override_leaks_button-2").classList.add('refresh-button-selected');
+        leaksCheck();
+    }
+    
+    function overrideLeaksButtonShow() {
+        localStorage.override_leaks_button = "true"
+        document.getElementById("2024-11_override_leaks_button-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_override_leaks_button-2").classList.remove('refresh-button-selected');
+        leaksCheck();
+    }
+
+    
 
     function unreleasedDiscordCollectiblesFalse() {
         localStorage.unreleased_discord_collectibles = "none"
         document.getElementById("2024-11_unreleased_discord_collectibles-1").classList.remove('refresh-button-selected');
         document.getElementById("2024-11_unreleased_discord_collectibles-2").classList.add('refresh-button-selected');
+        fetchData(pageCheck());
     }
     
     function unreleasedDiscordCollectiblesTrue() {
         localStorage.unreleased_discord_collectibles = "true"
         document.getElementById("2024-11_unreleased_discord_collectibles-1").classList.add('refresh-button-selected');
         document.getElementById("2024-11_unreleased_discord_collectibles-2").classList.remove('refresh-button-selected');
+        fetchData(pageCheck());
     }
-    
-    
-    
-    function secret404ButtonHide() {
-        const fourohfour = document.getElementById("404-mains-button");
-        if (fourohfour) {  // Check if element exists
-            if (localStorage.not_found_found == "true") {
-                document.getElementById("404-mains-button").classList.add('hidden');
-            }
-        }
-        localStorage.not_found_found = "none"
-        console.log('hide 404 button')
-        document.getElementById("2024-09_not_found-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-09_not_found-2").classList.add('refresh-button-selected');
-    }
-    
-    function secret404ButtonShow() {
-        const fourohfour = document.getElementById("404-mains-button");
-        if (fourohfour) {  // Check if element exists
-            if (localStorage.not_found_found == "true") {
-                document.getElementById("404-mains-button").classList.remove('hidden');
-            }
-        }
-        localStorage.not_found_found = "true"
-        console.log('show 404 button')
-        document.getElementById("2024-09_not_found-1").classList.add('refresh-button-selected');
-        document.getElementById("2024-09_not_found-2").classList.remove('refresh-button-selected');
-    }
+
     
     
     
     function unreleasedProfilesPlusItemsFalse() {
         localStorage.unreleased_profiles_plus = "none"
-        console.log('hide Unreleased Profiles Plus Items')
         document.getElementById("2024-09_profiles_plus-1").classList.remove('refresh-button-selected');
         document.getElementById("2024-09_profiles_plus-2").classList.add('refresh-button-selected');
+        fetchData(pageCheck());
     }
     
     function unreleasedProfilesPlusItemsTrue() {
         localStorage.unreleased_profiles_plus = "true"
-        console.log('show Unreleased Profiles Plus Items')
         document.getElementById("2024-09_profiles_plus-1").classList.add('refresh-button-selected');
         document.getElementById("2024-09_profiles_plus-2").classList.remove('refresh-button-selected');
+        fetchData(pageCheck());
     }
     
     

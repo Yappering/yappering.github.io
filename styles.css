@@ -873,8 +873,15 @@ body {
     position: absolute;
     top: 40%;
     left: 10%;
+    width: 164px;
+    height: 164px;
     transform: translate(-50%, -50%);
     z-index: 1;
+}
+
+.potion-card-preview {
+    width: 164px;
+    height: 164px;
 }
 
 .discordLogo_be5025 {
@@ -940,7 +947,7 @@ body {
     position: absolute;
     z-index: 1; /* Ensure the text is above the banner */
     margin-top: 160px; /* Space between the logo and the text */
-    right: 17%;
+    right: 5%;
     text-align: center;
 }
 

@@ -27,3 +27,12 @@ if (localStorage.api_designed_url != "false") {
         localStorage.api_designed_url = "none"
     }
 }
+
+// Force rollout for Premium Type Two Included With Nitro experiment
+if (localStorage.premium_type_two_included_with_nitro != "false") {
+    if (localStorage.premium_type_two_included_with_nitro != "two") {
+        if (localStorage.premium_type_two_included_with_nitro != "three") {
+            localStorage.premium_type_two_included_with_nitro = "true"
+        }
+    }
+}

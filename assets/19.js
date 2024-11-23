@@ -49,6 +49,7 @@ if (localStorage.full_client_rework != "false") {
     ELEMENTS = "1207046915880124426"
     ANIME_V2 = "1212565175790473246"
     SPECIAL_EVENTS = "1217175518781243583"
+    SPECIAL_EVENTS_2 = "1309309974266118144"
     SPRINGTOONS = "1217622942175727736"
     SHY = "1220513972189663413"
     LOFI_VIBES = "1228243842684162121"
@@ -159,7 +160,12 @@ if (localStorage.full_client_rework != "false") {
                                 category.querySelector("[data-shop-category-logo-image]").src = `https://cdn.yapper.shop/assets/${apiCategory.logo}.png`;
                                 category.querySelector("[data-shop-category-logo-image]").alt = apiCategory.name;
             
+                                category.querySelector("[data-shop-category-desc]").id = `${apiCategory.sku_id}-summary`;
                                 category.querySelector("[data-shop-category-desc]").textContent = apiCategory.summary;
+
+                                category.querySelector("[data-shop-banner-banner-container]").id = `${apiCategory.sku_id}-banner-banner-container`;
+                                category.querySelector("[data-shop-category-logo-holder]").id = `${apiCategory.sku_id}-logo-container`;
+                                category.querySelector("[data-shop-discord-watermark-container]").id = `${apiCategory.sku_id}-discord-watermark-container`;
 
                                 if (apiCategory.category_bg != null) {
                                     category.querySelector("[data-shop-category-marketing-bg]").src = `https://cdn.yapper.shop/assets/${apiCategory.category_bg}.png`;
@@ -377,7 +383,34 @@ if (localStorage.full_client_rework != "false") {
                                             `;
                                         }
 
+                                        if (localStorage.premium_type_two_included_with_nitro === "true") {
+                                            if (product.premium_type === 2) {
+                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                                `;
+                                            }
+                                        }
+                                        if (localStorage.premium_type_two_included_with_nitro === "two") {
+                                            if (product.premium_type === 2) {
+                                                card.querySelector("[data-shop-price-container]").innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900;" data-price-standard>Included with Nitro</a>
+                                                `;
+                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                                `;
+                                            }
+                                        }
+                                        if (localStorage.premium_type_two_included_with_nitro === "three") {
+                                            card.querySelector("[data-shop-price-container]").innerHTML = `
+                                                <a style="font-size: large; font-weight: 900;" data-price-standard>Included with Nitro</a>
+                                            `;
+                                            card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                            `;
+                                        }
+
                                         // Append card to output
+                                        card.classList.add('shop-category-card-transparent')
                                         cardOutput.append(card);
                                     }
                                 }
@@ -386,40 +419,42 @@ if (localStorage.full_client_rework != "false") {
 
 
                                 const windowkill2_banner = document.getElementById(WINDOWKILL_V2);
-                                if (windowkill2_banner) {  // Check if element exists
-                                    document.getElementById('profiles-plus-4').innerHTML = `
+                                const paper_beach_banner = document.getElementById(PAPER_BEACH);
+                                const bopl_battle_banner = document.getElementById(BOPL_BATTLE);
+                                const windowkill_banner = document.getElementById(WINDOWKILL);
+
+
+                                if (windowkill2_banner) {
+                                    document.getElementById(WINDOWKILL_V2).innerHTML = `
                                         <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/86.png">
                                         <div class="shop-category-condensed-logo-holder" style="left: 23%;">
                                             <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/assets/53.png" id="shop-banner-logo">
                                         </div>
                                     `;
                                 }
-                                const paper_beach_banner = document.getElementById(PAPER_BEACH);
-                                if (paper_beach_banner) {  // Check if element exists
-                                    document.getElementById('profiles-plus-3').innerHTML = `
+                                
+                                if (paper_beach_banner) {
+                                    document.getElementById(PAPER_BEACH).innerHTML = `
                                         <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/3.png">
                                         <div class="shop-category-condensed-logo-holder" style="right: -6%;">
                                             <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/assets/1.png" id="shop-banner-logo">
                                         </div>
                                     `;
                                 }
-                                const bopl_battle_banner = document.getElementById(BOPL_BATTLE);
-                                if (bopl_battle_banner) {  // Check if element exists
-                                    document.getElementById('profiles-plus-2').innerHTML = `
+                                
+                                if (bopl_battle_banner) {
+                                    document.getElementById(BOPL_BATTLE).innerHTML = `
                                         <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/92.png">
                                         <div class="shop-category-condensed-logo-holder" style="left: 15%;">
                                             <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/assets/60.png" id="shop-banner-logo">
                                         </div>
                                     `;
                                 }
-                                const windowkill_banner = document.getElementById(WINDOWKILL);
-                                if (windowkill_banner) {  // Check if element exists
-                                    document.getElementById('profiles-plus-1').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.yapper.shop/assets/20.png">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px; color: black;">What&#x2019s wrong with my windows?</p>
-                                        </div>
-                                    `;
+                                
+                                if (windowkill_banner) {
+                                    document.getElementById(`${WINDOWKILL}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${WINDOWKILL}-logo-container`).innerHTML = ``;
+                                    document.getElementById(`${WINDOWKILL}-summary`).style.color = 'black';
                                 }
 
                             } else if (page === "consumables") {
@@ -447,7 +482,12 @@ if (localStorage.full_client_rework != "false") {
                                 category.querySelector("[data-shop-category-logo-image]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.logo}.png?size=4096`;
                                 category.querySelector("[data-shop-category-logo-image]").alt = apiCategory.name;
             
+                                category.querySelector("[data-shop-category-desc]").id = `${apiCategory.sku_id}-summary`;
                                 category.querySelector("[data-shop-category-desc]").textContent = apiCategory.summary;
+
+                                category.querySelector("[data-shop-banner-banner-container]").id = `${apiCategory.sku_id}-banner-banner-container`;
+                                category.querySelector("[data-shop-category-logo-holder]").id = `${apiCategory.sku_id}-logo-container`;
+                                category.querySelector("[data-shop-discord-watermark-container]").id = `${apiCategory.sku_id}-discord-watermark-container`;
             
                                 const cardOutput = category.querySelector("[data-shop-category-card-holder]");
                                 if (cardOutput) {
@@ -679,6 +719,32 @@ if (localStorage.full_client_rework != "false") {
                                             <button class="card-button" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';" title="Open this item in the Discord Shop">Open In Shop</button>
                                         `;
 
+                                        if (localStorage.premium_type_two_included_with_nitro === "true") {
+                                            if (product.premium_type === 2) {
+                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                                `;
+                                            }
+                                        }
+                                        if (localStorage.premium_type_two_included_with_nitro === "two") {
+                                            if (product.premium_type === 2) {
+                                                card.querySelector("[data-shop-price-container]").innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900;" data-price-standard>Included with Nitro</a>
+                                                `;
+                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                                `;
+                                            }
+                                        }
+                                        if (localStorage.premium_type_two_included_with_nitro === "three") {
+                                            card.querySelector("[data-shop-price-container]").innerHTML = `
+                                                <a style="font-size: large; font-weight: 900;" data-price-standard>Included with Nitro</a>
+                                            `;
+                                            card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                            `;
+                                        }
+
                                         // Append card to output
                                         cardOutput.append(card);
                                     }
@@ -686,188 +752,187 @@ if (localStorage.full_client_rework != "false") {
             
                                 categoryOutput.append(category);
 
-                                if (localStorage.reduced_motion != "true") {
-                                    const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
-                                    if (kawaii_mode_banner) {  // Check if element exists
-                                        document.getElementById('1306330663213072494').innerHTML = `
-                                        <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1306330663229718579.png?size=4096">
-                                        <video autoplay muted class="shop-category-banner-img" style="z-index: 1;" src="https://cdn.discordapp.com/assets/collectibles/drops/kawaii_mode/banner_animated.webm" loop></video>
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px; color: black;">When :3 is your game face.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const arcane_banner = document.getElementById(WARRIOR);
-                                    if (arcane_banner) {  // Check if element exists
-                                        document.getElementById('1303490165284802580').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1303490165297123358.png?size=4096">
-                                        <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/35.png">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;">The hunt is on.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const dnd_banner = document.getElementById(CHANCE);
-                                    if (dnd_banner) {  // Check if element exists
-                                        document.getElementById('1293373563494993952').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.yapper.shop/discord-assets/32.png">
-                                        <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/31.png">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">The ultimate adventurer\u2019s pack.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const street_fighter_banner = document.getElementById(BAND);
-                                    if (street_fighter_banner) {  // Check if element exists
-                                        document.getElementById('1285465421339693076').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1285465421356732426.png?size=4096">
-                                        <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/19.png">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">Hit the streets with Street Fighter.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const palworld_banner = document.getElementById(TIDE);
-                                    if (palworld_banner) {  // Check if element exists
-                                        document.getElementById('1252404112650407998').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.yapper.shop/discord-assets/15.jpg" data-shop-category-banner-image="" alt="Palworld">
-                                        <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/14.png">
-                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/12.png">
-                                        <img style="position: absolute; right: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/13.png">
-                                        <div class="shop-category-logo-holder">
-                                            <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/9.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
-                                        </div>
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">New island, new Pals, new adventures!</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const valorant_banner = document.getElementById(SHY);
-                                    if (valorant_banner) {  // Check if element exists
-                                        document.getElementById('1220513972189663413').innerHTML = `
-                                        <div class="shop-category-banner-img" style="background: rgb(255, 70, 85);" data-shop-category-banner-image="" alt="VALORANT"></div>
-                                        <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/24.png">
-                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/20.png">
-                                        <img style="position: absolute; right: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/22.png">
-                                        <div class="shop-category-logo-holder">
-                                            <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/21.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
-                                        </div>
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">DEFY DEFINITION</p>
-                                        </div>
-                                        `;
-                                    }
-                                } else {
-                                    const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
-                                    if (kawaii_mode_banner) {  // Check if element exists
-                                        document.getElementById('1306330663213072494').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1306330663229718579.png?size=4096">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px; color: black;">When :3 is your game face.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const arcane_banner = document.getElementById(WARRIOR);
-                                    if (arcane_banner) {  // Check if element exists
-                                        document.getElementById('1303490165284802580').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1303490165297123358.png?size=4096">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;">The hunt is on.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const dnd_banner = document.getElementById(CHANCE);
-                                    if (dnd_banner) {  // Check if element exists
-                                        document.getElementById('1293373563494993952').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.yapper.shop/discord-assets/32.png">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">The ultimate adventurer\u2019s pack.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const street_fighter_banner = document.getElementById(BAND);
-                                    if (street_fighter_banner) {  // Check if element exists
-                                        document.getElementById('1285465421339693076').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1285465421356732426.png?size=4096">
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">Hit the streets with Street Fighter.</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const palworld_banner = document.getElementById(TIDE);
-                                    if (palworld_banner) {  // Check if element exists
-                                        document.getElementById('1252404112650407998').innerHTML = `
-                                        <img class="shop-category-banner-img" src="https://cdn.yapper.shop/discord-assets/15.jpg" data-shop-category-banner-image="" alt="Palworld">
-                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/12.png">
-                                        <img style="position: absolute; right: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/13.png">
-                                        <div class="shop-category-logo-holder">
-                                            <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/9.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
-                                        </div>
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">New island, new Pals, new adventures!</p>
-                                        </div>
-                                        `;
-                                    }
-                                    const valorant_banner = document.getElementById(SHY);
-                                    if (valorant_banner) {  // Check if element exists
-                                        document.getElementById('1220513972189663413').innerHTML = `
-                                        <div class="shop-category-banner-img" style="background: rgb(255, 70, 85);" data-shop-category-banner-image="" alt="VALORANT"></div>
-                                        <img class="shop-category-banner-img" style="position: absolute;" src="https://cdn.yapper.shop/discord-assets/23.png">
-                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/20.png">
-                                        <img style="position: absolute; right: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/22.png">
-                                        <div class="shop-category-logo-holder">
-                                            <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/21.png" id="shop-banner-logo" data-shop-category-logo-image="" alt="Palworld">
-                                        </div>
-                                        <div class="shop-category-text-holder">
-                                            <p style="font-size: 18px;" data-shop-category-desc="">DEFY DEFINITION</p>
-                                        </div>
-                                        `;
-                                    }
+                                const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
+                                const arcane_banner = document.getElementById(WARRIOR);
+                                const mythical_creatures_banner = document.getElementById(MYTHICAL_CREATURES);
+                                const dnd_banner = document.getElementById(CHANCE);
+                                const spooky_night_banner = document.getElementById(SPOOKY_NIGHT);
+                                const street_fighter_banner = document.getElementById(BAND);
+                                const autumn_equinox_banner = document.getElementById(AUTUMN_EQUINOX);
+                                const fall_banner = document.getElementById(FALL);
+                                const the_vault_banner = document.getElementById(THE_VAULT);
+                                const dojo_banner = document.getElementById(DOJO);
+                                const valorant_champions_banner = document.getElementById(STORM);
+                                const sponge_bob_banner = document.getElementById(ROBERT);
+                                const dark_fantasy_banner = document.getElementById(DARK_FANTASY);
+                                const palworld_banner = document.getElementById(TIDE);
+                                const valorant_banner = document.getElementById(SHY);
+                                const springtoons_banner = document.getElementById(SPRINGTOONS);
+                                const anime_v2_banner = document.getElementById(ANIME_V2);
+
+                                if (kawaii_mode_banner) {
+                                    document.getElementById(`${KAWAII_MODE}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${KAWAII_MODE}-logo-container`).innerHTML = ``;
+                                    document.getElementById(`${KAWAII_MODE}-summary`).style.color = 'black';
+                                }
+                                
+                                if (arcane_banner) {
+                                    document.getElementById(`${WARRIOR}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${WARRIOR}-logo-container`).innerHTML = ``;
+                                }
+                                
+                                if (mythical_creatures_banner) {
+                                    document.getElementById(`${MYTHICAL_CREATURES}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${MYTHICAL_CREATURES}-logo-container`).innerHTML = ``;
                                 }
 
-                                const dojo_banner = document.getElementById(DOJO);
-                                if (dojo_banner) {  // Check if element exists
-                                    document.getElementById('1266520267946201099').innerHTML = `
-                                    <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1275175014001541140.png?size=4096">
-                                    <div class="shop-category-text-holder">
-                                        <p style="font-size: 18px; color: black;">Where discipline meets destiny.</p>
-                                    </div>
+                                if (dnd_banner) {
+                                    document.getElementById(`${CHANCE}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${CHANCE}-logo-container`).innerHTML = ``;
+                                }
+
+                                if (spooky_night_banner) {
+                                    document.getElementById(`${SPOOKY_NIGHT}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${SPOOKY_NIGHT}-logo-container`).innerHTML = ``;
+                                }
+
+                                if (street_fighter_banner) {
+                                    document.getElementById(`${BAND}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${BAND}-logo-container`).innerHTML = ``;
+                                }
+
+                                if (autumn_equinox_banner) {
+                                    document.getElementById(`${AUTUMN_EQUINOX}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${AUTUMN_EQUINOX}-logo-container`).innerHTML = ``;
+                                }
+
+                                if (fall_banner) {
+                                    document.getElementById(`${FALL}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${FALL}-logo-container`).innerHTML = ``;
+                                }
+
+                                if (the_vault_banner) {
+                                    document.getElementById(`${THE_VAULT}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${THE_VAULT}-logo-container`).innerHTML = ``;
+                                }
+                                
+                                if (dojo_banner) {
+                                    document.getElementById(`${DOJO}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${DOJO}-logo-container`).innerHTML = ``;
+                                    document.getElementById(`${DOJO}-summary`).style.color = 'black';
+                                }
+
+                                if (valorant_champions_banner) {
+                                    document.getElementById(`${STORM}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${STORM}-logo-container`).innerHTML = ``;
+                                }
+
+                                if (sponge_bob_banner) {
+                                    document.getElementById(`${ROBERT}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${ROBERT}-logo-container`).innerHTML = ``;
+                                    document.getElementById(`${ROBERT}-summary`).style.color = 'black';
+                                }
+
+                                if (sponge_bob_banner) {
+                                    document.getElementById(`${ROBERT}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${ROBERT}-logo-container`).innerHTML = ``;
+                                    document.getElementById(`${ROBERT}-summary`).style.color = 'black';
+                                }
+
+                                if (dark_fantasy_banner) {
+                                    document.getElementById(`${DARK_FANTASY}-logo-container`).innerHTML = ``;
+                                }
+
+                                if (palworld_banner) {
+                                    document.getElementById(`${TIDE}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${TIDE}-banner-banner-container`).innerHTML = `
+                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/15.jpg">
+                                        <img style="position: absolute; right: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/13.png">
+                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/12.png">
+                                    `;
+                                    document.getElementById(`${TIDE}-logo-container`).innerHTML = `
+                                        <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/9.png" id="shop-banner-logo">
                                     `;
                                 }
-                                const sponge_bob_banner = document.getElementById(ROBERT);
-                                if (sponge_bob_banner) {  // Check if element exists
-                                    document.getElementById('1262491137386614805').innerHTML = `
-                                    <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1262491137386614807.png?size=4096">
-                                    <div class="shop-category-text-holder">
-                                        <p style="font-size: 18px; color: black;">Celebrate 25 years of nautical nonsense!</p>
-                                    </div>
+                                
+                                if (valorant_banner) {
+                                    document.getElementById(`${SHY}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${SHY}-banner-banner-container`).innerHTML = `
+                                        <div class="shop-category-banner-img" style="background: rgb(255, 70, 85); position: absolute; left: 0px; bottom: 0px; width: 1280px;"></div>
+                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/23.png">
+                                        <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/20.png">
+                                        <img style="position: absolute; right: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/22.png">
+                                    `;
+                                    document.getElementById(`${SHY}-logo-container`).innerHTML = `
+                                        <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/21.png" id="shop-banner-logo">
                                     `;
                                 }
-                                const springtoons_banner = document.getElementById(SPRINGTOONS);
-                                if (springtoons_banner) {  // Check if element exists 
-                                    document.getElementById('1217622942175727736').innerHTML = `
-                                    <div class="discordLogo_be5025"><svg class="discordIcon_be5025" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z" class=""></path></svg><svg class="discordWordmark_be5025" aria-hidden="true" role="img" width="55" height="16" viewBox="0 0 55 16"><g fill="currentColor"><path d="M3 4.78717H6.89554C7.83025 4.78717 8.62749 4.93379 9.27812 5.22703C9.92875 5.52027 10.4144 5.92348 10.7352 6.44582C11.0559 6.96815 11.2208 7.5638 11.2208 8.24192C11.2208 8.90171 11.0559 9.49736 10.7168 10.038C10.3778 10.5695 9.8646 11.0002 9.17732 11.3118C8.49003 11.6234 7.6378 11.7791 6.6197 11.7791H3V4.78717ZM6.57388 10.0014C7.2071 10.0014 7.69278 9.84559 8.03184 9.52485C8.3709 9.21328 8.54501 8.77343 8.54501 8.23276C8.54501 7.72875 8.38923 7.32555 8.08682 7.02314C7.78442 6.72073 7.32623 6.56495 6.71225 6.56495H5.49255V10.0014H6.57388Z"></path><path d="M17.2882 11.7709C16.7475 11.6335 16.2618 11.4319 15.8311 11.1569V9.4983C16.161 9.75489 16.5917 9.95649 17.1416 10.1214C17.6914 10.2864 18.2229 10.3689 18.7361 10.3689C18.9743 10.3689 19.1576 10.3414 19.2767 10.2772C19.3959 10.2131 19.46 10.1398 19.46 10.0481C19.46 9.94733 19.4233 9.86485 19.3592 9.80071C19.2951 9.73656 19.1668 9.68158 18.9743 9.62659L17.7739 9.36084C17.0866 9.20506 16.6009 8.97596 16.3077 8.70105C16.0144 8.42613 15.877 8.05042 15.877 7.59223C15.877 7.20735 16.0053 6.86829 16.2527 6.58421C16.5093 6.30013 16.8667 6.0802 17.334 5.92442C17.8014 5.76863 18.342 5.68616 18.9743 5.68616C19.5333 5.68616 20.0465 5.74114 20.5138 5.86944C20.9812 5.98857 21.3661 6.14435 21.6685 6.32763V7.89464C21.3569 7.71136 20.9904 7.56474 20.5871 7.45477C20.1748 7.34481 19.7533 7.28982 19.3226 7.28982C18.6994 7.28982 18.3878 7.39979 18.3878 7.61056C18.3878 7.71136 18.4337 7.78467 18.5345 7.83966C18.6353 7.89464 18.8094 7.94046 19.066 7.99544L20.0648 8.17871C20.7155 8.28868 21.2011 8.49028 21.5219 8.77436C21.8426 9.05844 21.9984 9.47081 21.9984 10.0298C21.9984 10.6346 21.7326 11.1203 21.2011 11.4685C20.6696 11.8259 19.9182 12 18.9468 12C18.3787 11.9817 17.8289 11.9084 17.2882 11.7709Z"></path><path d="M24.4735 11.5602C23.9054 11.2761 23.4655 10.9004 23.1814 10.4239C22.8882 9.94733 22.7507 9.40666 22.7507 8.80185C22.7507 8.20621 22.8974 7.66554 23.1998 7.19819C23.5022 6.72167 23.942 6.35512 24.5194 6.0802C25.0967 5.81445 25.7931 5.677 26.5995 5.677C27.5984 5.677 28.4231 5.88776 29.0829 6.3093V8.1329C28.8538 7.97712 28.5789 7.83965 28.2673 7.74802C27.9558 7.64721 27.6259 7.6014 27.2777 7.6014C26.6545 7.6014 26.178 7.71137 25.8206 7.94046C25.4724 8.16956 25.2983 8.46279 25.2983 8.82934C25.2983 9.18673 25.4632 9.47998 25.8115 9.70907C26.1505 9.93817 26.6453 10.0573 27.2868 10.0573C27.6167 10.0573 27.9466 10.0115 28.2673 9.91067C28.5881 9.80987 28.8722 9.69991 29.1013 9.55329V11.3219C28.3681 11.7618 27.5159 11.9817 26.5537 11.9817C25.7381 11.9817 25.0509 11.8351 24.4735 11.5602Z"></path><path d="M31.6955 11.5602C31.1182 11.2761 30.6783 10.9004 30.3759 10.4147C30.0735 9.929 29.9177 9.38834 29.9177 8.78353C29.9177 8.18788 30.0735 7.64722 30.3759 7.17986C30.6783 6.71251 31.1182 6.34595 31.6863 6.0802C32.2545 5.81445 32.9418 5.677 33.7299 5.677C34.518 5.677 35.2053 5.80529 35.7743 6.0802C36.3425 6.34595 36.7824 6.71251 37.0848 7.17986C37.3872 7.64722 37.5338 8.17872 37.5338 8.78353C37.5338 9.37918 37.3872 9.929 37.0848 10.4147C36.7824 10.9004 36.3517 11.2852 35.7743 11.5602C35.1961 11.8351 34.518 11.9817 33.7299 11.9817C32.951 11.9817 32.2728 11.8351 31.6955 11.5602ZM34.7287 9.79155C34.967 9.55329 35.0953 9.22339 35.0953 8.82934C35.0953 8.42614 34.9762 8.11457 34.7287 7.87632C34.4813 7.63806 34.1514 7.51892 33.7391 7.51892C33.3084 7.51892 32.9785 7.63806 32.731 7.87632C32.4928 8.11457 32.3645 8.42614 32.3645 8.82934C32.3645 9.23255 32.4836 9.55329 32.731 9.79155C32.9785 10.039 33.3084 10.1581 33.7391 10.1581C34.1514 10.1489 34.4905 10.0298 34.7287 9.79155Z"></path><path d="M43.6644 6.0435V8.19699C43.4078 8.03204 43.0779 7.94956 42.6747 7.94956C42.1432 7.94956 41.7308 8.11451 41.4467 8.43524C41.1626 8.75598 41.016 9.25999 41.016 9.93811V11.7709H38.5693V5.9427H40.9702V7.80295C41.0985 7.12482 41.3184 6.62082 41.6117 6.30008C41.9049 5.97935 42.2898 5.80524 42.7572 5.80524C43.1054 5.80524 43.4078 5.88771 43.6644 6.0435Z"></path><path d="M51.9136 4.58649V11.7801H49.4659V10.4696C49.2552 10.9645 48.9436 11.3402 48.5221 11.5968C48.1005 11.8534 47.5782 11.9817 46.9551 11.9817C46.4052 11.9817 45.9195 11.8442 45.5072 11.5785C45.0948 11.3127 44.7741 10.937 44.5542 10.4696C44.3342 9.99313 44.2242 9.46163 44.2242 8.87514C44.2151 8.26117 44.3342 7.71134 44.5816 7.22566C44.8199 6.73998 45.1681 6.36426 45.608 6.08935C46.0479 5.81444 46.5519 5.67698 47.12 5.67698C48.2838 5.67698 49.0627 6.18099 49.4659 7.19817V4.58649H51.9136ZM49.0994 9.7457C49.3468 9.50744 49.4751 9.18671 49.4751 8.80183C49.4751 8.42612 49.356 8.12371 49.1086 7.89462C48.8611 7.66552 48.5312 7.5464 48.1189 7.5464C47.7065 7.5464 47.3766 7.66553 47.1292 7.90378C46.8818 8.14204 46.7626 8.44444 46.7626 8.82932C46.7626 9.2142 46.8818 9.51661 47.1292 9.75487C47.3766 9.99313 47.6973 10.1123 48.1097 10.1123C48.5221 10.1123 48.852 9.99313 49.0994 9.7457Z"></path><path d="M13.4751 6.29095C14.1789 6.29095 14.7489 5.77778 14.7489 5.14547C14.7489 4.51317 14.1789 4 13.4751 4C12.7723 4 12.2014 4.51317 12.2014 5.14547C12.2014 5.77778 12.7723 6.29095 13.4751 6.29095Z"></path><path d="M14.7489 7.07812C13.97 7.41719 12.9986 7.42635 12.2014 7.07812V11.7792H14.7489V7.07812Z"></path></g></svg></div>
-                                    <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1217623891149586563.png?size=4096">
-                                    <div class="shop-category-logo-holder">
-                                        <img class="shop-category-banner-logo" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1217623684777381908.png?size=4096" id="shop-banner-logo" data-shop-category-logo-image="" alt="Anime">
-                                    </div>
-                                    <div class="shop-category-text-holder">
-                                        <p style="font-size: 18px; color: black;">You awaken to find yourself in a springtime wonderland.</p>
-                                    </div>
-                                    `;
+                                
+                                if (springtoons_banner) {
+                                    document.getElementById(`${SPRINGTOONS}-summary`).style.color = 'black';
                                 }
-                                const anime_v2_banner = document.getElementById(ANIME_V2);
-                                if (anime_v2_banner) {  // Check if element exists
-                                    document.getElementById('1212565175790473246').innerHTML = `
-                                    <div class="discordLogo_be5025"><svg class="discordIcon_be5025" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z" class=""></path></svg><svg class="discordWordmark_be5025" aria-hidden="true" role="img" width="55" height="16" viewBox="0 0 55 16"><g fill="currentColor"><path d="M3 4.78717H6.89554C7.83025 4.78717 8.62749 4.93379 9.27812 5.22703C9.92875 5.52027 10.4144 5.92348 10.7352 6.44582C11.0559 6.96815 11.2208 7.5638 11.2208 8.24192C11.2208 8.90171 11.0559 9.49736 10.7168 10.038C10.3778 10.5695 9.8646 11.0002 9.17732 11.3118C8.49003 11.6234 7.6378 11.7791 6.6197 11.7791H3V4.78717ZM6.57388 10.0014C7.2071 10.0014 7.69278 9.84559 8.03184 9.52485C8.3709 9.21328 8.54501 8.77343 8.54501 8.23276C8.54501 7.72875 8.38923 7.32555 8.08682 7.02314C7.78442 6.72073 7.32623 6.56495 6.71225 6.56495H5.49255V10.0014H6.57388Z"></path><path d="M17.2882 11.7709C16.7475 11.6335 16.2618 11.4319 15.8311 11.1569V9.4983C16.161 9.75489 16.5917 9.95649 17.1416 10.1214C17.6914 10.2864 18.2229 10.3689 18.7361 10.3689C18.9743 10.3689 19.1576 10.3414 19.2767 10.2772C19.3959 10.2131 19.46 10.1398 19.46 10.0481C19.46 9.94733 19.4233 9.86485 19.3592 9.80071C19.2951 9.73656 19.1668 9.68158 18.9743 9.62659L17.7739 9.36084C17.0866 9.20506 16.6009 8.97596 16.3077 8.70105C16.0144 8.42613 15.877 8.05042 15.877 7.59223C15.877 7.20735 16.0053 6.86829 16.2527 6.58421C16.5093 6.30013 16.8667 6.0802 17.334 5.92442C17.8014 5.76863 18.342 5.68616 18.9743 5.68616C19.5333 5.68616 20.0465 5.74114 20.5138 5.86944C20.9812 5.98857 21.3661 6.14435 21.6685 6.32763V7.89464C21.3569 7.71136 20.9904 7.56474 20.5871 7.45477C20.1748 7.34481 19.7533 7.28982 19.3226 7.28982C18.6994 7.28982 18.3878 7.39979 18.3878 7.61056C18.3878 7.71136 18.4337 7.78467 18.5345 7.83966C18.6353 7.89464 18.8094 7.94046 19.066 7.99544L20.0648 8.17871C20.7155 8.28868 21.2011 8.49028 21.5219 8.77436C21.8426 9.05844 21.9984 9.47081 21.9984 10.0298C21.9984 10.6346 21.7326 11.1203 21.2011 11.4685C20.6696 11.8259 19.9182 12 18.9468 12C18.3787 11.9817 17.8289 11.9084 17.2882 11.7709Z"></path><path d="M24.4735 11.5602C23.9054 11.2761 23.4655 10.9004 23.1814 10.4239C22.8882 9.94733 22.7507 9.40666 22.7507 8.80185C22.7507 8.20621 22.8974 7.66554 23.1998 7.19819C23.5022 6.72167 23.942 6.35512 24.5194 6.0802C25.0967 5.81445 25.7931 5.677 26.5995 5.677C27.5984 5.677 28.4231 5.88776 29.0829 6.3093V8.1329C28.8538 7.97712 28.5789 7.83965 28.2673 7.74802C27.9558 7.64721 27.6259 7.6014 27.2777 7.6014C26.6545 7.6014 26.178 7.71137 25.8206 7.94046C25.4724 8.16956 25.2983 8.46279 25.2983 8.82934C25.2983 9.18673 25.4632 9.47998 25.8115 9.70907C26.1505 9.93817 26.6453 10.0573 27.2868 10.0573C27.6167 10.0573 27.9466 10.0115 28.2673 9.91067C28.5881 9.80987 28.8722 9.69991 29.1013 9.55329V11.3219C28.3681 11.7618 27.5159 11.9817 26.5537 11.9817C25.7381 11.9817 25.0509 11.8351 24.4735 11.5602Z"></path><path d="M31.6955 11.5602C31.1182 11.2761 30.6783 10.9004 30.3759 10.4147C30.0735 9.929 29.9177 9.38834 29.9177 8.78353C29.9177 8.18788 30.0735 7.64722 30.3759 7.17986C30.6783 6.71251 31.1182 6.34595 31.6863 6.0802C32.2545 5.81445 32.9418 5.677 33.7299 5.677C34.518 5.677 35.2053 5.80529 35.7743 6.0802C36.3425 6.34595 36.7824 6.71251 37.0848 7.17986C37.3872 7.64722 37.5338 8.17872 37.5338 8.78353C37.5338 9.37918 37.3872 9.929 37.0848 10.4147C36.7824 10.9004 36.3517 11.2852 35.7743 11.5602C35.1961 11.8351 34.518 11.9817 33.7299 11.9817C32.951 11.9817 32.2728 11.8351 31.6955 11.5602ZM34.7287 9.79155C34.967 9.55329 35.0953 9.22339 35.0953 8.82934C35.0953 8.42614 34.9762 8.11457 34.7287 7.87632C34.4813 7.63806 34.1514 7.51892 33.7391 7.51892C33.3084 7.51892 32.9785 7.63806 32.731 7.87632C32.4928 8.11457 32.3645 8.42614 32.3645 8.82934C32.3645 9.23255 32.4836 9.55329 32.731 9.79155C32.9785 10.039 33.3084 10.1581 33.7391 10.1581C34.1514 10.1489 34.4905 10.0298 34.7287 9.79155Z"></path><path d="M43.6644 6.0435V8.19699C43.4078 8.03204 43.0779 7.94956 42.6747 7.94956C42.1432 7.94956 41.7308 8.11451 41.4467 8.43524C41.1626 8.75598 41.016 9.25999 41.016 9.93811V11.7709H38.5693V5.9427H40.9702V7.80295C41.0985 7.12482 41.3184 6.62082 41.6117 6.30008C41.9049 5.97935 42.2898 5.80524 42.7572 5.80524C43.1054 5.80524 43.4078 5.88771 43.6644 6.0435Z"></path><path d="M51.9136 4.58649V11.7801H49.4659V10.4696C49.2552 10.9645 48.9436 11.3402 48.5221 11.5968C48.1005 11.8534 47.5782 11.9817 46.9551 11.9817C46.4052 11.9817 45.9195 11.8442 45.5072 11.5785C45.0948 11.3127 44.7741 10.937 44.5542 10.4696C44.3342 9.99313 44.2242 9.46163 44.2242 8.87514C44.2151 8.26117 44.3342 7.71134 44.5816 7.22566C44.8199 6.73998 45.1681 6.36426 45.608 6.08935C46.0479 5.81444 46.5519 5.67698 47.12 5.67698C48.2838 5.67698 49.0627 6.18099 49.4659 7.19817V4.58649H51.9136ZM49.0994 9.7457C49.3468 9.50744 49.4751 9.18671 49.4751 8.80183C49.4751 8.42612 49.356 8.12371 49.1086 7.89462C48.8611 7.66552 48.5312 7.5464 48.1189 7.5464C47.7065 7.5464 47.3766 7.66553 47.1292 7.90378C46.8818 8.14204 46.7626 8.44444 46.7626 8.82932C46.7626 9.2142 46.8818 9.51661 47.1292 9.75487C47.3766 9.99313 47.6973 10.1123 48.1097 10.1123C48.5221 10.1123 48.852 9.99313 49.0994 9.7457Z"></path><path d="M13.4751 6.29095C14.1789 6.29095 14.7489 5.77778 14.7489 5.14547C14.7489 4.51317 14.1789 4 13.4751 4C12.7723 4 12.2014 4.51317 12.2014 5.14547C12.2014 5.77778 12.7723 6.29095 13.4751 6.29095Z"></path><path d="M14.7489 7.07812C13.97 7.41719 12.9986 7.42635 12.2014 7.07812V11.7792H14.7489V7.07812Z"></path></g></svg></div>
-                                    <img class="shop-category-banner-img" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1212565236721389588.png?size=4096">
-                                    <div class="shop-category-logo-holder">
-                                        <img class="shop-category-banner-logo" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1212565210682884167.png?size=4096" id="shop-banner-logo" data-shop-category-logo-image="" alt="Anime">
-                                    </div>
-                                    <div class="shop-category-text-holder">
-                                        <p style="font-size: 18px; color: black;">Senpai will definitely notice you.</p>
-                                    </div>
-                                    `;
+
+                                if (anime_v2_banner) {
+                                    document.getElementById(`${ANIME_V2}-summary`).style.color = 'black';
+                                }
+
+
+
+                                if (localStorage.reduced_motion != "true") {
+                                    if (kawaii_mode_banner) {
+                                        document.getElementById(`${KAWAII_MODE}-banner-banner-container`).innerHTML = `
+                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1306330663229718579.png?size=4096">
+                                            <video autoplay muted class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px; z-index: 1;" src="https://cdn.discordapp.com/assets/collectibles/drops/kawaii_mode/banner_animated.webm" loop></video>
+                                        `;
+                                    }
+
+                                    if (arcane_banner) {
+                                        document.getElementById(`${WARRIOR}-banner-banner-container`).innerHTML = `
+                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1303490165297123358.png?size=4096">
+                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/35.png">
+                                        `;
+                                    }
+                                    
+                                    if (dnd_banner) {
+                                        document.getElementById(`${CHANCE}-banner-banner-container`).innerHTML = `
+                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/32.png">
+                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/31.png">
+                                        `;
+                                    }
+                                    
+                                    if (street_fighter_banner) {
+                                        document.getElementById(`${BAND}-banner-banner-container`).innerHTML = `
+                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1285465421356732426.png?size=4096">
+                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/19.png">
+                                        `;
+                                    }
+
+                                    if (palworld_banner) {
+                                        document.getElementById(`${TIDE}-discord-watermark-container`).innerHTML = ``;
+                                        document.getElementById(`${TIDE}-banner-banner-container`).innerHTML = `
+                                            <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/15.jpg">
+                                            <img style="position: absolute; right: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/14.png">
+                                            <img style="position: absolute; right: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/13.png">
+                                            <img style="position: absolute; left: 0px; bottom: 0px; width: 400px;" src="https://cdn.yapper.shop/discord-assets/12.png">
+                                        `;
+                                        document.getElementById(`${TIDE}-logo-container`).innerHTML = `
+                                            <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/9.png" id="shop-banner-logo">
+                                        `;
+                                    }
+
+                                    if (valorant_banner) {
+                                        document.getElementById(`${SHY}-discord-watermark-container`).innerHTML = ``;
+                                        document.getElementById(`${SHY}-banner-banner-container`).innerHTML = `
+                                            <div class="shop-category-banner-img" style="background: rgb(255, 70, 85); position: absolute; left: 0px; bottom: 0px; width: 1280px;"></div>
+                                            <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/24.png">
+                                            <img style="position: absolute; right: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/22.png">
+                                            <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/discord-assets/20.png">
+                                        `;
+                                        document.getElementById(`${SHY}-logo-container`).innerHTML = `
+                                            <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/discord-assets/21.png" id="shop-banner-logo">
+                                        `;
+                                    }
+                                    
                                 }
                             }
                         }
@@ -893,6 +958,8 @@ if (localStorage.full_client_rework != "false") {
                 });
 
         } else {
+
+            createShopCategoryLoadingElement()
                 
             if (localStorage.unreleased_discord_collectibles == "true") {
                 const client_token = localStorage.getItem('token');
@@ -923,11 +990,12 @@ if (localStorage.full_client_rework != "false") {
                             category.querySelector("[data-shop-category-logo-image]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.hero_logo}.png?size=4096`;
                         }
                         category.querySelector("[data-shop-category-logo-image]").alt = apiCategory.name;
-                
-                        const summary = category.querySelector("[data-shop-category-desc]");
-                        summary.textContent = apiCategory.summary;
+
+                        category.querySelector("[data-shop-category-desc]").id = `${apiCategory.sku_id}-summary`;
+                        category.querySelector("[data-shop-category-desc]").textContent = apiCategory.summary;
 
                         category.querySelector("[data-preview-banner-container]").id = apiCategory.sku_id;
+                        category.querySelector("[data-shop-banner-banner-container]").id = `${apiCategory.sku_id}-preview-banner-container`;
                 
                         category.querySelector("[data-preview-new-categoey-button]").innerHTML = `
                             <button class="home-page-preview-button" onclick="setParams({page: 'shop'}); location.reload();">Shop the ${apiCategory.name} Collection</button>
@@ -1163,64 +1231,51 @@ if (localStorage.full_client_rework != "false") {
                                     <button class="card-button" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';" title="Open this item in the Discord Shop">Open In Shop</button>
                                 `;
 
+                                if (localStorage.premium_type_two_included_with_nitro === "true") {
+                                    if (product.premium_type === 2) {
+                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                            <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                        `;
+                                    }
+                                }
+                                if (localStorage.premium_type_two_included_with_nitro === "two") {
+                                    if (product.premium_type === 2) {
+                                        card.querySelector("[data-shop-price-container]").innerHTML = `
+                                            <a style="font-size: large; font-weight: 900;" data-price-standard>Included with Nitro</a>
+                                        `;
+                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                            <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                        `;
+                                    }
+                                }
+                                if (localStorage.premium_type_two_included_with_nitro === "three") {
+                                    card.querySelector("[data-shop-price-container]").innerHTML = `
+                                        <a style="font-size: large; font-weight: 900;" data-price-standard>Included with Nitro</a>
+                                    `;
+                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                        <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                    `;
+                                }
+
                                 // Append card to output
                                 cardOutput.append(card);
                             }
                         }
                         output.append(category);
 
+                        document.getElementById("shop-category-loading-container").innerHTML = ``;
+
+                        const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
+
                         if (localStorage.reduced_motion != "true") {
-                            const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
                             if (kawaii_mode_banner) {  // Check if element exists
-                                document.getElementById('1306330663213072494').innerHTML = `
-                                    <div>
-                                        <div id="home-page-preview-banner-container">
-                                            <video autoplay muted class="home-page-preview-banner" src="https://cdn.discordapp.com/assets/collectibles/drops/kawaii_mode/hero_banner.webm" loop></video>
-                                        </div>
-                                        <div style="margin-top: -250px; margin-bottom: 50px; position: relative; z-index: 1;">
-                                            <div id="home-page-preview-logo-container">
-                                                <img src="https://cdn.discordapp.com/app-assets/1096190356233670716/1306330663284375663.png?size=4096" style="height: 130px;" data-shop-category-logo-image="" alt="Kawaii Mode">
-                                            </div>
-                                            <div id="home-page-preview-button-container" data-preview-new-categoey-button="">
-                                            <button class="home-page-preview-button" onclick="setParams({page: 'shop'}); location.reload();">Shop the Kawaii Mode Collection</button>
-                                        </div>
-                                            <div id="home-page-preview-desc-container">
-                                                <p style="font-size: 18px; margin-left: 20px; margin-top: -10px; color: black;">When :3 is your game face.</p>
-                                            </div>
-                                        </div>
-                                        <!-- Timer Display -->
-                                        <div class="shop-expiry-timer" style="display: none;">
-                                            <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
-                                        </div>
-                                    </div>
+                                document.getElementById('1306330663213072494-preview-banner-container').innerHTML = `
+                                    <video autoplay muted class="home-page-preview-banner" src="https://cdn.discordapp.com/assets/collectibles/drops/kawaii_mode/hero_banner.webm" loop></video>
                                 `;
                             }
-                        } else {
-                            const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
-                            if (kawaii_mode_banner) {  // Check if element exists
-                                document.getElementById('1306330663213072494').innerHTML = `
-                                    <div>
-                                        <div id="home-page-preview-banner-container">
-                                            <img class="home-page-preview-banner" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1306330663280050186.png?size=4096">
-                                        </div>
-                                        <div style="margin-top: -250px; margin-bottom: 50px; position: relative; z-index: 1;">
-                                            <div id="home-page-preview-logo-container">
-                                                <img src="https://cdn.discordapp.com/app-assets/1096190356233670716/1306330663284375663.png?size=4096" style="height: 130px;" data-shop-category-logo-image="" alt="Kawaii Mode">
-                                            </div>
-                                            <div id="home-page-preview-button-container" data-preview-new-categoey-button="">
-                                            <button class="home-page-preview-button" onclick="setParams({page: 'shop'}); location.reload();">Shop the Kawaii Mode Collection</button>
-                                        </div>
-                                            <div id="home-page-preview-desc-container">
-                                                <p style="font-size: 18px; margin-left: 20px; margin-top: -10px; color: black;">When :3 is your game face.</p>
-                                            </div>
-                                        </div>
-                                        <!-- Timer Display -->
-                                        <div class="shop-expiry-timer" style="display: none;">
-                                            <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
-                                        </div>
-                                    </div>
-                                `;
-                            }
+                        }
+                        if (kawaii_mode_banner) {  // Check if element exists
+                            document.getElementById('1306330663213072494-summary').style.color = 'black';
                         }
                     }
                     
@@ -1455,17 +1510,17 @@ if (localStorage.full_client_rework != "false") {
             <template data-shop-category-template>
                 <div>
                     <div data-preview-banner-container>
-                        <div id="home-page-preview-banner-container">
+                        <div id="home-page-preview-banner-container" data-shop-banner-banner-container>
                             <img class="home-page-preview-banner" src="" data-shop-category-banner-image>
                         </div>
                         <div style="margin-top: -250px; margin-bottom: 50px; position: relative; z-index: 1;">
                             <div id="home-page-preview-logo-container">
                                 <img src="" style="height: 130px;" data-shop-category-logo-image>
+                                <div id="home-page-preview-desc-container" data-shop-category-desc-container>
+                                    <p style="font-size: 18px; margin-left: 20px; margin-top: -10px;" data-shop-category-desc></p>
+                                </div>
                             </div>
                             <div id="home-page-preview-button-container" data-preview-new-categoey-button>
-                            </div>
-                            <div id="home-page-preview-desc-container">
-                                <p style="font-size: 18px; margin-left: 20px; margin-top: -10px;" data-shop-category-desc></p>
                             </div>
                         </div>
                         <!-- Timer Display -->
@@ -1473,7 +1528,7 @@ if (localStorage.full_client_rework != "false") {
                             <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
                         </div>
                     </div>
-                    <div class="shop-category-card-holder" id="shop-category-card-holder" data-shop-category-card-holder>
+                    <div style="max-height: 440px; overflow: hidden;" class="shop-category-card-holder" id="shop-category-card-holder" data-shop-category-card-holder>
                     </div>
                 </div>
             </template>
@@ -1485,17 +1540,21 @@ if (localStorage.full_client_rework != "false") {
                         <a class="item-credits" data-product-card-sku-id>Failed To Load Item</a>
                         <h3 data-product-card-name>Failed To Load Item</h3>
                         <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
-                        <div class="shop-price-container">
+                        <div class="shop-price-container" data-shop-price-container>
                             <a style="font-size: large; font-weight: 900;" data-price-standard></a>
                             <a data-price-nitro></a>
                         </div>
                     </div>
-                    <div class="card-button-container"data-product-card-open-in-shop>
+                    <div class="card-button-container" data-product-card-open-in-shop>
                         <button class="card-button" title="Open this item in the Discord Shop">Open In Shop</button>
+                    </div>
+                    <div class="shop-card-tag-container" data-shop-card-tag-container>
                     </div>
                 </div>
             </template>
             <div data-shop-output>
+            </div>
+            <div style="margin-top: 50px;" id="shop-category-loading-container">
             </div>
             
             <h2 style="margin-left: 60px;">What's new for Profiles Plus</h2>
@@ -1532,9 +1591,13 @@ if (localStorage.full_client_rework != "false") {
                         <div class="thy-shop-category-idk">
                             <img class="shop-category-marketing-bg" src="https://cdn.yapper.shop/assets/31.png" data-shop-category-marketing-bg>
                             <div class="shop-category-banner" data-shop-category-banner>
-                                <div class="discordLogo_be5025"><svg class="discordIcon_be5025" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z" class=""></path></svg><svg class="discordWordmark_be5025" aria-hidden="true" role="img" width="55" height="16" viewBox="0 0 55 16"><g fill="currentColor"><path d="M3 4.78717H6.89554C7.83025 4.78717 8.62749 4.93379 9.27812 5.22703C9.92875 5.52027 10.4144 5.92348 10.7352 6.44582C11.0559 6.96815 11.2208 7.5638 11.2208 8.24192C11.2208 8.90171 11.0559 9.49736 10.7168 10.038C10.3778 10.5695 9.8646 11.0002 9.17732 11.3118C8.49003 11.6234 7.6378 11.7791 6.6197 11.7791H3V4.78717ZM6.57388 10.0014C7.2071 10.0014 7.69278 9.84559 8.03184 9.52485C8.3709 9.21328 8.54501 8.77343 8.54501 8.23276C8.54501 7.72875 8.38923 7.32555 8.08682 7.02314C7.78442 6.72073 7.32623 6.56495 6.71225 6.56495H5.49255V10.0014H6.57388Z"></path><path d="M17.2882 11.7709C16.7475 11.6335 16.2618 11.4319 15.8311 11.1569V9.4983C16.161 9.75489 16.5917 9.95649 17.1416 10.1214C17.6914 10.2864 18.2229 10.3689 18.7361 10.3689C18.9743 10.3689 19.1576 10.3414 19.2767 10.2772C19.3959 10.2131 19.46 10.1398 19.46 10.0481C19.46 9.94733 19.4233 9.86485 19.3592 9.80071C19.2951 9.73656 19.1668 9.68158 18.9743 9.62659L17.7739 9.36084C17.0866 9.20506 16.6009 8.97596 16.3077 8.70105C16.0144 8.42613 15.877 8.05042 15.877 7.59223C15.877 7.20735 16.0053 6.86829 16.2527 6.58421C16.5093 6.30013 16.8667 6.0802 17.334 5.92442C17.8014 5.76863 18.342 5.68616 18.9743 5.68616C19.5333 5.68616 20.0465 5.74114 20.5138 5.86944C20.9812 5.98857 21.3661 6.14435 21.6685 6.32763V7.89464C21.3569 7.71136 20.9904 7.56474 20.5871 7.45477C20.1748 7.34481 19.7533 7.28982 19.3226 7.28982C18.6994 7.28982 18.3878 7.39979 18.3878 7.61056C18.3878 7.71136 18.4337 7.78467 18.5345 7.83966C18.6353 7.89464 18.8094 7.94046 19.066 7.99544L20.0648 8.17871C20.7155 8.28868 21.2011 8.49028 21.5219 8.77436C21.8426 9.05844 21.9984 9.47081 21.9984 10.0298C21.9984 10.6346 21.7326 11.1203 21.2011 11.4685C20.6696 11.8259 19.9182 12 18.9468 12C18.3787 11.9817 17.8289 11.9084 17.2882 11.7709Z"></path><path d="M24.4735 11.5602C23.9054 11.2761 23.4655 10.9004 23.1814 10.4239C22.8882 9.94733 22.7507 9.40666 22.7507 8.80185C22.7507 8.20621 22.8974 7.66554 23.1998 7.19819C23.5022 6.72167 23.942 6.35512 24.5194 6.0802C25.0967 5.81445 25.7931 5.677 26.5995 5.677C27.5984 5.677 28.4231 5.88776 29.0829 6.3093V8.1329C28.8538 7.97712 28.5789 7.83965 28.2673 7.74802C27.9558 7.64721 27.6259 7.6014 27.2777 7.6014C26.6545 7.6014 26.178 7.71137 25.8206 7.94046C25.4724 8.16956 25.2983 8.46279 25.2983 8.82934C25.2983 9.18673 25.4632 9.47998 25.8115 9.70907C26.1505 9.93817 26.6453 10.0573 27.2868 10.0573C27.6167 10.0573 27.9466 10.0115 28.2673 9.91067C28.5881 9.80987 28.8722 9.69991 29.1013 9.55329V11.3219C28.3681 11.7618 27.5159 11.9817 26.5537 11.9817C25.7381 11.9817 25.0509 11.8351 24.4735 11.5602Z"></path><path d="M31.6955 11.5602C31.1182 11.2761 30.6783 10.9004 30.3759 10.4147C30.0735 9.929 29.9177 9.38834 29.9177 8.78353C29.9177 8.18788 30.0735 7.64722 30.3759 7.17986C30.6783 6.71251 31.1182 6.34595 31.6863 6.0802C32.2545 5.81445 32.9418 5.677 33.7299 5.677C34.518 5.677 35.2053 5.80529 35.7743 6.0802C36.3425 6.34595 36.7824 6.71251 37.0848 7.17986C37.3872 7.64722 37.5338 8.17872 37.5338 8.78353C37.5338 9.37918 37.3872 9.929 37.0848 10.4147C36.7824 10.9004 36.3517 11.2852 35.7743 11.5602C35.1961 11.8351 34.518 11.9817 33.7299 11.9817C32.951 11.9817 32.2728 11.8351 31.6955 11.5602ZM34.7287 9.79155C34.967 9.55329 35.0953 9.22339 35.0953 8.82934C35.0953 8.42614 34.9762 8.11457 34.7287 7.87632C34.4813 7.63806 34.1514 7.51892 33.7391 7.51892C33.3084 7.51892 32.9785 7.63806 32.731 7.87632C32.4928 8.11457 32.3645 8.42614 32.3645 8.82934C32.3645 9.23255 32.4836 9.55329 32.731 9.79155C32.9785 10.039 33.3084 10.1581 33.7391 10.1581C34.1514 10.1489 34.4905 10.0298 34.7287 9.79155Z"></path><path d="M43.6644 6.0435V8.19699C43.4078 8.03204 43.0779 7.94956 42.6747 7.94956C42.1432 7.94956 41.7308 8.11451 41.4467 8.43524C41.1626 8.75598 41.016 9.25999 41.016 9.93811V11.7709H38.5693V5.9427H40.9702V7.80295C41.0985 7.12482 41.3184 6.62082 41.6117 6.30008C41.9049 5.97935 42.2898 5.80524 42.7572 5.80524C43.1054 5.80524 43.4078 5.88771 43.6644 6.0435Z"></path><path d="M51.9136 4.58649V11.7801H49.4659V10.4696C49.2552 10.9645 48.9436 11.3402 48.5221 11.5968C48.1005 11.8534 47.5782 11.9817 46.9551 11.9817C46.4052 11.9817 45.9195 11.8442 45.5072 11.5785C45.0948 11.3127 44.7741 10.937 44.5542 10.4696C44.3342 9.99313 44.2242 9.46163 44.2242 8.87514C44.2151 8.26117 44.3342 7.71134 44.5816 7.22566C44.8199 6.73998 45.1681 6.36426 45.608 6.08935C46.0479 5.81444 46.5519 5.67698 47.12 5.67698C48.2838 5.67698 49.0627 6.18099 49.4659 7.19817V4.58649H51.9136ZM49.0994 9.7457C49.3468 9.50744 49.4751 9.18671 49.4751 8.80183C49.4751 8.42612 49.356 8.12371 49.1086 7.89462C48.8611 7.66552 48.5312 7.5464 48.1189 7.5464C47.7065 7.5464 47.3766 7.66553 47.1292 7.90378C46.8818 8.14204 46.7626 8.44444 46.7626 8.82932C46.7626 9.2142 46.8818 9.51661 47.1292 9.75487C47.3766 9.99313 47.6973 10.1123 48.1097 10.1123C48.5221 10.1123 48.852 9.99313 49.0994 9.7457Z"></path><path d="M13.4751 6.29095C14.1789 6.29095 14.7489 5.77778 14.7489 5.14547C14.7489 4.51317 14.1789 4 13.4751 4C12.7723 4 12.2014 4.51317 12.2014 5.14547C12.2014 5.77778 12.7723 6.29095 13.4751 6.29095Z"></path><path d="M14.7489 7.07812C13.97 7.41719 12.9986 7.42635 12.2014 7.07812V11.7792H14.7489V7.07812Z"></path></g></svg></div>
-                                <img class="shop-category-banner-img" src="" data-shop-category-banner-image>
-                                <div class="shop-category-logo-holder">
+                                <div class="discordLogo_be5025" data-shop-discord-watermark-container>
+                                    <div><svg class="discordIcon_be5025" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z" class=""></path></svg><svg class="discordWordmark_be5025" aria-hidden="true" role="img" width="55" height="16" viewBox="0 0 55 16"><g fill="currentColor"><path d="M3 4.78717H6.89554C7.83025 4.78717 8.62749 4.93379 9.27812 5.22703C9.92875 5.52027 10.4144 5.92348 10.7352 6.44582C11.0559 6.96815 11.2208 7.5638 11.2208 8.24192C11.2208 8.90171 11.0559 9.49736 10.7168 10.038C10.3778 10.5695 9.8646 11.0002 9.17732 11.3118C8.49003 11.6234 7.6378 11.7791 6.6197 11.7791H3V4.78717ZM6.57388 10.0014C7.2071 10.0014 7.69278 9.84559 8.03184 9.52485C8.3709 9.21328 8.54501 8.77343 8.54501 8.23276C8.54501 7.72875 8.38923 7.32555 8.08682 7.02314C7.78442 6.72073 7.32623 6.56495 6.71225 6.56495H5.49255V10.0014H6.57388Z"></path><path d="M17.2882 11.7709C16.7475 11.6335 16.2618 11.4319 15.8311 11.1569V9.4983C16.161 9.75489 16.5917 9.95649 17.1416 10.1214C17.6914 10.2864 18.2229 10.3689 18.7361 10.3689C18.9743 10.3689 19.1576 10.3414 19.2767 10.2772C19.3959 10.2131 19.46 10.1398 19.46 10.0481C19.46 9.94733 19.4233 9.86485 19.3592 9.80071C19.2951 9.73656 19.1668 9.68158 18.9743 9.62659L17.7739 9.36084C17.0866 9.20506 16.6009 8.97596 16.3077 8.70105C16.0144 8.42613 15.877 8.05042 15.877 7.59223C15.877 7.20735 16.0053 6.86829 16.2527 6.58421C16.5093 6.30013 16.8667 6.0802 17.334 5.92442C17.8014 5.76863 18.342 5.68616 18.9743 5.68616C19.5333 5.68616 20.0465 5.74114 20.5138 5.86944C20.9812 5.98857 21.3661 6.14435 21.6685 6.32763V7.89464C21.3569 7.71136 20.9904 7.56474 20.5871 7.45477C20.1748 7.34481 19.7533 7.28982 19.3226 7.28982C18.6994 7.28982 18.3878 7.39979 18.3878 7.61056C18.3878 7.71136 18.4337 7.78467 18.5345 7.83966C18.6353 7.89464 18.8094 7.94046 19.066 7.99544L20.0648 8.17871C20.7155 8.28868 21.2011 8.49028 21.5219 8.77436C21.8426 9.05844 21.9984 9.47081 21.9984 10.0298C21.9984 10.6346 21.7326 11.1203 21.2011 11.4685C20.6696 11.8259 19.9182 12 18.9468 12C18.3787 11.9817 17.8289 11.9084 17.2882 11.7709Z"></path><path d="M24.4735 11.5602C23.9054 11.2761 23.4655 10.9004 23.1814 10.4239C22.8882 9.94733 22.7507 9.40666 22.7507 8.80185C22.7507 8.20621 22.8974 7.66554 23.1998 7.19819C23.5022 6.72167 23.942 6.35512 24.5194 6.0802C25.0967 5.81445 25.7931 5.677 26.5995 5.677C27.5984 5.677 28.4231 5.88776 29.0829 6.3093V8.1329C28.8538 7.97712 28.5789 7.83965 28.2673 7.74802C27.9558 7.64721 27.6259 7.6014 27.2777 7.6014C26.6545 7.6014 26.178 7.71137 25.8206 7.94046C25.4724 8.16956 25.2983 8.46279 25.2983 8.82934C25.2983 9.18673 25.4632 9.47998 25.8115 9.70907C26.1505 9.93817 26.6453 10.0573 27.2868 10.0573C27.6167 10.0573 27.9466 10.0115 28.2673 9.91067C28.5881 9.80987 28.8722 9.69991 29.1013 9.55329V11.3219C28.3681 11.7618 27.5159 11.9817 26.5537 11.9817C25.7381 11.9817 25.0509 11.8351 24.4735 11.5602Z"></path><path d="M31.6955 11.5602C31.1182 11.2761 30.6783 10.9004 30.3759 10.4147C30.0735 9.929 29.9177 9.38834 29.9177 8.78353C29.9177 8.18788 30.0735 7.64722 30.3759 7.17986C30.6783 6.71251 31.1182 6.34595 31.6863 6.0802C32.2545 5.81445 32.9418 5.677 33.7299 5.677C34.518 5.677 35.2053 5.80529 35.7743 6.0802C36.3425 6.34595 36.7824 6.71251 37.0848 7.17986C37.3872 7.64722 37.5338 8.17872 37.5338 8.78353C37.5338 9.37918 37.3872 9.929 37.0848 10.4147C36.7824 10.9004 36.3517 11.2852 35.7743 11.5602C35.1961 11.8351 34.518 11.9817 33.7299 11.9817C32.951 11.9817 32.2728 11.8351 31.6955 11.5602ZM34.7287 9.79155C34.967 9.55329 35.0953 9.22339 35.0953 8.82934C35.0953 8.42614 34.9762 8.11457 34.7287 7.87632C34.4813 7.63806 34.1514 7.51892 33.7391 7.51892C33.3084 7.51892 32.9785 7.63806 32.731 7.87632C32.4928 8.11457 32.3645 8.42614 32.3645 8.82934C32.3645 9.23255 32.4836 9.55329 32.731 9.79155C32.9785 10.039 33.3084 10.1581 33.7391 10.1581C34.1514 10.1489 34.4905 10.0298 34.7287 9.79155Z"></path><path d="M43.6644 6.0435V8.19699C43.4078 8.03204 43.0779 7.94956 42.6747 7.94956C42.1432 7.94956 41.7308 8.11451 41.4467 8.43524C41.1626 8.75598 41.016 9.25999 41.016 9.93811V11.7709H38.5693V5.9427H40.9702V7.80295C41.0985 7.12482 41.3184 6.62082 41.6117 6.30008C41.9049 5.97935 42.2898 5.80524 42.7572 5.80524C43.1054 5.80524 43.4078 5.88771 43.6644 6.0435Z"></path><path d="M51.9136 4.58649V11.7801H49.4659V10.4696C49.2552 10.9645 48.9436 11.3402 48.5221 11.5968C48.1005 11.8534 47.5782 11.9817 46.9551 11.9817C46.4052 11.9817 45.9195 11.8442 45.5072 11.5785C45.0948 11.3127 44.7741 10.937 44.5542 10.4696C44.3342 9.99313 44.2242 9.46163 44.2242 8.87514C44.2151 8.26117 44.3342 7.71134 44.5816 7.22566C44.8199 6.73998 45.1681 6.36426 45.608 6.08935C46.0479 5.81444 46.5519 5.67698 47.12 5.67698C48.2838 5.67698 49.0627 6.18099 49.4659 7.19817V4.58649H51.9136ZM49.0994 9.7457C49.3468 9.50744 49.4751 9.18671 49.4751 8.80183C49.4751 8.42612 49.356 8.12371 49.1086 7.89462C48.8611 7.66552 48.5312 7.5464 48.1189 7.5464C47.7065 7.5464 47.3766 7.66553 47.1292 7.90378C46.8818 8.14204 46.7626 8.44444 46.7626 8.82932C46.7626 9.2142 46.8818 9.51661 47.1292 9.75487C47.3766 9.99313 47.6973 10.1123 48.1097 10.1123C48.5221 10.1123 48.852 9.99313 49.0994 9.7457Z"></path><path d="M13.4751 6.29095C14.1789 6.29095 14.7489 5.77778 14.7489 5.14547C14.7489 4.51317 14.1789 4 13.4751 4C12.7723 4 12.2014 4.51317 12.2014 5.14547C12.2014 5.77778 12.7723 6.29095 13.4751 6.29095Z"></path><path d="M14.7489 7.07812C13.97 7.41719 12.9986 7.42635 12.2014 7.07812V11.7792H14.7489V7.07812Z"></path></g></svg></div>
+                                </div>
+                                <div id="home-page-preview-banner-container" data-shop-banner-banner-container>
+                                    <img class="shop-category-banner-img" src="" data-shop-category-banner-image>
+                                </div>
+                                <div class="shop-category-logo-holder" data-shop-category-logo-holder>
                                     <img class="shop-category-banner-logo" src="" id="shop-banner-logo" data-shop-category-logo-image>
                                 </div>
                                 <div class="shop-category-text-holder">
@@ -1557,13 +1620,15 @@ if (localStorage.full_client_rework != "false") {
                                 <a class="item-credits" data-product-card-sku-id>Failed To Load Item</a>
                                 <h3 data-product-card-name>Failed To Load Item</h3>
                                 <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
-                                <div class="shop-price-container">
+                                <div class="shop-price-container" data-shop-price-container>
                                     <a style="font-size: large; font-weight: 900;" data-price-standard></a>
                                     <a data-price-nitro></a>
                                 </div>
                             </div>
                             <div class="card-button-container"data-product-card-open-in-shop>
                                 <button class="card-button" title="Open this item in the Discord Shop">Open In Shop</button>
+                            </div>
+                            <div class="shop-card-tag-container" data-shop-card-tag-container>
                             </div>
                         </div>
                     </template>
@@ -2238,7 +2303,7 @@ if (localStorage.full_client_rework != "false") {
                     <button class="card-button" onclick="window.open('https://github.com/Yappering/');">Github</button>
                     <button class="card-button" onclick="window.open('https://www.youtube.com/@DTACat');">DTACat Youtube</button>
                 </div>
-                App Version: Stable 142
+                App Version: Stable 144
             `;
 
             if (localStorage.items_in_shop_yes == "true") {
@@ -2469,8 +2534,7 @@ if (localStorage.full_client_rework != "false") {
     
     function openDevModal() {
         if (localStorage.dev == "true") {
-            const dev_modal = document.getElementById('modal-housing');
-            dev_modal.innerHTML = `
+            document.getElementById('modal-housing').innerHTML = `
             <div class="modal-housing-1" id="modal-housing-1">
                 <div class="dev-modal">
                     <div class="dev-modal-inner">
@@ -2485,20 +2549,14 @@ if (localStorage.full_client_rework != "false") {
 
 
                                 <div class="experiment-card">
-                                    <p>API Designed Url</p>
-                                    <p class="experiment-subtext">2024-11_api_designed_url</p>
-                                    <button class="refresh-button" onclick="apiDesignedUrl1()" id="2024-11_api_designed_url-1" title="set api.yapper.shop as primary api request url">Override 1</button>
-                                    <button class="refresh-button" onclick="apiDesignedUrl0()" id="2024-11_api_designed_url-0">No Override</button>
-                                    <button class="refresh-button" onclick="apiDesignedUrl00()" id="2024-11_api_designed_url-00" title="use if client fails to fetch from api.yapper.shop">Override -1</button>
-                                </div>
-    
-    
-                                <div class="experiment-card">
-                                    <p>Client Rework</p>
-                                    <p class="experiment-subtext">2024-11_full_client_rework</p>
-                                    <button class="refresh-button" onclick="fullClientRework1()" id="2024-11_full_client_rework-1">Override 1</button>
-                                    <button class="refresh-button" onclick="fullClientRework0()" id="2024-11_full_client_rework-0">No Override</button>
-                                    <button class="refresh-button" onclick="fullClientRework00()" id="2024-11_full_client_rework-00">Override -1</button>
+                                    <p>Premium Type Two Included With Nitro</p>
+                                    <p class="experiment-subtext">2024-11_premium_type_two_included_with_nitro</p>
+                                    <div id="experiment-default-rollout-data-2024-11_premium_type_two_included_with_nitro"></div>
+                                    <button class="refresh-button" onclick="premiumTypeTwoIncludedWithNitro3()" id="2024-11_premium_type_two_included_with_nitro-3" title="show included with nitro tag and price on all items">Override 3</button>
+                                    <button class="refresh-button" onclick="premiumTypeTwoIncludedWithNitro2()" id="2024-11_premium_type_two_included_with_nitro-2" title="show included with nitro tag and price on premium type 2 items">Override 2</button>
+                                    <button class="refresh-button" onclick="premiumTypeTwoIncludedWithNitro1()" id="2024-11_premium_type_two_included_with_nitro-1" title="show included with nitro tag on premium type 2 items">Override 1</button>
+                                    <button class="refresh-button-no">No Override</button>
+                                    <button class="refresh-button" onclick="premiumTypeTwoIncludedWithNitro00()" id="2024-11_premium_type_two_included_with_nitro-00">Override -1</button>
                                 </div>
         
         
@@ -2522,28 +2580,6 @@ if (localStorage.full_client_rework != "false") {
                                 </div>
         
                                 
-                            </div>
-                        </div>
-                        <hr>
-                        <div>
-                            <h2>Modals</h2>
-                            <div class="experiment-card-holder">
-                                <div class="experiment-card">
-                                    <p>Lost</p>
-                                    <button class="refresh-button" onclick="openLostModal()">Open</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Dev</p>
-                                    <button class="refresh-button" onclick="openDevModal()">Open</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Options</p>
-                                    <button class="refresh-button" onclick="openOptionsModal()">Open</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Downloads</p>
-                                    <button class="refresh-button" onclick="openDownloadsModal()">Open</button>
-                                </div>
                             </div>
                         </div>
                         <hr>
@@ -2590,48 +2626,26 @@ if (localStorage.full_client_rework != "false") {
             `;
 
 
+            document.getElementById('experiment-default-rollout-data-2024-11_premium_type_two_included_with_nitro').innerHTML = `
+                <p class="experiment-subtext">default rollout: Override 1</p>
+            `;
 
-            if (localStorage.api_designed_url == "true") {
-                document.getElementById("2024-11_api_designed_url-1").classList.add('refresh-button-selected');
-                document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
+
+
+            if (localStorage.premium_type_two_included_with_nitro == "three") {
+                document.getElementById("2024-11_premium_type_two_included_with_nitro-3").classList.add('refresh-button-selected');
             }
-            
-            if (localStorage.api_designed_url != "true") {
-                if (localStorage.api_designed_url != "false") {
-                    document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
-                    document.getElementById("2024-11_api_designed_url-0").classList.add('refresh-button-selected');
-                    document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
-                }
+
+            if (localStorage.premium_type_two_included_with_nitro == "two") {
+                document.getElementById("2024-11_premium_type_two_included_with_nitro-2").classList.add('refresh-button-selected');
             }
-        
-            if (localStorage.api_designed_url == "false") {
-                document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_api_designed_url-00").classList.add('refresh-button-selected');
-            }
-    
-    
-    
-    
-            if (localStorage.full_client_rework == "true") {
-                document.getElementById("2024-11_full_client_rework-1").classList.add('refresh-button-selected');
-                document.getElementById("2024-11_full_client_rework-0").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_full_client_rework-00").classList.remove('refresh-button-selected');
-            }
-            
-            if (localStorage.full_client_rework != "true") {
-                if (localStorage.full_client_rework != "false") {
-                    document.getElementById("2024-11_full_client_rework-1").classList.remove('refresh-button-selected');
-                    document.getElementById("2024-11_full_client_rework-0").classList.add('refresh-button-selected');
-                    document.getElementById("2024-11_full_client_rework-00").classList.remove('refresh-button-selected');
-                }
+
+            if (localStorage.premium_type_two_included_with_nitro == "true") {
+                document.getElementById("2024-11_premium_type_two_included_with_nitro-1").classList.add('refresh-button-selected');
             }
         
-            if (localStorage.full_client_rework == "false") {
-                document.getElementById("2024-11_full_client_rework-1").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_full_client_rework-0").classList.remove('refresh-button-selected');
-                document.getElementById("2024-11_full_client_rework-00").classList.add('refresh-button-selected');
+            if (localStorage.premium_type_two_included_with_nitro == "false") {
+                document.getElementById("2024-11_premium_type_two_included_with_nitro-00").classList.add('refresh-button-selected');
             }
 
     
@@ -2783,49 +2797,40 @@ if (localStorage.full_client_rework != "false") {
 
 
 
-    function apiDesignedUrl0() {
-        localStorage.api_designed_url = "none"
-        document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_api_designed_url-0").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
+    function premiumTypeTwoIncludedWithNitro3() {
+        localStorage.premium_type_two_included_with_nitro = "three"
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-3").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-2").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-00").classList.remove('refresh-button-selected');
+        fetchData(pageCheck());
+    }
+
+    function premiumTypeTwoIncludedWithNitro2() {
+        localStorage.premium_type_two_included_with_nitro = "two"
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-3").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-2").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-00").classList.remove('refresh-button-selected');
+        fetchData(pageCheck());
     }
     
-    function apiDesignedUrl1() {
-        localStorage.api_designed_url = "true"
-        document.getElementById("2024-11_api_designed_url-1").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_api_designed_url-00").classList.remove('refresh-button-selected');
+    function premiumTypeTwoIncludedWithNitro1() {
+        localStorage.premium_type_two_included_with_nitro = "true"
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-3").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-2").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-00").classList.remove('refresh-button-selected');
+        fetchData(pageCheck());
     }
     
-    function apiDesignedUrl00() {
-        localStorage.api_designed_url = "false"
-        document.getElementById("2024-11_api_designed_url-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_api_designed_url-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_api_designed_url-00").classList.add('refresh-button-selected');
-    }
-    
-    
-    
-    
-    function fullClientRework0() {
-        localStorage.full_client_rework = "none"
-        document.getElementById("2024-11_full_client_rework-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_full_client_rework-0").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_full_client_rework-00").classList.remove('refresh-button-selected');
-    }
-    
-    function fullClientRework1() {
-        localStorage.full_client_rework = "true"
-        document.getElementById("2024-11_full_client_rework-1").classList.add('refresh-button-selected');
-        document.getElementById("2024-11_full_client_rework-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_full_client_rework-00").classList.remove('refresh-button-selected');
-    }
-    
-    function fullClientRework00() {
-        localStorage.full_client_rework = "false"
-        document.getElementById("2024-11_full_client_rework-1").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_full_client_rework-0").classList.remove('refresh-button-selected');
-        document.getElementById("2024-11_full_client_rework-00").classList.add('refresh-button-selected');
+    function premiumTypeTwoIncludedWithNitro00() {
+        localStorage.premium_type_two_included_with_nitro = "false"
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-3").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-2").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_premium_type_two_included_with_nitro-00").classList.add('refresh-button-selected');
+        fetchData(pageCheck());
     }
     
     

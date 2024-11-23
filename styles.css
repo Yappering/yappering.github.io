@@ -1601,39 +1601,6 @@ body {
 }
 
 
-.shop-category-banner:has(
-[src*="1289009898176118885"],
-[src*="1282816432060633161"],
-[src*="1285724287151636602"],
-[src*="1277733175224701010"],
-[src*="1271173898846601349"],
-[src*="1266108772980625530"],
-[src*="1265056547986341950"],
-[src*="1256321669388308596"],
-[src*="1290863905551155200"],
-[src*="1298033986823520337"]) .shop-category-logo-holder {
-    display: none;
-}
-
-.shop-category-banner:has(
-[src*="1289009898176118885"],
-[src*="1282816432060633161"],
-[src*="1285724287151636602"],
-[src*="1277733175224701010"],
-[src*="1271173898846601349"],
-[src*="1266108772980625530"],
-[src*="1265056547986341950"],
-[src*="1290863905551155200"],
-[src*="1298033986823520337"]) .discordLogo_be5025 {
-    display: none;
-}
-
-
-[id*="1268362891946627103"] {
-    box-shadow: -4px -4px 25px 0 rgba(220,48,48,.3),4px 4px 25px 0 rgba(99,5,160,.3) !important;
-    background-image: linear-gradient(180deg,rgba(19,19,19,0)40%,#6305a0 120%), url(https://cdn.yapper.shop/discord-assets/25.jpg) !important;
-}
-
 
 
 
@@ -1813,6 +1780,42 @@ body {
     pointer-events: none;
 }
 
+.shop-card-tag-container {
+    text-align: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 999px;
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: medium;
+    font-weight: 600;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.premiumWheelBadge_c23530 {
+    background-image: linear-gradient(90deg, rgb(149, 67, 177),rgb(169, 85, 143));
+    height: 20px;
+    width: 30px;
+    border-radius: 999px;
+}
+
+.premiumWheel_c23530 {
+    height: 20px;
+    width: 30px;
+}
+
+#home-page-preview-logo-container {
+    text-align: center;
+    width: 600px;
+}
+
+#home-page-preview-logo-container img {
+    max-width: 600px;
+}
+
 .top-selling-tag {
     text-align: center;
     position: absolute;
@@ -1950,13 +1953,14 @@ body {
     width: 100%;
     height: 294.56px;
     object-fit: cover;
+    object-position: 0 -30px;
     mask-image: linear-gradient(to bottom,#000 60%,rgba(0,0,0,0)100%);
     margin-top: 50px;
 }
 
 #home-page-preview-button-container {
     position: absolute;
-    margin-top: -60px;
+    margin-top: -100px;
     right: 50px;
 }
 

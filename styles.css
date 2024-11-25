@@ -458,6 +458,15 @@ body {
     text-align: center;
 }
 
+.link-text {
+    color: #939AF2;
+    cursor: pointer;
+}
+
+.link-text:hover {
+    text-decoration: underline !important;
+}
+
 .refresh-button {
     background-color: rgb(89, 102, 243);
     color: white;
@@ -985,6 +994,76 @@ body {
     z-index: 200;
 }
 
+.a2024-recap-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
+    gap: 20px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-housing:has(.a2024-recap-text-card-1) {
+    background-color: #1a2081;
+}
+
+.home-housing:has(.a2024-recap-text-card-1) .shop-category-marketing-bg {
+    transition: opacity 0.3s ease-in-out;
+    animation: fb87236b789c9d 1s;
+}
+
+@keyframes fb87236b789c9d {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.a2024-recap-card {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.a2024-recap-card:hover {
+    transform: translateY(-5px);
+}
+
+.a2024-recap-card img {
+    display: block;
+    width: 600px;
+    height: 337px;
+    transition: transform 0.3s ease-in-out;
+    animation: f527b856fdhfjx 1s;
+}
+
+.a2024-recap-text-card-1 {
+    display: block;
+    position: relative;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #404248c4;
+    border: 1px solid #1E1F22;
+    max-width: 1000px;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+    animation: f527b856fdhfjx 1s;
+}
+
+@keyframes f527b856fdhfjx {
+    0% {transform: translateY(-20px); opacity: 0;}
+    100% {transform: translateY(0px); opacity: 1;}
+}
+
+.a2024-recap-img-1 {
+    width: 80%;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.a2024-recap-text-card-1:hover {
+    transform: translateY(-5px);
+}
 
 
 
@@ -1785,14 +1864,25 @@ body {
     position: absolute;
     top: 15px;
     right: 15px;
-    border-radius: 999px;
     width: auto;
-    padding-left: 5px;
-    padding-right: 5px;
     font-size: medium;
     font-weight: 600;
     z-index: 3;
     pointer-events: none;
+}
+
+.unplublished-tag-text {
+    color: black !important;
+    height: 21px;
+}
+
+.unplublished-tag {
+    position: relative;
+    background-color: white;
+    top: -15px;
+    border-radius: 999px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .premiumWheelBadge_c23530 {
@@ -1943,6 +2033,30 @@ body {
     90% {border: 2px solid #7c2525; background-color: #b1303063;}
     95% {opacity: 1; transform: translateY(0px);}
     100% {transform: translateY(-5px); border: 2px solid #bf4646; background-color: #bf464663;}
+}
+
+.home-page-dismissible-content-2024-recap {
+    transition: transform 0.5s;
+    animation: home-page-dismissible-content-2024-recap-anim 10s;
+    position: absolute;
+    z-index: 10;
+    right: 10px;
+    margin-top: 40px;
+    width: 500px;
+    cursor: pointer;
+}
+
+.recap-2024-tab-decoration {
+    position: absolute;
+    width: 100px;
+    margin-top: -27px;
+    right: 0;
+    pointer-events: none;
+}
+
+@keyframes home-page-dismissible-content-2024-recap-anim {
+    0% {opacity: 0; transform: translateY(-50px);}
+    10% {opacity: 1; transform: translateY(0px);}
 }
 
 .shop-notice-text {

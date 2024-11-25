@@ -5,6 +5,8 @@ if (localStorage.full_client_rework != "false") {
     discordsupport = 'https://support.discord.com/hc/en-us/articles/';
     discordblog = 'https://discord.com/blog/';
     apidesignedurl = 'https://api.yapper.shop/v2';
+    yapperblog = 'https://yapper.shop/blog/';
+    cdn = 'https://cdn.yapper.shop/';
 
     if (localStorage.api_designed_url != "false") {
         api = apidesignedurl;
@@ -23,6 +25,7 @@ if (localStorage.full_client_rework != "false") {
     PROFILES_PLUS_EFFECTS = '/profiles-plus-profile-effects.json';
     LEAKS = '/leaked-categories.json';
     COLLECTIBLES_MARKETING = '/collectibles-marketing.json';
+    COLLECTIBLES_VARIANTS = '/collectibles-categories-variants.json';
 
 
     WINDOWKILL = "profiles-plus-1"
@@ -33,7 +36,6 @@ if (localStorage.full_client_rework != "false") {
     SPECIAL_EVENT = "profiles-plus-6"
     GEOMETRY_DASH = "profiles-plus-7"
     PAPER_BEACH_V2 = "profiles-plus-8"
-
 
 
     FANTASY = "1144003461608906824"
@@ -77,7 +79,14 @@ if (localStorage.full_client_rework != "false") {
     HELP_PROFILE_EFFECTS = "17828465914263"
     HELP_HD_STREAMING_POTION = "27343254089623"
 
+
     BLOG_AVATAR_DECORATIONS_PROFILE_EFFECTS = "avatar-decorations-collect-and-keep-the-newest-styles"
+
+
+    YAPPER_BLOG_2024_RECAP = "2024-recap"
+
+
+    DISMISSIBLE_2024_RECAP = "assets/103.svg"
 
 
     const params = new URLSearchParams(window.location.search);
@@ -120,7 +129,7 @@ if (localStorage.full_client_rework != "false") {
     
     // Function to fetch and display shop data
     function fetchData() {
-        if (params.get("page") != "home") {
+        if (params.get("page") != "home" && params.get("page") != "recap_2024") {
 
             if (params.get("page") === "consumables") {
                 createMainPotionsElement()
@@ -407,6 +416,38 @@ if (localStorage.full_client_rework != "false") {
                                             card.querySelector("[data-shop-card-tag-container]").innerHTML = `
                                                 <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
                                             `;
+                                        }
+
+                                        const unpublishedAt = new Date(product.unpublished_at);
+                            
+                                        if (product.unpublished_at && !isNaN(unpublishedAt.getTime())) {
+                            
+                                            function updateTimer() {
+                                                const now = new Date();
+                                                const timeDiff = unpublishedAt - now;
+                            
+                                                if (timeDiff <= 0) {
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">OFF SALE</p>
+                                                        </div>
+                                                    `;
+                                                    clearInterval(timerInterval);
+                                                } else {
+                                                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                            
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">${days} DAYS LEFT IN SHOP</p>
+                                                        </div>
+                                                    `;
+                                                }
+                                            }
+                            
+                                            const timerInterval = setInterval(updateTimer, 1000);
+                                            updateTimer();
                                         }
 
                                         // Append card to output
@@ -745,6 +786,38 @@ if (localStorage.full_client_rework != "false") {
                                             `;
                                         }
 
+                                        const unpublishedAt = new Date(product.unpublished_at);
+                            
+                                        if (product.unpublished_at && !isNaN(unpublishedAt.getTime())) {
+                            
+                                            function updateTimer() {
+                                                const now = new Date();
+                                                const timeDiff = unpublishedAt - now;
+                            
+                                                if (timeDiff <= 0) {
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">OFF SALE</p>
+                                                        </div>
+                                                    `;
+                                                    clearInterval(timerInterval);
+                                                } else {
+                                                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                            
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">${days} DAYS LEFT IN SHOP</p>
+                                                        </div>
+                                                    `;
+                                                }
+                                            }
+                            
+                                            const timerInterval = setInterval(updateTimer, 1000);
+                                            updateTimer();
+                                        }
+
                                         // Append card to output
                                         cardOutput.append(card);
                                     }
@@ -957,9 +1030,7 @@ if (localStorage.full_client_rework != "false") {
                     `;
                 });
 
-        } else {
-
-            createShopCategoryLoadingElement()
+        } else if (params.get("page") === "home") {
                 
             if (localStorage.unreleased_discord_collectibles == "true") {
                 const client_token = localStorage.getItem('token');
@@ -1309,6 +1380,8 @@ if (localStorage.full_client_rework != "false") {
             .catch(error => {
                 console.error('Error fetching the API:', error);
             });
+        } else if (params.get("page") === "recap_2024") {
+            createRecap2024Element()
         }
     }
     
@@ -1335,6 +1408,8 @@ if (localStorage.full_client_rework != "false") {
             <button class="dm-button" id="home-tab" onclick="setParams({page: 'home'}); location.reload();">
                 <p class="dm-button-text">Home</p>
             </button>
+            <div id="recap-2024-tab-loading">
+            </div>
         </div>
         <div class="dm-divider">Collectibles</div>
         <div>
@@ -1365,11 +1440,30 @@ if (localStorage.full_client_rework != "false") {
         `;
     }
 
+    if (localStorage.recap_items_2024 === "true") {
+        document.getElementById('recap-2024-tab-loading').innerHTML = `
+            <img class="recap-2024-tab-decoration" src="https://cdn.yapper.shop/assets/104.png">
+            <button class="dm-button" id="recap-2024-tab" onclick="setParams({page: 'recap_2024'}); location.reload();">
+                <p class="dm-button-text">2024 Recap</p>
+            </button>
+
+        `;
+        document.getElementById('recap-2024-tab').style.backgroundImage = "linear-gradient(90deg, rgba(200, 91, 241, 0.00) 18.75%, #C85BF1 108.26%)";
+    }
+
     function pageCheck() {
         if (params.get("page") === "home") {
             document.title = "Home | Shop Archives";
             createHomePageElement()
             document.getElementById("home-tab").classList.add('dm-button-selected');
+        } else if (params.get("page") === "recap_2024") {
+            document.title = "2024 Recap | Shop Archives";
+            document.getElementById("recap-2024-tab").classList.add('dm-button-selected');
+            localStorage.dismissible_recap_2024 = "dismissed";
+            document.getElementById("top-bar-container").innerHTML = `
+                <h2 style="margin-left: 260px; margin-top: 10px;">2024 Recap</h2>
+                <div id="open-help-modals-buttons-holder"></div>
+            `;
         } else if (params.get("page") === "shop") {
             document.title = "Shop | Shop Archives";
             if (localStorage.items_in_shop_yes == "true") {
@@ -1378,6 +1472,8 @@ if (localStorage.full_client_rework != "false") {
                 const client_token = localStorage.getItem('token');
                 apiUrlRaw = prvapi + COLLECTIBLES;
                 apiUrl = `${apiUrlRaw}?token=${client_token}`;  
+            } else if (localStorage.collectibles_variants == "true") {
+                apiUrl = api + COLLECTIBLES_VARIANTS;
             } else {
                 apiUrl = api + COLLECTIBLES;
             }
@@ -1507,6 +1603,8 @@ if (localStorage.full_client_rework != "false") {
         document.getElementById("everything-housing-container").innerHTML = `
             <div id="home-page-warning-container">
             </div>
+            <div id="home-page-dismissible-content-container">
+            </div>
             <template data-shop-category-template>
                 <div>
                     <div data-preview-banner-container>
@@ -1555,6 +1653,22 @@ if (localStorage.full_client_rework != "false") {
             <div data-shop-output>
             </div>
             <div style="margin-top: 50px;" id="shop-category-loading-container">
+                <div class="shop-category-loading" id="shop-category-loading">
+                    <div>
+                        <div class="shop-category-banner-loading">
+                        </div>
+                        <div class="shop-category-card-holder-loading">
+                            <div class="shop-category-card-loading">
+                            </div>
+                            <div class="shop-category-card-loading">
+                            </div>
+                            <div class="shop-category-card-loading">
+                            </div>
+                            <div class="shop-category-card-loading">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <h2 style="margin-left: 60px;">What's new for Profiles Plus</h2>
@@ -1564,6 +1678,9 @@ if (localStorage.full_client_rework != "false") {
                         <img style="width: 550px;" src="" data-shop-preview-image-plus>
                     </div>
                 </template>
+            </div>
+
+            <div id="recap-support-articles">
             </div>
         `;
         if (params.get("err") === "404") {
@@ -1580,6 +1697,112 @@ if (localStorage.full_client_rework != "false") {
                 </div>
             `;
         }
+        if (localStorage.recap_items_2024 === "true") {
+            if (localStorage.dismissible_recap_2024 != "dismissed") {
+                document.getElementById("home-page-dismissible-content-container").innerHTML = `
+                    <img class="home-page-dismissible-content-2024-recap" onclick="dismissibleContentRecap2024()" src="${cdn}${DISMISSIBLE_2024_RECAP}" title="Check out everything 2024 had to offer!">
+                `;
+            }
+            document.getElementById("recap-support-articles").innerHTML = `
+                <h2 style="margin-left: 60px;">Discord Articles</h2>
+                <div class="a2024-recap-container">
+                    <div class="a2024-recap-card" onclick="window.open('${discordsupport}${HELP_HD_STREAMING_POTION}');">
+                        <img class="a2024-recap-img" src="https://cdn.yapper.shop/assets/98.svg">
+                    </div>
+                    <div class="a2024-recap-card" onclick="window.open('${discordsupport}${HELP_PROFILE_EFFECTS}');">
+                        <img class="a2024-recap-img" src="https://cdn.yapper.shop/assets/97.svg">
+                    </div>
+                    <div class="a2024-recap-card" onclick="window.open('${discordsupport}${HELP_AVATAR_DECORATIONS}');">
+                        <img class="a2024-recap-img" src="https://cdn.yapper.shop/assets/96.svg">
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function dismissibleContentRecap2024() {
+        setParams({page: 'recap_2024'}); location.reload();
+        localStorage.dismissible_recap_2024 = "dismissed";
+    }
+
+    function createRecap2024Element() {
+        document.getElementById("everything-housing-container").innerHTML = `
+            <div class="thy-shop-category-idk" style="height: auto;">
+                <img class="shop-category-marketing-bg" style="height: 100%; position: absolute; filter: blur(3px);" src="${cdn}assets/110.svg">
+
+                <div style="height: 60px; padding-top: 30px;">
+                </div>
+                
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">2024 Recap</h1>
+
+                    <p class="center-text" style="font-size: 18px;">Things such as Splash Potions and randomness added to Profile Effects and much more were all nice gifts given to us in 2024!</p>
+                    <p class="center-text" style="font-size: 18px;">The Shop Archives teams has made this article that covers everything that was added to Discord in 2024!</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Winter Nitro Promotion</h1>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">HD Splash Potions</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/109.png">
+
+                    <p class="center-text" style="font-size: 18px;">HD Splash Potion allows everyone in a voice channel to enjoy HD video streaming quality for the next 12 hours for only US$0.99.</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Halloween Nitro Promotion</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/108.png">
+
+                    <p class="center-text" style="font-size: 18px;">From October 7th to November 4th, if you buy a Discord Nitro gift, you'll receive the 'Minios' Avatar Decoration of your own to collect and keep!</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Random Profile Effect Outcomes</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/106.png">
+
+                    <p class="center-text" style="font-size: 18px;">You might have noticed that some Profile Effects don't just have one outcome.</p>
+
+                    <p class="center-text" style="font-size: 18px;">Profile Effects such as 'D20 Roll' and 'Classic Street Fighter' have a chance to play a whole new animation every time you open someone profile!</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Spring Nitro Promotion</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/107.png">
+
+                    <p class="center-text" style="font-size: 18px;">During Spring, if you were a first time Nitro subscriber, you would receive the 'Gyoiko Sakura' Avatar Decoration of your own to collect and use with an active Nitro subscription!</p>
+
+                    <p class="center-text" style="font-size: 18px;">But none of that mattered since later on Discord allowed anyone to purchase the 'Gyoiko Sakura' Avatar Decoration from 'The Vault' shop category.</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1" style="padding: 0px;">
+                    <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_HD_STREAMING_POTION}');">HD Splash Potion</p>
+                    <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_PROFILE_EFFECTS}');">Profile Effects</p>
+                    <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_AVATAR_DECORATIONS}');">Avatar Decorations</p>
+                    <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_SHOP}');">Shop</p>
+                    <p class="center-text" style="font-size: 18px;" title="DD/MM/YYYY">This page will be visible until 1/02/2025</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+            </div>
+        `;
     }
 
 
@@ -2303,7 +2526,7 @@ if (localStorage.full_client_rework != "false") {
                     <button class="card-button" onclick="window.open('https://github.com/Yappering/');">Github</button>
                     <button class="card-button" onclick="window.open('https://www.youtube.com/@DTACat');">DTACat Youtube</button>
                 </div>
-                App Version: Stable 144
+                App Version: Stable 155
             `;
 
             if (localStorage.items_in_shop_yes == "true") {
@@ -2549,6 +2772,24 @@ if (localStorage.full_client_rework != "false") {
 
 
                                 <div class="experiment-card">
+                                    <p>Collectibles Variants</p>
+                                    <p class="experiment-subtext">2024-11_collectibles_variants</p>
+                                    <div id="experiment-default-rollout-data-2024-11_collectibles_variants"></div>
+                                    <button class="refresh-button" onclick="collectiblesVariants1()" id="2024-11_collectibles_variants-1">Override 1</button>
+                                    <button class="refresh-button" onclick="collectiblesVariants00()" id="2024-11_collectibles_variants-00">Override -1</button>
+                                </div>
+
+
+                                <div class="experiment-card">
+                                    <p>2024 Recap</p>
+                                    <p class="experiment-subtext">2024-11_recap</p>
+                                    <div id="experiment-default-rollout-data-2024-11_recap"></div>
+                                    <button class="refresh-button" onclick="recap2024Items1()" id="2024-11_recap-1">Override 1</button>
+                                    <button class="refresh-button" onclick="recap2024Items00()" id="2024-11_recap-00">Override -1</button>
+                                </div>
+
+
+                                <div class="experiment-card">
                                     <p>Premium Type Two Included With Nitro</p>
                                     <p class="experiment-subtext">2024-11_premium_type_two_included_with_nitro</p>
                                     <div id="experiment-default-rollout-data-2024-11_premium_type_two_included_with_nitro"></div>
@@ -2609,6 +2850,18 @@ if (localStorage.full_client_rework != "false") {
                         </div>
                         <hr>
                         <div>
+                            <h2>Dismissible Content</h2>
+                            <p class="experiment-subtext">Overrides</p>
+                            <div class="experiment-card-holder">
+                                <div class="experiment-card">
+                                    <p>Recap 2024</p>
+                                    <p class="experiment-subtext">dismissible_recap_2024</p>
+                                    <button class="refresh-button" onclick="localStorage.dismissible_recap_2024 = '';">Clear Override</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
                             <h2>Local Storage Overrides</h2>
                             <p class="experiment-subtext">Refresh the page for changes to take effect</p>
                             <button class="refresh-button" style="opacity: 0; pointer-events: none;">Save</button>
@@ -2626,9 +2879,49 @@ if (localStorage.full_client_rework != "false") {
             `;
 
 
+            document.getElementById('experiment-default-rollout-data-2024-11_collectibles_variants').innerHTML = `
+                <p class="experiment-subtext">default rollout: Override -1</p>
+            `;
+
+            document.getElementById('experiment-default-rollout-data-2024-11_recap').innerHTML = `
+                <p class="experiment-subtext">default rollout: Override -1</p>
+            `;
+
             document.getElementById('experiment-default-rollout-data-2024-11_premium_type_two_included_with_nitro').innerHTML = `
                 <p class="experiment-subtext">default rollout: Override 1</p>
             `;
+
+
+
+            if (localStorage.collectibles_variants == "true") {
+                document.getElementById("2024-11_collectibles_variants-1").classList.add('refresh-button-selected');
+            }
+        
+            if (localStorage.collectibles_variants == "false") {
+                document.getElementById("2024-11_collectibles_variants-00").classList.add('refresh-button-selected');
+            }
+
+            if (localStorage.collectibles_variants != "false") {
+                if (localStorage.collectibles_variants != "true") {
+                    document.getElementById("2024-11_collectibles_variants-00").classList.add('refresh-button-selected');
+                }
+            }
+
+
+
+            if (localStorage.recap_items_2024 == "true") {
+                document.getElementById("2024-11_recap-1").classList.add('refresh-button-selected');
+            }
+        
+            if (localStorage.recap_items_2024 == "false") {
+                document.getElementById("2024-11_recap-00").classList.add('refresh-button-selected');
+            }
+
+            if (localStorage.recap_items_2024 != "false") {
+                if (localStorage.recap_items_2024 != "true") {
+                    document.getElementById("2024-11_recap-00").classList.add('refresh-button-selected');
+                }
+            }
 
 
 
@@ -2795,6 +3088,33 @@ if (localStorage.full_client_rework != "false") {
     }
 
 
+
+
+    function collectiblesVariants1() {
+        localStorage.collectibles_variants = "true"
+        document.getElementById("2024-11_collectibles_variants-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_collectibles_variants-00").classList.remove('refresh-button-selected');
+    }
+
+    function collectiblesVariants00() {
+        localStorage.collectibles_variants = "false"
+        document.getElementById("2024-11_collectibles_variants-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_collectibles_variants-00").classList.add('refresh-button-selected');
+    }
+
+
+
+    function recap2024Items1() {
+        localStorage.recap_items_2024 = "true"
+        document.getElementById("2024-11_recap-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-11_recap-00").classList.remove('refresh-button-selected');
+    }
+
+    function recap2024Items00() {
+        localStorage.recap_items_2024 = "false"
+        document.getElementById("2024-11_recap-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-11_recap-00").classList.add('refresh-button-selected');
+    }
 
 
     function premiumTypeTwoIncludedWithNitro3() {

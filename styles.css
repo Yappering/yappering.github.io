@@ -900,6 +900,35 @@ body {
     margin-right: auto;
 }
 
+.shareIcon_f4a996 {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-radius: 50px;
+    color: #B1B5BB;
+    background-color: #0000005d;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.shop-category-card:hover .shareIcon_f4a996 {
+    opacity: 1;
+}
+
+.shareIcon_f4a996:hover {
+    color: white;
+}
+
+data-share-product-card-button {
+    position: absolute;
+    right: 10px;
+    width: auto;
+    height: auto;
+}
+
 .shop-category-banner-logo {
     width: auto;
     max-width: 530px;
@@ -1472,6 +1501,7 @@ body {
 
 .shop-category-card:hover .shop-card-summary {
     opacity: 0; /* Fade out description */
+    pointer-events: none;
 }
 
 .shop-category-card-standard:hover .shop-card-summary {

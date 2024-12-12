@@ -3,7 +3,7 @@ n78ndg290n = "Greetings Shop Archives Staff and/or Dataminer! This model has eve
 mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
-tcbx926n29 = "Stable 166";
+tcbx926n29 = "Stable 173";
 
 
 if (localStorage.full_client_rework != "false") {
@@ -18,6 +18,16 @@ if (localStorage.full_client_rework != "false") {
 
     if (localStorage.api_designed_url != "false") {
         api = apidesignedurl;
+    }
+
+    function privateAPICheck() {
+        if (localStorage.force_all_api_to_fectch_private_api == "true") {
+            api = prvapi;
+        } else if (localStorage.api_designed_url != "false") {
+            api = apidesignedurl;
+        } else {
+            api = 'https://raw.githubusercontent.com/Yappering/api/main/v2';
+        }
     }
 
 
@@ -82,6 +92,7 @@ if (localStorage.full_client_rework != "false") {
     WARRIOR = "1303490165284802580"
     KAWAII_MODE = "1306330663213072494"
     LOFI_GIRL = "1309668861943218229"
+    WINTER_WONDERLAND = "1314020997204283476"
 
 
     HELP_AVATAR_DECORATIONS = "13410113109911"
@@ -196,8 +207,8 @@ if (localStorage.full_client_rework != "false") {
                                         const cardTemplate = document.querySelector("[data-shop-item-card-template]");
                                         const card = cardTemplate.content.cloneNode(true).children[0];
 
-                                        product.items.forEach(item => {
-                                            if (product.type === 0) {
+                                        if (product.type === 0) {
+                                            product.items.forEach(item => {
                                                 card.classList.add("type_0");
                                                 // Set the innerHTML for the preview holder
                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -225,8 +236,9 @@ if (localStorage.full_client_rework != "false") {
                                                         imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
                                                     });
                                                 }
-                                            }
-                                        });
+                                            });
+                                        }
+                                        
 
                                         if (product.type === 1) {
                                             card.classList.add("type_1");
@@ -408,6 +420,33 @@ if (localStorage.full_client_rework != "false") {
                                             `;
                                         }
 
+
+                                        if (product.type === 'plus_more') {
+                                            card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                            card.querySelector("[data-product-card-name]").textContent = `Plus More...`;
+                                            card.querySelector("[data-product-card-summary]").textContent = `There are more items in this category that are coming soon.`;
+
+                                            card.querySelector("[data-shop-price-container]").innerHTML = ``;
+                                            card.querySelector("[data-product-card-open-in-shop]").innerHTML = ``;
+                                            card.querySelector("[data-share-product-card-button]").innerHTML = ``;
+
+                                            const plusMoreQuestionMark = document.createElement("img");
+                                            plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                            plusMoreQuestionMark.classList.add("plus-more-question-mark");
+                                            card.querySelector("[data-shop-card-preview-holder]").appendChild(plusMoreQuestionMark);
+                                
+                                            // Hover effect for decoration image
+                                            if (localStorage.reduced_motion != "true") {
+                                                card.addEventListener("mouseenter", () => {
+                                                    plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.gif`;
+                                                });
+                                                card.addEventListener("mouseleave", () => {
+                                                    plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                                });
+                                            }
+                                        }
+
+
                                         const unpublishedAt = new Date(product.unpublished_at);
                             
                                         if (product.unpublished_at && !isNaN(unpublishedAt.getTime())) {
@@ -430,7 +469,72 @@ if (localStorage.full_client_rework != "false") {
                             
                                                     card.querySelector("[data-shop-card-tag-container]").innerHTML = `
                                                         <div class="unplublished-tag">
-                                                            <p class="unplublished-tag-text">${days} DAYS LEFT IN SHOP</p>
+                                                            <p class="unplublished-tag-text">${days} DAYS LEFT TO REQUEST</p>
+                                                        </div>
+                                                    `;
+                                                }
+                                            }
+                            
+                                            const timerInterval = setInterval(updateTimer, 1000);
+                                            updateTimer();
+                                        }
+
+
+                                        const ExpiredAt = new Date(product.expires_at);
+                            
+                                        if (product.expires_at && !isNaN(ExpiredAt.getTime())) {
+                            
+                                            function updateTimer() {
+                                                const now = new Date();
+                                                const timeDiff = ExpiredAt - now;
+                            
+                                                if (timeDiff <= 0) {
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">EXPIRED</p>
+                                                        </div>
+                                                    `;
+                                                    clearInterval(timerInterval);
+                                                } else {
+                                                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                            
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">EXPIRES IN ${days}D ${hours}H</p>
+                                                        </div>
+                                                    `;
+                                                }
+                                            }
+                            
+                                            const timerInterval = setInterval(updateTimer, 1000);
+                                            updateTimer();
+                                        }
+
+                                        const ReleasesAt = new Date(product.releases_at);
+                            
+                                        if (product.releases_at && !isNaN(ReleasesAt.getTime())) {
+                            
+                                            function updateTimer() {
+                                                const now = new Date();
+                                                const timeDiff = ReleasesAt - now;
+                            
+                                                if (timeDiff <= 0) {
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">PUBLISHING...</p>
+                                                        </div>
+                                                    `;
+                                                    clearInterval(timerInterval);
+                                                } else {
+                                                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                            
+                                                    card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                        <div class="unplublished-tag">
+                                                            <p class="unplublished-tag-text">${days}D ${hours}H</p>
                                                         </div>
                                                     `;
                                                 }
@@ -449,6 +553,7 @@ if (localStorage.full_client_rework != "false") {
                                 categoryOutput.append(category);
 
 
+                                const paper_beach2_banner = document.getElementById(PAPER_BEACH_V2);
                                 const windowkill2_banner = document.getElementById(WINDOWKILL_V2);
                                 const paper_beach_banner = document.getElementById(PAPER_BEACH);
                                 const bopl_battle_banner = document.getElementById(BOPL_BATTLE);
@@ -480,6 +585,18 @@ if (localStorage.full_client_rework != "false") {
                                                 <img class="shop-category-banner-logo" src="https://cdn.yapper.shop/assets/60.png" id="shop-banner-logo">
                                             </div>
                                         `;
+                                    }
+
+                                    if (paper_beach2_banner) {
+                                        document.getElementById(`${PAPER_BEACH_V2}-banner-banner-container`).innerHTML = `
+                                            <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/assets/112.png">
+                                            <img class="paper-beach-sun-banner-decoration" src="https://cdn.yapper.shop/assets/116.png">
+                                        `;
+                                        document.getElementById(`${PAPER_BEACH_V2}-discord-watermark-container`).innerHTML = ``;
+                                        document.getElementById(`${PAPER_BEACH_V2}-logo-container`).innerHTML = `
+                                                <img class="shop-category-banner-logo-1 shop-logo-sway" src="https://cdn.yapper.shop/assets/115.png" id="shop-banner-logo">
+                                            `;
+                                        document.getElementById(`${PAPER_BEACH_V2}-summary`).style.color = 'black';
                                     }
                                     
                                     if (windowkill_banner) {
@@ -530,8 +647,9 @@ if (localStorage.full_client_rework != "false") {
                                         const cardTemplate = document.querySelector("[data-shop-item-card-template]");
                                         const card = cardTemplate.content.cloneNode(true).children[0];
 
-                                        product.items.forEach(item => {
-                                            if (product.type === 0) {
+                                        if (product.type === 0) {
+                                            product.items.forEach(item => {
+                                                
                                                 card.classList.add("type_0");
                                                 // Set the innerHTML for the preview holder
                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -559,8 +677,9 @@ if (localStorage.full_client_rework != "false") {
                                                         imgElement.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
                                                     });
                                                 }
-                                            }
-                                        });
+                                                
+                                            });
+                                        }
 
                                         if (product.type === 1) {
                                             card.classList.add("type_1");
@@ -764,6 +883,32 @@ if (localStorage.full_client_rework != "false") {
                                             <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M13 16V5.41l3.3 3.3a1 1 0 1 0 1.4-1.42l-5-5a1 1 0 0 0-1.4 0l-5 5a1 1 0 0 0 1.4 1.42L11 5.4V16a1 1 0 1 0 2 0Z" class=""></path><path fill="currentColor" d="M4 15a1 1 0 0 1 1-1h2a1 1 0 1 0 0-2H5a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-4a3 3 0 0 0-3-3h-2a1 1 0 1 0 0 2h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4Z" class=""></path></svg>
                                         `;
 
+
+                                        if (product.type === 'plus_more') {
+                                            card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                            card.querySelector("[data-product-card-name]").textContent = `Plus More...`;
+                                            card.querySelector("[data-product-card-summary]").textContent = `There are more items in this category that are coming soon.`;
+
+                                            card.querySelector("[data-shop-price-container]").innerHTML = ``;
+                                            card.querySelector("[data-product-card-open-in-shop]").innerHTML = ``;
+                                            card.querySelector("[data-share-product-card-button]").innerHTML = ``;
+
+                                            const plusMoreQuestionMark = document.createElement("img");
+                                            plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                            plusMoreQuestionMark.classList.add("plus-more-question-mark");
+                                            card.querySelector("[data-shop-card-preview-holder]").appendChild(plusMoreQuestionMark);
+                                
+                                            // Hover effect for decoration image
+                                            if (localStorage.reduced_motion != "true") {
+                                                card.addEventListener("mouseenter", () => {
+                                                    plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.gif`;
+                                                });
+                                                card.addEventListener("mouseleave", () => {
+                                                    plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                                });
+                                            }
+                                        }
+
                                         const unpublishedAt = new Date(product.unpublished_at);
                             
                                         if (product.unpublished_at && !isNaN(unpublishedAt.getTime())) {
@@ -835,6 +980,7 @@ if (localStorage.full_client_rework != "false") {
             
                                 categoryOutput.append(category);
 
+                                const winter_wonderland_banner = document.getElementById(WINTER_WONDERLAND);
                                 const lofi_girl_banner = document.getElementById(LOFI_GIRL);
                                 const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
                                 const arcane_banner = document.getElementById(WARRIOR);
@@ -881,6 +1027,7 @@ if (localStorage.full_client_rework != "false") {
                                     }
 
                                     if (localStorage.reduced_motion != "true") {
+
                                         if (lofi_girl_banner) {
                                             document.getElementById(`${LOFI_GIRL}-banner-banner-container`).innerHTML = `
                                                 <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.discordapp.com/app-assets/1096190356233670716/1309668861964193803.png?size=4096">
@@ -943,6 +1090,11 @@ if (localStorage.full_client_rework != "false") {
                                         }
                                         
                                     }
+                                }
+
+                                if (winter_wonderland_banner) {
+                                    document.getElementById(`${WINTER_WONDERLAND}-discord-watermark-container`).innerHTML = ``;
+                                    document.getElementById(`${WINTER_WONDERLAND}-logo-container`).innerHTML = ``;
                                 }
 
                                 if (lofi_girl_banner) {
@@ -1347,6 +1499,7 @@ if (localStorage.full_client_rework != "false") {
                         const kawaii_mode_banner = document.getElementById(KAWAII_MODE);
 
                         if (localStorage.reduced_motion != "true") {
+
                             if (lofi_girl_banner) {  // Check if element exists
                                 document.getElementById(`${LOFI_GIRL}-preview-banner-container`).innerHTML = `
                                     <video autoplay muted class="home-page-preview-banner" src="https://cdn.discordapp.com/assets/collectibles/drops/lofi_girl/hero_banner.webm" loop></video>
@@ -1466,6 +1619,7 @@ if (localStorage.full_client_rework != "false") {
     }
 
     function pageCheck() {
+        privateAPICheck()
         if (params.get("page") === "home") {
             document.title = "Home | Shop Archives";
             createHomePageElement()
@@ -1747,6 +1901,16 @@ if (localStorage.full_client_rework != "false") {
 
                     <p class="center-text" style="font-size: 18px;">Things such as Splash Potions and randomness added to Profile Effects and much more were all nice gifts given to us in 2024!</p>
                     <p class="center-text" style="font-size: 18px;">The Shop Archives teams has made this article that covers everything that was added to Discord in 2024!</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Winter Nitro Promotion</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/117.gif">
+
+                    <p class="center-text" style="font-size: 18px;">This Christmas, up until January 6th, 2025, when you purchase a Nitro gift you can choose 1 of 3 Avatar Decorations of your own to collect and keep!</p>
                 </div>
 
                 <hr style="opacity: 0; height: 30px;">
@@ -3132,6 +3296,12 @@ if (localStorage.full_client_rework != "false") {
                             <p class="experiment-subtext">Overrides</p>
                             <div class="experiment-card-holder">
                                 <div class="experiment-card">
+                                    <p>Force Private API</p>
+                                    <p class="experiment-subtext">2024-12_force_all_api_to_fectch_private_api</p>
+                                    <button class="refresh-button" onclick="forceAllApiToFectchPrivateApiTrue()" id="2024-12_force_all_api_to_fectch_private_api-1">Override 1</button>
+                                    <button class="refresh-button" onclick="forceAllApiToFectchPrivateApiFalse()" id="2024-12_force_all_api_to_fectch_private_api-2">No Override</button>
+                                </div>
+                                <div class="experiment-card">
                                     <p>Show Leaks Button</p>
                                     <p class="experiment-subtext">2024-11_override_leaks_button</p>
                                     <button class="refresh-button" onclick="overrideLeaksButtonShow()" id="2024-11_override_leaks_button-1">Override 1</button>
@@ -3310,6 +3480,18 @@ if (localStorage.full_client_rework != "false") {
         
         
 
+            if (localStorage.force_all_api_to_fectch_private_api == "true") {
+                document.getElementById("2024-12_force_all_api_to_fectch_private_api-1").classList.add('refresh-button-selected');
+                document.getElementById("2024-12_force_all_api_to_fectch_private_api-2").classList.remove('refresh-button-selected');
+            }
+            
+            if (localStorage.force_all_api_to_fectch_private_api != "true") {
+                document.getElementById("2024-12_force_all_api_to_fectch_private_api-1").classList.remove('refresh-button-selected');
+                document.getElementById("2024-12_force_all_api_to_fectch_private_api-2").classList.add('refresh-button-selected');
+            }
+
+
+
             if (localStorage.override_leaks_button == "true") {
                 document.getElementById("2024-11_override_leaks_button-1").classList.add('refresh-button-selected');
                 document.getElementById("2024-11_override_leaks_button-2").classList.remove('refresh-button-selected');
@@ -3475,6 +3657,23 @@ if (localStorage.full_client_rework != "false") {
         document.getElementById("2024-11_recap-1").classList.remove('refresh-button-selected');
         document.getElementById("2024-11_recap-00").classList.remove('refresh-button-selected');
         fetchExperimentRolloutData();
+    }
+
+
+
+
+    function forceAllApiToFectchPrivateApiFalse() {
+        localStorage.force_all_api_to_fectch_private_api = "none"
+        document.getElementById("2024-12_force_all_api_to_fectch_private_api-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-12_force_all_api_to_fectch_private_api-2").classList.add('refresh-button-selected');
+        fetchData(pageCheck());
+    }
+    
+    function forceAllApiToFectchPrivateApiTrue() {
+        localStorage.force_all_api_to_fectch_private_api = "true"
+        document.getElementById("2024-12_force_all_api_to_fectch_private_api-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-12_force_all_api_to_fectch_private_api-2").classList.remove('refresh-button-selected');
+        fetchData(pageCheck());
     }
 
 

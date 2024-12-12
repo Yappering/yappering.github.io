@@ -936,8 +936,29 @@ data-share-product-card-button {
     max-height: 160px;
 }
 
+.shop-category-banner-logo-1 {
+    width: auto;
+    max-width: 730px;
+    /* height: 80px; */
+    max-height: 160px;
+}
+
 .potion-card-preview {
     scale: 80%;
+}
+
+.paper-beach-sun-banner-decoration {
+    position: absolute;
+    left: -100px;
+    top: -100px;
+    width: 300px;
+    animation: fhsin38fdnsi9d 50s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes fhsin38fdnsi9d {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
 
 
@@ -1437,6 +1458,15 @@ data-share-product-card-button {
 
 
 
+
+
+.plus-more-question-mark {
+    display: block;
+    width: 200px !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
 
 
 

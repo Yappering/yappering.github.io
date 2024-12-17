@@ -3,7 +3,7 @@ n78ndg290n = "Greetings Shop Archives Staff and/or Dataminer! This model has eve
 mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
-tcbx926n29 = "Stable 173";
+tcbx926n29 = "Stable 174";
 
 
 if (localStorage.full_client_rework != "false") {
@@ -52,7 +52,7 @@ if (localStorage.full_client_rework != "false") {
     PAPER_BEACH = "profiles-plus-3"
     WINDOWKILL_V2 = "profiles-plus-4"
     FIVE_NIGHTS_AT_FREDDYS = "profiles-plus-5"
-    SPECIAL_EVENT = "profiles-plus-6"
+    PLUS_SPECIAL_EVENT = "profiles-plus-6"
     GEOMETRY_DASH = "profiles-plus-7"
     PAPER_BEACH_V2 = "profiles-plus-8"
 
@@ -395,14 +395,157 @@ if (localStorage.full_client_rework != "false") {
                                         }
 
                                         if (product.type === 2000) {
+                                            // Update SKU and summary
                                             card.querySelector("[data-product-card-sku-id]").textContent = `Made By: ${product.credits}`;
-                                            card.querySelector("[data-product-card-name]").textContent = product.name;
                                             card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                        
+                                            // Always display the base variant name
+                                            card.querySelector("[data-product-card-name]").textContent = product.variants[0]?.base_variant_name || "Product";
+                                        
+                                            // Render variant color blocks as interactive divs
+                                            const variantContainer = card.querySelector("[data-shop-card-var-container]");
+                                            variantContainer.innerHTML = ""; // Clear existing variant blocks
+                                            let currentSelectedVariant = null; // Track selected variant
+                                        
+                                            product.variants.forEach((variant, index) => {
+                                                // Create variant color block
+                                                const variantColorBlock = document.createElement("div");
+                                                variantColorBlock.classList.add("shop-card-var");
+                                                variantColorBlock.style.backgroundColor = `${variant.variant_value}`;
+                                        
+                                                // Add click event listener to switch variants
+                                                variantColorBlock.addEventListener("click", () => {
+                                                    if (currentSelectedVariant) {
+                                                        currentSelectedVariant.classList.remove("shop-card-var-selected");
+                                                    }
+                                                    variantColorBlock.classList.add("shop-card-var-selected");
+                                                    currentSelectedVariant = variantColorBlock;
+                                                    applyVariant(variant);
+                                                });
+                                        
+                                                // Append the color block to the container
+                                                variantContainer.appendChild(variantColorBlock);
+                                        
+                                                // Set the first variant as the default selected
+                                                if (index === 0) {
+                                                    currentSelectedVariant = variantColorBlock;
+                                                    variantColorBlock.classList.add("shop-card-var-selected");
+                                                }
+                                            });
 
-                                            card.querySelector("[data-shop-card-preview-holder]").innerHTML = `
-                                                <p>VARIANTS_GROUP (item type 2000) is currently unsupported by the client</p>
-                                            `;
+                                            let isFirstTimeLoadingVariant = true;
+                                            const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                        
+                                            // Function to apply the selected variant
+                                            function applyVariant(selectedVariant) {
+                                                card.querySelector("[data-shop-card-var-title]").textContent = `(${selectedVariant.variant_label})`;
+                                                if (selectedVariant.type === 0) {
+                                                    card.classList.add("type_2000-0");
+                                                    previewHolder.innerHTML = ""; // Clear previous decorations
+                                                    previewHolder.classList.add('avatar-decoration-image');
+                                                    
+                                                    // Add the avatar decoration based on the selected variant
+                                                    selectedVariant.items?.forEach(item => {
+                                                        const decoImage = document.createElement("img");
+                                                        if (isFirstTimeLoadingVariant == true) {
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                            isFirstTimeLoadingVariant = false;
+                                                        } else {
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                        }
+                                                        decoImage.alt = "Avatar Decoration";
+                                                        decoImage.id = "shop-card-deco-image";
+                                                        previewHolder.appendChild(decoImage);
+                                                    
+                                                        // Hover effect for decoration image
+                                                        if (localStorage.reduced_motion !== "true") {
+                                                            card.addEventListener("mouseenter", () => {
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                            });
+                                                            card.addEventListener("mouseleave", () => {
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                            });
+                                                        }
+                                                    });
+                                                } else if (selectedVariant.type === 1) {
+                                                    card.classList.add("type_2000-1");
+                                                    (async () => {
+                                                        // Ensure the item ID is accessible here
+                                                        let itemId = undefined;
+                                                        if (Array.isArray(selectedVariant.items)) {
+                                                            // If items is an array, find the item with type 1 and get its id
+                                                            const item = selectedVariant.items.find(item => item.type === 1);
+                                                            if (item) {
+                                                                itemId = item.id;
+                                                            }
+                                                        } else if (selectedVariant.items && selectedVariant.items.type === 1) {
+                                                            // If items is an object and has type 1, get its id
+                                                            itemId = selectedVariant.items.id;
+                                                        }
+                                                    
+                                                    
+                                                        // Fetch profile effects API only if not already cached
+                                                        if (!profileEffectsCache) {
+                                                            const response = await fetch(api + PROFILES_PLUS_EFFECTS);
+                                                            const effectsData = await response.json();
+                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                        }
+                                                    
+                                                        // Find matching profile effect
+                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                    
+                                                        if (matchingEffect) {
+                                                            const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                            previewHolder.classList.add('profile-effect-image');
+                                                        
+                                                            if (isFirstTimeLoadingVariant == true) {
+                                                                previewHolder.innerHTML = `
+                                                                    <img class="thumbnail-preview" src="${matchingEffect.thumbnailPreviewSrc}">
+                                                                `;
+                                                                isFirstTimeLoadingVariant = false;
+                                                            } else {
+                                                                previewHolder.innerHTML = `
+                                                                    <img class="thumbnail-preview" src="${matchingEffect.effects[0]?.src}">
+                                                                `;
+                                                            }
+                                                        
+                                                            // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                            const imgElement = card.querySelector("img");
+                                                        
+                                                            if (localStorage.reduced_motion != "true") {
+                                                                card.addEventListener("mouseenter", () => {
+                                                                    if (matchingEffect.effects && matchingEffect.effects.length > 0) {
+                                                                        const effectUrl = matchingEffect.effects[0]?.src;
+                                                                        imgElement.src = effectUrl || matchingEffect.thumbnailPreviewSrc;
+                                                                    }
+                                                                });
+                                                            
+                                                                card.addEventListener("mouseleave", () => {
+                                                                    // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                    imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                });
+                                                            } else {
+                                                                card.addEventListener("mouseenter", () => {
+                                                                    imgElement.src = matchingEffect.reducedMotionSrc;
+                                                                });
+                                                            
+                                                                card.addEventListener("mouseleave", () => {
+                                                                    // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                    imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                });
+                                                            }
+                                                        }
+                                                    })();
+                                                }
+                                            }
+                                        
+                                            // Apply the default variant (first one) initially
+                                            if (product.variants.length > 0) {
+                                                applyVariant(product.variants[0]);
+                                            }
                                         }
+
+
 
                                         if (product.emojiCopy === null) {
                                             card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
@@ -554,12 +697,27 @@ if (localStorage.full_client_rework != "false") {
 
 
                                 const paper_beach2_banner = document.getElementById(PAPER_BEACH_V2);
+                                const geometry_dash_banner = document.getElementById(GEOMETRY_DASH);
+                                const special_event_plus_banner = document.getElementById(PLUS_SPECIAL_EVENT);
+                                const fnaf_banner = document.getElementById(FIVE_NIGHTS_AT_FREDDYS);
                                 const windowkill2_banner = document.getElementById(WINDOWKILL_V2);
                                 const paper_beach_banner = document.getElementById(PAPER_BEACH);
                                 const bopl_battle_banner = document.getElementById(BOPL_BATTLE);
                                 const windowkill_banner = document.getElementById(WINDOWKILL);
 
                                 if (localStorage.disable_client_banner_overrides != "true") {
+                                    
+                                    if (paper_beach2_banner) {
+                                        document.getElementById(`${PAPER_BEACH_V2}-banner-banner-container`).innerHTML = `
+                                            <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/assets/112.png">
+                                            <img class="paper-beach-sun-banner-decoration" src="https://cdn.yapper.shop/assets/116.png">
+                                        `;
+                                        document.getElementById(`${PAPER_BEACH_V2}-logo-container`).innerHTML = `
+                                                <img class="shop-category-banner-logo-1 shop-logo-sway" src="https://cdn.yapper.shop/assets/115.png" id="shop-banner-logo">
+                                            `;
+                                        document.getElementById(`${PAPER_BEACH_V2}-summary`).style.color = 'black';
+                                    }
+                                    
                                     if (windowkill2_banner) {
                                         document.getElementById(WINDOWKILL_V2).innerHTML = `
                                             <img class="shop-category-condensed-banner-img" src="https://cdn.yapper.shop/assets/86.png">
@@ -586,24 +744,62 @@ if (localStorage.full_client_rework != "false") {
                                             </div>
                                         `;
                                     }
+                                }
 
-                                    if (paper_beach2_banner) {
-                                        document.getElementById(`${PAPER_BEACH_V2}-banner-banner-container`).innerHTML = `
-                                            <img style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="https://cdn.yapper.shop/assets/112.png">
-                                            <img class="paper-beach-sun-banner-decoration" src="https://cdn.yapper.shop/assets/116.png">
-                                        `;
+
+                                if (paper_beach2_banner) {
+                                    try {
                                         document.getElementById(`${PAPER_BEACH_V2}-discord-watermark-container`).innerHTML = ``;
-                                        document.getElementById(`${PAPER_BEACH_V2}-logo-container`).innerHTML = `
-                                                <img class="shop-category-banner-logo-1 shop-logo-sway" src="https://cdn.yapper.shop/assets/115.png" id="shop-banner-logo">
-                                            `;
                                         document.getElementById(`${PAPER_BEACH_V2}-summary`).style.color = 'black';
-                                    }
-                                    
-                                    if (windowkill_banner) {
+                                    } catch (error) {}
+                                }
+
+                                if (geometry_dash_banner) {
+                                    try {
+                                        document.getElementById(`${GEOMETRY_DASH}-discord-watermark-container`).innerHTML = ``;
+                                    } catch (error) {}
+                                }
+
+                                if (special_event_plus_banner) {
+                                    try {
+                                        document.getElementById(`${PLUS_SPECIAL_EVENT}-discord-watermark-container`).innerHTML = ``;
+                                    } catch (error) {}
+                                }
+
+                                if (fnaf_banner) {
+                                    try {
+                                        document.getElementById(`${FIVE_NIGHTS_AT_FREDDYS}-discord-watermark-container`).innerHTML = ``;
+                                    } catch (error) {}
+                                }
+
+                                if (windowkill2_banner) {
+                                    try {
+                                        document.getElementById(`${WINDOWKILL_V2}-discord-watermark-container`).innerHTML = ``;
+                                        document.getElementById(`${WINDOWKILL_V2}-summary`).style.color = 'black';
+                                    } catch (error) {}
+                                }
+
+                                if (paper_beach_banner) {
+                                    try {
+                                        document.getElementById(`${PAPER_BEACH}-discord-watermark-container`).innerHTML = ``;
+                                        document.getElementById(`${PAPER_BEACH}-summary`).style.color = 'black';
+                                    } catch (error) {}
+                                }
+
+                                if (bopl_battle_banner) {
+                                    try {
+                                        document.getElementById(`${BOPL_BATTLE}-discord-watermark-container`).innerHTML = ``;
+                                        document.getElementById(`${BOPL_BATTLE}-logo-container`).innerHTML = ``;
+                                        document.getElementById(`${BOPL_BATTLE}-summary`).style.color = 'black';
+                                    } catch (error) {}
+                                }
+
+                                if (windowkill_banner) {
+                                    try {
                                         document.getElementById(`${WINDOWKILL}-discord-watermark-container`).innerHTML = ``;
                                         document.getElementById(`${WINDOWKILL}-logo-container`).innerHTML = ``;
                                         document.getElementById(`${WINDOWKILL}-summary`).style.color = 'black';
-                                    }
+                                    } catch (error) {}
                                 }
 
 
@@ -640,6 +836,39 @@ if (localStorage.full_client_rework != "false") {
                                 category.querySelector("[data-shop-banner-banner-container]").id = `${apiCategory.sku_id}-banner-banner-container`;
                                 category.querySelector("[data-shop-category-logo-holder]").id = `${apiCategory.sku_id}-logo-container`;
                                 category.querySelector("[data-shop-discord-watermark-container]").id = `${apiCategory.sku_id}-discord-watermark-container`;
+
+
+                                const unpublishedAt = new Date(apiCategory.unpublished_at);
+                            
+                                if (apiCategory.unpublished_at && !isNaN(unpublishedAt.getTime())) {
+                    
+                                    function updateTimer() {
+                                        const now = new Date();
+                                        const timeDiff = unpublishedAt - now;
+                    
+                                        if (timeDiff <= 0) {
+                                            category.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                <div class="unplublished-tag">
+                                                    <p class="unplublished-tag-text">NOT IN STORE</p>
+                                                </div>
+                                            `;
+                                            clearInterval(timerInterval);
+                                        } else {
+                                            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                    
+                                            category.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                <div class="unplublished-tag">
+                                                    <p class="unplublished-tag-text">${days} DAYS LEFT TO REQUEST</p>
+                                                </div>
+                                            `;
+                                        }
+                                    }
+                    
+                                    const timerInterval = setInterval(updateTimer, 1000);
+                                    updateTimer();
+                                }
             
                                 const cardOutput = category.querySelector("[data-shop-category-card-holder]");
                                 if (cardOutput) {
@@ -834,18 +1063,160 @@ if (localStorage.full_client_rework != "false") {
                                                 }
                                             });
                                         }
-                                        
-                                        
+
 
                                         if (product.type === 2000) {
+                                            // Update SKU and summary
                                             card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
-                                            card.querySelector("[data-product-card-name]").textContent = product.name;
                                             card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                        
+                                            // Always display the base variant name
+                                            card.querySelector("[data-product-card-name]").textContent = product.variants[0]?.base_variant_name || "Product";
+                                        
+                                            // Render variant color blocks as interactive divs
+                                            const variantContainer = card.querySelector("[data-shop-card-var-container]");
+                                            variantContainer.innerHTML = ""; // Clear existing variant blocks
+                                            let currentSelectedVariant = null; // Track selected variant
+                                        
+                                            product.variants.forEach((variant, index) => {
+                                                // Create variant color block
+                                                const variantColorBlock = document.createElement("div");
+                                                variantColorBlock.classList.add("shop-card-var");
+                                                variantColorBlock.style.backgroundColor = `${variant.variant_value}`;
+                                        
+                                                // Add click event listener to switch variants
+                                                variantColorBlock.addEventListener("click", () => {
+                                                    if (currentSelectedVariant) {
+                                                        currentSelectedVariant.classList.remove("shop-card-var-selected");
+                                                    }
+                                                    variantColorBlock.classList.add("shop-card-var-selected");
+                                                    currentSelectedVariant = variantColorBlock;
+                                                    applyVariant(variant);
+                                                });
+                                        
+                                                // Append the color block to the container
+                                                variantContainer.appendChild(variantColorBlock);
+                                        
+                                                // Set the first variant as the default selected
+                                                if (index === 0) {
+                                                    currentSelectedVariant = variantColorBlock;
+                                                    variantColorBlock.classList.add("shop-card-var-selected");
+                                                }
+                                            });
 
-                                            card.querySelector("[data-shop-card-preview-holder]").innerHTML = `
-                                                <p>VARIANTS_GROUP (item type 2000) is currently unsupported by the client</p>
-                                            `;
+                                            let isFirstTimeLoadingVariant = true;
+                                            const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                        
+                                            // Function to apply the selected variant
+                                            function applyVariant(selectedVariant) {
+                                                card.querySelector("[data-shop-card-var-title]").textContent = `(${selectedVariant.variant_label})`;
+                                                if (selectedVariant.type === 0) {
+                                                    card.classList.add("type_2000-0");
+                                                    previewHolder.innerHTML = ""; // Clear previous decorations
+                                                    previewHolder.classList.add('avatar-decoration-image');
+                                                    
+                                                    // Add the avatar decoration based on the selected variant
+                                                    selectedVariant.items?.forEach(item => {
+                                                        const decoImage = document.createElement("img");
+                                                        if (isFirstTimeLoadingVariant == true) {
+                                                            decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                            isFirstTimeLoadingVariant = false;
+                                                        } else {
+                                                            decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                        }
+                                                        decoImage.alt = "Avatar Decoration";
+                                                        decoImage.id = "shop-card-deco-image";
+                                                        previewHolder.appendChild(decoImage);
+                                                    
+                                                        // Hover effect for decoration image
+                                                        if (localStorage.reduced_motion !== "true") {
+                                                            card.addEventListener("mouseenter", () => {
+                                                                decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                            });
+                                                            card.addEventListener("mouseleave", () => {
+                                                                decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                            });
+                                                        }
+                                                    });
+                                                } else if (selectedVariant.type === 1) {
+                                                    card.classList.add("type_2000-1");
+                                                    (async () => {
+                                                        // Ensure the item ID is accessible here
+                                                        let itemId = undefined;
+                                                        if (Array.isArray(selectedVariant.items)) {
+                                                            // If items is an array, find the item with type 1 and get its id
+                                                            const item = selectedVariant.items.find(item => item.type === 1);
+                                                            if (item) {
+                                                                itemId = item.id;
+                                                            }
+                                                        } else if (selectedVariant.items && selectedVariant.items.type === 1) {
+                                                            // If items is an object and has type 1, get its id
+                                                            itemId = selectedVariant.items.id;
+                                                        }
+                                                    
+                                                    
+                                                        // Fetch profile effects API only if not already cached
+                                                        if (!profileEffectsCache) {
+                                                            const response = await fetch(api + PROFILE_EFFECTS);
+                                                            const effectsData = await response.json();
+                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                        }
+                                                    
+                                                        // Find matching profile effect
+                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                    
+                                                        if (matchingEffect) {
+                                                            const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                            previewHolder.classList.add('profile-effect-image');
+                                                        
+                                                            if (isFirstTimeLoadingVariant == true) {
+                                                                previewHolder.innerHTML = `
+                                                                    <img class="thumbnail-preview" src="${matchingEffect.thumbnailPreviewSrc}">
+                                                                `;
+                                                                isFirstTimeLoadingVariant = false;
+                                                            } else {
+                                                                previewHolder.innerHTML = `
+                                                                    <img class="thumbnail-preview" src="${matchingEffect.effects[0]?.src}">
+                                                                `;
+                                                            }
+                                                        
+                                                            // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                            const imgElement = card.querySelector("img");
+                                                        
+                                                            if (localStorage.reduced_motion != "true") {
+                                                                card.addEventListener("mouseenter", () => {
+                                                                    if (matchingEffect.effects && matchingEffect.effects.length > 0) {
+                                                                        const effectUrl = matchingEffect.effects[0]?.src;
+                                                                        imgElement.src = effectUrl || matchingEffect.thumbnailPreviewSrc;
+                                                                    }
+                                                                });
+                                                            
+                                                                card.addEventListener("mouseleave", () => {
+                                                                    // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                    imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                });
+                                                            } else {
+                                                                card.addEventListener("mouseenter", () => {
+                                                                    imgElement.src = matchingEffect.reducedMotionSrc;
+                                                                });
+                                                            
+                                                                card.addEventListener("mouseleave", () => {
+                                                                    // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                    imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                });
+                                                            }
+                                                        }
+                                                    })();
+                                                }
+                                            }
+                                        
+                                            // Apply the default variant (first one) initially
+                                            if (product.variants.length > 0) {
+                                                applyVariant(product.variants[0]);
+                                            }
                                         }
+                                        
+                                        
 
                                         let priceStandard = "N/A";
                                         let priceNitro = "N/A";
@@ -880,7 +1251,7 @@ if (localStorage.full_client_rework != "false") {
                                         }
 
                                         card.querySelector("[data-share-product-card-button]").innerHTML = `
-                                            <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M13 16V5.41l3.3 3.3a1 1 0 1 0 1.4-1.42l-5-5a1 1 0 0 0-1.4 0l-5 5a1 1 0 0 0 1.4 1.42L11 5.4V16a1 1 0 1 0 2 0Z" class=""></path><path fill="currentColor" d="M4 15a1 1 0 0 1 1-1h2a1 1 0 1 0 0-2H5a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-4a3 3 0 0 0-3-3h-2a1 1 0 1 0 0 2h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4Z" class=""></path></svg>
+                                            <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
                                         `;
 
 
@@ -1165,12 +1536,6 @@ if (localStorage.full_client_rework != "false") {
                                     document.getElementById(`${ROBERT}-summary`).style.color = 'black';
                                 }
 
-                                if (sponge_bob_banner) {
-                                    document.getElementById(`${ROBERT}-discord-watermark-container`).innerHTML = ``;
-                                    document.getElementById(`${ROBERT}-logo-container`).innerHTML = ``;
-                                    document.getElementById(`${ROBERT}-summary`).style.color = 'black';
-                                }
-
                                 if (dark_fantasy_banner) {
                                     document.getElementById(`${DARK_FANTASY}-logo-container`).innerHTML = ``;
                                 }
@@ -1442,13 +1807,154 @@ if (localStorage.full_client_rework != "false") {
                                 
 
                                 if (product.type === 2000) {
+                                    // Update SKU and summary
                                     card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
-                                    card.querySelector("[data-product-card-name]").textContent = product.name;
                                     card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                
+                                    // Always display the base variant name
+                                    card.querySelector("[data-product-card-name]").textContent = product.variants[0]?.base_variant_name || "Product";
+                                
+                                    // Render variant color blocks as interactive divs
+                                    const variantContainer = card.querySelector("[data-shop-card-var-container]");
+                                    variantContainer.innerHTML = ""; // Clear existing variant blocks
+                                    let currentSelectedVariant = null; // Track selected variant
+                                
+                                    product.variants.forEach((variant, index) => {
+                                        // Create variant color block
+                                        const variantColorBlock = document.createElement("div");
+                                        variantColorBlock.classList.add("shop-card-var");
+                                        variantColorBlock.style.backgroundColor = `${variant.variant_value}`;
+                                
+                                        // Add click event listener to switch variants
+                                        variantColorBlock.addEventListener("click", () => {
+                                            if (currentSelectedVariant) {
+                                                currentSelectedVariant.classList.remove("shop-card-var-selected");
+                                            }
+                                            variantColorBlock.classList.add("shop-card-var-selected");
+                                            currentSelectedVariant = variantColorBlock;
+                                            applyVariant(variant);
+                                        });
+                                
+                                        // Append the color block to the container
+                                        variantContainer.appendChild(variantColorBlock);
+                                
+                                        // Set the first variant as the default selected
+                                        if (index === 0) {
+                                            currentSelectedVariant = variantColorBlock;
+                                            variantColorBlock.classList.add("shop-card-var-selected");
+                                        }
+                                    });
 
-                                    card.querySelector("[data-shop-card-preview-holder]").innerHTML = `
-                                        <p>VARIANTS_GROUP (item type 2000) is currently unsupported by the client</p>
-                                    `;
+                                    let isFirstTimeLoadingVariant = true;
+                                    const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                
+                                    // Function to apply the selected variant
+                                    function applyVariant(selectedVariant) {
+                                        card.querySelector("[data-shop-card-var-title]").textContent = `(${selectedVariant.variant_label})`;
+                                        if (selectedVariant.type === 0) {
+                                            card.classList.add("type_2000-0");
+                                            previewHolder.innerHTML = ""; // Clear previous decorations
+                                            previewHolder.classList.add('avatar-decoration-image');
+                                            
+                                            // Add the avatar decoration based on the selected variant
+                                            selectedVariant.items?.forEach(item => {
+                                                const decoImage = document.createElement("img");
+                                                if (isFirstTimeLoadingVariant == true) {
+                                                    decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                    isFirstTimeLoadingVariant = false;
+                                                } else {
+                                                    decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                }
+                                                decoImage.alt = "Avatar Decoration";
+                                                decoImage.id = "shop-card-deco-image";
+                                                previewHolder.appendChild(decoImage);
+                                            
+                                                // Hover effect for decoration image
+                                                if (localStorage.reduced_motion !== "true") {
+                                                    card.addEventListener("mouseenter", () => {
+                                                        decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                    });
+                                                    card.addEventListener("mouseleave", () => {
+                                                        decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                    });
+                                                }
+                                            });
+                                        } else if (selectedVariant.type === 1) {
+                                            card.classList.add("type_2000-1");
+                                            (async () => {
+                                                // Ensure the item ID is accessible here
+                                                let itemId = undefined;
+                                                if (Array.isArray(selectedVariant.items)) {
+                                                    // If items is an array, find the item with type 1 and get its id
+                                                    const item = selectedVariant.items.find(item => item.type === 1);
+                                                    if (item) {
+                                                        itemId = item.id;
+                                                    }
+                                                } else if (selectedVariant.items && selectedVariant.items.type === 1) {
+                                                    // If items is an object and has type 1, get its id
+                                                    itemId = selectedVariant.items.id;
+                                                }
+                                            
+                                            
+                                                // Fetch profile effects API only if not already cached
+                                                if (!profileEffectsCache) {
+                                                    const response = await fetch(api + PROFILE_EFFECTS);
+                                                    const effectsData = await response.json();
+                                                    profileEffectsCache = effectsData.profile_effect_configs;
+                                                }
+                                            
+                                                // Find matching profile effect
+                                                const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                            
+                                                if (matchingEffect) {
+                                                    const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                    previewHolder.classList.add('profile-effect-image');
+                                                
+                                                    if (isFirstTimeLoadingVariant == true) {
+                                                        previewHolder.innerHTML = `
+                                                            <img class="thumbnail-preview" src="${matchingEffect.thumbnailPreviewSrc}">
+                                                        `;
+                                                        isFirstTimeLoadingVariant = false;
+                                                    } else {
+                                                        previewHolder.innerHTML = `
+                                                            <img class="thumbnail-preview" src="${matchingEffect.effects[0]?.src}">
+                                                        `;
+                                                    }
+                                                
+                                                    // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                    const imgElement = card.querySelector("img");
+                                                
+                                                    if (localStorage.reduced_motion != "true") {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            if (matchingEffect.effects && matchingEffect.effects.length > 0) {
+                                                                const effectUrl = matchingEffect.effects[0]?.src;
+                                                                imgElement.src = effectUrl || matchingEffect.thumbnailPreviewSrc;
+                                                            }
+                                                        });
+                                                    
+                                                        card.addEventListener("mouseleave", () => {
+                                                            // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                            imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                        });
+                                                    } else {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            imgElement.src = matchingEffect.reducedMotionSrc;
+                                                        });
+                                                    
+                                                        card.addEventListener("mouseleave", () => {
+                                                            // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                            imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                        });
+                                                    }
+                                                }
+                                            })();
+                                        }
+                                    }
+                                
+                                    // Apply the default variant (first one) initially
+                                    if (product.variants.length > 0) {
+                                        applyVariant(product.variants[0]);
+                                    }
                                 }
 
                                 let priceStandard = "N/A";
@@ -1484,7 +1990,7 @@ if (localStorage.full_client_rework != "false") {
                                 }
 
                                 card.querySelector("[data-share-product-card-button]").innerHTML = `
-                                    <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M13 16V5.41l3.3 3.3a1 1 0 1 0 1.4-1.42l-5-5a1 1 0 0 0-1.4 0l-5 5a1 1 0 0 0 1.4 1.42L11 5.4V16a1 1 0 1 0 2 0Z" class=""></path><path fill="currentColor" d="M4 15a1 1 0 0 1 1-1h2a1 1 0 1 0 0-2H5a3 3 0 0 0-3 3v4a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-4a3 3 0 0 0-3-3h-2a1 1 0 1 0 0 2h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4Z" class=""></path></svg>
+                                    <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
                                 `;
 
                                 // Append card to output
@@ -1571,7 +2077,7 @@ if (localStorage.full_client_rework != "false") {
     if (clickable_side_tabs_container) {  // Check if element exists
         document.getElementById('clickable-side-tabs-container').innerHTML = `
         <p class="center-text" style="font-size: 12px; display: flex;">${hrft33n87d}</p>
-        <div>
+        <div id="home-section">
             <button class="dm-button" id="home-tab" onclick="setParams({page: 'home'}); location.reload();">
                 <p class="dm-button-text">Home</p>
             </button>
@@ -1579,7 +2085,7 @@ if (localStorage.full_client_rework != "false") {
             </div>
         </div>
         <div class="dm-divider">Collectibles</div>
-        <div>
+        <div id="collectibles-section">
             <button class="dm-button" id="shop-tab" onclick="setParams({page: 'shop'}); location.reload();">
                 <p class="dm-button-text">Shop</p>
             </button>
@@ -1596,7 +2102,7 @@ if (localStorage.full_client_rework != "false") {
             </button>
         </div>
         <div class="dm-divider">Tools</div>
-        <div>
+        <div id="tools">
             <button class="dm-button" id="avatar-decorations-debug-tab" onclick="setParams({page: 'item_tool'}); location.reload();">
                 <p class="dm-button-text">Item Debug</p>
             </button>
@@ -1640,7 +2146,7 @@ if (localStorage.full_client_rework != "false") {
                 const client_token = localStorage.getItem('token');
                 apiUrlRaw = prvapi + COLLECTIBLES;
                 apiUrl = `${apiUrlRaw}?token=${client_token}`;  
-            } else if (localStorage.collectibles_variants == "true") {
+            } else if (localStorage.fetch_collectibles_variants !== "true") {
                 apiUrl = api + COLLECTIBLES_VARIANTS;
             } else {
                 apiUrl = api + COLLECTIBLES;
@@ -1685,6 +2191,9 @@ if (localStorage.full_client_rework != "false") {
                 apiUrl = `${apiUrlRaw}?token=${client_token}`;  
             } else {
                 apiUrl = api + PROFILES_PLUS;
+            }
+            if (localStorage.profiles_plus_marketing_variants == "variant_1" || localStorage.profiles_plus_marketing_variants == "variant_1_autorollout") {
+                localStorage.dismissible_paper_beach_v2_marketing = "dismissed";
             }
             createMainShopElement()
             document.getElementById("pplus-tab").classList.add('dm-button-selected');
@@ -1811,7 +2320,7 @@ if (localStorage.full_client_rework != "false") {
                     <div data-shop-card-preview-holder>
                     </div>
                     <div class="card-bottom">
-                        <div title="Share" data-share-product-card-button></div>
+                        <div title="Copy Link" data-share-product-card-button></div>
                         <a class="item-credits" data-product-card-sku-id>Failed To Load Item</a>
                         <h3 data-product-card-name>Failed To Load Item</h3>
                         <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
@@ -1819,8 +2328,11 @@ if (localStorage.full_client_rework != "false") {
                             <a style="font-size: large; font-weight: 900;" data-price-standard></a>
                             <a data-price-nitro></a>
                         </div>
+                        <div class="shop-card-var-container" data-shop-card-var-container>
+                        </div>
+                        <a class="shop-card-var-title" data-shop-card-var-title></a>
                     </div>
-                    <div class="card-button-container" data-product-card-open-in-shop>
+                    <div class="card-button-container"data-product-card-open-in-shop>
                         <button class="card-button" title="Open this item in the Discord Shop">Open In Shop</button>
                     </div>
                     <div class="shop-card-tag-container" data-shop-card-tag-container>
@@ -2231,6 +2743,8 @@ if (localStorage.full_client_rework != "false") {
                                 <div class="shop-expiry-timer" style="display: none;">
                                     <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
                                 </div>
+                                <div class="shop-card-tag-container" data-shop-card-tag-container>
+                                </div>
                             </div>
                             <div class="shop-category-card-holder" id="shop-category-card-holder" data-shop-category-card-holder>
                             </div>
@@ -2241,7 +2755,7 @@ if (localStorage.full_client_rework != "false") {
                             <div data-shop-card-preview-holder>
                             </div>
                             <div class="card-bottom">
-                                <div title="Share" data-share-product-card-button></div>
+                                <div title="Copy Link" data-share-product-card-button></div>
                                 <a class="item-credits" data-product-card-sku-id>Failed To Load Item</a>
                                 <h3 data-product-card-name>Failed To Load Item</h3>
                                 <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
@@ -2249,6 +2763,9 @@ if (localStorage.full_client_rework != "false") {
                                     <a style="font-size: large; font-weight: 900;" data-price-standard></a>
                                     <a data-price-nitro></a>
                                 </div>
+                                <div class="shop-card-var-container" data-shop-card-var-container>
+                                </div>
+                                <a class="shop-card-var-title" data-shop-card-var-title></a>
                             </div>
                             <div class="card-button-container"data-product-card-open-in-shop>
                                 <button class="card-button" title="Open this item in the Discord Shop">Open In Shop</button>
@@ -2964,8 +3481,8 @@ if (localStorage.full_client_rework != "false") {
                 <h1 class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px;">Options</h1>
                 <div class="experiment-card-holder" style="width: 300px; margin-left: auto; margin-right: auto;">
                     <div class="experiment-card" id="is-in-shop-box-option">
-                        <p>Shop: Hide removed items</p>
-                        <p class="experiment-subtext">This will hide all categories that are not currently in the shop</p>
+                        <p>Shop: Display all Item Variants</p>
+                        <p class="experiment-subtext">This will display all vatiants of an item</p>
                         <input class="options-toggle-box" onclick="inShopIsChecked();" style="cursor: pointer; scale: 2; posision: center;" id="is-in-shop-box" type="checkbox">
                     </div>
                     <div class="experiment-card" id="reduced-motion-box-option">
@@ -3009,11 +3526,11 @@ if (localStorage.full_client_rework != "false") {
                 App Version: ${tcbx926n29}
             `;
 
-            if (localStorage.items_in_shop_yes == "true") {
+            if (localStorage.fetch_collectibles_variants == "true") {
                 document.getElementById("is-in-shop-box").checked = true;
             }
         
-            if (localStorage.items_in_shop_yes == "none") {
+            if (localStorage.fetch_collectibles_variants == "none") {
                 document.getElementById("is-in-shop-box").checked = true;
             }
     
@@ -3048,17 +3565,33 @@ if (localStorage.full_client_rework != "false") {
                     clone.querySelector('.name').textContent = item.name;
                     clone.querySelector('.summary').textContent = item.summary;
                 
-                    // Add buttons for downloadables
-                    const downloadablesDiv = clone.querySelector('.downloadables');
-                    item.downloadables.forEach(downloadable => {
-                        const button = document.createElement('button');
-                        button.textContent = `${downloadable.id}: ` + downloadable.name;
-                        button.classList.add('card-button');
-                        button.addEventListener('click', () => {
-                            window.open('https://item.yapper.shop/marketing/' + downloadable.id + '/data.zip', '_blank');
+                    if (item.id === "discord_marketing") {
+                        // Add buttons for downloadables
+                        const downloadablesDiv = clone.querySelector('.downloadables');
+                        item.downloadables.forEach(downloadable => {
+                            const button = document.createElement('button');
+                            button.textContent = `${downloadable.id}: ` + downloadable.name;
+                            button.classList.add('card-button');
+                            button.addEventListener('click', () => {
+                                window.open('https://item.yapper.shop/marketing/' + downloadable.id + '/data.zip', '_blank');
+                            });
+                            downloadablesDiv.appendChild(button);
                         });
-                        downloadablesDiv.appendChild(button);
-                    });
+                    }
+
+                    if (item.id === "profiles_plus_marketing") {
+                        // Add buttons for downloadables
+                        const downloadablesDiv = clone.querySelector('.downloadables');
+                        item.downloadables.forEach(downloadable => {
+                            const button = document.createElement('button');
+                            button.textContent = `${downloadable.id}: ` + downloadable.name;
+                            button.classList.add('card-button');
+                            button.addEventListener('click', () => {
+                                window.open('https://item.yapper.shop/profiles-plus-marketing/' + downloadable.id + '/data.zip', '_blank');
+                            });
+                            downloadablesDiv.appendChild(button);
+                        });
+                    }
                 
                     // Append the cloned template to the content
                     content.appendChild(clone);
@@ -3068,11 +3601,11 @@ if (localStorage.full_client_rework != "false") {
     }
 
     function inShopIsChecked() {
-        if (localStorage.items_in_shop_yes != "true") {
-            localStorage.items_in_shop_yes = "true"
+        if (localStorage.fetch_collectibles_variants != "true") {
+            localStorage.fetch_collectibles_variants = "true"
         }
         else {
-            localStorage.items_in_shop_yes = "false"
+            localStorage.fetch_collectibles_variants = "false"
         }
         if (typeof fetchData === 'function') {
             fetchData(pageCheck());
@@ -3162,11 +3695,11 @@ if (localStorage.full_client_rework != "false") {
         </div>
         `;
     
-        if (localStorage.items_in_shop_yes == "true") {
+        if (localStorage.fetch_collectibles_variants == "true") {
             document.getElementById("is-in-shop-box").checked = true;
         }
     
-        if (localStorage.items_in_shop_yes == "none") {
+        if (localStorage.fetch_collectibles_variants == "none") {
             document.getElementById("is-in-shop-box").checked = true;
         }
     
@@ -3269,6 +3802,16 @@ if (localStorage.full_client_rework != "false") {
 
 
                                 <div class="experiment-card">
+                                    <p>Profiles Plus Marketing Variants</p>
+                                    <p class="experiment-subtext">2024-12_profiles_plus_marketing_variants</p>
+                                    <div id="experiment-default-rollout-data-2024-12_profiles_plus_marketing_variants"></div>
+                                    <button class="refresh-button" onclick="profilesPlusMarketingVariants1()" id="2024-12_profiles_plus_marketing_variants-1" title="Paper Beach V2">Override 1</button>
+                                    <button class="refresh-button" onclick="profilesPlusMarketingVariants00()" id="2024-12_profiles_plus_marketing_variants-00">Override -1</button>
+                                    <button class="refresh-button" onclick="profilesPlusMarketingVariants0()" id="2024-12_profiles_plus_marketing_variants-0">Clear Override</button>
+                                </div>
+
+
+                                <div class="experiment-card">
                                     <p>Collectibles Variants</p>
                                     <p class="experiment-subtext">2024-11_collectibles_variants</p>
                                     <div id="experiment-default-rollout-data-2024-11_collectibles_variants"></div>
@@ -3349,6 +3892,11 @@ if (localStorage.full_client_rework != "false") {
                             <h2>Dismissible Content</h2>
                             <p class="experiment-subtext">Overrides</p>
                             <div class="experiment-card-holder">
+                            <div class="experiment-card">
+                                    <p>Paper Beach V2 Marketing</p>
+                                    <p class="experiment-subtext">dismissible_paper_beach_v2_marketing</p>
+                                    <input class="options-toggle-box" onclick="dismissibleContent_PaperBeachV2MarketingChecked();" style="cursor: pointer; scale: 2; posision: center;" id="dismissible_paper_beach_v2_marketing-box" type="checkbox">
+                                </div>
                                 <div class="experiment-card">
                                     <p>Recap 2024</p>
                                     <p class="experiment-subtext">dismissible_recap_2024</p>
@@ -3405,6 +3953,10 @@ if (localStorage.full_client_rework != "false") {
             colorButtonsPerRollout()
             fetchExperimentRolloutData()
 
+
+            if (localStorage.dismissible_paper_beach_v2_marketing == "dismissed") {
+                document.getElementById("dismissible_paper_beach_v2_marketing-box").checked = true;
+            }
 
             if (localStorage.dismissible_recap_2024 == "dismissed") {
                 document.getElementById("dismissible_recap_2024-box").checked = true;
@@ -3531,6 +4083,17 @@ if (localStorage.full_client_rework != "false") {
     }
 
     function colorButtonsPerRollout() {
+
+        if (localStorage.profiles_plus_marketing_variants == "variant_1" || localStorage.profiles_plus_marketing_variants == "variant_1_autorollout") {
+            document.getElementById("2024-12_profiles_plus_marketing_variants-1").classList.add('refresh-button-selected');
+        }
+    
+        if (localStorage.profiles_plus_marketing_variants == "false" || localStorage.profiles_plus_marketing_variants == "false_autorollout") {
+            document.getElementById("2024-12_profiles_plus_marketing_variants-00").classList.add('refresh-button-selected');
+        }
+
+
+
         if (localStorage.collectibles_variants == "true" || localStorage.collectibles_variants == "true_autorollout") {
             document.getElementById("2024-11_collectibles_variants-1").classList.add('refresh-button-selected');
         }
@@ -3591,6 +4154,98 @@ if (localStorage.full_client_rework != "false") {
     }
 
 
+    function dismissibleContent_PaperBeachV2MarketingChecked() {
+        const profiles_plus_tab = document.getElementById("pplus-tab");
+        if (localStorage.dismissible_paper_beach_v2_marketing != "dismissed") {
+            localStorage.dismissible_paper_beach_v2_marketing = "dismissed"
+
+            if (profiles_plus_tab) {
+                if (localStorage.profiles_plus_marketing_variants === "variant_1" || localStorage.profiles_plus_marketing_variants === "variant_1_autorollout") {
+                    document.getElementById("pplus-tab").innerHTML = `
+                        <p class="dm-button-text">Profiles Plus</p>
+                    `;
+                }
+            }
+        } else {
+            localStorage.dismissible_paper_beach_v2_marketing = ''
+            if (profiles_plus_tab) {
+                if (localStorage.profiles_plus_marketing_variants === "variant_1" || localStorage.profiles_plus_marketing_variants === "variant_1_autorollout") {
+                    profiles_plus_tab.innerHTML = `
+                        <p class="dm-button-text">Profiles Plus</p>
+                        <div class="dm-new-icon">
+                            NEW
+                        </div>
+                        <img class="paper-beach-v2-greeting-catgirl-1" src="https://cdn.yapper.shop/assets/null.png">
+                        <div class="dm-tab-preview-avatar-decoration-rotate">
+                            <div class="dm-tab-preview-avatar-decoration-container" id="dm-tab-preview-avatar-decoration-container">
+                                <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/2.png">
+                            </div>
+                            <div class="dm-tab-preview-avatar-decoration-back"></div>
+                        </div>
+                        <p class="dm-button-text dm-button-text-marketing-1">Paper Beach Styles</p>
+                    `;
+                    profiles_plus_tab.classList.add('paper_beach_v2_marketing_tab');
+                }
+    
+                profiles_plus_tab.addEventListener("mouseenter", () => {
+                    if (document.getElementById("dm-tab-preview-avatar-decoration").src == "https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/12.png") {
+                        document.getElementById("dm-tab-preview-avatar-decoration-container").innerHTML = `
+                            <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/8.png">
+                        `;
+                    } else if (document.getElementById("dm-tab-preview-avatar-decoration").src == "https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/8.png") {
+                        document.getElementById("dm-tab-preview-avatar-decoration-container").innerHTML = `
+                            <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/2.png">
+                        `;
+                    } else if (document.getElementById("dm-tab-preview-avatar-decoration").src == "https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/2.png") {
+                        document.getElementById("dm-tab-preview-avatar-decoration-container").innerHTML = `
+                            <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/12.png">
+                        `;
+                    }
+                });
+            }
+        }
+    }
+
+    if (localStorage.dismissible_paper_beach_v2_marketing != "dismissed") {
+        const profiles_plus_tab = document.getElementById("pplus-tab");
+        if (profiles_plus_tab) {
+            if (localStorage.profiles_plus_marketing_variants === "variant_1" || localStorage.profiles_plus_marketing_variants === "variant_1_autorollout") {
+                profiles_plus_tab.innerHTML = `
+                    <img class="paper-beach-v2-greeting-catgirl-1" src="https://cdn.yapper.shop/assets/null.png">
+                    <p class="dm-button-text">Profiles Plus</p>
+                    <div class="dm-new-icon">
+                        NEW
+                    </div>
+                    <div class="dm-tab-preview-avatar-decoration-rotate">
+                        <div class="dm-tab-preview-avatar-decoration-container" id="dm-tab-preview-avatar-decoration-container">
+                            <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/2.png">
+                        </div>
+                        <div class="dm-tab-preview-avatar-decoration-back"></div>
+                    </div>
+                    <p class="dm-button-text dm-button-text-marketing-1">Paper Beach Styles</p>
+                `;
+                profiles_plus_tab.classList.add('paper_beach_v2_marketing_tab');
+            }
+
+            profiles_plus_tab.addEventListener("mouseenter", () => {
+                if (document.getElementById("dm-tab-preview-avatar-decoration").src == "https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/12.png") {
+                    document.getElementById("dm-tab-preview-avatar-decoration-container").innerHTML = `
+                        <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/8.png">
+                    `;
+                } else if (document.getElementById("dm-tab-preview-avatar-decoration").src == "https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/8.png") {
+                    document.getElementById("dm-tab-preview-avatar-decoration-container").innerHTML = `
+                        <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/2.png">
+                    `;
+                } else if (document.getElementById("dm-tab-preview-avatar-decoration").src == "https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/2.png") {
+                    document.getElementById("dm-tab-preview-avatar-decoration-container").innerHTML = `
+                        <img class="dm-tab-preview-avatar-decoration-3" id="dm-tab-preview-avatar-decoration" src="https://cdn.yapper.shop/custom-collectibles/paper-beach/avatar-decorations/12.png">
+                    `;
+                }
+            });
+        }
+    }
+
+
     function dismissibleContent_Recap2024Checked() {
         const home_page_dismissible_content_container = document.getElementById("home-page-dismissible-content-container");
         if (localStorage.dismissible_recap_2024 != "dismissed") {
@@ -3617,6 +4272,25 @@ if (localStorage.full_client_rework != "false") {
 
 
 
+
+    function profilesPlusMarketingVariants1() {
+        localStorage.profiles_plus_marketing_variants = "variant_1"
+        document.getElementById("2024-12_profiles_plus_marketing_variants-1").classList.add('refresh-button-selected');
+        document.getElementById("2024-12_profiles_plus_marketing_variants-00").classList.remove('refresh-button-selected');
+    }
+
+    function profilesPlusMarketingVariants00() {
+        localStorage.profiles_plus_marketing_variants = "false"
+        document.getElementById("2024-12_profiles_plus_marketing_variants-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-12_profiles_plus_marketing_variants-00").classList.add('refresh-button-selected');
+    }
+
+    function profilesPlusMarketingVariants0() {
+        localStorage.profiles_plus_marketing_variants = "pleasesetautorollout"
+        document.getElementById("2024-12_profiles_plus_marketing_variants-1").classList.remove('refresh-button-selected');
+        document.getElementById("2024-12_profiles_plus_marketing_variants-00").classList.remove('refresh-button-selected');
+        fetchExperimentRolloutData();
+    }
 
 
     function collectiblesVariants1() {
@@ -3856,7 +4530,36 @@ if (localStorage.full_client_rework != "false") {
                         }
                     } else {
                         console.warn(`exp 8:?`);
-                        console.error(`Failed to load treatment for experiment 7`);
+                        console.error(`Failed to load treatment for experiment 8`);
+                    }
+                }
+
+                if (experiments.id === 9) {
+                    if (experiments.rolled_out_treatment === 1) {
+                        console.log(`exp 9:1`);
+                        if (localStorage.profiles_plus_marketing_variants != "false" && localStorage.profiles_plus_marketing_variants != "variant_1") {
+                            localStorage.profiles_plus_marketing_variants = "variant_1_autorollout"
+                        }
+                        try {
+                            document.getElementById('experiment-default-rollout-data-2024-12_profiles_plus_marketing_variants').innerHTML = `
+                                <p class="experiment-subtext">default rollout: Override 1</p>
+                            `;
+                        } catch (error) {
+                        }
+                    } else if (experiments.rolled_out_treatment === -1) {
+                        console.log(`exp 9:-1`);
+                        if (localStorage.profiles_plus_marketing_variants != "false" && localStorage.profiles_plus_marketing_variants != "variant_1") {
+                            localStorage.profiles_plus_marketing_variants = "false_autorollout"
+                        }
+                        try {
+                            document.getElementById('experiment-default-rollout-data-2024-12_profiles_plus_marketing_variants').innerHTML = `
+                                <p class="experiment-subtext">default rollout: Override -1</p>
+                            `;
+                        } catch (error) {
+                        }
+                    } else {
+                        console.warn(`exp 9:?`);
+                        console.error(`Failed to load treatment for experiment 9`);
                     }
                 }
     

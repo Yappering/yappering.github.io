@@ -1095,12 +1095,11 @@ data-share-product-card-button {
     width: 20px;
     border-radius: 50px;
     cursor: pointer;
+    border: 2px solid #1E1F22;
 }
 
 .shop-card-var-selected {
     border: 2px solid white;
-    margin-top: -1px;
-    margin-left: -2px;
 }
 
 .shop-category-card:hover .shop-card-var-container {
@@ -2281,6 +2280,13 @@ data-share-product-card-button {
 
 #sku-is-valid-or-not-container {
     padding: 10px;
+}
+
+#sku-check-info-container {
+    background-color: #2B2D31;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .published-listings-tester-card button:hover {

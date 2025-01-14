@@ -1669,6 +1669,10 @@ data-share-product-card-button {
     background-color: #1e1f22a8;
 }
 
+.blurred-shop-card {
+    filter: blur(20px);
+}
+
 .shop-category-card-standard {
     background-color: #111214;
     border-radius: 25px;

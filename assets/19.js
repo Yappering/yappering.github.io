@@ -3,7 +3,7 @@ n78ndg290n = "Greetings Shop Archives Staff and/or Dataminer! This model has eve
 mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
-tcbx926n29 = "Stable 194";
+tcbx926n29 = "Stable 197";
 
 if (localStorage.sa_theme == "dark") {
     document.body.classList.add('theme-dark');
@@ -838,18 +838,45 @@ if (localStorage.full_client_rework != "false") {
                                 // Existing code for 'consumables' page
                                 const potionCard = potionTemplate.content.cloneNode(true).children[0];
                                 potionCard.querySelector("[data-potion-card-holder]").id = apiCategory.sku_id;
+
+                                potionCard.id = apiCategory.sku_id;
+
+                                potionCard.querySelector("[data-potion-card-holder]").style.backgroundImage = 'linear-gradient(0deg, var(--shop-card-background) 50%,#be00c4 150%)'
             
                                 if (apiCategory.src === null) {
                                     potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/assets/31.png`;
                                 } else {
-                                    potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/discord-assets/${apiCategory.src}.png`;
+                                    potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/discord-assets/${apiCategory.src}.svg`;
                                 }
                                 potionCard.querySelector("[data-potion-card-preview-image]").alt = apiCategory.name;
             
-                                potionCard.querySelector("[data-potion-card-desc]").textContent = apiCategory.summary;
-                                potionCard.querySelector("[data-potion-card-title]").textContent = apiCategory.name;
-                                potionCard.querySelector("[data-potion-card-price]").textContent = `US$${(apiCategory.price.amount / 100).toFixed(2)}`
-                                potionCard.querySelector("[data-potion-card-sku]").textContent = 'SKU ID: ' + apiCategory.sku_id;
+                                potionCard.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${apiCategory.sku_id}`;
+                                potionCard.querySelector("[data-product-card-name]").textContent = apiCategory.name;
+                                potionCard.querySelector("[data-product-card-summary]").textContent = apiCategory.summary;
+
+                                let priceStandard = "N/A";
+                        
+                                if (apiCategory.price) {
+                                    priceStandard = apiCategory.price.amount;
+                                }
+                        
+                                // Add the prices to the card (adjust the element selectors as needed)
+                                const priceElementUSD = potionCard.querySelector("[data-price-standard]");
+                                if (priceElementUSD) {
+                                    priceElementUSD.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                }
+
+                                potionCard.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                    <button class="card-button" onclick="location.href='${discordsupport}${apiCategory.support_id}';" title="Open this Potion's support article">Open Support Article</button>
+                                `;
+
+                                potionCard.addEventListener("mouseenter", () => {
+                                    potionCard.classList.add('potion-wobble')
+                                });
+                        
+                                potionCard.addEventListener("mouseleave", () => {
+                                    potionCard.classList.remove('potion-wobble')
+                                });
             
                                 categoryOutput.append(potionCard);
                             } else {
@@ -3005,26 +3032,32 @@ if (localStorage.full_client_rework != "false") {
                 <div class="shop-category" style="margin-top: 50px;">
                     <template data-potion-card-template>
                         <div>
-                            <div class="potion-card-holder" data-potion-card-holder>
+                            <div class="shop-category-card" data-potion-card-holder>
                                 <div class="potion-card-preview-holder">
                                     <img class="potion-card-preview" src="" id="potion-card-preview" data-potion-card-preview-image>
                                 </div>
-                                <div class="potion-card-sku-holder">
-                                    <p style="font-size: 18px;" data-potion-card-sku></p>
+                                <div class="card-bottom">
+                                    <div title="Copy Link" data-share-product-card-button></div>
+                                    <a class="item-credits" data-product-card-sku-id>Failed To Load Item</a>
+                                    <h3 data-product-card-name>Failed To Load Item</h3>
+                                    <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
+                                    <div class="shop-price-container" data-shop-price-container>
+                                        <a style="font-size: large; font-weight: 900;" data-price-standard></a>
+                                        <a data-price-nitro></a>
+                                    </div>
+                                    <div class="shop-card-var-container" data-shop-card-var-container>
+                                    </div>
+                                    <a class="shop-card-var-title" data-shop-card-var-title></a>
                                 </div>
-                                <div class="potion-card-title-holder">
-                                    <p style="font-size: 30px;" data-potion-card-title></p>
+                                <div class="card-button-container"data-product-card-open-in-shop>
+                                    <button class="card-button" title="Open this Potion's support article">Open Support Article</button>
                                 </div>
-                                <div class="potion-card-text-holder">
-                                    <p style="font-size: 18px;" data-potion-card-desc></p>
-                                </div>
-                                <div class="potion-card-price-holder">
-                                    <p style="font-size: 25px;" data-potion-card-price></p>
-                                </div>
+                                <div class="shop-card-tag-container" data-shop-card-tag-container>
                             </div>
                         </div>
+                        </div>
                     </template>
-                    <div data-shop-output>
+                    <div data-shop-output class="shop-category-card-holder">
                     </div>
                     <div id="shop-category-loading-container">
                     </div>
@@ -3037,13 +3070,23 @@ if (localStorage.full_client_rework != "false") {
         document.getElementById("shop-category-loading-container").innerHTML = `
             <div class="shop-category-loading" id="shop-category-loading">
                 <div>
-                    <div class="potion-card-loading">
-                    </div>
-                    <div class="potion-card-loading">
-                    </div>
-                    <div class="potion-card-loading">
-                    </div>
-                    <div class="potion-card-loading">
+                    <div class="shop-category-card-holder-loading">
+                        <div class="shop-category-card-loading">
+                        </div>
+                        <div class="shop-category-card-loading">
+                        </div>
+                        <div class="shop-category-card-loading">
+                        </div>
+                        <div class="shop-category-card-loading">
+                        </div>
+                        <div class="shop-category-card-loading">
+                        </div>
+                        <div class="shop-category-card-loading">
+                        </div>
+                        <div class="shop-category-card-loading">
+                        </div>
+                        <div class="shop-category-card-loading">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3912,11 +3955,6 @@ if (localStorage.full_client_rework != "false") {
             document.getElementById('options-sidebar-container').innerHTML = `
                 <h1 class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">Options</h1>
                 <div class="options-option-card-holder">
-
-                    <div class="options-option-card" id="is-in-shop-box-option">
-                        <p class="option-card-title" style="color: var(--white);">Display all Item Variants</p>
-                        <input class="options-toggle-box" onclick="inShopIsChecked();" style="cursor: pointer; scale: 2; posision: center;" id="is-in-shop-box" type="checkbox">
-                    </div>
 
                     <div class="options-option-card" id="reduced-motion-box-option">
                         <p class="option-card-title" style="color: var(--white);">Reduced Motion</p>

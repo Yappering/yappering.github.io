@@ -1102,21 +1102,18 @@ body {
 }
 
 .potion-card-holder {
+    background-color: var(--shop-card-background);
+    border-radius: 15px;
+    color: white;
+    font-family: 'gg sans', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s, box-shadow 0.2s;
     display: flex;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
-    height: 240px;
-    background-color: var(--background-primary);
-    scale: 0.9;
-    object-fit: cover;
-    border-radius: 32px;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    outline: 2px solid var(--4);
-    outline-offset: -2px;
+    flex-direction: column;
+    height: 440px; /* Fixed height for the entire card */
+    overflow: hidden; /* Prevents content from overflowing */
+    position: relative; /* Allows positioning of the card bottom */
+    border: 2px solid var(--4);
 }
 
 .potion-card-holder p {
@@ -1230,17 +1227,17 @@ body {
 
 .potion-card-preview-holder {
     position: absolute;
-    top: 40%;
-    left: 10%;
-    width: 164px;
-    height: 164px;
+    top: 30%;
+    left: 50%;
+    width: 264px;
+    height: 264px;
     transform: translate(-50%, -50%);
     z-index: 1;
 }
 
 .potion-card-preview {
-    width: 164px;
-    height: 164px;
+    width: 264px;
+    height: 264px;
 }
 
 .discordLogo_be5025 {
@@ -1500,33 +1497,25 @@ data-share-product-card-button {
 .potion-card-text-holder {
     position: absolute;
     z-index: 1; /* Ensure the text is above the banner */
-    margin-top: -60px; /* Space between the logo and the text */
-    left: 20%;
-    text-align: center;
-}
-
-.potion-card-text-holder-1 {
-    position: absolute;
-    z-index: 1; /* Ensure the text is above the banner */
-    margin-top: -60px; /* Space between the logo and the text */
-    left: 3%;
-    text-align: center;
+    left: 15px;
+    top: 310px;
 }
 
 .potion-card-title-holder {
     position: absolute;
     z-index: 1; /* Ensure the text is above the banner */
     margin-top: -160px; /* Space between the logo and the text */
-    left: 20%;
-    text-align: center;
+    left: 15px;
+    top: 420px;
 }
 
-.potion-card-title-holder-1 {
-    position: absolute;
-    z-index: 1; /* Ensure the text is above the banner */
-    margin-top: -160px; /* Space between the logo and the text */
-    left: 3%;
-    text-align: center;
+.potion-card-title-holder p {
+    display: -webkit-box;      
+    -webkit-line-clamp: 1;     
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    height: 33px;
+    overflow: hidden;
 }
 
 .potion-card-price-holder {
@@ -1534,14 +1523,7 @@ data-share-product-card-button {
     z-index: 1; /* Ensure the text is above the banner */
     margin-top: 160px; /* Space between the logo and the text */
     right: 5%;
-    text-align: center;
-}
-
-.potion-card-price-holder-1 {
-    position: absolute;
-    z-index: 1; /* Ensure the text is above the banner */
-    margin-top: 160px; /* Space between the logo and the text */
-    right: 3%;
+    bottom: 0%;
     text-align: center;
 }
 
@@ -1549,8 +1531,8 @@ data-share-product-card-button {
     position: absolute;
     z-index: 1; /* Ensure the text is above the banner */
     margin-top: 170px; /* Space between the logo and the text */
-    left: 3%;
-    text-align: center;
+    left: 15px;
+    top: 60px;
 }
 
 .potion-card-button-holder {
@@ -1561,6 +1543,17 @@ data-share-product-card-button {
     text-align: center;
 }
 
+
+.potion-wobble .potion-card-preview {
+    animation: gwouaycny78obt 1s;
+}
+
+@keyframes gwouaycny78obt {
+    0% {transform: rotate(0deg);}
+    33% {transform: rotate(10deg);}
+    60% {transform: rotate(-10deg);}
+    100% {transform: rotate(0deg);}
+}
 
 
 .street-fighter-banner-decoration {

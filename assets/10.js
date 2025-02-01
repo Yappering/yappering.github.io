@@ -17,7 +17,7 @@ EXPERIMENT_ID_5 = 1
 EXPERIMENT_ID_6 = 1
 
 // 2024-11_recap
-EXPERIMENT_ID_7 = "Treatment 1: Enabled"
+EXPERIMENT_ID_7 = "Treatment -1: Disabled"
 
 // 2024_11_collectibles_variants
 EXPERIMENT_ID_8 = "Treatment 1: Enabled"
@@ -30,3 +30,12 @@ EXPERIMENT_ID_10 = "Treatment 1: Enabled"
 
 // 2025_01_show_leaks_on_home_page
 EXPERIMENT_ID_11 = "Treatment 1: Enabled"
+
+// 2025-01_orb_testing
+EXPERIMENT_ID_12 = "Treatment -1: Disabled"
+
+// 2025-02_orbs_shop
+EXPERIMENT_ID_13 = "Treatment -1: Disabled"
+
+// 2025-02_mobile_render
+EXPERIMENT_ID_14 = "Treatment -1: Disabled"

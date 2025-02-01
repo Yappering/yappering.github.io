@@ -3,7 +3,7 @@ n78ndg290n = "Greetings Shop Archives Staff and/or Dataminer! This model has eve
 mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
-tcbx926n29 = "Stable 199";
+tcbx926n29 = "Stable 206";
 
 if (localStorage.sa_theme == "dark") {
     document.body.classList.add('theme-dark');
@@ -35,6 +35,7 @@ if (localStorage.full_client_rework != "false") {
     apidesignedurl = 'https://api.yapper.shop/v2';
     yapperblog = 'https://yapper.shop/blog/';
     cdn = 'https://cdn.yapper.shop/';
+    tmpapi = 'https://api.yapper.shop/tmp';
 
     if (localStorage.api_designed_url != "false") {
         api = apidesignedurl;
@@ -43,10 +44,12 @@ if (localStorage.full_client_rework != "false") {
     function privateAPICheck() {
         if (localStorage.force_all_api_to_fectch_private_api == "true") {
             api = prvapi;
+            tmpapi = 'https://raw.githubusercontent.com/Yappering/api/main/tmp';
         } else if (localStorage.api_designed_url != "false") {
             api = apidesignedurl;
         } else {
             api = 'https://raw.githubusercontent.com/Yappering/api/main/v2';
+            tmpapi = 'https://raw.githubusercontent.com/Yappering/api/main/tmp';
         }
     }
 
@@ -68,6 +71,7 @@ if (localStorage.full_client_rework != "false") {
     EXPERIMENT_ROLLOUTS = '/rollout-handler.json';
     COLLECTIBLES_SHOP_HOME = '/collectibles-shop-home.json';
     NEW_ITEMS = '/new-items.json';
+    ORBS_SHOP = '/orbs-shop.json';
 
 
     WINDOWKILL = "profiles-plus-1"
@@ -118,6 +122,8 @@ if (localStorage.full_client_rework != "false") {
     WINTER_WONDERLAND = "1314020997204283476"
     FANTASY_V2 = "1324454241254903829"
     STEAMPUNK = "1326333074241486859"
+    PROGRESS = "1333278032999485461"
+    VALENTINES = "1333866045521395723"
 
 
     HELP_AVATAR_DECORATIONS = "13410113109911"
@@ -174,7 +180,7 @@ if (localStorage.full_client_rework != "false") {
     function clearShopData() {
         const output = document.querySelector("[data-shop-output]");
         output.innerHTML = ''; // Clears the content of the shop category
-        if (params.get("page") === "consumables") {
+        if (params.get("page") === "consumables" || params.get("page") === "orbs") {
             createPotionsCategoryLoadingElement()
         } else {
             createShopCategoryLoadingElement()
@@ -185,7 +191,7 @@ if (localStorage.full_client_rework != "false") {
     function fetchData() {
         if (params.get("page") != "home" && params.get("page") != "recap_2024") {
 
-            if (params.get("page") === "consumables") {
+            if (params.get("page") === "consumables" || params.get("page") === "orbs") {
                 createMainPotionsElement()
                 createPotionsCategoryLoadingElement()
             } else {
@@ -841,7 +847,7 @@ if (localStorage.full_client_rework != "false") {
 
                                 potionCard.id = apiCategory.sku_id;
 
-                                potionCard.querySelector("[data-potion-card-holder]").style.backgroundImage = 'linear-gradient(0deg, var(--shop-card-background) 50%,#be00c4 150%)'
+                                potionCard.querySelector("[data-potion-card-holder]").classList.add('potion-card-gradient1');
             
                                 if (apiCategory.src === null) {
                                     potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/assets/31.png`;
@@ -860,10 +866,144 @@ if (localStorage.full_client_rework != "false") {
                                     priceStandard = apiCategory.price.amount;
                                 }
                         
-                                // Add the prices to the card (adjust the element selectors as needed)
-                                const priceElementUSD = potionCard.querySelector("[data-price-standard]");
-                                if (priceElementUSD) {
-                                    priceElementUSD.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                
+                                const priceTextNitro = potionCard.querySelector("[data-price-nitro]");
+                                const priceTextStandard = potionCard.querySelector("[data-price-standard]");
+
+                                const priceContainerNitro = potionCard.querySelector("[data-price-nitro-container]");
+                                const priceContainerStandard = potionCard.querySelector("[data-price-standard-container]");
+
+                                const priceContainer = potionCard.querySelector("[data-shop-price-container]");
+
+                                if (localStorage.experiment_2025_01_orb_testing === "Treatment 1: Default Prices") {
+                                    if (priceTextStandard) {
+                                        priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                    }
+                                
+                                    let orb_icon = document.createElement("div");
+                                
+                                    orb_icon.classList.add('orb-icon');
+                                
+                                    priceContainerStandard.appendChild(orb_icon);
+                                
+                                } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 2: 50 Orbs") {
+                                    if (priceTextStandard) {
+                                        priceTextStandard.textContent = `50`;
+                                    }
+                                
+                                    let orb_icon = document.createElement("div");
+                                
+                                    orb_icon.classList.add('orb-icon');
+                                
+                                    priceContainerStandard.appendChild(orb_icon);
+                                
+                                } else {
+                                    if (priceTextStandard) {
+                                        priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                    }
+                                }
+
+                                potionCard.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                    <button class="card-button" onclick="location.href='${discordsupport}${apiCategory.support_id}';" title="Open this Potion's support article">Open Support Article</button>
+                                `;
+
+                                potionCard.addEventListener("mouseenter", () => {
+                                    potionCard.classList.add('potion-wobble')
+                                });
+                        
+                                potionCard.addEventListener("mouseleave", () => {
+                                    potionCard.classList.remove('potion-wobble')
+                                });
+            
+                                categoryOutput.append(potionCard);
+                            } else if (page === "orbs") {
+                                // Existing code for 'consumables' page
+                                const potionCard = potionTemplate.content.cloneNode(true).children[0];
+                                potionCard.querySelector("[data-potion-card-holder]").id = apiCategory.sku_id;
+
+                                potionCard.id = apiCategory.sku_id;
+
+                                potionCard.querySelector("[data-potion-card-holder]").classList.add('potion-card-gradient2');
+            
+                                if (apiCategory.src === null) {
+                                    potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/assets/31.png`;
+                                } else {
+                                    potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/${apiCategory.endpoint}/${apiCategory.src}.${apiCategory.format}`;
+                                }
+                                potionCard.querySelector("[data-potion-card-preview-image]").alt = apiCategory.name;
+
+                                if (apiCategory.new_text != null) {
+                                    potionCard.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                        <div class="unplublished-tag">
+                                            <p class="unplublished-tag-text">${apiCategory.new_text}</p>
+                                        </div>
+                                    `;
+                                }
+            
+                                potionCard.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${apiCategory.sku_id}`;
+                                potionCard.querySelector("[data-product-card-name]").textContent = apiCategory.name;
+                                potionCard.querySelector("[data-product-card-summary]").textContent = apiCategory.summary;
+
+                                let priceStandard = "N/A";
+                        
+                                if (apiCategory.price) {
+                                    priceStandard = apiCategory.price.amount;
+                                }
+                        
+                                
+                                const priceTextNitro = potionCard.querySelector("[data-price-nitro]");
+                                const priceTextStandard = potionCard.querySelector("[data-price-standard]");
+
+                                const priceContainerNitro = potionCard.querySelector("[data-price-nitro-container]");
+                                const priceContainerStandard = potionCard.querySelector("[data-price-standard-container]");
+
+                                const priceContainer = potionCard.querySelector("[data-shop-price-container]");
+
+                                if (localStorage.experiment_2025_01_orb_testing === "Treatment 1: Default Prices") {
+                                    if (priceTextStandard) {
+                                        priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                    }
+                                
+                                    let orb_icon = document.createElement("div");
+                                
+                                    orb_icon.classList.add('orb-icon');
+                                
+                                    priceContainerStandard.appendChild(orb_icon);
+                                
+                                } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 2: 50 Orbs") {
+                                    if (priceTextStandard) {
+                                        priceTextStandard.textContent = `50`;
+                                    }
+                                
+                                    let orb_icon = document.createElement("div");
+                                
+                                    orb_icon.classList.add('orb-icon');
+                                
+                                    priceContainerStandard.appendChild(orb_icon);
+                                
+                                } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 3: Dynamic") {
+
+                                    if (apiCategory.price.currency === "discord_orb") {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                        }
+                                    
+                                        let orb_icon = document.createElement("div");
+                                    
+                                        orb_icon.classList.add('orb-icon');
+                                    
+                                        priceContainerStandard.appendChild(orb_icon);
+                                    
+                                    } else {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                        }
+                                    }
+
+                                } else {
+                                    if (priceTextStandard) {
+                                        priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                    }
                                 }
 
                                 potionCard.querySelector("[data-product-card-open-in-shop]").innerHTML = `
@@ -956,8 +1096,10 @@ if (localStorage.full_client_rework != "false") {
                                     category.querySelector("[data-shop-discord-watermark-container]").style.display = 'unset';
                                 }
                                 if (apiCategory.sku_id === LUNAR_NEW_YEAR) {
-                                    category.querySelector("[data-shop-category-logo-holder]").style.display = 'unset';
-                                    category.querySelector("[data-shop-discord-watermark-container]").style.display = 'unset';
+                                    if (apiCategory.banner === "1202069953306689626") {
+                                        category.querySelector("[data-shop-category-logo-holder]").style.display = 'unset';
+                                        category.querySelector("[data-shop-discord-watermark-container]").style.display = 'unset';
+                                    }
                                 }
                                 if (apiCategory.sku_id === ELEMENTS) {
                                     category.querySelector("[data-shop-category-logo-holder]").style.display = 'unset';
@@ -1413,15 +1555,56 @@ if (localStorage.full_client_rework != "false") {
                                             priceNitro = product.prices["4"].country_prices.prices[0].amount;
                                         }
                                 
-                                        // Add the prices to the card (adjust the element selectors as needed)
-                                        const priceElementUSD = card.querySelector("[data-price-standard]");
-                                        if (priceElementUSD) {
-                                            priceElementUSD.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
-                                        }
                                 
-                                        const priceElementOther = card.querySelector("[data-price-nitro]");
-                                        if (priceElementOther) {
-                                            priceElementOther.textContent = priceNitro !== "N/A" ? `US$${(priceNitro / 100).toFixed(2)} with Nitro` : "Price (Other): N/A";
+                                        const priceTextNitro = card.querySelector("[data-price-nitro]");
+                                        const priceTextStandard = card.querySelector("[data-price-standard]");
+
+                                        const priceContainerNitro = card.querySelector("[data-price-nitro-container]");
+                                        const priceContainerStandard = card.querySelector("[data-price-standard-container]");
+
+                                        const priceContainer = card.querySelector("[data-shop-price-container]");
+
+                                        if (localStorage.experiment_2025_01_orb_testing === "Treatment 1: Default Prices") {
+                                            if (priceTextStandard) {
+                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                            }
+                                        
+                                            let orb_icon = document.createElement("div");
+                                        
+                                            orb_icon.classList.add('orb-icon');
+                                        
+                                            priceContainerStandard.appendChild(orb_icon);
+    
+    
+                                            if (priceTextNitro) {
+                                                priceTextNitro.textContent = priceNitro !== "N/A" ? `${priceNitro}` : "Price (USD): N/A";
+                                            }
+                                        
+                                            let orb_icon_nitro = document.createElement("div");
+                                        
+                                            orb_icon_nitro.classList.add('orb-icon-strike');
+                                        
+                                            priceContainerNitro.appendChild(orb_icon_nitro);
+                                        
+                                        } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 2: 50 Orbs") {
+                                            if (priceTextStandard) {
+                                                priceTextStandard.textContent = `50`;
+                                            }
+                                        
+                                            let orb_icon = document.createElement("div");
+                                        
+                                            orb_icon.classList.add('orb-icon');
+                                        
+                                            priceContainerStandard.appendChild(orb_icon);
+                                        
+                                        } else {
+                                            if (priceTextStandard) {
+                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                            }
+    
+                                            if (priceTextNitro) {
+                                                priceTextNitro.textContent = priceNitro !== "N/A" ? `US$${(priceNitro / 100).toFixed(2)} with Nitro` : "Price (Other): N/A";
+                                            }
                                         }
 
                                         card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
@@ -1463,6 +1646,32 @@ if (localStorage.full_client_rework != "false") {
                                                 });
                                             }
                                         }
+
+
+                                        function newItemCheck() {
+
+                                            if (N > g) {
+                                            } else {
+                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="unplublished-tag">
+                                                        <p class="unplublished-tag-text">NEW</p>
+                                                    </div>
+                                                `;
+                                            }
+                                        }
+                                                                            
+                                        if (m.includes(product.sku_id)) {
+                                            newItemCheck();
+                                        }
+
+                                        function popularItemCheck() {
+                                            card.classList.add('popular-item');
+                                        }
+                                                                            
+                                        if (I.includes(product.sku_id)) {
+                                            popularItemCheck();
+                                        }
+
 
                                         const unpublishedAt = new Date(product.unpublished_at);
                             
@@ -1526,30 +1735,6 @@ if (localStorage.full_client_rework != "false") {
                             
                                             const timerInterval = setInterval(updateTimer, 1000);
                                             updateTimer();
-                                        }
-
-                                        function newItemCheck() {
-
-                                            if (N > g) {
-                                            } else {
-                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
-                                                    <div class="unplublished-tag">
-                                                        <p class="unplublished-tag-text">NEW</p>
-                                                    </div>
-                                                `;
-                                            }
-                                        }
-                                                                            
-                                        if (m.includes(product.sku_id)) {
-                                            newItemCheck();
-                                        }
-
-                                        function popularItemCheck() {
-                                            card.classList.add('popular-item');
-                                        }
-                                                                            
-                                        if (I.includes(product.sku_id)) {
-                                            popularItemCheck();
                                         }
 
                                         // Append card to output
@@ -2133,15 +2318,55 @@ if (localStorage.full_client_rework != "false") {
                                         priceNitro = product.prices["4"].country_prices.prices[0].amount;
                                     }
                                 
-                                    // Add the prices to the card (adjust the element selectors as needed)
-                                    const priceElementUSD = card.querySelector("[data-price-standard]");
-                                    if (priceElementUSD) {
-                                        priceElementUSD.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
-                                    }
-                                
-                                    const priceElementOther = card.querySelector("[data-price-nitro]");
-                                    if (priceElementOther) {
-                                        priceElementOther.textContent = priceNitro !== "N/A" ? `US$${(priceNitro / 100).toFixed(2)} with Nitro` : "Price (Other): N/A";
+                                    const priceTextNitro = card.querySelector("[data-price-nitro]");
+                                    const priceTextStandard = card.querySelector("[data-price-standard]");
+
+                                    const priceContainerNitro = card.querySelector("[data-price-nitro-container]");
+                                    const priceContainerStandard = card.querySelector("[data-price-standard-container]");
+
+                                    const priceContainer = card.querySelector("[data-shop-price-container]");
+
+                                    if (localStorage.experiment_2025_01_orb_testing === "Treatment 1: Default Prices") {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                        }
+                                    
+                                        let orb_icon = document.createElement("div");
+                                    
+                                        orb_icon.classList.add('orb-icon');
+                                    
+                                        priceContainerStandard.appendChild(orb_icon);
+
+
+                                        if (priceTextNitro) {
+                                            priceTextNitro.textContent = priceNitro !== "N/A" ? `${priceNitro}` : "Price (USD): N/A";
+                                        }
+                                    
+                                        let orb_icon_nitro = document.createElement("div");
+                                    
+                                        orb_icon_nitro.classList.add('orb-icon-strike');
+                                    
+                                        priceContainerNitro.appendChild(orb_icon_nitro);
+                                    
+                                    } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 2: 50 Orbs") {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = `50`;
+                                        }
+                                    
+                                        let orb_icon = document.createElement("div");
+                                    
+                                        orb_icon.classList.add('orb-icon');
+                                    
+                                        priceContainerStandard.appendChild(orb_icon);
+                                    
+                                    } else {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                        }
+
+                                        if (priceTextNitro) {
+                                            priceTextNitro.textContent = priceNitro !== "N/A" ? `US$${(priceNitro / 100).toFixed(2)} with Nitro` : "Price (Other): N/A";
+                                        }
                                     }
 
                                     card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
@@ -2284,6 +2509,8 @@ if (localStorage.full_client_rework != "false") {
             <button class="dm-button" id="potions-tab" onclick="setParams({page: 'consumables'}); location.reload();">
                 <p class="dm-button-text">Potions</p>
             </button>
+            <div id="orbs-shop-tab-loading">
+            </div>
             <button class="dm-button" id="miscellaneous-tab" onclick="setParams({page: 'miscellaneous'}); location.reload();">
                 <p class="dm-button-text">Miscellaneous</p>
             </button>
@@ -2374,6 +2601,14 @@ if (localStorage.full_client_rework != "false") {
             document.getElementById("potions-tab").classList.add('dm-button-selected');
             document.getElementById("top-bar-container").innerHTML = `
                 <h2 style="margin-left: 260px; margin-top: 10px;">Discord Potions</h2>
+                <div id="open-help-modals-buttons-holder"></div>
+            `;
+        } else if (params.get("page") === "orbs") {
+            document.title = "Orbs | Shop Archives";
+            apiUrl = tmpapi + ORBS_SHOP;
+            createMainPotionsElement()
+            document.getElementById("top-bar-container").innerHTML = `
+                <h2 style="margin-left: 260px; margin-top: 10px;">Orbs Shop</h2>
                 <div id="open-help-modals-buttons-holder"></div>
             `;
         } else if (params.get("page") === "miscellaneous") {
@@ -2485,6 +2720,18 @@ if (localStorage.full_client_rework != "false") {
     leaksCheck();
 
 
+    if (localStorage.experiment_2025_02_orbs_shop === "Treatment 1: Enabled") {
+        document.getElementById('orbs-shop-tab-loading').innerHTML = `
+            <button class="dm-button" id="orbs-shop-tab" onclick="setParams({page: 'orbs'}); location.reload();">
+                <p class="dm-button-text">Orbs Shop</p>
+            </button>
+        `;
+        if (params.get("page") === "orbs") {
+            document.getElementById("orbs-shop-tab").classList.add('dm-button-selected');
+        }
+    }
+
+
 
     function createHomePageElement() {
         document.getElementById("everything-housing-container").innerHTML = `
@@ -2527,8 +2774,12 @@ if (localStorage.full_client_rework != "false") {
                         <h3 data-product-card-name>Failed To Load Item</h3>
                         <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
                         <div class="shop-price-container" data-shop-price-container>
-                            <a style="font-size: large; font-weight: 900;" data-price-standard></a>
-                            <a data-price-nitro></a>
+                            <div data-price-standard-container>
+                                <a style="font-size: large; font-weight: 900;" data-price-standard></a>
+                            </div>
+                            <div data-price-nitro-container>
+                                <a data-price-nitro></a>
+                            </div>
                         </div>
                         <div class="shop-card-var-container" data-shop-card-var-container>
                         </div>
@@ -2962,8 +3213,12 @@ if (localStorage.full_client_rework != "false") {
                                 <h3 data-product-card-name>Failed To Load Item</h3>
                                 <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
                                 <div class="shop-price-container" data-shop-price-container>
-                                    <a style="font-size: large; font-weight: 900;" data-price-standard></a>
-                                    <a data-price-nitro></a>
+                                    <div data-price-standard-container>
+                                        <a style="font-size: large; font-weight: 900;" data-price-standard></a>
+                                    </div>
+                                    <div data-price-nitro-container>
+                                        <a data-price-nitro></a>
+                                    </div>
                                 </div>
                                 <div class="shop-card-var-container" data-shop-card-var-container>
                                 </div>
@@ -3053,8 +3308,12 @@ if (localStorage.full_client_rework != "false") {
                                     <h3 data-product-card-name>Failed To Load Item</h3>
                                     <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
                                     <div class="shop-price-container" data-shop-price-container>
-                                        <a style="font-size: large; font-weight: 900;" data-price-standard></a>
-                                        <a data-price-nitro></a>
+                                        <div data-price-standard-container>
+                                            <a style="font-size: large; font-weight: 900;" data-price-standard></a>
+                                        </div>
+                                        <div data-price-nitro-container>
+                                            <a data-price-nitro></a>
+                                        </div>
                                     </div>
                                     <div class="shop-card-var-container" data-shop-card-var-container>
                                     </div>
@@ -3999,6 +4258,7 @@ if (localStorage.full_client_rework != "false") {
                         <button class="card-button" onclick="window.open('${discordsupport}${HELP_AVATAR_DECORATIONS}');">Avatar Decorations</button>
                         <button class="card-button" onclick="window.open('${discordsupport}${HELP_PROFILE_EFFECTS}');">Profile Effects</button>
                         <button class="card-button" onclick="window.open('${discordsupport}${HELP_HD_STREAMING_POTION}');">HD Splash Potion</button>
+                        <button class="card-button" onclick="window.open('${discordsupport}${HELP_CONFETTI_POTION}');">Confetti Potion</button>
                     </div>
                 </div>
                 <p class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">Shop Archives</p>
@@ -4171,11 +4431,27 @@ if (localStorage.full_client_rework != "false") {
                     </div>
 
                     <div class="options-option-card">
-                        <p class="option-card-title">Show Leaks on Home Page</p>
-                        <p class="new-experiment-subtext">2025_01_show_leaks_on_home_page</p>
-                        <select id="experiment_2025_01_show_leaks_on_home_page_treatment_container" class="experiment-treatment-picker">
+                        <p class="option-card-title">Mobile Render</p>
+                        <p class="new-experiment-subtext">2025_02_mobile_render</p>
+                        <select id="experiment_2025_02_mobile_render_treatment_container" class="experiment-treatment-picker">
                         </select>
-                        <button class="new-experiment-clear-button" onclick="experiment_2025_01_show_leaks_on_home_page_clear()">Clear</button>
+                        <button class="new-experiment-clear-button" onclick="experiment_2025_02_mobile_render_clear()">Clear</button>
+                    </div>
+
+                    <div class="options-option-card">
+                        <p class="option-card-title">Orbs Shop</p>
+                        <p class="new-experiment-subtext">2025_02_orbs_shop</p>
+                        <select id="experiment_2025_02_orbs_shop_treatment_container" class="experiment-treatment-picker">
+                        </select>
+                        <button class="new-experiment-clear-button" onclick="experiment_2025_02_orbs_shop_clear()">Clear</button>
+                    </div>
+
+                    <div class="options-option-card">
+                        <p class="option-card-title">Orb Testing</p>
+                        <p class="new-experiment-subtext">2025_01_orb_testing</p>
+                        <select id="experiment_2025_01_orb_testing_treatment_container" class="experiment-treatment-picker">
+                        </select>
+                        <button class="new-experiment-clear-button" onclick="experiment_2025_01_orb_testing_clear()">Clear</button>
                     </div>
 
                     <div class="options-option-card">
@@ -4210,35 +4486,128 @@ if (localStorage.full_client_rework != "false") {
 
 
                 try {
-                    const experiment_2025_01_show_leaks_on_home_page_treatments = ["Treatment -1: Disabled", "Treatment 1: Enabled"];
+                    const experiment_2025_02_mobile_render_treatments = ["Treatment -1: Disabled", "Treatment 1: Use new mobile check", "Treatment 2: Use old mobile check"];
 
-                    const experiment_2025_01_show_leaks_on_home_page_treatment_picker = document.getElementById("experiment_2025_01_show_leaks_on_home_page_treatment_container");
+                    const experiment_2025_02_mobile_render_treatment_picker = document.getElementById("experiment_2025_02_mobile_render_treatment_container");
                     
 
-                    populate_experiment_2025_01_show_leaks_on_home_page();
+                    populate_experiment_2025_02_mobile_render();
                     
-                    const storedTreatment = localStorage.getItem("experiment_2025_01_show_leaks_on_home_page");
+                    const storedTreatment = localStorage.getItem("experiment_2025_02_mobile_render");
                     if (storedTreatment) {
-                        experiment_2025_01_show_leaks_on_home_page_treatment_picker.value = storedTreatment;
+                        experiment_2025_02_mobile_render_treatment_picker.value = storedTreatment;
                     }
 
-                    function populate_experiment_2025_01_show_leaks_on_home_page() {
-                        experiment_2025_01_show_leaks_on_home_page_treatments.forEach((treatments) => {
+                    function populate_experiment_2025_02_mobile_render() {
+                        experiment_2025_02_mobile_render_treatments.forEach((treatments) => {
                             const optElement = document.createElement("option");
                             optElement.value = treatments;
                             optElement.textContent = treatments;
-                            experiment_2025_01_show_leaks_on_home_page_treatment_picker.appendChild(optElement);
+                            experiment_2025_02_mobile_render_treatment_picker.appendChild(optElement);
                         });
                     }
 
-                    experiment_2025_01_show_leaks_on_home_page_treatment_picker.addEventListener("change", () => {
-                        const selectedTreatment = experiment_2025_01_show_leaks_on_home_page_treatment_picker.value;
+                    experiment_2025_02_mobile_render_treatment_picker.addEventListener("change", () => {
+                        const selectedTreatment = experiment_2025_02_mobile_render_treatment_picker.value;
                     
                         // Store the selection
-                        localStorage.setItem("experiment_2025_01_show_leaks_on_home_page", selectedTreatment);
+                        localStorage.setItem("experiment_2025_02_mobile_render", selectedTreatment);
                     });
                 } catch(error) {
                 }
+
+                try {
+                    const experiment_2025_02_orbs_shop_treatments = ["Treatment -1: Disabled", "Treatment 1: Enabled"];
+
+                    const experiment_2025_02_orbs_shop_treatment_picker = document.getElementById("experiment_2025_02_orbs_shop_treatment_container");
+                    
+
+                    populate_experiment_2025_02_orbs_shop();
+                    
+                    const storedTreatment = localStorage.getItem("experiment_2025_02_orbs_shop");
+                    if (storedTreatment) {
+                        experiment_2025_02_orbs_shop_treatment_picker.value = storedTreatment;
+                    }
+
+                    function populate_experiment_2025_02_orbs_shop() {
+                        experiment_2025_02_orbs_shop_treatments.forEach((treatments) => {
+                            const optElement = document.createElement("option");
+                            optElement.value = treatments;
+                            optElement.textContent = treatments;
+                            experiment_2025_02_orbs_shop_treatment_picker.appendChild(optElement);
+                        });
+                    }
+
+                    experiment_2025_02_orbs_shop_treatment_picker.addEventListener("change", () => {
+                        const selectedTreatment = experiment_2025_02_orbs_shop_treatment_picker.value;
+                    
+                        // Store the selection
+                        localStorage.setItem("experiment_2025_02_orbs_shop", selectedTreatment);
+                    });
+                } catch(error) {
+                }
+
+                try {
+                    const experiment_2025_01_orb_testing_treatments = ["Treatment -1: Disabled", "Treatment 1: Default Prices", "Treatment 2: 50 Orbs", "Treatment 3: Dynamic"];
+
+                    const experiment_2025_01_orb_testing_treatment_picker = document.getElementById("experiment_2025_01_orb_testing_treatment_container");
+                    
+
+                    populate_experiment_2025_01_orb_testing();
+                    
+                    const storedTreatment = localStorage.getItem("experiment_2025_01_orb_testing");
+                    if (storedTreatment) {
+                        experiment_2025_01_orb_testing_treatment_picker.value = storedTreatment;
+                    }
+
+                    function populate_experiment_2025_01_orb_testing() {
+                        experiment_2025_01_orb_testing_treatments.forEach((treatments) => {
+                            const optElement = document.createElement("option");
+                            optElement.value = treatments;
+                            optElement.textContent = treatments;
+                            experiment_2025_01_orb_testing_treatment_picker.appendChild(optElement);
+                        });
+                    }
+
+                    experiment_2025_01_orb_testing_treatment_picker.addEventListener("change", () => {
+                        const selectedTreatment = experiment_2025_01_orb_testing_treatment_picker.value;
+                    
+                        // Store the selection
+                        localStorage.setItem("experiment_2025_01_orb_testing", selectedTreatment);
+                    });
+                } catch(error) {
+                }
+
+                // try {
+                //     const experiment_2025_01_show_leaks_on_home_page_treatments = ["Treatment -1: Disabled", "Treatment 1: Enabled"];
+
+                //     const experiment_2025_01_show_leaks_on_home_page_treatment_picker = document.getElementById("experiment_2025_01_show_leaks_on_home_page_treatment_container");
+                    
+
+                //     populate_experiment_2025_01_show_leaks_on_home_page();
+                    
+                //     const storedTreatment = localStorage.getItem("experiment_2025_01_show_leaks_on_home_page");
+                //     if (storedTreatment) {
+                //         experiment_2025_01_show_leaks_on_home_page_treatment_picker.value = storedTreatment;
+                //     }
+
+                //     function populate_experiment_2025_01_show_leaks_on_home_page() {
+                //         experiment_2025_01_show_leaks_on_home_page_treatments.forEach((treatments) => {
+                //             const optElement = document.createElement("option");
+                //             optElement.value = treatments;
+                //             optElement.textContent = treatments;
+                //             experiment_2025_01_show_leaks_on_home_page_treatment_picker.appendChild(optElement);
+                //         });
+                //     }
+
+                //     experiment_2025_01_show_leaks_on_home_page_treatment_picker.addEventListener("change", () => {
+                //         const selectedTreatment = experiment_2025_01_show_leaks_on_home_page_treatment_picker.value;
+                    
+                //         // Store the selection
+                //         localStorage.setItem("experiment_2025_01_show_leaks_on_home_page", selectedTreatment);
+                //     });
+                // } catch(error) {
+                // }
 
 
                 try {
@@ -4373,12 +4742,27 @@ if (localStorage.full_client_rework != "false") {
     }
 
     if (localStorage.experiment_force_rollout != "false") {
+        localStorage.experiment_2025_02_mobile_render = EXPERIMENT_ID_14;
+        localStorage.experiment_2025_02_orbs_shop = EXPERIMENT_ID_13;
+        localStorage.experiment_2025_01_orb_testing = EXPERIMENT_ID_12;
         localStorage.experiment_2025_01_show_leaks_on_home_page = EXPERIMENT_ID_11;
         localStorage.experiment_2024_12_theme_picker = EXPERIMENT_ID_10;
         localStorage.experiment_2024_12_profiles_plus_marketing_variants = EXPERIMENT_ID_9;
         localStorage.experiment_2024_11_collectibles_variants = EXPERIMENT_ID_8;
         localStorage.experiment_2024_11_recap = EXPERIMENT_ID_7;
     } else {
+
+        if (localStorage.experiment_2025_02_mobile_render == null) {
+            localStorage.experiment_2025_02_mobile_render = EXPERIMENT_ID_14;
+        }
+
+        if (localStorage.experiment_2025_02_orbs_shop == null) {
+            localStorage.experiment_2025_02_orbs_shop = EXPERIMENT_ID_13;
+        }
+
+        if (localStorage.experiment_2025_01_orb_testing == null) {
+            localStorage.experiment_2025_01_orb_testing = EXPERIMENT_ID_12;
+        }
 
         if (localStorage.experiment_2025_01_show_leaks_on_home_page == null) {
             localStorage.experiment_2025_01_show_leaks_on_home_page = EXPERIMENT_ID_11;
@@ -4402,10 +4786,20 @@ if (localStorage.full_client_rework != "false") {
     }
 
 
-    function experiment_2025_01_show_leaks_on_home_page_clear() {
-        localStorage.experiment_2025_01_show_leaks_on_home_page = EXPERIMENT_ID_11;
-        document.getElementById("experiment_2025_01_show_leaks_on_home_page_treatment_container").value = EXPERIMENT_ID_11;
+    function experiment_2025_02_orbs_shop_clear() {
+        localStorage.experiment_2025_02_orbs_shop = EXPERIMENT_ID_12;
+        document.getElementById("experiment_2025_02_orbs_shop_treatment_container").value = EXPERIMENT_ID_13;
     };
+
+    function experiment_2025_01_orb_testing_clear() {
+        localStorage.experiment_2025_01_orb_testing = EXPERIMENT_ID_12;
+        document.getElementById("experiment_2025_01_orb_testing_treatment_container").value = EXPERIMENT_ID_12;
+    };
+
+    // function experiment_2025_01_show_leaks_on_home_page_clear() {
+    //     localStorage.experiment_2025_01_show_leaks_on_home_page = EXPERIMENT_ID_11;
+    //     document.getElementById("experiment_2025_01_show_leaks_on_home_page_treatment_container").value = EXPERIMENT_ID_11;
+    // };
 
     function experiment_2024_12_theme_picker_treatment_clear() {
         localStorage.experiment_2024_12_theme_picker = EXPERIMENT_ID_10;
@@ -4541,21 +4935,25 @@ if (localStorage.full_client_rework != "false") {
     function openMobileModal() {
         const lost_modal = document.getElementById('modal-housing');
         lost_modal.innerHTML = `
-        <div class="modal-housing-1" id="modal-housing-1">
-            <div class="lost-modal">
-                <div class="lost-modal-inner">
-                    <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">Looks like you're on mobile</h1>
-                    <p>Would you like to use the mobile client?</p>
-                    <button class="refresh-button" onclick="location.href='https://m.yapper.shop/';">Yes</button>
-                    <button class="refresh-button" onclick="closeMobileModal()">No</button>
+            <div class="modal-housing-1" id="modal-housing-1">
+                <div class="lost-modal">
+                    <div class="lost-modal-inner">
+                        <h1 class="center-text" style="font-size: 54px; margin-top: 40px;">Looks like you're on mobile</h1>
+                        <p>Would you like to use the mobile client?</p>
+                        <button class="refresh-button" onclick="location.href='https://m.yapper.shop/';">Yes</button>
+                        <button class="refresh-button" onclick="closeMobileModal()">No</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
+        `;
     }
     
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-        openMobileModal()
+    if (localStorage.experiment_2025_02_mobile_render === "Treatment 1: Use new mobile check") {
+        
+    } else {
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            openMobileModal()
+        }
     }
     
     function openOptionsModal() {

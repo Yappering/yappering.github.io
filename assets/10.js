@@ -39,3 +39,9 @@ EXPERIMENT_ID_13 = "Treatment -1: Disabled"
 
 // 2025-02_mobile_render
 EXPERIMENT_ID_14 = "Treatment -1: Disabled"
+
+// 2025-02_shop_card_modals
+EXPERIMENT_ID_15 = "Treatment 4: Enable modals w/ p+ on p+ page"
+
+// 2025-02_shop_category_modals
+EXPERIMENT_ID_16 = "Treatment -1: Disabled"

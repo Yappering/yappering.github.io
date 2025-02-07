@@ -1661,6 +1661,7 @@ data-share-product-card-button {
     overflow: hidden; /* Prevents content from overflowing */
     position: relative; /* Allows positioning of the card bottom */
     border: 2px solid var(--4);
+    z-index: 1;
 }
 
 .shop-category-card-transparent {
@@ -2610,6 +2611,315 @@ data-share-product-card-button {
     width: 95%;
 }
 
+.modalv2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modalv2.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modalv2-inner {
+    position: relative;
+    z-index: 1001;
+    background-color: var(--background-tertiary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 800px; /* Fixed width */
+    height: 600px; /* Fixed height */
+    overflow: hidden;
+}
+
+.modalv2-inner-left {
+    margin-top: 20px;
+    flex: 1;
+    overflow-y: auto; /* Allow scrolling for content */
+    max-height: 100%; /* Make sure it doesn't exceed modal height */
+    padding-right: 20px; /* Space between left and right content */
+    position: relative;
+}
+
+.modalv2-inner-right {
+    flex: 0 0 400px; /* Fixed width for the right side */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1F22;
+    height: 640px !important;
+    width: 400px !important;
+    margin-top: -20px;
+    margin-right: -20px;
+    object-fit: cover;
+}
+
+
+.modalv2-inner-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.modalv2-inner-logo {
+    position: absolute;
+    max-height: 30px !important;
+    max-width: 130px !important;
+    margin-left: 440px;
+    margin-top: 0px;
+    pointer-events: none;
+}
+
+.shop-modal-tag-container {
+    text-align: center;
+    position: absolute;
+    margin-right: 40px;
+    margin-top: 0px;
+    width: auto;
+    font-size: medium;
+    font-weight: 600;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.shareIcon_modal {
+    cursor: pointer;
+    padding: 5px;
+    color: #B1B5BB;
+    background-color: #0000005d;
+}
+
+.shareIcon_modal:hover {
+    color: white;
+}
+
+.closeIcon_modal {
+    cursor: pointer;
+    padding: 5px;
+    color: #B1B5BB;
+    background-color: #0000005d;
+}
+
+
+.closeIcon_modal:hover {
+    color: white;
+}
+
+.downloadIcon_modal {
+    cursor: pointer;
+    display: flex;
+    padding: 5px;
+    color: #B1B5BB;
+    background-color: #0000005d;
+}
+
+.downloadIcon_modal:hover {
+    color: white;
+}
+
+[data-modal-top-product-buttons] {
+    position: absolute;
+    width: 200px;
+    height: 34px;
+    right: 15px;
+    display: grid;
+    direction: rtl;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(29px, 1fr));
+}
+
+[data-modal-top-product-buttons] div {
+    height: 34px !important;
+    width: 34px !important;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+
+.modal-avatar-decoration-img {
+    position: absolute;
+    border-radius: 15px;
+    width: 300px !important;
+    height: 300px !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+.modal-avatar-decoration-img img {
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/6d8f0708e196aaad2550.png');
+    background-size: 83%; /* Ensures the background image covers the whole element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 300px !important;
+    height: 300px !important;
+    border-radius: 15px;
+}
+
+
+.modal-profile-effect-img {
+    position: absolute;
+    border-radius: 10px;
+    width: 260px;
+    height: 450px;
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/352db5d6852138aabc88.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.modal-profile-effect-img img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+
+.modal-potion-img {
+    position: absolute;
+    border-radius: 15px;
+    width: 300px !important;
+    height: 300px !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+.modal-potion-img img {
+    width: 300px !important;
+    height: 300px !important;
+    border-radius: 15px;
+}
+
+.modal-plus-more-question-mark-img {
+    position: absolute;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+
+.modal-shop-price-container {
+    position: absolute;
+    display: flex;
+    width: 90%;
+    opacity: 1; /* Fade in */
+    transition: opacity 0.5s ease;
+    color: var(--white);
+}
+
+.modal-shop-price-container:has([class*="orb"]) {
+    margin-left: 5px;
+}
+
+.modalv2-inner-left {
+    color: var(--white);
+}
+
+
+.shop-modal-var-title {
+    position: absolute;
+    right: 10px;
+    color: var(--8);
+    pointer-events: none;
+}
+
+
+.shop-modal-var-container {
+    position: absolute;
+    display: grid;
+    width: 251px;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
+}
+
+.shop-modal-var-container-container.show {
+    margin-bottom: 10px;
+    height: 25px;
+}
+
+
+
+
+.modal-1000 .modal-avatar-decoration-img {
+    position: absolute;
+    border-radius: 15px;
+    width: 220px !important;
+    height: 220px !important;
+    margin-left: 140px;
+    margin-right: auto;
+    margin-top: 100px;
+    transform: rotate(10deg);
+    z-index: 2;
+}
+
+.modal-1000 .modal-avatar-decoration-img {
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/ff84fa219ab7e996ec26.png');
+    background-size: 83%; /* Ensures the background image covers the whole element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 220px !important;
+    height: 220px !important;
+    border-radius: 15px;
+}
+
+.modal-1000 .modal-profile-effect-img {
+    position: absolute;
+    border-radius: 10px;
+    width: 260px;
+    height: 450px;
+    background-image: url('https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/352db5d6852138aabc88.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    transform: rotate(-10deg);
+    object-fit: cover;
+    object-position: top;
+    z-index: 1;
+}
+
+.modal-1000 [data-modal-preview-holder] {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    margin-bottom: 100px;
+    scale: 0.9;
+}
+
+
+.modalv2-back {
+    z-index: 1000;
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    margin-top: -100px;
+    margin-left: -100px;
+    background-color: #00000063;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modalv2-back.show {
+    opacity: 1;
+}
+
 .shop-expiry-timer-timer {
     text-align: center;
     position: absolute;
@@ -2773,7 +3083,7 @@ data-share-product-card-button {
 
 #home-page-preview-logo-container {
     text-align: center;
-    width: 600px;
+    width: 700px;
 }
 
 #home-page-preview-logo-container img {
@@ -2958,6 +3268,21 @@ data-share-product-card-button {
     margin-top: 50px;
 }
 
+.home-page-preview-banner-video {
+    width: 100%;
+    height: 294.56px;
+    object-fit: cover;
+    object-position: 0 -30px;
+    mask-image: linear-gradient(to bottom,#000 60%,rgba(0,0,0,0)100%);
+    top: 50px;
+}
+
+[data-preview-banner-container] {
+    position: relative;
+    width: 100%;
+    height: 294.56px;
+}
+
 #home-page-preview-button-container {
     position: absolute;
     margin-top: -100px;
@@ -3014,6 +3339,10 @@ data-share-product-card-button {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #1E1F22;
+}
+
+.clickable {
+    cursor: pointer;
 }
 
 .hidden {

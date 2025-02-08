@@ -45,3 +45,6 @@ EXPERIMENT_ID_15 = "Treatment 4: Enable modals w/ p+ on p+ page"
 
 // 2025-02_shop_category_modals
 EXPERIMENT_ID_16 = "Treatment -1: Disabled"
+
+// 2025-02_profiles_plus_home
+EXPERIMENT_ID_17 = "Treatment -1: Disabled"

@@ -3,7 +3,7 @@ n78ndg290n = "Greetings Shop Archives Staff and/or Dataminer! This model has eve
 mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
-tcbx926n29 = "Stable 217";
+tcbx926n29 = "Stable 218";
 
 if (localStorage.sa_theme == "dark") {
     document.body.classList.add('theme-dark');
@@ -61,7 +61,7 @@ if (localStorage.full_client_rework != "false") {
     PROFILES_PLUS = '/profiles-plus-categories.json';
     HOME_PAGE_PREVIEW = '/preview-1.json';
     HOME_PAGE_P_PLUS = '/preview-2.json';
-    HOME_PAGE_LEAKS = '/preview-3.json';
+    HOME_PAGE_P_PLUS_PREVIEW = '/preview-3.json';
     PROFILE_EFFECTS = '/user-profile-effects.json';
     DOWNLOADABLE_DATA = '/downloads.json';
     PROFILES_PLUS_EFFECTS = '/profiles-plus-profile-effects.json';
@@ -230,8 +230,25 @@ if (localStorage.full_client_rework != "false") {
                                     category.querySelector("[data-shop-category-banner]").classList.add('clickable')
                                 }
             
-                                category.querySelector("[data-shop-category-banner-image]").src = `https://cdn.yapper.shop/assets/${apiCategory.banner}.png`;
-                                category.querySelector("[data-shop-category-banner-image]").alt = apiCategory.name;
+                                if (apiCategory.banner_asset) {
+                                    if (apiCategory.banner_asset.animated != null) {
+                                        if (apiCategory.banner_asset.static != null) {
+                                            category.querySelector("[data-shop-banner-banner-container]").innerHTML = `
+                                                <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="${apiCategory.banner_asset.static}">
+                                                <video autoplay muted class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px; z-index: 1;" src="${apiCategory.banner_asset.animated}" loop></video>
+                                            `;
+                                        } else {
+                                            category.querySelector("[data-shop-banner-banner-container]").innerHTML = `
+                                                <video autoplay muted class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px; z-index: 1;" src="${apiCategory.banner_asset.animated}" loop></video>
+                                            `;
+                                        }
+                                    } else if (apiCategory.banner_asset.static != null) {
+                                        category.querySelector("[data-shop-category-banner-image]").src = `${apiCategory.banner_asset.static}`;
+                                    }
+                                } else {
+                                    category.querySelector("[data-shop-category-banner-image]").src = `https://cdn.yapper.shop/assets/${apiCategory.banner}.png`;
+                                    category.querySelector("[data-shop-category-banner-image]").alt = apiCategory.name;
+                                }
             
                                 category.querySelector("[data-shop-category-logo-image]").src = `https://cdn.yapper.shop/assets/${apiCategory.logo}.png`;
                                 category.querySelector("[data-shop-category-logo-image]").alt = apiCategory.name;
@@ -265,10 +282,6 @@ if (localStorage.full_client_rework != "false") {
                                 }
                                 if (apiCategory.sku_id === PAPER_BEACH_V2) {
                                     category.querySelector("[data-shop-category-logo-holder]").style.display = 'unset';
-                                }
-                                if (apiCategory.sku_id === RBXDOORS) {
-                                    category.querySelector("[data-shop-category-logo-holder]").style.display = 'unset';
-                                    category.querySelector("[data-shop-category-logo-image]").style.height = '100px';
                                 }
 
 
@@ -2349,7 +2362,7 @@ if (localStorage.full_client_rework != "false") {
                                     if (apiCategory.banner_asset.animated != null) {
                                         if (apiCategory.banner_asset.static != null) {
                                             category.querySelector("[data-shop-banner-banner-container]").innerHTML = `
-                                            <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="${apiCategory.banner_asset.static}">
+                                                <img class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px;" src="${apiCategory.banner_asset.static}">
                                                 <video autoplay muted class="shop-category-banner-img" style="position: absolute; left: 0px; bottom: 0px; width: 1280px; z-index: 1;" src="${apiCategory.banner_asset.animated}" loop></video>
                                             `;
                                         } else {
@@ -3945,7 +3958,7 @@ if (localStorage.full_client_rework != "false") {
                         
                             if (apiCategory.leaks_type) {
                                 category.querySelector("[data-preview-new-categoey-button]").innerHTML = `
-                                    <button class="home-page-preview-button" onclick="setParams({page: 'leaks'}); location.reload();">Check out New '${apiCategory.name}' Leaks</button>
+                                    <button class="home-page-preview-button" onclick="setParams({page: 'leaks'}); location.reload();">Check out New ${apiCategory.name} Leaks</button>
                                 `;
                             } else {
                                 category.querySelector("[data-preview-new-categoey-button]").innerHTML = `
@@ -5460,6 +5473,9 @@ if (localStorage.full_client_rework != "false") {
                     <div class="shop-card-tag-container" data-shop-card-tag-container>
                     </div>
                 </div>
+            </template>
+            <template data-shop-varcolorblock-template>
+                <div data-shop-card-var></div>
             </template>
             <div data-shop-output>
             </div>

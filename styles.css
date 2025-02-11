@@ -1312,6 +1312,47 @@ data-share-product-card-button {
     scale: 80%;
 }
 
+
+.shop-feature-block-container {
+    display: flex;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.shop-feature-block {
+    width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.shop-feature-block img {
+    width: 550px;
+}
+
+.shop-wide-banner {
+    width: 1300px;
+    height: 103px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+.shop-wide-banner img {
+    width: 1300px;
+    position: absolute;
+    border-radius: 20px
+}
+
+.shop-wide-banner p {
+    position: absolute;
+    margin-left: 20px;
+    z-index: 1;
+}
+
 .paper-beach-sun-banner-decoration {
     position: absolute;
     left: -100px;
@@ -1347,6 +1388,30 @@ data-share-product-card-button {
 }
 
 .paper_beach_v2_marketing_tab:hover .dm-new-icon {
+    opacity: 0;
+}
+
+
+.roblox_doors_marketing_tab {
+    position: relative;
+    background-image: url(https://cdn.yapper.shop/assets/140.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    transition: height 0.4s ease;
+    overflow: hidden !important;
+}
+
+.roblox_doors_marketing_tab:hover {
+    height: 250px;
+}
+
+.roblox_doors_marketing_tab .dm-new-icon {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.roblox_doors_marketing_tab:hover .dm-new-icon {
     opacity: 0;
 }
 

@@ -29,7 +29,7 @@ EXPERIMENT_ID_9 = "Treatment -1: Disabled"
 EXPERIMENT_ID_10 = "Treatment 1: Enabled"
 
 // 2025_01_show_leaks_on_home_page
-EXPERIMENT_ID_11 = "Treatment 1: Enabled"
+EXPERIMENT_ID_11 = "Treatment -1: Disabled"
 
 // 2025-01_orb_testing
 EXPERIMENT_ID_12 = "Treatment -1: Disabled"

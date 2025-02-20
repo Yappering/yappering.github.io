@@ -3,7 +3,7 @@ n78ndg290n = "Greetings Shop Archives Staff and/or Dataminer! This model has eve
 mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
-tcbx926n29 = "Stable 234";
+tcbx926n29 = "Stable 237";
 
 defaultAvatar1 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAY1BMVEVYZfJib/OMlfahqPeWn/eBi/XLz/vq6/7////19f5tePTq7P22vPnV2Pyrsvirsvl3gvT09f7Axfp3gfRtePNsePPg4v22vPq2u/qCi/WhqPjf4/zf4v2Xn/essvjLzvuXnvdbidFTAAAETElEQVR4AezBgQAAAACAoP2pF6kCAAAAAAAAAAAAAAAAAAAAAIDZudMtV1UlDuCFRKlWIEJ6uOwbzXn/lzzzYc/GWiT6zya/79WrLeYSc5Vq9IFWa3Sr6JehWt0ZZn5RtFJvmHnodPsrPLx1/B9PKx1ziLOPnIRRO84EXaAP/CWnR3pArTWcybpA5G8NsX20pw+cSbpAngEeOQenY+Cf8KIZ4FuDfSV4Ko/7hS7wNjYH7W3MvNeHtn2jvxn+OXcgaP0x8KJo43vgnwqu85EXDfGVULWON9G1BOmDN/M/AnTgDSWC0xve0KAITeSsykFw4qzOQWB4YwNBOfLmPAHpeXsvr5XOgJkjGA3vIlU6A2bvOHvAnXwiCMrwTl5UpUtg5us7BAB2gcg78nXugaC6QORd+bo7AEAXiLwzX+8SANEFNHPdXcAwV90FDgxA037+zwAc7aZlCKnSNTDrADZBdU6DBwbha5wCAabBkWGkSqfAzFa6C8xeADYB9Y2ByEBsbSMAYAy0zHWPActQLPQuKBh3DiwiDRlwzwFOv9JfTpORh5x5rVfQc8CQiLLJiEMaA1oW6XgVq+grVh4yY56JA68x07fm8hCIhXCUPn823zgkG/HK4Rf6kYv8YBt5BQ03BQyv9CMq8M/JQ7IItw+e6cd8QQjKTqCX3OMTtOdCCNZOoCnqkrYgZEFD2/FF/08qDAE4Dji+TtHPKHknVmBboVB2i9HI9zIGahZUhaVqVxCyQEEVQ7rSBMj3QiPUUTCWJkC+8zrQVjzmELBYG2H5jDYUFqAiQDlMtAwKQgjr+nwoq9O2BSEQJQFVWKeNBSEQ6+BYeG3BFIUAHIfasmsLh7IQgLcjDZd0AWXEIZRDMDYCuuj73g95yJGxEuBLPmr6VBSyzMO9Fpzko3kqeA1r8W4GHOWNKQ/JIl4COL4SZf2lPAQhAY4lYrv860rlIVmHlYAsuBhjFwpCwO4LOkb0TMAzAc8EPBPwTMAGngl4JuCZgMig4jMB27AMykJUhCr4ekwzKI10T9hpwzcz6DNSUbRdORzThW/CJSKagd4LjKurof1suFCYVR54MDckpsBXDLk3pliQgxBTHneBrwiaNtOfeUUKCnMQYlKC32x2r7SlmSUpoOQdi5xtoqx1DNP8WW9kKSCVvAu8QnC2USR4/I2bP5vDmhS80pdOjXULw8dc7HSiL6ljYLTmz/ooKvJTdkqTt9G5s/mHczH6qXlV9I32Ehi0+QVfQbn7HryHhvY033V1Tuu3CRncOIj3rL3EV9pf7+53ced0bY+MIZm7ndEt9uNnkxN8OSWhAvjjZ8ktnIoKaMDHF0yH8S416C4Rpv7bU094pWJ9QFv4BJOBvnkFzjWKMvhu4G78IibMIz2EFM3KFUAwCEI+ID9MDia6kd/+enpFj+YE+af+aA8OZAAAAAAG+Vvf46sAAAAAAAAAAAAAAAAAAAAAAFYCeHSjWah9hFcAAAAASUVORK5CYII=`;
 defaultAvatar2 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAhFBMVEV1fop9hpGgpq+ytr2prraXnqfT19vu7/H////29/iGjpju7/DCxszc3+K6vsS6v8WOlqD39/fLztPLz9OPlqDl5+nDx8ygpq6xtr6xtr3m5+iOlp/Dxsvc3+Hd3+GorraGjpnT19rT1tv29/eOlqHU19p+hpGprrWxt72or7bLz9Kfpq+ibmTzAAAEY0lEQVR4AezBAQEAAAQAIPB/swkMqAIAAAAAAAAAAAAAAAAAAAAAgBNZPfFWy86dLimOw3AAV5qYEXFicMKxHIFs03e///PtvaouagjRGMKfNr/vmhorsiMbpwcm+UZjN4PhD2YedR5TZpnZDgfmOww+L/h/jjoaS0iRG7pdk0HBQlECmeevisGEbpDJf7DQlUDJh2xlbm30noWmBGQFuOUcTMeej3CqFeCQzTOCl8i8bymBbPKQDlxeCecGqTH/Dc/ycUVK0LKx51ZVXs08H+WLoSu5la0yQmUK7sXQEKQ592ZOgFLukSE4meUe2YTQlCyinARTFnFOAss9swRlzL1zBCTj/o2ySFdAURCMBV+FiXQFFLP4esADvxGExPKVjJJIX4HCxbcJACyBkq/IxdkDQZVAyVfl4i4AgBIo+cpcvK8AiBJYMsddApY56hJIGcCSrmfFAAq6GsMQTKTvQDEEaILiXAZTBuEAlsAYl8E1wzCRLoEij7QLFKNYmwBhIp0BIo9tBgDMAcMc9xzYMJQcugvytl55VtCHWNx9wHaZ0d+mO6sP6Z7mBnQfYA2R2Fl1yMKCHov8zp3kycHKoQ9x3Mkj9Wv/i9s0FxCC9CJca8cv3JlDxBPecfgz/cwzt9j+etO5hFsCbEM/89I2e/QhoqI+2YBzGnfWEGHRuoBRQ6R9nu0hQJ3AIqgkNwEhLR6oPy7o/2MCQwC2AwWfltAxL/oifgFrhfZhtxitvpexAKug7nnU+gKqw2sO6DDk8bwJKKF6wZRPq8IToO28XqkvDnMK5FiNMB1n9SErqGZ4xeGvQV0IYV2f34ed05qgEIAjgZfAc9oyIATiPbgOvLZgA0IgtkMm7NpCGhCC8evIgkNKILHqEJIQjEZgGfR971wfMmasBLiQj5regkLaObifBd/p0Ls+xHBXOd7NgLH+YepDRIWXAK4yIpE9B4QAJaBgjcq0/3Wl8BDxiJUA4Yuqqob+YiGi7i0BiO4JuCfgnoB7Au4J6ME9AfcE3BNQMqjqnoAYrgkDnAc4BuWoH0sGtUS6J7xdWj4bu5wBHIqqL+yYZz6Lrek47wzOL0M7+kfjLAfyLpGJB3NDYrfnE2wq5VLagNF/GJl3nk/wS+pNM+PuKZAc6EefKP5m87ahPjnWpICMq1lllRsSpmCYxy8aq0sBJcbVnjvw23yR0OHwcR6/cPsuKcjoq+kir1d8lH3O0yl9lYw9oz1+0ZSqQ34SU5O6/KOuV/Zfdf3x4dJFltAB8+wZ9PErvoKqL7vxtp90TY5Pmlyy5ZI2QcDNg+qSZy9VQ9fX1Je7uDM91SNjMPZie/QN9vDFrtZ8OaXwsgcfvjB1y64owBJp+PrlsLrIGfSzIUzN4a7HNxSs2cO8+PSLwfLsJ3Dbh4QEfBlsz/xDjHcTQicHAPIGONck8LJBvpkc7OhMduxzk9CtmUL+U3+2BwcyAAAAAIP8re/xVQAAAAAAAAAAAAAAAAAAAAAAKwFiKavpSRGzHgAAAABJRU5ErkJggg==`;
@@ -27,6 +27,11 @@ if (localStorage.sa_theme == "dark") {
     document.body.classList.add('theme-dark');
 }
 
+if (localStorage.discord_banner) {
+    
+} else {
+    localStorage.discord_banner = ``;
+}
 
 if (localStorage.discord_avatar && localStorage.discord_avatar != '') {
 
@@ -3559,69 +3564,82 @@ if (localStorage.full_client_rework != "false") {
 
                                         let priceStandard = "N/A";
                                         let priceNitro = "N/A";
+                                        let priceOrb = "N/A";
 
-                                        if (localStorage.currency === "Discord Orb") {
-                                            if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
-                                                product.prices["0"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "discord_orb") {
-                                                        priceStandard = price.amount;
-                                                    }
-                                                });
-                                            }
-                                    
-                                            if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
-                                                product.prices["4"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "discord_orb") {
-                                                        priceNitro = price.amount;
-                                                    }
-                                                });
-                                            }
-
-                                            if (priceTextStandard) {
-                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "null";
-                                            }
+                                        if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled") {
+                                            if (localStorage.is_nitro_user === "true") {
+                                                if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                    product.prices["4"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "discord_orb") {
+                                                            priceOrb = price.amount;
+                                                        }
+                                                    });
+                                                }
                                         
-                                            let orb_icon = document.createElement("div");
-                                        
-                                            orb_icon.classList.add('orb-icon');
-                                        
-                                            priceContainerStandard.appendChild(orb_icon);
+                                                if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                    product.prices["4"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "usd") {
+                                                            priceStandard = price.amount;
+                                                        }
+                                                    });
+                                                }
     
-    
-                                            if (priceTextNitro) {
-                                                priceTextNitro.textContent = priceNitro !== "N/A" ? `${priceNitro}` : "null";
-                                            }
-                                        
-                                            let orb_icon_nitro = document.createElement("div");
-                                        
-                                            orb_icon_nitro.classList.add('orb-icon-strike');
-                                        
-                                            priceContainerNitro.appendChild(orb_icon_nitro);
+                                                if (priceTextStandard) {
+                                                    standardPriceOutput = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                }
 
-                                        } else if (localStorage.currency === "NZD (Mobile)") {
-                                            if (product.prices && product.prices["5"] && product.prices["5"].country_prices && product.prices["5"].country_prices.prices) {
-                                                product.prices["5"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "nzd") {
-                                                        priceStandard = price.amount;
-                                                    }
-                                                });
-                                            }
-                                    
-                                            if (product.prices && product.prices["7"] && product.prices["7"].country_prices && product.prices["7"].country_prices.prices) {
-                                                product.prices["7"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "nzd") {
-                                                        priceNitro = price.amount;
-                                                    }
-                                                });
+                                                priceContainerStandard.innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900; margin-left: 23px">${standardPriceOutput}</a>
+                                                    <div class="nitro-icon" style="margin-left: -5px"></div>
+                                                `;
+    
+                                                let orb_price = document.createElement("div");
+                                            
+                                                orb_price.innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                    <div class="orb-icon" style="margin-left: -25px"></div>
+                                                `;
+                                                orb_price.style.position = `absolute`;
+                                                orb_price.style.right = `0px`;
+    
+                                                if (priceOrb != 'N/A') {
+                                                    priceContainer.appendChild(orb_price);
+                                                }
+                                            } else {
+                                                if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                    product.prices["0"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "discord_orb") {
+                                                            priceOrb = price.amount;
+                                                        }
+                                                    });
+                                                }
+                                        
+                                                if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                    product.prices["0"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "usd") {
+                                                            priceStandard = price.amount;
+                                                        }
+                                                    });
+                                                }
+    
+                                                if (priceTextStandard) {
+                                                    priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                }
+    
+                                                let orb_price = document.createElement("div");
+                                            
+                                                orb_price.innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                    <div class="orb-icon" style="margin-left: -25px"></div>
+                                                `;
+                                                orb_price.style.position = `absolute`;
+                                                orb_price.style.right = `0px`;
+    
+                                                if (priceOrb != 'N/A') {
+                                                    priceContainer.appendChild(orb_price);
+                                                }
                                             }
 
-                                            if (priceTextStandard) {
-                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `NZ$${(priceStandard / 100).toFixed(2)}` : "null";
-                                            }
-    
-                                            if (priceTextNitro) {
-                                                priceTextNitro.textContent = priceNitro !== "N/A" ? `NZ$${(priceNitro / 100).toFixed(2)} with Nitro` : "null";
-                                            }
                                         } else {
                                             if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
                                                 product.prices["0"].country_prices.prices.forEach(price => {
@@ -4473,69 +4491,82 @@ if (localStorage.full_client_rework != "false") {
 
                                                     let priceStandard = "N/A";
                                                     let priceNitro = "N/A";
+                                                    let priceOrb = "N/A";
 
-                                                    if (localStorage.currency === "Discord Orb") {
-                                                        if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
-                                                            product.prices["0"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "discord_orb") {
-                                                                    priceStandard = price.amount;
-                                                                }
-                                                            });
-                                                        }
-                                                
-                                                        if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
-                                                            product.prices["4"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "discord_orb") {
-                                                                    priceNitro = price.amount;
-                                                                }
-                                                            });
+                                                    if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled") {
+                                                        if (localStorage.is_nitro_user === "true") {
+                                                            if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                                product.prices["4"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "discord_orb") {
+                                                                        priceOrb = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                                                    
+                                                            if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                                product.prices["4"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "usd") {
+                                                                        priceStandard = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                
+                                                            if (priceTextStandard) {
+                                                                standardPriceOutput = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                            }
+            
+                                                            priceContainerStandard.innerHTML = `
+                                                                <a style="font-size: large; font-weight: 900; margin-left: 23px">${standardPriceOutput}</a>
+                                                                <div class="nitro-icon" style="margin-left: -5px"></div>
+                                                            `;
+                
+                                                            let orb_price = document.createElement("div");
+                                                        
+                                                            orb_price.innerHTML = `
+                                                                <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                                <div class="orb-icon" style="margin-left: -25px"></div>
+                                                            `;
+                                                            orb_price.style.position = `absolute`;
+                                                            orb_price.style.right = `-20px`;
+                
+                                                            if (priceOrb != 'N/A') {
+                                                                priceContainer.appendChild(orb_price);
+                                                            }
+                                                        } else {
+                                                            if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                                product.prices["0"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "discord_orb") {
+                                                                        priceOrb = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                                                    
+                                                            if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                                product.prices["0"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "usd") {
+                                                                        priceStandard = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                
+                                                            if (priceTextStandard) {
+                                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                            }
+                
+                                                            let orb_price = document.createElement("div");
+                                                        
+                                                            orb_price.innerHTML = `
+                                                                <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                                <div class="orb-icon" style="margin-left: -25px"></div>
+                                                            `;
+                                                            orb_price.style.position = `absolute`;
+                                                            orb_price.style.right = `-20px`;
+                
+                                                            if (priceOrb != 'N/A') {
+                                                                priceContainer.appendChild(orb_price);
+                                                            }
                                                         }
             
-                                                        if (priceTextStandard) {
-                                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "null";
-                                                        }
-                                                    
-                                                        let orb_icon = document.createElement("div");
-                                                    
-                                                        orb_icon.classList.add('orb-icon');
-                                                    
-                                                        priceContainerStandard.appendChild(orb_icon);
-                
-                
-                                                        if (priceTextNitro) {
-                                                            priceTextNitro.textContent = priceNitro !== "N/A" ? `${priceNitro}` : "null";
-                                                        }
-                                                    
-                                                        let orb_icon_nitro = document.createElement("div");
-                                                    
-                                                        orb_icon_nitro.classList.add('orb-icon-strike');
-                                                    
-                                                        priceContainerNitro.appendChild(orb_icon_nitro);
-            
-                                                    } else if (localStorage.currency === "NZD (Mobile)") {
-                                                        if (product.prices && product.prices["5"] && product.prices["5"].country_prices && product.prices["5"].country_prices.prices) {
-                                                            product.prices["5"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "nzd") {
-                                                                    priceStandard = price.amount;
-                                                                }
-                                                            });
-                                                        }
-                                                
-                                                        if (product.prices && product.prices["7"] && product.prices["7"].country_prices && product.prices["7"].country_prices.prices) {
-                                                            product.prices["7"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "nzd") {
-                                                                    priceNitro = price.amount;
-                                                                }
-                                                            });
-                                                        }
-            
-                                                        if (priceTextStandard) {
-                                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `NZ$${(priceStandard / 100).toFixed(2)}` : "null";
-                                                        }
-                
-                                                        if (priceTextNitro) {
-                                                            priceTextNitro.textContent = priceNitro !== "N/A" ? `NZ$${(priceNitro / 100).toFixed(2)} with Nitro` : "null";
-                                                        }
                                                     } else {
                                                         if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
                                                             product.prices["0"].country_prices.prices.forEach(price => {
@@ -5522,69 +5553,82 @@ if (localStorage.full_client_rework != "false") {
 
                                         let priceStandard = "N/A";
                                         let priceNitro = "N/A";
+                                        let priceOrb = "N/A";
 
-                                        if (localStorage.currency === "Discord Orb") {
-                                            if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
-                                                product.prices["0"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "discord_orb") {
-                                                        priceStandard = price.amount;
-                                                    }
-                                                });
-                                            }
-                                    
-                                            if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
-                                                product.prices["4"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "discord_orb") {
-                                                        priceNitro = price.amount;
-                                                    }
-                                                });
-                                            }
-
-                                            if (priceTextStandard) {
-                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "null";
-                                            }
+                                        if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled") {
+                                            if (localStorage.is_nitro_user === "true") {
+                                                if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                    product.prices["4"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "discord_orb") {
+                                                            priceOrb = price.amount;
+                                                        }
+                                                    });
+                                                }
                                         
-                                            let orb_icon = document.createElement("div");
-                                        
-                                            orb_icon.classList.add('orb-icon');
-                                        
-                                            priceContainerStandard.appendChild(orb_icon);
+                                                if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                    product.prices["4"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "usd") {
+                                                            priceStandard = price.amount;
+                                                        }
+                                                    });
+                                                }
     
-    
-                                            if (priceTextNitro) {
-                                                priceTextNitro.textContent = priceNitro !== "N/A" ? `${priceNitro}` : "null";
-                                            }
-                                        
-                                            let orb_icon_nitro = document.createElement("div");
-                                        
-                                            orb_icon_nitro.classList.add('orb-icon-strike');
-                                        
-                                            priceContainerNitro.appendChild(orb_icon_nitro);
+                                                if (priceTextStandard) {
+                                                    standardPriceOutput = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                }
 
-                                        } else if (localStorage.currency === "NZD (Mobile)") {
-                                            if (product.prices && product.prices["5"] && product.prices["5"].country_prices && product.prices["5"].country_prices.prices) {
-                                                product.prices["5"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "nzd") {
-                                                        priceStandard = price.amount;
-                                                    }
-                                                });
-                                            }
-                                    
-                                            if (product.prices && product.prices["7"] && product.prices["7"].country_prices && product.prices["7"].country_prices.prices) {
-                                                product.prices["7"].country_prices.prices.forEach(price => {
-                                                    if (price.currency === "nzd") {
-                                                        priceNitro = price.amount;
-                                                    }
-                                                });
+                                                priceContainerStandard.innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900; margin-left: 23px">${standardPriceOutput}</a>
+                                                    <div class="nitro-icon" style="margin-left: -5px"></div>
+                                                `;
+    
+                                                let orb_price = document.createElement("div");
+                                            
+                                                orb_price.innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                    <div class="orb-icon" style="margin-left: -25px"></div>
+                                                `;
+                                                orb_price.style.position = `absolute`;
+                                                orb_price.style.right = `0px`;
+    
+                                                if (priceOrb != 'N/A') {
+                                                    priceContainer.appendChild(orb_price);
+                                                }
+                                            } else {
+                                                if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                    product.prices["0"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "discord_orb") {
+                                                            priceOrb = price.amount;
+                                                        }
+                                                    });
+                                                }
+                                        
+                                                if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                    product.prices["0"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "usd") {
+                                                            priceStandard = price.amount;
+                                                        }
+                                                    });
+                                                }
+    
+                                                if (priceTextStandard) {
+                                                    priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                }
+    
+                                                let orb_price = document.createElement("div");
+                                            
+                                                orb_price.innerHTML = `
+                                                    <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                    <div class="orb-icon" style="margin-left: -25px"></div>
+                                                `;
+                                                orb_price.style.position = `absolute`;
+                                                orb_price.style.right = `0px`;
+    
+                                                if (priceOrb != 'N/A') {
+                                                    priceContainer.appendChild(orb_price);
+                                                }
                                             }
 
-                                            if (priceTextStandard) {
-                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `NZ$${(priceStandard / 100).toFixed(2)}` : "null";
-                                            }
-    
-                                            if (priceTextNitro) {
-                                                priceTextNitro.textContent = priceNitro !== "N/A" ? `NZ$${(priceNitro / 100).toFixed(2)} with Nitro` : "null";
-                                            }
                                         } else {
                                             if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
                                                 product.prices["0"].country_prices.prices.forEach(price => {
@@ -6436,69 +6480,82 @@ if (localStorage.full_client_rework != "false") {
 
                                                     let priceStandard = "N/A";
                                                     let priceNitro = "N/A";
+                                                    let priceOrb = "N/A";
 
-                                                    if (localStorage.currency === "Discord Orb") {
-                                                        if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
-                                                            product.prices["0"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "discord_orb") {
-                                                                    priceStandard = price.amount;
-                                                                }
-                                                            });
-                                                        }
-                                                
-                                                        if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
-                                                            product.prices["4"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "discord_orb") {
-                                                                    priceNitro = price.amount;
-                                                                }
-                                                            });
+                                                    if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled") {
+                                                        if (localStorage.is_nitro_user === "true") {
+                                                            if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                                product.prices["4"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "discord_orb") {
+                                                                        priceOrb = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                                                    
+                                                            if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                                product.prices["4"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "usd") {
+                                                                        priceStandard = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                
+                                                            if (priceTextStandard) {
+                                                                standardPriceOutput = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                            }
+            
+                                                            priceContainerStandard.innerHTML = `
+                                                                <a style="font-size: large; font-weight: 900; margin-left: 23px">${standardPriceOutput}</a>
+                                                                <div class="nitro-icon" style="margin-left: -5px"></div>
+                                                            `;
+                
+                                                            let orb_price = document.createElement("div");
+                                                        
+                                                            orb_price.innerHTML = `
+                                                                <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                                <div class="orb-icon" style="margin-left: -25px"></div>
+                                                            `;
+                                                            orb_price.style.position = `absolute`;
+                                                            orb_price.style.right = `-20px`;
+                
+                                                            if (priceOrb != 'N/A') {
+                                                                priceContainer.appendChild(orb_price);
+                                                            }
+                                                        } else {
+                                                            if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                                product.prices["0"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "discord_orb") {
+                                                                        priceOrb = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                                                    
+                                                            if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                                product.prices["0"].country_prices.prices.forEach(price => {
+                                                                    if (price.currency === "usd") {
+                                                                        priceStandard = price.amount;
+                                                                    }
+                                                                });
+                                                            }
+                
+                                                            if (priceTextStandard) {
+                                                                priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                            }
+                
+                                                            let orb_price = document.createElement("div");
+                                                        
+                                                            orb_price.innerHTML = `
+                                                                <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                                <div class="orb-icon" style="margin-left: -25px"></div>
+                                                            `;
+                                                            orb_price.style.position = `absolute`;
+                                                            orb_price.style.right = `-20px`;
+                
+                                                            if (priceOrb != 'N/A') {
+                                                                priceContainer.appendChild(orb_price);
+                                                            }
                                                         }
             
-                                                        if (priceTextStandard) {
-                                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "null";
-                                                        }
-                                                    
-                                                        let orb_icon = document.createElement("div");
-                                                    
-                                                        orb_icon.classList.add('orb-icon');
-                                                    
-                                                        priceContainerStandard.appendChild(orb_icon);
-                
-                
-                                                        if (priceTextNitro) {
-                                                            priceTextNitro.textContent = priceNitro !== "N/A" ? `${priceNitro}` : "null";
-                                                        }
-                                                    
-                                                        let orb_icon_nitro = document.createElement("div");
-                                                    
-                                                        orb_icon_nitro.classList.add('orb-icon-strike');
-                                                    
-                                                        priceContainerNitro.appendChild(orb_icon_nitro);
-            
-                                                    } else if (localStorage.currency === "NZD (Mobile)") {
-                                                        if (product.prices && product.prices["5"] && product.prices["5"].country_prices && product.prices["5"].country_prices.prices) {
-                                                            product.prices["5"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "nzd") {
-                                                                    priceStandard = price.amount;
-                                                                }
-                                                            });
-                                                        }
-                                                
-                                                        if (product.prices && product.prices["7"] && product.prices["7"].country_prices && product.prices["7"].country_prices.prices) {
-                                                            product.prices["7"].country_prices.prices.forEach(price => {
-                                                                if (price.currency === "nzd") {
-                                                                    priceNitro = price.amount;
-                                                                }
-                                                            });
-                                                        }
-            
-                                                        if (priceTextStandard) {
-                                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `NZ$${(priceStandard / 100).toFixed(2)}` : "null";
-                                                        }
-                
-                                                        if (priceTextNitro) {
-                                                            priceTextNitro.textContent = priceNitro !== "N/A" ? `NZ$${(priceNitro / 100).toFixed(2)} with Nitro` : "null";
-                                                        }
                                                     } else {
                                                         if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
                                                             product.prices["0"].country_prices.prices.forEach(price => {
@@ -6852,7 +6909,7 @@ if (localStorage.full_client_rework != "false") {
 
     if (localStorage.experiment_2024_11_recap === "Treatment 1: Enabled") {
         document.getElementById('recap-2024-tab-loading').innerHTML = `
-            <img class="recap-2024-tab-decoration" src="https://cdn.yapper.shop/assets/104.png">
+            <img class="recap-2024-tab-decoration" src="https://cdn.yapper.shop/assets/157.png">
             <button class="dm-button" id="recap-2024-tab" onclick="setParams({page: 'year_recap'}); location.reload();">
                 <p class="dm-button-text">2025 Recap</p>
             </button>
@@ -6916,7 +6973,7 @@ if (localStorage.full_client_rework != "false") {
                 <div id="open-help-modals-buttons-holder"></div>
             `;
         } else if (params.get("page") === "orbs") {
-            document.title = "Orbs | Shop Archives";
+            document.title = "Orb Rewards | Shop Archives";
             if (localStorage.experiment_2025_02_orbs_shop === "Treatment 2: Orb Shop done like default") {
                 apiUrl = tmpapi + ORBS_SHOP_DEFAULT;
             } else {
@@ -6924,7 +6981,7 @@ if (localStorage.full_client_rework != "false") {
             }
             createMainPotionsElement()
             document.getElementById("top-bar-container").innerHTML = `
-                <h2 style="margin-left: 260px; margin-top: 10px;">Orbs</h2>
+                <h2 style="margin-left: 260px; margin-top: 10px;">Orb Rewards</h2>
                 <div id="open-help-modals-buttons-holder"></div>
             `;
         } else if (params.get("page") === "miscellaneous") {
@@ -7049,7 +7106,7 @@ if (localStorage.full_client_rework != "false") {
     if (localStorage.experiment_2025_02_orbs_shop === "Treatment 1: Orb Shop done like Potions" || localStorage.experiment_2025_02_orbs_shop === "Treatment 2: Orb Shop done like default") {
         document.getElementById('orbs-shop-tab-loading').innerHTML = `
             <button class="dm-button" id="orbs-shop-tab" onclick="setParams({page: 'orbs'}); location.reload();">
-                <p class="dm-button-text">Orbs</p>
+                <p class="dm-button-text">Orb Rewards</p>
             </button>
         `;
         if (params.get("page") === "orbs") {
@@ -7202,30 +7259,103 @@ if (localStorage.full_client_rework != "false") {
                 </div>
                 
                 <div class="a2024-recap-text-card-1">
-                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">2025 Recap</h1>
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">2024 Recap</h1>
 
-                    <p class="center-text" style="font-size: 18px;">Things such as Confetti Potions, [thing] and much more were all nice gifts given to us in 2025!</p>
-                    <p class="center-text" style="font-size: 18px;">The Shop Archives teams has made this article that covers everything that was added to Discord in 2025!</p>
+                    <p class="center-text" style="font-size: 18px;">Things such as Splash Potions and randomness added to Profile Effects and much more were all nice gifts given to us in 2024!</p>
+                    <p class="center-text" style="font-size: 18px;">The Shop Archives teams has made this article that covers everything that was added to Discord in 2024!</p>
                 </div>
 
                 <hr style="opacity: 0; height: 30px;">
 
                 <div class="a2024-recap-text-card-1">
-                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Placeholder</h1>
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Winter Nitro Promotion</h1>
 
                     <img class="a2024-recap-img-1" src="${cdn}assets/117.gif">
 
-                    <p class="center-text" style="font-size: 18px;">Waiting for 2026</p>
+                    <p class="center-text" style="font-size: 18px;">This Christmas, up until January 6th, 2025, when you purchase a Nitro gift you can choose 1 of 3 Avatar Decorations of your own to collect and keep!</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">HD Splash Potions</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/109.png">
+
+                    <p class="center-text" style="font-size: 18px;">HD Splash Potion allows everyone in a voice channel to enjoy HD video streaming quality for the next 12 hours for only US$0.99.</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Halloween Nitro Promotion</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/108.png">
+
+                    <p class="center-text" style="font-size: 18px;">From October 7th to November 4th, if you buy a Discord Nitro gift, you'll receive the 'Minios' Avatar Decoration of your own to collect and keep!</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Random Profile Effect Outcomes</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/106.png">
+
+                    <p class="center-text" style="font-size: 18px;">You might have noticed that some Profile Effects don't just have one outcome.</p>
+
+                    <p class="center-text" style="font-size: 18px;">Profile Effects such as 'D20 Roll' and 'Classic Street Fighter' have a chance to play a whole new animation every time you open someone profile!</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Spring Nitro Promotion</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/107.png">
+
+                    <p class="center-text" style="font-size: 18px;">During Spring, if you were a first time Nitro subscriber, you would receive the 'Gyoiko Sakura' Avatar Decoration of your own to collect and use with an active Nitro subscription!</p>
+
+                    <p class="center-text" style="font-size: 18px;">But none of that mattered since later on Discord allowed anyone to purchase the 'Gyoiko Sakura' Avatar Decoration from 'The Vault' shop category.</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">See what items you got during 2024</h1>
+
+                    <p class="experiment-subtext" style="font-size: 18px;">This will only display items you currently have, it does not have access to expired/removed items</p>
+
+                    <details>
+                        <summary>How do I find my collectibles-purchases?</summary>
+                        <p>Open discord.com/app on a browser of your choice and make sure you're signed in.</p>
+                        <p>Open Dev Tools by pressing CTRL + SHIFT + I (CMD + OPTION + I on mac) on your keyboard.</p>
+                        <p>At the top of Dev Tools you should see the "Network" tab, if you don't see it click the two right poiting arrows for a dropdown, then click "Network".</p>
+                        <p>On discord.com open your profile tab in user settings.</p>
+                        <p>In the "Network" tab press CTRL + F (CMD + F on mac) on your keyboard and search "collectibles-purchases".</p>
+                        <p>Go to the "Response" tab of the file, copy the contents and paste it below.</p>
+                    </details>
+
+                    <div class="input-field">
+                        <p>Paste Raw collectibles-purchases Text</p>
+                        <textarea style="width: 100%; height: 200px; resize: none;" id="load-raw-collectibles-purchases-by-text-input" placeholder="Paste raw collectibles-purchases text here..."></textarea>
+                        <button id="load-raw-collectibles-purchases-by-text-button">Load Raw Text</button>
+                        <p>Upload collectibles-purchases JSON File</p>
+                        <input type="file" id="load-raw-collectibles-purchases-by-file-input" accept=".json">
+                    </div>
+
+                    <p class="experiment-subtext" style="font-size: 18px;">The file you upload will not be stored in any online servers, once the page is refreshed all data is deleted.</p>
+                    <div id="collectibles-purchases-output-div"></div>
                 </div>
 
                 <hr style="opacity: 0; height: 30px;">
 
                 <div class="a2024-recap-text-card-1" style="padding: 0px;">
+                    <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_HD_STREAMING_POTION}');">HD Splash Potion</p>
                     <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_PROFILE_EFFECTS}');">Profile Effects</p>
                     <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_AVATAR_DECORATIONS}');">Avatar Decorations</p>
                     <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_SHOP}');">Shop</p>
-                    <p class="link-text" style="font-size: 18px;" onclick="window.open('${discordsupport}${HELP_CONFETTI_POTION}');">Confetti Potion</p>
-                    <p class="center-text" style="font-size: 18px;" title="DD/MM/YYYY">This page will be visible until 15/01/2026</p>
+                    <p class="center-text" style="font-size: 18px;" title="DD/MM/YYYY">This page will be visible until 1/02/2025</p>
                 </div>
 
                 <hr style="opacity: 0; height: 30px;">
@@ -7266,7 +7396,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Total items:</span><span>${totalItems2024.length}</span>
                         </div>
-                        <div class="subtext">All items you obtained in 2025.</div>
+                        <div class="subtext">All items you obtained in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7277,7 +7407,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Total Decorations:</span><span>${totalDecorations}</span>
                         </div>
-                        <div class="subtext">All Avatar Decorations you obtained in 2025.</div>
+                        <div class="subtext">All Avatar Decorations you obtained in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.type === 0).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7288,7 +7418,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Total Effects:</span><span>${totalEffects}</span>
                         </div>
-                        <div class="subtext">All Profile Effects you obtained in 2025.</div>
+                        <div class="subtext">All Profile Effects you obtained in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.type === 1).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7299,7 +7429,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Total Bundles:</span><span>${totalBundles}</span>
                         </div>
-                        <div class="subtext">All Bundles you obtained in 2025.</div>
+                        <div class="subtext">All Bundles you obtained in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.type === 1000).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7310,7 +7440,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Items purchased:</span><span>${purchaseTypeCounts[1] || 0}</span>
                         </div>
-                        <div class="subtext">All items purchased with real money in 2025.</div>
+                        <div class="subtext">All items purchased with real money in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.purchase_type === 1).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7321,7 +7451,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Items claimed for free:</span><span>${purchaseTypeCounts[5] || 0}</span>
                         </div>
-                        <div class="subtext">All items claimed with Nitro (Such as DISXCORE items) or when gifting Nitro in 2025.</div>
+                        <div class="subtext">All items claimed with Nitro (Such as DISXCORE items) or when gifting Nitro in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.purchase_type === 5).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7332,7 +7462,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Items claimed from gifts:</span><span>${purchaseTypeCounts[6] || 0}</span>
                         </div>
-                        <div class="subtext">All items claimed from a gift sent by a friend in 2025.</div>
+                        <div class="subtext">All items claimed from a gift sent by a friend in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.purchase_type === 6).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7343,7 +7473,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Items claimed with Nitro:</span><span>${purchaseTypeCounts[7] || 0}</span>
                         </div>
-                        <div class="subtext">All items claimed when purchasing a Nitro Subscription (Such as Gyoiko Sakura) in 2025.</div>
+                        <div class="subtext">All items claimed when purchasing a Nitro Subscription (Such as Gyoiko Sakura) in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.purchase_type === 7).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7354,7 +7484,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Items claimed free with Staff:</span><span>${purchaseTypeCounts[9] || 0}</span>
                         </div>
-                        <div class="subtext">All items claimed with Staff Pannel (Or however staff claim their free collectibles) in 2025.</div>
+                        <div class="subtext">All items claimed with Staff Pannel (Or however staff claim their free collectibles) in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.purchase_type === 9).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7365,7 +7495,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Items claimed in Quests:</span><span>${purchaseTypeCounts[10] || 0}</span>
                         </div>
-                        <div class="subtext">All items claimed when completing a Quest in 2025.</div>
+                        <div class="subtext">All items claimed when completing a Quest in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.purchase_type === 10).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -7376,7 +7506,7 @@ if (localStorage.full_client_rework != "false") {
                         <div class="box-header">
                             <span>Items claimed with Orbs:</span><span>${purchaseTypeCounts[12] || 0}</span>
                         </div>
-                        <div class="subtext">All items purchased with Discord Orbs in 2025.</div>
+                        <div class="subtext">All items purchased with Discord Orbs in 2024.</div>
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.purchase_type === 12).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
@@ -8614,12 +8744,16 @@ if (localStorage.full_client_rework != "false") {
 
                 if (localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker") {
                     document.getElementById("currency-picker-experiment-container").innerHTML = `
-                        <div class="options-option-card">
-                            <p class="option-card-title" style="color: var(--white);">Currency</p>
-                            <select id="currency_picker_container" class="options-dropdown">
-                            </select>
+                        <div class="options-option-card" id="has-nitro-box-option">
+                            <p class="option-card-title" style="color: var(--white);">Display Nitro Discount</p>
+                            <input class="options-toggle-box" onclick="optionsHasNitroChecked();" style="cursor: pointer; scale: 2; posision: center;" id="options-has-nitro-box" type="checkbox">
                         </div>
                     `;
+                    // <div class="options-option-card">
+                    //     <p class="option-card-title" style="color: var(--white);">Currency</p>
+                    //     <select id="currency_picker_container" class="options-dropdown">
+                    //     </select>
+                    // </div>
                 }
 
 
@@ -8832,6 +8966,10 @@ if (localStorage.full_client_rework != "false") {
     
             if (localStorage.reduced_motion == "true") {
                 document.getElementById("reduced-motion-box").checked = true;
+            }
+
+            if (localStorage.is_nitro_user == "true") {
+                document.getElementById("options-has-nitro-box").checked = true;
             }
 
             if (localStorage.disable_client_banner_overrides == "true") {
@@ -9873,6 +10011,17 @@ if (localStorage.full_client_rework != "false") {
         }
         else {
             localStorage.reduced_motion = "false"
+        }
+        if (typeof fetchData === 'function') {
+            fetchData(pageCheck());
+        }
+    }
+
+    function optionsHasNitroChecked() {
+        if (localStorage.is_nitro_user != "true") {
+            localStorage.is_nitro_user = "true"
+        } else {
+            localStorage.is_nitro_user = "false"
         }
         if (typeof fetchData === 'function') {
             fetchData(pageCheck());

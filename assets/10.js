@@ -50,4 +50,4 @@ EXPERIMENT_ID_16 = "Treatment -1: Disabled"
 EXPERIMENT_ID_17 = "Treatment -1: Disabled"
 
 // 2025-02_extra_options
-EXPERIMENT_ID_18 = "Treatment 5: Enabled w/o currency picker"
+EXPERIMENT_ID_18 = "Treatment -1: Disabled"

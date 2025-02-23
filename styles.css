@@ -619,6 +619,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: contain;
+    object-position: top;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -1967,6 +1968,7 @@ data-share-product-card-button {
     z-index: 1; /* Ensure the text is above the banner */
     margin-top: 190px; /* Space between the logo and the text */
     text-align: center;
+    pointer-events: none;
 }
 
 .potion-card-text-holder {
@@ -3128,6 +3130,63 @@ data-share-product-card-button {
     position: absolute;
     bottom: 0;
     width: 95%;
+}
+
+.category-modalv2-inner {
+    position: relative;
+    z-index: 1001;
+    background-color: var(--background-primary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 800px; /* Fixed width */
+    height: 600px; /* Fixed height */
+    overflow: hidden;
+}
+
+.category-modalv2-inner-img-banner, .category-modalv2-inner-img-mobile_banner, .category-modalv2-inner-img-hero_banner, .category-modalv2-inner-img-wide_banner {
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.category-modalv2-inner-img-logo, .category-modalv2-inner-img-mobile_bg, .category-modalv2-inner-img-pdp_bg, .category-modalv2-inner-img-success_modal_bg, .category-modalv2-inner-img-category_bg {
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.category-modalv2-inner-img-featured_block, .category-modalv2-inner-img-hero_logo {
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.category-modalv2-inner-left {
+    margin-top: 20px;
+    flex: 1;
+    max-height: 100%; /* Make sure it doesn't exceed modal height */
+    position: relative;
+}
+
+.shop-category-modal-assets-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 350px;
+    width: 800px;
 }
 
 .modalv2 {

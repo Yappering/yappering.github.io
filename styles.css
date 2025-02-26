@@ -3145,7 +3145,7 @@ data-share-product-card-button {
     overflow: hidden;
 }
 
-.category-modalv2-inner-img-banner, .category-modalv2-inner-img-mobile_banner, .category-modalv2-inner-img-hero_banner, .category-modalv2-inner-img-wide_banner {
+.category-modalv2-inner-img-banner, .category-modalv2-inner-img-mobile_banner, .category-modalv2-inner-img-hero_banner, .category-modalv2-inner-img-wide_banner, .category-modalv2-inner-img-condensed_banner_left, .category-modalv2-inner-img-condensed_banner_right {
     object-fit: cover;
     display: block;
     margin-left: auto;
@@ -3826,6 +3826,10 @@ data-share-product-card-button {
     margin-top: 40px;
     width: 500px;
     cursor: pointer;
+}
+
+#recap-2024-tab-loading {
+    position: relative;
 }
 
 .recap-2024-tab-decoration {

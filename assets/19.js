@@ -3,7 +3,10 @@ n78ndg290n = "Greetings Shop Archives Staff and/or Dataminer! This model has eve
 mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
-tcbx926n29 = "Stable 245";
+
+app_version1 = "253"
+app_version2 = "Stable"
+tcbx926n29 = app_version2 + " " + app_version1;
 
 defaultAvatar1 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAY1BMVEVYZfJib/OMlfahqPeWn/eBi/XLz/vq6/7////19f5tePTq7P22vPnV2Pyrsvirsvl3gvT09f7Axfp3gfRtePNsePPg4v22vPq2u/qCi/WhqPjf4/zf4v2Xn/essvjLzvuXnvdbidFTAAAETElEQVR4AezBgQAAAACAoP2pF6kCAAAAAAAAAAAAAAAAAAAAAIDZudMtV1UlDuCFRKlWIEJ6uOwbzXn/lzzzYc/GWiT6zya/79WrLeYSc5Vq9IFWa3Sr6JehWt0ZZn5RtFJvmHnodPsrPLx1/B9PKx1ziLOPnIRRO84EXaAP/CWnR3pArTWcybpA5G8NsX20pw+cSbpAngEeOQenY+Cf8KIZ4FuDfSV4Ko/7hS7wNjYH7W3MvNeHtn2jvxn+OXcgaP0x8KJo43vgnwqu85EXDfGVULWON9G1BOmDN/M/AnTgDSWC0xve0KAITeSsykFw4qzOQWB4YwNBOfLmPAHpeXsvr5XOgJkjGA3vIlU6A2bvOHvAnXwiCMrwTl5UpUtg5us7BAB2gcg78nXugaC6QORd+bo7AEAXiLwzX+8SANEFNHPdXcAwV90FDgxA037+zwAc7aZlCKnSNTDrADZBdU6DBwbha5wCAabBkWGkSqfAzFa6C8xeADYB9Y2ByEBsbSMAYAy0zHWPActQLPQuKBh3DiwiDRlwzwFOv9JfTpORh5x5rVfQc8CQiLLJiEMaA1oW6XgVq+grVh4yY56JA68x07fm8hCIhXCUPn823zgkG/HK4Rf6kYv8YBt5BQ03BQyv9CMq8M/JQ7IItw+e6cd8QQjKTqCX3OMTtOdCCNZOoCnqkrYgZEFD2/FF/08qDAE4Dji+TtHPKHknVmBboVB2i9HI9zIGahZUhaVqVxCyQEEVQ7rSBMj3QiPUUTCWJkC+8zrQVjzmELBYG2H5jDYUFqAiQDlMtAwKQgjr+nwoq9O2BSEQJQFVWKeNBSEQ6+BYeG3BFIUAHIfasmsLh7IQgLcjDZd0AWXEIZRDMDYCuuj73g95yJGxEuBLPmr6VBSyzMO9Fpzko3kqeA1r8W4GHOWNKQ/JIl4COL4SZf2lPAQhAY4lYrv860rlIVmHlYAsuBhjFwpCwO4LOkb0TMAzAc8EPBPwTMAGngl4JuCZgMig4jMB27AMykJUhCr4ekwzKI10T9hpwzcz6DNSUbRdORzThW/CJSKagd4LjKurof1suFCYVR54MDckpsBXDLk3pliQgxBTHneBrwiaNtOfeUUKCnMQYlKC32x2r7SlmSUpoOQdi5xtoqx1DNP8WW9kKSCVvAu8QnC2USR4/I2bP5vDmhS80pdOjXULw8dc7HSiL6ljYLTmz/ooKvJTdkqTt9G5s/mHczH6qXlV9I32Ehi0+QVfQbn7HryHhvY033V1Tuu3CRncOIj3rL3EV9pf7+53ced0bY+MIZm7ndEt9uNnkxN8OSWhAvjjZ8ktnIoKaMDHF0yH8S416C4Rpv7bU094pWJ9QFv4BJOBvnkFzjWKMvhu4G78IibMIz2EFM3KFUAwCEI+ID9MDia6kd/+enpFj+YE+af+aA8OZAAAAAAG+Vvf46sAAAAAAAAAAAAAAAAAAAAAAFYCeHSjWah9hFcAAAAASUVORK5CYII=`;
 defaultAvatar2 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAhFBMVEV1fop9hpGgpq+ytr2prraXnqfT19vu7/H////29/iGjpju7/DCxszc3+K6vsS6v8WOlqD39/fLztPLz9OPlqDl5+nDx8ygpq6xtr6xtr3m5+iOlp/Dxsvc3+Hd3+GorraGjpnT19rT1tv29/eOlqHU19p+hpGprrWxt72or7bLz9Kfpq+ibmTzAAAEY0lEQVR4AezBAQEAAAQAIPB/swkMqAIAAAAAAAAAAAAAAAAAAAAAgBNZPfFWy86dLimOw3AAV5qYEXFicMKxHIFs03e///PtvaouagjRGMKfNr/vmhorsiMbpwcm+UZjN4PhD2YedR5TZpnZDgfmOww+L/h/jjoaS0iRG7pdk0HBQlECmeevisGEbpDJf7DQlUDJh2xlbm30noWmBGQFuOUcTMeej3CqFeCQzTOCl8i8bymBbPKQDlxeCecGqTH/Dc/ycUVK0LKx51ZVXs08H+WLoSu5la0yQmUK7sXQEKQ592ZOgFLukSE4meUe2YTQlCyinARTFnFOAss9swRlzL1zBCTj/o2ySFdAURCMBV+FiXQFFLP4esADvxGExPKVjJJIX4HCxbcJACyBkq/IxdkDQZVAyVfl4i4AgBIo+cpcvK8AiBJYMsddApY56hJIGcCSrmfFAAq6GsMQTKTvQDEEaILiXAZTBuEAlsAYl8E1wzCRLoEij7QLFKNYmwBhIp0BIo9tBgDMAcMc9xzYMJQcugvytl55VtCHWNx9wHaZ0d+mO6sP6Z7mBnQfYA2R2Fl1yMKCHov8zp3kycHKoQ9x3Mkj9Wv/i9s0FxCC9CJca8cv3JlDxBPecfgz/cwzt9j+etO5hFsCbEM/89I2e/QhoqI+2YBzGnfWEGHRuoBRQ6R9nu0hQJ3AIqgkNwEhLR6oPy7o/2MCQwC2AwWfltAxL/oifgFrhfZhtxitvpexAKug7nnU+gKqw2sO6DDk8bwJKKF6wZRPq8IToO28XqkvDnMK5FiNMB1n9SErqGZ4xeGvQV0IYV2f34ed05qgEIAjgZfAc9oyIATiPbgOvLZgA0IgtkMm7NpCGhCC8evIgkNKILHqEJIQjEZgGfR971wfMmasBLiQj5regkLaObifBd/p0Ls+xHBXOd7NgLH+YepDRIWXAK4yIpE9B4QAJaBgjcq0/3Wl8BDxiJUA4Yuqqob+YiGi7i0BiO4JuCfgnoB7Au4J6ME9AfcE3BNQMqjqnoAYrgkDnAc4BuWoH0sGtUS6J7xdWj4bu5wBHIqqL+yYZz6Lrek47wzOL0M7+kfjLAfyLpGJB3NDYrfnE2wq5VLagNF/GJl3nk/wS+pNM+PuKZAc6EefKP5m87ahPjnWpICMq1lllRsSpmCYxy8aq0sBJcbVnjvw23yR0OHwcR6/cPsuKcjoq+kir1d8lH3O0yl9lYw9oz1+0ZSqQ34SU5O6/KOuV/Zfdf3x4dJFltAB8+wZ9PErvoKqL7vxtp90TY5Pmlyy5ZI2QcDNg+qSZy9VQ9fX1Je7uDM91SNjMPZie/QN9vDFrtZ8OaXwsgcfvjB1y64owBJp+PrlsLrIGfSzIUzN4a7HNxSs2cO8+PSLwfLsJ3Dbh4QEfBlsz/xDjHcTQicHAPIGONck8LJBvpkc7OhMduxzk9CtmUL+U3+2BwcyAAAAAIP8re/xVQAAAAAAAAAAAAAAAAAAAAAAKwFiKavpSRGzHgAAAABJRU5ErkJggg==`;
@@ -11,6 +14,8 @@ defaultAvatar3 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABr
 defaultAvatar4 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAjVBMVEX6phr6qyj7wWH8zX78x3D8wWH7vFP+47j+9OP/////+fH6sTf+9OL92Jv+6cb904z80o37t0X++vH93qn90436sTb7sTb7x3D80oz93an+7tT92Zv7wmH9zX/8zH7+79P7tkX92Jr82Jr/+vH+6Mb/9OP/9OL7qyj947j6rCj+79T8zX/95Lj7sTf915vvhd1yAAAEbklEQVR4AezBgQAAAACAoP2pF6kCAAAAAAAAAAAAAAAAAAAAAIDZuc/tRpUYAMAisAK54AAJnvFNZ5zYTnn/t7t9dXJc0Y4N8o6//0o8QlMpB0VXcQKt/Ygx+o3ajnGaEdGgdZuGGRGN0hh/h8aPc/ppAi1dc0g+RjhfRZwTE5TAsKTv8riAM4TjjJisBCpaN6rw3FpfEpOUAI8A55yD4qakHSayEWDNaHwL6kXc7/eUQF1cTWMztsyYeIpYw78y2i1PQLXhjovPqrGdlbRTmaemor1Gld4ywJw6kSKoNKbO/AEKJdQhVNj9M+rQKAJtKmJBdoKCWJidIKOOjUCVa+rcBBQZUvcGt4GOgCwHNe6oFxjoCMhmetaAPbkHFaKMejKIAp0C2UTLJiDoEqioRxMda6CgS6CiXk3CLgAFJVBRzyYKpoCQS+CBKOwSyIiCLoGEFIihP4+kQA69QVIBA50DWapzERTAMJiQEhONQ2AAw+ATqYGBDoHsOdBVIBuEughgqK4HBNAHMqKg+wAShd0HXkiVZ9WroCZzs4YE5CEjvfsAF9fwjyKZy0Nm1FatdB/wit+D5uKQu7nSY5G0Zdd8E48c6yFG5564+cVtmvEI0TQRPknbz8yRQ1gBXYqphQVss6A93K8vOmN1Q8BrDdssG9pNHsIsdCnzOKcxRw1hI22rgEENIL2egpB+VwJ3XiX54hGyxx10x3j9HvQIUbIdcHRYBLss5UW8VLYUauiglXwIHQhC+h0Fl55H1c4jZI9I1WFIetwEWFVrwSkdZv0TIF15TaErRmcXeFa1EB7JR7SR5wGUVXAcJpgGRSFALax0HQYg7IJeIQqOBJae57SVR4iKefDJ87GFzCNExXYI/R5bSDxCdNwduSOfEogycQhwiI6FQOz1fu9YHnJNuhJgfF5qevcK2c+ouy2YwLpEHoLqbhBaau1GfjHlIczqSwBVt8Bg+OERoigBjiQq3P91Jf8QlupKACtza21aniyE5T0kQI9LAi4JuCTgkoBLAjpwScAlAZcEWFLKXhIQwmPCCs4DDCllejgTVCVWdHOYXDyno3mNVwoORcUP7OCCjsJhy36HWu4M8dHmp5mTp8a8te54BXQkaeiAUcLlYj1y0Fjk/1nSAU0MnflcUfsUyHPArX8TfLPZ1dAlQ5IUABpHIrMvBIY5qbn87HMuSwG8oXENtdC4r7s3WG++nsvPTNMmBbfwXXH35Wa0U7b4mhbwXXRTkrbLzz6t6JCfQYFT82Wdm2X/cc5aM72r32ANLkrSd/mlb0Hlp914v/6APpmTzs7YfpnA1PUDe8qzF1tD/z7d6R7cKQ6tkXXA+cn26C+6m88SJ3lzSmDZKG8+Q7dnV+ThQVPz5cOhPckZdIqg0+f6rqepwdtnI5j4tA0G8dE/2uiu3oCpLwN35BsxjSlAPz4A4BngOJ2g4Q3y2eQggSNJ/mn9G5ybQuWf+qs9OJABAAAAGORvfY+vAgAAAAAAAAAAAAAAAAAAAABYCfy25L0QL4/pAAAAAElFTkSuQmCC`;
 defaultAvatar5 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAh1BMVEXtQkXuTVDzfX/1lZf0iYvxcXP5xMT96Oj////+8/PuTlDvWVz95+j3rK360ND2oKL2oaLwZWf+8/T4uLnwZWj83Nz3ra73rK7yfX/1lZb1lJb829zxcXT70ND729z6z9D0lZbziYv95+f0lJb5xMXvWlzuTlHzfYD0iIvziYr73NzyfYD5w8SoNjStAAAEaklEQVR4AezBBwEAIAwAoN3+lY3gAgABAAAAAAAAAAAAAAAAAAAAAMAXWT1xVr352LnT/jZ5GADg6oKpDAanmPWEkLLQnd//6z33o90OmhOszPxfV/vN8iU7wG/UdrXJrxFRFzBTaRDR5Bv1OzS+qvF/FmbaUkhdXXISbjY1EsYQKBv8Ur25gQukqmskvCHg8FvGqUtrfYOEMwRoBbjkHLTbBn/C8laAb5iqBPGuaN57hkB58yrb2MoRazeZUv81z+DP1RmIVm4b9HKVe+35k6bOrUMv40qQStW4iFyBSLe4mDsQKMMFKRCnNLggU4A0DkmSk6BFkuYkMLgwA6JscXEWBClxebpMdAUkNYhxj1GoRFdA8lpWDRjBA4hwZTASXSS6BRKbwCFA/hBwGJFNoAaSPgQcRmUFDIC0h4DDyGz0LSDtIfCA0dnYp4Ckh0CGAjxCPE8oQA3RdCiCSnQPJHn8IijRZTBDIWz8JTDJZbBFMVSiSyCpEq0CiU61CCAq0RlAqkRnANGJz4AYc+AORalEV0Ha9DuNDPwQI/ccMOxL+Fv7PPJDdjhXKfQcMHYA5Hlkh9yPQq9FcpylKtgrx7chVuaZWP/iMc0GhEjaCFtu+4k9cQi5gSW9wRkO8CMH9Bh+veh8FLcEjBP8yItv9vBDiBNXB1v4MXvSEGKkVQF6AuD2JyMkbiXwNmhI3gWEeNzDcmzQ/6cLD4l9HOjxuAJ+5oU7AyjEK5dVBj15wq/5tcx15FWQ3x8DfwAN4WNO0GVIftoEOFG1YIbHufAEcCuvd7AUK3MKVKIKYcNf0UzgBZSLex3G3wYZIYAzPMm6DFCsNZQREv9K4CXwntaFhcTfB9vAxxZMeEjc41AX9thCFhbioeKcBZn9eWXYIUAhMgqBN0Hv997yQ7YoKwE25KWmfWiIhxX3s+B7+NZ7fogS9wOhw9m2/M7khxAnLwHoSiBQHsJDJCSgRw6n/F9XCg8huawEkKZ2zuXN2ULIED8BEa0JWBOwJmBNwJqABawJWBOwJsChUG5NQPz7gCQeGLYolI1/JxjXo6TnhIf9iCcz7j/EvxTlP7DTHfAkhm7mvFNSfhmiq83JjhhI24ImnpgnJJ41HmEyGi4uIAfadTTvGjxCP8Jipg84PwWUA37rC8Y3m4cJlmSRkwLobI8su6oDQs0X0P1kGnkpgKKzvcYZ9FB9LMDT/MjdT6yek4ISvtR+rPqd588PVdbCl662DUrrfjI51iU/gbbLbOX6fmf+1ffO2exjWcA31KFBod3PeAtqOO/Be7yHmCwe1Z6p5KIygcicB+6cdy9ugvimHn2m8xWdQwcydOPZzuh3sptPnnvOm1MML1p480nXe05FAfYCm89YDt1Z7qA/dSDT5MaZb44xTFraxsdYDB7Bjz8JhlcFEPHDYDjxDzHatiAeXQD4dwD+JNB0QL6YHLyHE3n/d+sLuDStyH/qz/bgQAYAAABgkL/1Pb4KAAAAAAAAAAAAAAAAAAAAAGAlB3yyZnlY4UQAAAAASUVORK5CYII=`;
 defaultAvatar6 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAZlBMVEXrRZ/sUKXxf73zl8nyi8Pwc7f5xOH96PP////+8/ntXKv86PP2rdX60Of1os/vZ7H+9Pn3udvuaLHzi8P73O32rtX0lsnzlsnwdLf95/P4xOH4xeH4udvsUaXxgL383O3yisPvaLFF0RjvAAAET0lEQVR4AezBgQAAAACAoP2pF6kCAAAAAAAAAAAAAAAAAAAAAIDZuc/FVnUYDuBiJbLBKs5ooLvv/5B3X3UTdJzAP4f8PldtLTxkM47K8qKk0fKiyn6jtlfFas3MbnSbfM3M9aqofofGN4H/JzSSaEhoLjkJN0VgZegCvuX3QnFDF6hq1qxsXSDyZ3WsLq31LStLF9AZ4JJzsJGWfyC2GeCTuvEEL9NxP9AF/E2+LaSJSqTYVpWnf9T8s1ASNC8tD4pN3A38SBtWEnlQHT2hqgJPYlURpD1PZk+ASp5QRXB8zROqM0ITWS1yEGxYLXMQ1DyxmqAIT04IiOfpOb/QGVAFgpHzLKqFzoBqh1MDzuSWIGQ1z8RlC10ClSxvEwDYBSLPSJZZA0F1gcizkmV3AIAuEHlmstwlAKILHHh2ssRdAEwXKBnALc1nxwACzaZjCNVC10C1WmYRBDANlgxCljgFAkyDG4ZRLXQKVM1Cq0DlllcEAIyByECahY4A5ZY2AgDGwJ6hNNBVkFuHnWMDe0iNuw8IB09/25S9PWR8mj3oPqDv3gf15pC8Bz0WueNRmuzTzGEPEcw9sfvFbZqkh0AshBtr+5WcOETd4B2H39N37u0b2wegScAwBfSevvPo+Gf2EBXh6mCh70lCCEol4C3P8Rmu50AIViXwlNQl9wkhA3KajiT9P11iCMB2IPBxGf3k0d6JH8FKIcdHPdPP1vZaZg01Cz4mHlWHhJABGdRhyOq0CYhQteCWj4upCbBXXiVNRTCHQANVCNdDM5o9ZAdVDO84fRm0hRCP8Ix1GFBZ5lBDCMCRwGPiOW1MCgFYBzeJjy3UCSEQ26Eu7bGFMi0E4O7IE6d0gaw2h5CGYBQCh6T3e/f2EGGsBEjKI4yH1JABAndb8IU+e7GHVHA3CCOPJvaLaQ9RES8BHD2R8vcJIUAJCGwRq+GvK6WHqBVWAlQbYoyr9mwhKsyQABzXBFwTcE3ANQHXBFwTcE3ANQETiAwqXhOwhMeEAc4DhEHJDGeCUG6Bbg5zOPR8Mv1hB3Moanhgp7vnkwjdyHFXodwZ0qNNLz0ncpLpwIN5QqJ0fEStvbGLCTlwsdO/2fIR7pYm43c8PgX2HGjrM8M3m4OnKQlbUkCdBDbZNR2pKjDM5Ve+t6WAsk6C4xFcaJ4yMjR/4suvxI1Jgaf3Nk9N2PGP1vfNdkPvZdIy2uVXPhoO+d/bdFtpYgi79b9CiFG2Tz6jT6r7lkEvv+EtqHDejXef05yEj3o9U8mlZYLCHAfxnGcv0dP8fDjfgzubYzUyhq4/2x59j918VQbDm1MWjw68+aoLA7uiBAfA5humw3iWM+hVR5h87E//BXjv0BY+w2Rwe/ITuJBnpOC7QTjxjRgnr4RPDwB0BTjNIHC6Qb6YHLzQibz83fqMLs0G8lf92R4cyAAAAAAM8re+x1cBAAAAAAAAAAAAAAAAAAAAAKwEXiSjy96AYeIAAAAASUVORK5CYII=`;
+
+localStorage.experiment_2025_02_mobile_render = "Treatment 1: Use new mobile check";
 
 if (localStorage.sa_theme == "dark") {
     document.body.classList.add('theme-dark');
@@ -76,8 +81,2241 @@ function setRandomDiscordUsername() {
 }
 
 
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    if (localStorage.experiment_2025_02_mobile_render === "Treatment 1: Use new mobile check") {
+    
 
-if (localStorage.full_client_rework != "false") {
+
+
+
+        document.getElementById("options-sidebar-container").remove();
+
+        sessionStorage.setItem('api-token', 'token');
+
+        const api_password = localStorage.getItem("api-password");
+        const api_token = sessionStorage.getItem("api-token");
+        api = 'https://shop-archives-api.vercel.app/api';
+        discordsupport = 'https://support.discord.com/hc/en-us/articles/';
+        discordblog = 'https://discord.com/blog/';
+        yapperblog = 'https://yapper.shop/blog/';
+        cdn = 'https://cdn.yapper.shop/';
+        tmpapi = 'https://api.yapper.shop/tmp';
+
+
+        endpoints = [
+            COLLECTIBLES = "/collectibles-categories",
+            COLLECTIBLES_IN_SHOP = "/collectibles-categories-published",
+            CONSUMABLES = "/consumables",
+            MISCELLANEOUS = "/miscellaneous-categories",
+            PROFILES_PLUS = "/profiles-plus-categories",
+            HOME_PAGE_ALL = "/preview-1",
+            HOME_PAGE_LEAKS = "/preview-2",
+            HOME_PAGE_PPLUS = "/preview-3",
+            PROFILE_EFFECTS = "/user-profile-effects",
+            DOWNLOADABLE_DATA = "/downloads",
+            PROFILES_PLUS_EFFECTS = "/profiles-plus-profile-effects",
+            LEAKS = "/leaked-categories",
+            COLLECTIBLES_MARKETING = "/collectibles-marketing",
+            COLLECTIBLES_VARIANTS = "/collectibles-categories-variants",
+            EXPERIMENT_ROLLOUTS = "/rollout-handler",
+            COLLECTIBLES_SHOP_HOME = "/collectibles-shop-home",
+            NEW_ITEMS = "/new-items",
+            ORBS_SHOP = "/orbs-shop",
+            ORBS_SHOP_DEFAULT = "/orbs-shop-default"
+        ]
+
+        yapper_categories = [
+            WINDOWKILL = "profiles-plus-1",
+            BOPL_BATTLE = "profiles-plus-2",
+            PAPER_BEACH = "profiles-plus-3",
+            WINDOWKILL_V2 = "profiles-plus-4",
+            FIVE_NIGHTS_AT_FREDDYS = "profiles-plus-5",
+            PLUS_SPECIAL_EVENT = "profiles-plus-6",
+            GEOMETRY_DASH = "profiles-plus-7",
+            PAPER_BEACH_V2 = "profiles-plus-8",
+            RBXDOORS = "profiles-plus-9"
+        ]
+    
+    
+        discord_categories = [
+            FANTASY = "1144003461608906824",
+            ANIME = "1144302037593497701",
+            BREAKFAST = "1144054000099012659",
+            DISXCORE = "1144058340327047249",
+            FALL = "1157406994873991284",
+            HALLOWEEN = "1157410718711304313",
+            WINTER = "1174459301239197856",
+            MONSTERS = "1179493515038818325",
+            CYBERPUNK = "1197342727608746044",
+            LUNAR_NEW_YEAR = "1202069709281828935",
+            ELEMENTS = "1207046915880124426",
+            ANIME_V2 = "1212565175790473246",
+            SPECIAL_EVENTS = "1217175518781243583",
+            SPECIAL_EVENTS_2 = "1309309974266118144",
+            SPRINGTOONS = "1217622942175727736",
+            SHY = "1220513972189663413",
+            LOFI_VIBES = "1228243842684162121",
+            GALAXY = "1232029045928099922",
+            FEELIN_RETRO = "1237649643073044491",
+            PIRATES = "1237653589896200272",
+            ARCADE = "1245086656973901894",
+            TIDE = "1252404112650407998",
+            DARK_FANTASY = "1256321669388308595",
+            ROBERT = "1262491137386614805",
+            STORM = "1265375293397270650",
+            DOJO = "1266520267946201099",
+            THE_VAULT = "1277733175191277721",
+            AUTUMN_EQUINOX = "1282816432056569866",
+            BAND = "1285465421339693076",
+            SPOOKY_NIGHT = "1287835634089594972",
+            CHANCE = "1293373563494993952",
+            MYTHICAL_CREATURES = "1298033986811068497",
+            WARRIOR = "1303490165284802580",
+            KAWAII_MODE = "1306330663213072494",
+            LOFI_GIRL = "1309668861943218229",
+            WINTER_WONDERLAND = "1314020997204283476",
+            FANTASY_V2 = "1324454241254903829",
+            STEAMPUNK = "1326333074241486859",
+            PROGRESS = "1333278032999485461",
+            RADIATE = "1336483992429658112",
+            VALENTINES = "1333866045521395723",
+            ORB = "1332505418219655258",
+            ANIME_V3 = "1341506445249609728",
+            INSOMNIA = "1343751621364027462"
+        ]
+    
+        category_types = [
+            HERO = 0,
+            FEATURED = 1,
+            FEED = 2,
+            WIDE_BANNER = 3
+        ]
+    
+        item_types = [
+            NONE = 100,
+            AVATAR_DECORATION = 0,
+            PROFILE_EFFECT = 1,
+            NAMEPLATE = 2,
+            BUNDLE = 1e3,
+            VARIANTS_GROUP = 2e3,
+            EXTERNAL_SKU = 3e3
+        ]
+
+        const params = new URLSearchParams(window.location.search);
+
+        function setParams(params) {
+            const url = new URL(window.location);
+        
+            // Clear all existing query parameters
+            url.search = '';
+        
+            // Set the new query parameters from the provided object
+            Object.entries(params).forEach(([key, value]) => {
+                url.searchParams.set(key, value);
+            });
+        
+            // Update the address bar without reloading the page
+            history.replaceState(null, '', url);
+        }
+
+        function addParams(params) {
+            const url = new URL(window.location);
+
+            Object.entries(params).forEach(([key, value]) => {
+                url.searchParams.set(key, value);
+            });
+
+            history.replaceState(null, '', url);
+        }
+
+        const clickable_side_tabs_container = document.getElementById('clickable-side-tabs-container');
+        if (clickable_side_tabs_container) {  // Check if element exists
+            document.getElementById('clickable-side-tabs-container').innerHTML = `
+                <meta class="mobile-client" name="viewport" content= "width=device-width, user-scalable=no">
+                <div class="dm-divider">Shop</div>
+                <div id="collectibles-section">
+                    <button class="dm-button" id="shop-tab" onclick="setParams({page: 'shop'}); location.reload();">
+                        <p class="dm-button-text">Shop</p>
+                    </button>
+                    <button class="dm-button" id="miscellaneous-tab" onclick="setParams({page: 'miscellaneous'}); location.reload();">
+                        <p class="dm-button-text">Other</p>
+                    </button>
+                </div>
+                <div id="new-profiles-plus-tab-container">
+                </div>
+            `;
+
+            if (localStorage.experiment_2025_02_profiles_plus_home === "Treatment 2: Enabled") {
+                document.getElementById('new-profiles-plus-tab-container').innerHTML = `
+                    <div class="dm-divider">Profiles Plus</div>
+                    <div id="collectibles-section">
+                        <button class="dm-button" id="pplus-tab" onclick="setParams({page: 'pplus'}); location.reload();">
+                            <p class="dm-button-text">Browse</p>
+                        </button>
+                    </div>
+                `;
+            }
+
+            if (localStorage.experiment_2025_02_profiles_plus_home === "Treatment 3: Hide All Profiles Plus Tabs") {
+                document.getElementById('new-profiles-plus-tab-container').innerHTML = ``;
+            }
+        }
+
+        function pageCheck() {
+            // if (params.get("page") === "home") {
+            //     document.title = "Featured | Shop Archives";
+            //     if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+            //         if (localStorage.unreleased_discord_collectibles == "true") {
+            //             url = api + HOME_PAGE_ALL;
+            //             apiUrl = new URL(url);
+            //             apiUrl.searchParams.set("include-unpublished", "true");
+            //         } else {
+            //             apiUrl = api + HOME_PAGE_ALL;
+            //         }
+            //     } else {
+            //         apiUrl = api + HOME_PAGE_ALL;
+            //     }
+            //     createHomePageElement()
+            //     document.getElementById("home-tab").classList.add('dm-button-selected');
+            //     document.getElementById("top-bar-container").innerHTML = `
+            //         <h2 style="margin-left: 260px; margin-top: 10px;">Featured</h2>
+            //         <div id="open-help-modals-buttons-holder"></div>
+            //     `;
+            // } else if (params.get("page") === "year_recap") {
+            //     document.title = "2025 Recap | Shop Archives";
+            //     document.getElementById("recap-2024-tab").classList.add('dm-button-selected');
+            //     localStorage.dismissible_recap_2024 = "dismissed";
+            //     document.getElementById("top-bar-container").innerHTML = `
+            //         <h2 style="margin-left: 260px; margin-top: 10px;">2025 Recap</h2>
+            //         <div id="open-help-modals-buttons-holder"></div>
+            //     `;
+            // } else 
+            
+            if (params.get("page") === "shop") {
+                document.title = "Shop All | Shop Archives";
+                if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                    if (localStorage.unreleased_discord_collectibles == "true") {
+                        url = api + COLLECTIBLES;
+                        apiUrl = new URL(url);
+                        apiUrl.searchParams.set("include-unpublished", "true");
+                    } else {
+                        apiUrl = api + COLLECTIBLES;
+                    }
+                } else {
+                    apiUrl = api + COLLECTIBLES;
+                }
+                createMainShopElement()
+                document.getElementById("shop-tab").classList.add('dm-button-selected');
+                document.getElementById("top-bar-container").innerHTML = `
+                    <h2 style="margin-left: 10px; margin-top: 10px;">Shop > Shop All</h2>
+                    <div id="open-help-modals-buttons-holder"></div>
+                `;
+            }
+            
+            // else if (params.get("page") === "orbs") {
+            //     document.title = "Orb Rewards | Shop Archives";
+            //     if (localStorage.experiment_2025_02_orbs_shop === "Treatment 2: Orb Shop done like default") {
+            //         apiUrl = api + ORBS_SHOP_DEFAULT;
+            //     } else {
+            //         apiUrl = api + ORBS_SHOP;
+            //     }
+            //     createMainPotionsElement()
+            //     document.getElementById("top-bar-container").innerHTML = `
+            //         <h2 style="margin-left: 260px; margin-top: 10px;">Shop > Orb Rewards</h2>
+            //         <div id="open-help-modals-buttons-holder"></div>
+            //     `;
+            // }
+            // else if (params.get("page") === "leaks") {
+            //     document.title = "Leaks | Shop Archives";
+            //     if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+            //         if (localStorage.unreleased_discord_collectibles == "true") {
+            //             url = api + LEAKS;
+            //             apiUrl = new URL(url);
+            //             apiUrl.searchParams.set("include-unpublished", "true");
+            //         } else {
+            //             apiUrl = api + LEAKS;
+            //         }
+            //     } else {
+            //         apiUrl = api + LEAKS;
+            //     }
+            //     createMainShopElement()
+            //     document.getElementById("top-bar-container").innerHTML = `
+            //         <h2 style="margin-left: 260px; margin-top: 10px;">Shop > Leaks</h2>
+            //         <div id="open-help-modals-buttons-holder"></div>
+            //     `;
+            // } 
+            else if (params.get("page") === "consumables") {
+                document.title = "Potions | Shop Archives";
+                if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                    if (localStorage.unreleased_discord_collectibles == "true") {
+                        url = api + CONSUMABLES;
+                        apiUrl = new URL(url);
+                        apiUrl.searchParams.set("include-unpublished", "true");
+                    } else {
+                        apiUrl = api + CONSUMABLES;
+                    }
+                } else {
+                    apiUrl = api + CONSUMABLES;
+                }
+                createMainPotionsElement()
+                document.getElementById("potions-tab").classList.add('dm-button-selected');
+                document.getElementById("top-bar-container").innerHTML = `
+                    <h2 style="margin-left: 10px; margin-top: 10px;">Shop > Potions</h2>
+                    <div id="open-help-modals-buttons-holder"></div>
+                `;
+            } else if (params.get("page") === "miscellaneous") {
+                document.title = "Miscellaneous | Shop Archives";
+                if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                    if (localStorage.unreleased_discord_collectibles == "true") {
+                        url = api + MISCELLANEOUS;
+                        apiUrl = new URL(url);
+                        apiUrl.searchParams.set("include-unpublished", "true");
+                    } else {
+                        apiUrl = api + MISCELLANEOUS;
+                    }
+                } else {
+                    apiUrl = api + MISCELLANEOUS;
+                }
+                createMainShopElement()
+                document.getElementById("miscellaneous-tab").classList.add('dm-button-selected');
+                document.getElementById("top-bar-container").innerHTML = `
+                    <h2 style="margin-left: 10px; margin-top: 10px;">Shop > Miscellaneous</h2>
+                    <div id="open-help-modals-buttons-holder"></div>
+                `;
+            }
+            // else if (params.get("page") === "pplus-home") {
+            //     document.title = "Featured | Shop Archives";
+            //     if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+            //         if (localStorage.unreleased_profiles_plus == "true") {
+            //             url = api + HOME_PAGE_PPLUS;
+            //             apiUrl = new URL(url);
+            //             apiUrl.searchParams.set("include-unpublished", "true");
+            //         } else {
+            //             apiUrl = api + HOME_PAGE_PPLUS;
+            //         }
+            //     } else {
+            //         apiUrl = api + HOME_PAGE_PPLUS;
+            //     }
+            //     createHomePageElement()
+            //     document.getElementById("pplus-home-tab").classList.add('dm-button-selected');
+            //     document.getElementById("top-bar-container").innerHTML = `
+            //         <h2 style="margin-left: 260px; margin-top: 10px;">Profiles Plus > Featured</h2>
+            //         <div id="open-help-modals-buttons-holder"></div>
+            //     `;
+            // }
+
+            else if (params.get("page") === "pplus") {
+                document.title = "Profiles Plus | Shop Archives";
+                if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                    if (localStorage.unreleased_profiles_plus == "true") {
+                        url = api + PROFILES_PLUS;
+                        apiUrl = new URL(url);
+                        apiUrl.searchParams.set("include-unpublished", "true");
+                    } else {
+                        apiUrl = api + PROFILES_PLUS;
+                    }
+                } else {
+                    apiUrl = api + PROFILES_PLUS;
+                }
+                if (localStorage.experiment_2024_12_profiles_plus_marketing_variants == "Treatment 1: Paper Beach V2") {
+                    localStorage.dismissible_paper_beach_v2_marketing = "dismissed";
+                } else if (localStorage.experiment_2024_12_profiles_plus_marketing_variants == "Treatment 2: Roblox Doors") {
+                    localStorage.dismissible_roblox_doors_marketing = "dismissed";
+                }
+                createMainShopElement()
+                document.getElementById("pplus-tab").classList.add('dm-button-selected');
+                document.getElementById("top-bar-container").innerHTML = `
+                    <h2 style="margin-left: 10px; margin-top: 10px;">Profiles Plus > Browse All</h2>
+                    <div id="open-help-modals-buttons-holder"></div>
+                `;
+            } else if (params.get("page") === "published_listings") {
+                document.title = "Published Listings | Shop Archives";
+                createPublishedListingsPageElement()
+                document.getElementById("published-listings-tab").classList.add('dm-button-selected');
+                document.getElementById("top-bar-container").innerHTML = `
+                    <h2 style="margin-left: 260px; margin-top: 10px;">Published Listings</h2>
+                    <div id="open-help-modals-buttons-holder"></div>
+                `;
+            } else if (params.get("page") === "orb_converter") {
+                document.title = "Orb Converter | Shop Archives";
+                createOrbConverterPageElement()
+                document.getElementById("orb-converter-tab").classList.add('dm-button-selected');
+                document.getElementById("top-bar-container").innerHTML = `
+                    <h2 style="margin-left: 260px; margin-top: 10px;">Orb Converter</h2>
+                    <div id="open-help-modals-buttons-holder"></div>
+                `;
+            } else if (params.get("page") === "item_tool") {
+                document.title = "Item Tool | Shop Archives";
+                createItemToolPageElement()
+                document.getElementById("avatar-decorations-debug-tab").classList.add('dm-button-selected');
+                document.getElementById("top-bar-container").innerHTML = `
+                    <h2 style="margin-left: 260px; margin-top: 10px;">Item Tool | Staff Only</h2>
+                    <div id="open-help-modals-buttons-holder"></div>
+                `;
+            } else {
+                setParams({page: 'shop',err: '404'});
+                document.title = "Shop All | Shop Archives";
+                location.reload();
+            }
+        }
+    
+        pageCheck();
+
+        function fetchData() {
+            if (params.get("page") != "home" && params.get("page") != "pplus-home" && params.get("page") != "year_recap") {
+    
+                let profileEffectsCache = null; // Cache for the profile effects data
+    
+                // Make the function async
+                fetch(apiUrl, {
+                    method: "GET",
+                    headers: {
+                        "Password": api_password,
+                        "Token": api_token
+                    }
+                })
+                    .then(response => response.json())
+                    .then((data) => {
+    
+                        if (data.message === "Missing Access") {
+                            document.getElementById("everything-housing-container").innerHTML = `
+                                <div style="text-align: center; margin-top: 10px;" id="failed-to-load-shop">
+                                    <img style="width: 200px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
+                                    <h2>Well, this is awkward.</h2>
+                                    <p>Hmmm, we weren&#8217;t able to load the shop. Check back later.</p>
+                                    <p>Error: Missing Access</p>
+                                    <button class="refresh-button" onclick="location.reload();">Reload</button>
+                                </div>
+                            `;
+                        } else {
+                            processCategories();
+                        }
+                        // Define async function inside the .then block
+                        async function processCategories() {
+                            const categoryTemplate = document.querySelector("[data-shop-category-template]");
+                            const potionTemplate = document.querySelector("[data-potion-card-template]");
+                            const categoryOutput = document.querySelector("[data-shop-output]");
+                            const page = params.get("page");
+                
+                            for (const apiCategory of data) {
+                                if (page === "pplus") {
+                                    // Existing code for 'pplus' page
+                                    const category = categoryTemplate.content.cloneNode(true).children[0];
+                                    category.querySelector("[data-shop-category-banner]").id = apiCategory.sku_id;
+                
+                                    category.querySelector("[data-shop-category-banner-image]").src = `https://cdn.yapper.shop/assets/${apiCategory.mobile_banner}.png`;
+                                    category.querySelector("[data-shop-category-banner-image]").alt = 'No Mobile Banner';
+    
+                                    if (apiCategory.category_bg != null) {
+                                        category.querySelector("[data-shop-category-marketing-bg]").src = `https://cdn.yapper.shop/assets/${apiCategory.category_bg}.png`;
+                                    }
+    
+    
+                                    const cardOutput = category.querySelector("[data-shop-category-card-holder]");
+                                    if (cardOutput) {
+                                        for (const product of apiCategory.products) {
+                                            const cardTemplate = document.querySelector("[data-shop-item-card-template]");
+                                            const card = cardTemplate.content.cloneNode(true).children[0];
+    
+                                            if (product.type === NONE) {
+                                                card.classList.add("type_100");
+                                                card.classList.add('hidden')
+                                            } else if (product.type === AVATAR_DECORATION) {
+                                                product.items.forEach(item => {
+                                                    card.classList.add("type_0");
+                                                    // Set the innerHTML for the preview holder
+                                                    const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                    previewHolder.classList.add('avatar-decoration-image');
+                                                    
+                                                    // Set the initial image for the deco card
+                                                    const imgElement = document.createElement("img");
+                                                    imgElement.id = "shop-card-deco-image";
+                                                    imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                    
+                                                    previewHolder.appendChild(imgElement);
+    
+                                                    const bgimg = document.createElement("div");
+                                                    bgimg.id = "shop-card-deco-bg-image";
+                                                    
+                                                    previewHolder.appendChild(bgimg);
+                                            
+                                                    // Set the product details
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `Made By: ${product.credits}`;
+                                                    card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                    card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                            
+                                                    // Hover effect: Change the image src on mouse enter and leave
+                                                    if (localStorage.reduced_motion != "true") {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                            if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                            }
+                                                        });
+                                                
+                                                        card.addEventListener("mouseleave", () => {
+                                                            imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                            bgimg.style.backgroundImage = `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAYAAABRRIOnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAy4SURBVHgB7Z3bbxTJFYePCZfYAgMh4m7CJVwSELeIyy5ICFagICHgkQeeeeMf4oUHeAEJCRASQShcHqIlXA0RCgYcBN5wyeIAZmUDhmXn65nytsczPd3V1VXdM/VJzYzxeKan69enTp06p6pNmpuO0tFZeWyvPE6oPFe/r8Vg5XGodAxXfh4KPb6TJqVNmgcad3bpmFo6plQeswRRDJSO/spjU4ikyILgTkcAvy8dsyo/uwTrgTBeSlkkg1JAiiYIGr1LykKYIfkGUfRJwcRRFEFgBZZJ/kVQD6xGX+Ux1+RZEFiDxaVjkbjvDkyBpXgoObYaeRREMwqhGkYuWAvEkSth5EkQrSCEWtCV5EYYeRHEcmk9IYRBDD+Ujh5xjGtB4CyukfoBolZD+Rh94ghXgsASrJXy8NEzFmfdiAtBIALE0KrdQ1ycWIvfiD0QwJ9Lx0rLn1tUVCSWxzel42exgC0LgY/wjXhfQResxfdioQuxcacSat5QOn4rHl1UyP6jlOdLMiNrQRBuXiW+izAB15AuBKveLxmRZUPhOC4Wj2mYz8Fi/CgZkIUgONnN4oeUWTJdyvke/xPDzqZpQSAGnMfp4smayaVjZun4rxgUhUlBKDFknank+RUcdaOiMCUILwZ3GBWFKUH8RcrzEh43IIrfiYGopglBMKzsEo9rOipHqqystIIgzvBH8eQFuuxUcYo0gsAqrBJP3iBOQe2IVkRznOiBaVopnrxC22jNG+lYCEYUW8XPTeQZFebGyUw08tARBFPYM8WTd7hxad9EIe6kgsBv+JN4igIRY3yJn+L+QRIfgj5pmXiKBpOM4+O+OIkgEINPcCkedB3r4r44riC6xAefiowqim5IXEH4rqL4rInzojhOJWKYI56iQ9fRMIrZyELgM/iuonmgOi7SwWxkIYh4FW4Wc/r06TJnzhx5+/atZMGiRYukra1NPnz4IAWD9v4qEVYiSi2FsQ400KxZs2TBggXB80mTJgX/f+zYMXny5ImYZP369bJnz57g+cePH4P3f/bsmbx69cr4Z2UEVqK3dHyu9csoQeTWkaTBV65cGQhg+fLlIwKoZuvWrcYbacuWLaPOY8WKFcEBSiAPHjyQnp6e4Occgi+xROoUFtcThFrAKzdw8bn7N2/eHFiDeiIIw+s5TIkC60B3FHWOYYEgDI579+5JzqhrJepVbtFVrJUcMHfuXFm1apWsW7culgiqQQznzp0LRNTR0SFTpkwJ3ofnEydODB7DDA4OyqdPn4JH7vD379/Lmzdvgue7du0KrFJS+Pu+vj65evVq8DwnUDc6xkrUE8R34jgqiRB0GyDP4G+cOXMmD8JgFZu/Vf9nrVEGXcVCcQhm+cCBAzJ7dvOVdkydOlXWrl0rN2/elC9fvohDaPv/S1W9aK04hPORxbZt2yL76qJDl7Vv3z7JAWMGDtWCcO5M4ritXr1amh0cTxxex5BuN2pgMa7GC5wSHtY1O8QzdBxlw4xy0qoF4bS7aPauohq+K8Nox4zqEcKCoLtwZiG4OK3QVVSDIBxbiVHdxriqXzij1ayDAjHs2LFDHDMymx0WhDNnslWtg2LDhg2ub4aRCcywIDrFEViHVsfxNZilnihBUALmJDLZ6tZBwTVwaCWY8AraXwnCW4cc4PjGCFwGJQgnDiV3BNPXnjKORxzB2h7hLsM64WQWT3nE4TAuwT5lbruMVopKxsVhtzFiIZxZh1aMOzSCa+JwjqMDQbSLA9asiVUm0JIsXbpUHNGJIJwMN70zWR/d7DADdDgRBFO/3pmsD9eGjDEHtDvpMlQSqqc+jrrUwEJY38jEdxeNcXSNJjDtadVCZBF7IGH1xo0bQS2ESl7F5G7cuNHoMI7M62vXrgWJsiq1n88h95MhtMlRkyo7sFz8006iJSvWW7MSmMKFCxeKKah5OHHihDx9+nRUaR3p86omYtmyZdLenk73CO3o0aPBe4ZLBPmcFy9eyN27d2X8+PEyf/58MQWfw/eyyDCCsLq04Pbt24PMYxPQ2KdPn47MXkYkjx49SiUKxHD8+PHI1HnOobe3N7izTYni69evtot8JuguS6iNqToLGofCl7ivpVhHl4sXL8auozBZjONipGFVECYjcEkvPH2xTn+Mv0A3ERf8DPwZE7gYfloVBOV0pqA0Lin379+XpNy+fVuScufOHTGF7co1q4Lo7DQzh0bpvY5Z1rEQr1+/lqRgJUx1G6auWVysCsKU+dMts6eANynPnz8XHRh9mMCkVY0DgrC2nbDtL1eNjpBch9inTZsmFhm0ZiG4sKYuLiX9OugIkiUDdDD1XQl22RQlghgSC5hUuu5FmjdvniSFlWqSwvmZtIa6otRgCEEMiwWqF+ZIi06qmU4YWyc3wXSCi46QNRm2ZiFMZ0clTUhlhlVnCKeWJYoL52Q6NdCihRi05lSa/lJc+J07d8Z6LWKM+9paUKUdV9BZlCSatq4RDFkTRBaOEWtJ7N69O/K9aZyDBw+maqQ478E5sARSFlnTFp3KQSa32HEl8z26meE0OcupoH/F8WMSi8XC1IwnZp6ZVVZqmTx5sqSFibFNmzYFohgYGBiJM/AzSwTt3bs3s1xIZjwtzXr2kg9hxUJkmWHNe+/fv19sgGNqO1XeYnb6OxWH0NrBzdNUvOOfceEfPC1NYBS8hfAoggXRlSBSbQ8cB52JJU8ZS9dulIXgEzONWOZ0IfBCYOHa0f6jfAjI3Ep4csuIyxAWhPYG4nEwlR8Aebc2ps/PwrrYI8ZgfK3/zDNcnFOnTsnQ0FAQfDJdD5EGVbfBQbg5bYRUQcAtY0aMQVgQw5VfZLKaDPmMRBRNzAQiBoTBQc6jikpGbaaSFYiAAiHqMsIpemSHmWhItVtPhtDmI15r9fYIhLCTJwAkgMkfE+tKUa9QK/NaiYN8hKwytPhMREC9Byl24S6Cz+f7pU2O5T35flibjOmW8qbxAdWCoILrr5IxJiacFKTIk/ZeK4FWJapwcMeSsJpUJDQ+ibb9/f3BI59Tq083JQSwvKfG3yXCQsC3YmkRMmYrTfkANBSbrsWBz2OySnUv6vPVLjocqluKw+HDh418B4tWQYHfOKqIpJYgEMO3YgkuJHdW2gkjLmTcSi7TmOgGEQHnb3kEhRhGDSZq7ahDBtViibfrb2qYrlZFudy1Ov0+d/LJkyfFFS9fvgwcZp3aUbqHs2fPyq1bt2zvsEM38a/q/6zX6MQnrG7gqoTBBcJqJCkIvnDhQtaeeCQ05OfPn4OC4rgoIVy5ciWzDWcbQBnbmDmseoLghX8QS1YiDBenu7s7tsVQow3XsCQADmUjXwLRnz9/3qUQgBDDA6kxXdEW8UfI3flSL2qZvlrOJ/3tkSNHcrP1Ied36NChMbGQcMAqJ1FWhpndtX4RZQGcWYkwdCXcfdevXw/MLHtuk7CL9bh06ZI8fvxY8gLnSvexZMmSoOHZee/y5cvBUgSkwDnehS/MTakzmdnW4A9zYSVqQVxBt+4ya/J8bhJhHaCRIAhUfScOFibzZAIji+8lIo+2UW0nZuU/4mkWfpAGSdVxin0fiohPdyo+tGFPoxfFrf7uFk/ReRjnRXEFwRSpz6gqLn0SmtGMIsn6EFgJK5XiHqPQVcSyDpBEEIjBdx3FI5EPmDTo9JOUh6B+55NiwAgxUeROZ0khP+ooBom6CoVOWJpqcaYWu8RxWNtTF7r3f5SOxBMnug06XPkwZ9tDeyIhz0GrrCLNHa7m0q3mTXgaQjehHV1Oa/JRIevdONnZzzMGhPBvSYEJH4CAFVbCyWZunhFoh9RhAVNOISczs3T4ndXcQKEuOQ4/S0pMCYITIQHAi8I+iIEpbSNRZJPDRi8K+xgVA5iOIyhRTK4cnuzAof+nGJ5fyiKwpEThQ9zZwcwlRTapfYZqsow0/lh59HEKsxBnSL41UEyyDj1j1qgEmyE+zJ0WugYikJmmNDZKsjUFMYpvxMcqdGmYHGsKW3ct6ibBk9lV71ckA4vATnBWKnxsmnEcIPwKuhB2FvOp/dFwEyEEFr4w7jzWw0W/zqQY0+cIws+B1IbIL12E9QVlbfkQ9SCnguow71uUwUdgPiLTFQGjcC0IBaJAHK0qDFUQlTjDyTR5EQQgBiWMVkEJ4YnkJKM9T4JQKGGQjdWsjmfuhKDIoyAUCIOAVjP5GLkVgiLPggiDteiS4uZw4iT2iENnMS5FEYRCWY0usbR0YgpU+SMTUYWpeCuaIMIocWA1OsV9t0KjE195LWUhFLLssciCqIYgF8KYEXqeJQOVgyQVBNAUxUvNJIhaIAwWj+wIPU6oPBepb1VU4xJmH678PFR5HJAmrlz7BccI+z+sD4lzAAAAAElFTkSuQmCC)`;
+                                                        });
+                                                    }
+                                                });
+                                            } else if (product.type === PROFILE_EFFECT) {
+                                                card.classList.add("type_1");
+    
+                                                card.querySelector("[data-product-card-sku-id]").textContent = `Made By: ${product.credits}`;
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                                
+                                                // Ensure the item ID is accessible here
+                                                let itemId = undefined;
+                                                if (Array.isArray(product.items)) {
+                                                    // If items is an array, find the item with type 1 and get its id
+                                                    const item = product.items.find(item => item.type === 1);
+                                                    if (item) {
+                                                        itemId = item.id;
+                                                    }
+                                                } else if (product.items && product.items.type === 1) {
+                                                    // If items is an object and has type 1, get its id
+                                                    itemId = product.items.id;
+                                                }
+                                            
+                                            
+                                                // Fetch profile effects API only if not already cached
+                                                if (!profileEffectsCache) {
+                                                    const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
+                                                        method: "GET",
+                                                        headers: {
+                                                            "Password": api_password,
+                                                            "Token": api_token
+                                                        }
+                                                    });
+                                                    const effectsData = await response.json();
+                                                    profileEffectsCache = effectsData.profile_effect_configs;
+                                                }
+                                            
+                                                // Find matching profile effect
+                                                const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                            
+                                                if (matchingEffect) {
+                                                    const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                    previewHolder.classList.add('profile-effect-image');
+                                            
+                                                    previewHolder.innerHTML = `
+                                                        <img class="thumbnail-preview" src="${matchingEffect.thumbnailPreviewSrc}">
+                                                    `;
+                                            
+                                                    // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                    const imgElement = card.querySelector("img");
+                                            
+                                                    if (localStorage.reduced_motion != "true") {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            if (matchingEffect.effects && matchingEffect.effects.length > 0) {
+                                                                const effectUrl = matchingEffect.effects[0]?.src;
+                                                                imgElement.src = effectUrl || matchingEffect.thumbnailPreviewSrc;
+                                                            }
+                                                        });
+                                                
+                                                        card.addEventListener("mouseleave", () => {
+                                                            // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                            imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                        });
+                                                    } else {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            imgElement.src = matchingEffect.reducedMotionSrc;
+                                                        });
+                                                
+                                                        card.addEventListener("mouseleave", () => {
+                                                            // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                            imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                        });
+                                                    }
+                                                }
+                                            } else if (product.type === NAMEPLATE) {
+                                                card.classList.add("type_2");
+    
+                                                if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                } else {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                }
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+    
+                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+    
+                                                if (localStorage.discord_username && localStorage.discord_username != '') {
+                                                    previewName = localStorage.discord_username;
+                                                } else {
+                                                    previewName = 'Discord User'
+                                                }
+    
+                                                previewHolder.innerHTML = `
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                    <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                        <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
+                                                        <p class="nameplate-user-name">${previewName}</p>
+                                                    </div>
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                `;
+    
+                                                const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+    
+                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
+                                                nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+    
+                                                const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+    
+                                                nullUserNameRandomWidth.forEach(UserName => {
+                                                    const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                    UserName.style.width = randomWidth + `px`;
+                                                });
+    
+                                                const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+    
+                                                nullUserAvatar.forEach(UserAvatar => {
+                                                    UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                });
+                                                
+                                            } else if (product.type === BUNDLE) {
+                                                card.classList.add("type_1000");
+                                                // Fetch the bundled products for the bundle summary
+                                                const bundledProducts = product.bundled_products || [];
+                                            
+                                                // Generate the bundle summary from the names of the bundled products
+                                                const type0Product = bundledProducts.find(item => item.type === 0);
+                                                const type1Product = bundledProducts.find(item => item.type === 1);
+                                            
+                                                let bundleSummary = "Bundle Includes: ";
+                                                if (type0Product) {
+                                                    bundleSummary += `${type0Product.name} Decoration`;
+                                                }
+                                                if (type1Product) {
+                                                    bundleSummary += ` & ${type1Product.name} Profile Effect`;
+                                                }
+                                            
+                                                // Set the summary text
+                                                card.querySelector("[data-product-card-summary]").textContent = bundleSummary;
+                                            
+                                                // Set the basic card details
+                                                card.querySelector("[data-product-card-sku-id]").textContent = `Made By: ${product.credits}`;
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                            
+                                                // Handle each item in the bundle
+                                                product.items.forEach(item => {
+                                                    if (item.type === 0) {
+                                                        // Avatar decoration
+                                                        const decoImage = document.createElement("img");
+                                                        decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                        decoImage.alt = "Avatar Decoration";
+                                                        decoImage.classList.add("avatar-decoration-image");
+                                                        card.querySelector("[data-shop-card-preview-holder]").appendChild(decoImage);
+    
+                                                        const bgimg = document.createElement("div");
+                                                        bgimg.classList.add("avatar-decoration-bg-image");
+                                                        
+                                                        card.querySelector("[data-shop-card-preview-holder]").appendChild(bgimg);
+                                            
+                                                        // Hover effect for decoration image
+                                                        if (localStorage.reduced_motion != "true") {
+                                                            card.addEventListener("mouseenter", () => {
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                    bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                                }
+                                                            });
+                                                            card.addEventListener("mouseleave", () => {
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
+                                                            });
+                                                        }
+                                                    } else if (item.type === 1) {
+                                                        // Profile effect
+                                                        let profileEffectsCache = null; // Cache profile effects to avoid multiple fetches
+                                            
+                                                        (async () => {
+                                                            if (!profileEffectsCache) {
+                                                                const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
+                                                                    method: "GET",
+                                                                    headers: {
+                                                                        "Password": api_password,
+                                                                        "Token": api_token
+                                                                    }
+                                                                });
+                                                                const effectsData = await response.json();
+                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                            }
+                                            
+                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                            
+                                                            if (matchingEffect) {
+                                                                const effectImage = document.createElement("img");
+                                                                effectImage.src = matchingEffect.thumbnailPreviewSrc;
+                                                                effectImage.alt = "Profile Effect";
+                                                                effectImage.classList.add("profile-effect-image");
+                                                                card.querySelector("[data-shop-card-preview-holder]").appendChild(effectImage);
+                                            
+                                                                // Hover effect for profile effect
+                                                                if (localStorage.reduced_motion != "true") {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        if (matchingEffect.effects && matchingEffect.effects[0] && matchingEffect.effects[0].src) {
+                                                                            effectImage.src = matchingEffect.effects[0].src;
+                                                                        }
+                                                                    });
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        effectImage.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                } else {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        effectImage.src = matchingEffect.reducedMotionSrc;
+                                                                    });
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        effectImage.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                }
+                                                            }
+                                                        })();
+                                                    }
+                                                });
+                                            } else if (product.type === VARIANTS_GROUP) {
+                                                // Update SKU and summary
+                                                card.querySelector("[data-product-card-sku-id]").textContent = `Made By: ${product.credits}`;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                            
+                                                // Always display the base variant name
+                                                card.querySelector("[data-product-card-name]").textContent = product.variants[0]?.base_variant_name || "Product";
+                                            
+                                                // Render variant color blocks as interactive divs
+                                                const variantContainer = card.querySelector("[data-shop-card-var-container]");
+                                                variantContainer.innerHTML = ""; // Clear existing variant blocks
+                                                let currentSelectedVariant = null; // Track selected variant
+                                            
+                                                product.variants.forEach((variant, index) => {
+                                                    // Create variant color block
+                                                    const variantColorBlockTmp = document.querySelector("[data-shop-varcolorblock-template]");
+                                                    const variantColorBlock = variantColorBlockTmp.content.cloneNode(true).children[0];
+                                                    variantColorBlock.classList.add("shop-card-var");
+                                                    variantColorBlock.id = "shop-card-var";
+                                                    variantColorBlock.style.backgroundColor = `${variant.variant_value}`;
+                                            
+                                                    // Add click event listener to switch variants
+                                                    variantColorBlock.addEventListener("click", () => {
+                                                        if (currentSelectedVariant) {
+                                                            currentSelectedVariant.classList.remove("shop-card-var-selected");
+                                                        }
+                                                        variantColorBlock.classList.add("shop-card-var-selected");
+                                                        currentSelectedVariant = variantColorBlock;
+                                                        applyVariant(variant);
+                                                    });
+                                            
+                                                    // Append the color block to the container
+                                                    variantContainer.appendChild(variantColorBlock);
+                                            
+                                                    // Set the first variant as the default selected
+                                                    if (index === 0) {
+                                                        currentSelectedVariant = variantColorBlock;
+                                                        variantColorBlock.classList.add("shop-card-var-selected");
+                                                    }
+                                                });
+    
+                                                let isFirstTimeLoadingVariant = true;
+                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                            
+                                                // Function to apply the selected variant
+                                                function applyVariant(selectedVariant) {
+                                                    card.querySelector("[data-shop-card-var-title]").textContent = `(${selectedVariant.variant_label})`;
+                                                    if (selectedVariant.type === 0) {
+                                                        card.classList.add("type_2000-0");
+                                                        previewHolder.innerHTML = ""; // Clear previous decorations
+                                                        previewHolder.classList.add('avatar-decoration-image');
+                                                        
+                                                        // Add the avatar decoration based on the selected variant
+                                                        selectedVariant.items?.forEach(item => {
+                                                            const decoImage = document.createElement("img");
+                                                            const bgimg = document.createElement("div");
+                                                            if (isFirstTimeLoadingVariant == true) {
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                isFirstTimeLoadingVariant = false;
+                                                            } else {
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                    bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                                }
+                                                            }
+                                                            decoImage.alt = "Avatar Decoration";
+                                                            decoImage.id = "shop-card-deco-image";
+                                                            previewHolder.appendChild(decoImage);
+    
+                                                            bgimg.id = "shop-card-deco-bg-image";
+    
+                                                            previewHolder.appendChild(bgimg);
+                                                        
+                                                            // Hover effect for decoration image
+                                                            if (localStorage.reduced_motion !== "true") {
+                                                                card.addEventListener("mouseenter", () => {
+                                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                    if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                        bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                                    }
+                                                                });
+                                                                card.addEventListener("mouseleave", () => {
+                                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                    bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
+                                                                });
+                                                            }
+                                                        });
+                                                    } else if (selectedVariant.type === 1) {
+                                                        card.classList.add("type_2000-1");
+                                                        (async () => {
+                                                            // Ensure the item ID is accessible here
+                                                            let itemId = undefined;
+                                                            if (Array.isArray(selectedVariant.items)) {
+                                                                // If items is an array, find the item with type 1 and get its id
+                                                                const item = selectedVariant.items.find(item => item.type === 1);
+                                                                if (item) {
+                                                                    itemId = item.id;
+                                                                }
+                                                            } else if (selectedVariant.items && selectedVariant.items.type === 1) {
+                                                                // If items is an object and has type 1, get its id
+                                                                itemId = selectedVariant.items.id;
+                                                            }
+                                                        
+                                                        
+                                                            // Fetch profile effects API only if not already cached
+                                                            if (!profileEffectsCache) {
+                                                                const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
+                                                                    method: "GET",
+                                                                    headers: {
+                                                                        "Password": api_password,
+                                                                        "Token": api_token
+                                                                    }
+                                                                });
+                                                                const effectsData = await response.json();
+                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                            }
+                                                        
+                                                            // Find matching profile effect
+                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        
+                                                            if (matchingEffect) {
+                                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                                previewHolder.classList.add('profile-effect-image');
+                                                            
+                                                                if (isFirstTimeLoadingVariant == true) {
+                                                                    previewHolder.innerHTML = `
+                                                                        <img class="thumbnail-preview" src="${matchingEffect.thumbnailPreviewSrc}">
+                                                                    `;
+                                                                    isFirstTimeLoadingVariant = false;
+                                                                } else {
+                                                                    previewHolder.innerHTML = `
+                                                                        <img class="thumbnail-preview" src="${matchingEffect.effects[0]?.src}">
+                                                                    `;
+                                                                }
+                                                            
+                                                                // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                                const imgElement = card.querySelector("img");
+                                                            
+                                                                if (localStorage.reduced_motion != "true") {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        if (matchingEffect.effects && matchingEffect.effects.length > 0) {
+                                                                            const effectUrl = matchingEffect.effects[0]?.src;
+                                                                            imgElement.src = effectUrl || matchingEffect.thumbnailPreviewSrc;
+                                                                        }
+                                                                    });
+                                                                
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                        imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                } else {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        imgElement.src = matchingEffect.reducedMotionSrc;
+                                                                    });
+                                                                
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                        imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                }
+                                                            }
+                                                        })();
+                                                    }
+                                                }
+                                            
+                                                // Apply the default variant (first one) initially
+                                                if (product.variants.length > 0) {
+                                                    applyVariant(product.variants[0]);
+                                                }
+                                            } else if (product.type === EXTERNAL_SKU) {
+                                                card.classList.add("type_3000");
+    
+                                                if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                } else {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                }
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+    
+                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+    
+                                                previewHolder.innerHTML = `
+                                                    <p>item type 3000 (EXTERNAL_SKU) is not yet defined on the client, please remove it from the api</p>
+                                                `;
+                                                
+                                            } else if (product.type === 'plus_more') {
+                                                card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                card.querySelector("[data-product-card-name]").textContent = `Plus More...`;
+                                                card.querySelector("[data-product-card-summary]").textContent = `There are more items in this category that are coming soon.`;
+    
+                                                card.querySelector("[data-shop-price-container]").innerHTML = ``;
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = ``;
+                                                card.querySelector("[data-share-product-card-button]").innerHTML = ``;
+    
+                                                const plusMoreQuestionMark = document.createElement("img");
+                                                plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                                plusMoreQuestionMark.classList.add("plus-more-question-mark");
+                                                card.querySelector("[data-shop-card-preview-holder]").appendChild(plusMoreQuestionMark);
+                                    
+                                                // Hover effect for decoration image
+                                                if (localStorage.reduced_motion != "true") {
+                                                    card.addEventListener("mouseenter", () => {
+                                                        plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.gif`;
+                                                    });
+                                                    card.addEventListener("mouseleave", () => {
+                                                        plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                                    });
+                                                }
+                                            } else {
+                                                card.classList.add('hidden')
+                                            }
+    
+    
+    
+                                            if (product.emojiCopy === null) {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <button class="card-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb';" title="Request item in our Discord server">Request to P+</button>
+                                                `;
+                                            } else {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <button class="card-button" onclick="copyEmoji('${product.emojiCopy}');" title="Request item in our Discord server">Copy P+ Emoji</button>
+                                                `;
+                                            }
+    
+                                            if (product.premium_type === 2) {
+                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                                `;
+                                            }
+    
+    
+                                            const unpublishedAt = new Date(product.unpublished_at);
+                                
+                                            if (product.unpublished_at && !isNaN(unpublishedAt.getTime())) {
+                                
+                                                function updateTimer() {
+                                                    const now = new Date();
+                                                    const timeDiff = unpublishedAt - now;
+                                
+                                                    if (timeDiff <= 0) {
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">OFF SALE</p>
+                                                            </div>
+                                                        `;
+                                                        clearInterval(timerInterval);
+                                                    } else {
+                                                        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                                
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">${days} DAYS LEFT TO REQUEST</p>
+                                                            </div>
+                                                        `;
+                                                    }
+                                                }
+                                
+                                                const timerInterval = setInterval(updateTimer, 1000);
+                                                updateTimer();
+                                            }
+    
+    
+                                            const ExpiredAt = new Date(product.expires_at);
+                                
+                                            if (product.expires_at && !isNaN(ExpiredAt.getTime())) {
+                                
+                                                function updateTimer() {
+                                                    const now = new Date();
+                                                    const timeDiff = ExpiredAt - now;
+                                
+                                                    if (timeDiff <= 0) {
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">EXPIRED</p>
+                                                            </div>
+                                                        `;
+                                                        clearInterval(timerInterval);
+                                                    } else {
+                                                        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                                
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">EXPIRES IN ${days}D ${hours}H</p>
+                                                            </div>
+                                                        `;
+                                                    }
+                                                }
+                                
+                                                const timerInterval = setInterval(updateTimer, 1000);
+                                                updateTimer();
+                                            }
+    
+                                            const ReleasesAt = new Date(product.releases_at);
+                                
+                                            if (product.releases_at && !isNaN(ReleasesAt.getTime())) {
+                                
+                                                function updateTimer() {
+                                                    const now = new Date();
+                                                    const timeDiff = ReleasesAt - now;
+                                
+                                                    if (timeDiff <= 0) {
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">PUBLISHING...</p>
+                                                            </div>
+                                                        `;
+                                                        clearInterval(timerInterval);
+                                                    } else {
+                                                        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                                
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">${days}D ${hours}H</p>
+                                                            </div>
+                                                        `;
+                                                    }
+                                                }
+                                
+                                                const timerInterval = setInterval(updateTimer, 1000);
+                                                updateTimer();
+                                            }
+    
+                                            // Append card to output
+                                            card.classList.add('shop-category-card-transparent')
+                                            cardOutput.append(card);
+                                        }
+                                    }
+                
+                                    categoryOutput.append(category);
+                                    
+    
+                                } else if (page === "consumables") {
+                                    // Existing code for 'consumables' page
+                                    const potionCard = potionTemplate.content.cloneNode(true).children[0];
+                                    potionCard.querySelector("[data-potion-card-holder]").id = apiCategory.sku_id;
+    
+                                    potionCard.id = apiCategory.sku_id;
+    
+                                    potionCard.querySelector("[data-potion-card-holder]").classList.add('potion-card-gradient1');
+                
+                                    if (apiCategory.src === null) {
+                                        potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/assets/31.png`;
+                                    } else {
+                                        potionCard.querySelector("[data-potion-card-preview-image]").src = `https://cdn.yapper.shop/${apiCategory.endpoint}/${apiCategory.src}.${apiCategory.format}`;
+                                    }
+                                    potionCard.querySelector("[data-potion-card-preview-image]").alt = apiCategory.name;
+    
+                                    if (apiCategory.new_text != null) {
+                                        potionCard.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                            <div class="unplublished-tag">
+                                                <p class="unplublished-tag-text">${apiCategory.new_text}</p>
+                                            </div>
+                                        `;
+                                    }
+                
+                                    if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                        potionCard.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                    } else {
+                                        potionCard.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${apiCategory.sku_id}`;
+                                    }
+                                    potionCard.querySelector("[data-product-card-name]").textContent = apiCategory.name;
+                                    potionCard.querySelector("[data-product-card-summary]").textContent = apiCategory.summary;
+    
+                                    let priceStandard = "N/A";
+                            
+                                    if (apiCategory.price) {
+                                        priceStandard = apiCategory.price.amount;
+                                    }
+    
+    
+                                    if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                        potionCard.classList.add('clickable');
+    
+                                        potionCard.addEventListener("click", () => {
+                                            openItemModal();
+                                        });
+    
+                                        async function openItemModal() {
+                                            let modal = document.createElement("div");
+    
+                                            modal.classList.add('modalv2');
+    
+                                            if (apiCategory.pdp_bg != null) {
+                                                pdp = apiCategory.pdp_bg
+                                            } else {
+                                                pdp = apiCategory.banner
+                                            }
+    
+                                            modal.innerHTML = `
+                                                <div class="modalv2-inner">
+                                                    <div class="modalv2-inner-left">
+                                                        <p data-product-modal-sku-id></p>
+                                                        <p style="font-size: large; font-weight: 900;" data-product-modal-name></p>
+                                                        <p style="color: var(--8)" data-product-modal-summary></p>
+                                                        <div class="modal-shop-price-container" data-shop-price-container>
+                                                            <div data-price-standard-container>
+                                                                <a style="font-size: large; font-weight: 900;" data-price-standard></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-left-bottom">
+                                                            <div class="modal-buttons" data-modal-buttons></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div data-modal-top-product-buttons>
+                                                        <div title="Close" data-close-product-card-button>
+                                                            <svg class="closeIcon_modal" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M17.3 18.7a1 1 0 0 0 1.4-1.4L13.42 12l5.3-5.3a1 1 0 0 0-1.42-1.4L12 10.58l-5.3-5.3a1 1 0 0 0-1.4 1.42L10.58 12l-5.3 5.3a1 1 0 1 0 1.42 1.4L12 13.42l5.3 5.3Z" class=""></path></svg>
+                                                        </div>
+                                                        <div title="Download Data" data-download-product-card-button></div>
+                                                    </div>
+    
+                                                    <div class="shop-modal-tag-container" data-shop-card-tag-container></div>
+    
+                                                    <div id="modalv2-inner-right" class="modalv2-inner-right">
+                                                        <img class="modalv2-inner-img" src="https://cdn.yapper.shop/assets/110.svg"></img>
+                                                        <div data-modal-preview-holder></div>
+                                                    </div>
+                                                </div>
+                                            `;
+    
+                                            document.body.appendChild(modal);
+    
+                                            setTimeout(() => {
+                                                modal.classList.add('show');
+                                            }, 1);
+    
+    
+                                            const previewHolder = modal.querySelector("[data-modal-preview-holder]");
+                                            previewHolder.classList.add('modal-potion-img');
+    
+                                            const imgElement = document.createElement("img");
+                                            imgElement.classList.add('potion-card-preview');
+                                            imgElement.src = `https://cdn.yapper.shop/${apiCategory.endpoint}/${apiCategory.src}.${apiCategory.format}`;
+    
+                                            previewHolder.appendChild(imgElement);
+                                            
+                                            // Set the product details
+                                            modal.querySelector("[data-product-modal-sku-id]").textContent = `SKU ID: ${apiCategory.sku_id}`;
+                                            modal.querySelector("[data-product-modal-name]").textContent = apiCategory.name;
+                                            modal.querySelector("[data-product-modal-summary]").textContent = apiCategory.summary;
+    
+    
+                                            const button_container = document.querySelector("[data-modal-buttons]");
+                                            
+                                            if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads") {
+                                                button_container.innerHTML = `
+                                                    <button class="card-button" title="Open this Potion's support article" onclick="location.href='${discordsupport}${apiCategory.support_id}';">Open Support Article</button>
+                                                `;
+                                                modal.querySelector("[data-download-product-card-button]").innerHTML = `
+                                                    <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${apiCategory.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
+                                                `;
+                                            } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+") {
+                                                button_container.innerHTML = `
+                                                    <button class="card-button" title="Open this Potion's support article" onclick="location.href='${discordsupport}${apiCategory.support_id}';">Open Support Article</button>
+                                                `;
+                                                modal.querySelector("[data-download-product-card-button]").innerHTML = `
+                                                    <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${apiCategory.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
+                                                `;
+                                            } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                button_container.innerHTML = `
+                                                    <button class="card-button" title="Open this Potion's support article" onclick="location.href='${discordsupport}${apiCategory.support_id}';">Open Support Article</button>
+                                                `;
+                                                modal.querySelector("[data-download-product-card-button]").innerHTML = `
+                                                    <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${apiCategory.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
+                                                `;
+                                            } else {
+                                                button_container.innerHTML = `
+                                                    <button class="card-button" title="Open this Potion's support article" onclick="location.href='${discordsupport}${apiCategory.support_id}';">Open Support Article</button>
+                                                `;
+                                            }
+    
+    
+                                            let priceStandard = "N/A";
+                            
+                                            if (apiCategory.price) {
+                                                priceStandard = apiCategory.price.amount;
+                                            }
+    
+    
+                                            const priceTextNitro = modal.querySelector("[data-price-nitro]");
+                                            const priceTextStandard = modal.querySelector("[data-price-standard]");
+    
+                                            const priceContainerNitro = modal.querySelector("[data-price-nitro-container]");
+                                            const priceContainerStandard = modal.querySelector("[data-price-standard-container]");
+    
+                                            const priceContainer = modal.querySelector("[data-shop-price-container]");
+    
+                                            if (localStorage.experiment_2025_01_orb_testing === "Treatment 1: Default Prices") {
+                                                if (priceTextStandard) {
+                                                    priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                                }
+                                            
+                                                let orb_icon = document.createElement("div");
+                                            
+                                                orb_icon.classList.add('orb-icon');
+                                            
+                                                priceContainerStandard.appendChild(orb_icon);
+                                            
+                                            } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 2: 50 Orbs") {
+                                                if (priceTextStandard) {
+                                                    priceTextStandard.textContent = `50`;
+                                                }
+                                            
+                                                let orb_icon = document.createElement("div");
+                                            
+                                                orb_icon.classList.add('orb-icon');
+                                            
+                                                priceContainerStandard.appendChild(orb_icon);
+                                            
+                                            } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 3: Dynamic") {
+    
+                                                if (apiCategory.price.currency === "discord_orb") {
+                                                    if (priceTextStandard) {
+                                                        priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                                    }
+                                                
+                                                    let orb_icon = document.createElement("div");
+                                                
+                                                    orb_icon.classList.add('orb-icon');
+                                                
+                                                    priceContainerStandard.appendChild(orb_icon);
+                                                
+                                                } else {
+                                                    if (priceTextStandard) {
+                                                        priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                                    }
+                                                }
+    
+                                            } else {
+                                                if (priceTextStandard) {
+                                                    priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                                }
+                                            }
+    
+                                            if (apiCategory.new_text != null) {
+                                                modal.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="unplublished-tag">
+                                                        <p class="unplublished-tag-text">${apiCategory.new_text}</p>
+                                                    </div>
+                                                `;
+                                            }
+    
+    
+                                            document.getElementById('modalv2-inner-right').addEventListener("mouseenter", () => {
+                                                modal.classList.add('potion-wobble')
+                                            });
+                                    
+                                            document.getElementById('modalv2-inner-right').addEventListener("mouseleave", () => {
+                                                modal.classList.remove('potion-wobble')
+                                            });
+                                            
+    
+    
+                                            let modal_back = document.createElement("div");
+    
+                                            modal_back.classList.add('modalv2-back');
+                                            modal_back.id = 'modalv2-back';
+    
+                                            document.body.appendChild(modal_back);
+    
+                                            setTimeout(() => {
+                                                modal_back.classList.add('show');
+                                            }, 1);
+    
+    
+                                            modal.addEventListener('click', (event) => {
+                                                if (event.target === modal) {
+                                                    modal.classList.remove('show');
+                                                    modal_back.classList.remove('show');
+                                                    setTimeout(() => {
+                                                        modal.remove();
+                                                        modal_back.remove();
+                                                    }, 300);
+                                                }
+                                            });
+    
+                                            document.querySelector("[data-close-product-card-button]").addEventListener('click', () => {
+                                                modal.classList.remove('show');
+                                                modal_back.classList.remove('show');
+                                                setTimeout(() => {
+                                                    modal.remove();
+                                                    modal_back.remove();
+                                                }, 300);
+                                            });
+                                        }
+                                    }
+                            
+                                    
+                                    const priceTextNitro = potionCard.querySelector("[data-price-nitro]");
+                                    const priceTextStandard = potionCard.querySelector("[data-price-standard]");
+    
+                                    const priceContainerNitro = potionCard.querySelector("[data-price-nitro-container]");
+                                    const priceContainerStandard = potionCard.querySelector("[data-price-standard-container]");
+    
+                                    const priceContainer = potionCard.querySelector("[data-shop-price-container]");
+    
+                                    if (localStorage.experiment_2025_01_orb_testing === "Treatment 1: Default Prices") {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `${priceStandard}` : "Price (USD): N/A";
+                                        }
+                                    
+                                        let orb_icon = document.createElement("div");
+                                    
+                                        orb_icon.classList.add('orb-icon');
+                                    
+                                        priceContainerStandard.appendChild(orb_icon);
+                                    
+                                    } else if (localStorage.experiment_2025_01_orb_testing === "Treatment 2: 50 Orbs") {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = `50`;
+                                        }
+                                    
+                                        let orb_icon = document.createElement("div");
+                                    
+                                        orb_icon.classList.add('orb-icon');
+                                    
+                                        priceContainerStandard.appendChild(orb_icon);
+                                    
+                                    } else {
+                                        if (priceTextStandard) {
+                                            priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "Price (USD): N/A";
+                                        }
+                                    }
+    
+                                    potionCard.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                        <button class="card-button" onclick="location.href='${discordsupport}${apiCategory.support_id}';" title="Open this Potion's support article">Open Support Article</button>
+                                    `;
+    
+                                    potionCard.addEventListener("mouseenter", () => {
+                                        potionCard.classList.add('potion-wobble')
+                                    });
+                            
+                                    potionCard.addEventListener("mouseleave", () => {
+                                        potionCard.classList.remove('potion-wobble')
+                                    });
+                
+                                    categoryOutput.append(potionCard);
+                                } else {
+                                    // Default page handling
+                                    const category = categoryTemplate.content.cloneNode(true).children[0];
+                                    category.querySelector("[data-shop-category-banner]").id = apiCategory.sku_id;
+    
+    
+                                    // Banner Image/Video asset
+                
+                                    category.querySelector("[data-shop-category-banner-image]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.mobile_banner}.png?size=4096`;
+                                    category.querySelector("[data-shop-category-banner-image]").alt = 'No Mobile Banner';
+
+                                    if (apiCategory.mobile_bg != null) {
+                                        category.querySelector("[data-shop-category-marketing-bg]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.mobile_bg}.png?size=4096`;
+                                    }
+                                    
+    
+                                    category.querySelector("[data-shop-banner-banner-container]").id = `${apiCategory.sku_id}-banner-banner-container`;
+    
+    
+                                    const unpublishedAt = new Date(apiCategory.unpublished_at);
+                                
+                                    if (apiCategory.unpublished_at && !isNaN(unpublishedAt.getTime())) {
+                        
+                                        function updateTimer() {
+                                            const now = new Date();
+                                            const timeDiff = unpublishedAt - now;
+                        
+                                            if (timeDiff <= 0) {
+                                                category.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="unplublished-tag">
+                                                        <p class="unplublished-tag-text">NOT IN STORE</p>
+                                                    </div>
+                                                `;
+                                                clearInterval(timerInterval);
+                                            } else {
+                                                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                        
+                                                category.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="unplublished-tag">
+                                                        <p class="unplublished-tag-text">${days} DAYS LEFT IS SHOP</p>
+                                                    </div>
+                                                `;
+                                            }
+                                        }
+                        
+                                        const timerInterval = setInterval(updateTimer, 1000);
+                                        updateTimer();
+                                    }
+    
+                
+                                    const cardOutput = category.querySelector("[data-shop-category-card-holder]");
+                                    if (cardOutput) {
+                                        for (const product of apiCategory.products) {
+                                            const cardTemplate = document.querySelector("[data-shop-item-card-template]");
+                                            const card = cardTemplate.content.cloneNode(true).children[0];
+    
+                                            if (product.type === NONE) {
+                                                card.classList.add("type_100");
+                                                card.classList.add('hidden')
+                                            } else if (product.type === AVATAR_DECORATION) {
+                                                product.items.forEach(item => {
+                                                    
+                                                    card.classList.add("type_0");
+                                                    // Set the innerHTML for the preview holder
+                                                    const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                    previewHolder.classList.add('avatar-decoration-image');
+                                                    
+                                                    // Set the initial image for the deco card
+                                                    const imgElement = document.createElement("img");
+                                                    imgElement.id = "shop-card-deco-image";
+                                                    imgElement.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                    
+                                                    previewHolder.appendChild(imgElement);
+    
+                                                    const bgimg = document.createElement("div");
+                                                    bgimg.id = "shop-card-deco-bg-image";
+                                                    
+                                                    previewHolder.appendChild(bgimg);
+                                            
+                                                    // Set the product details
+                                                    if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                        card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                    } else {
+                                                        card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                    }
+                                                    card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                    card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                            
+                                                    // Hover effect: Change the image src on mouse enter and leave
+                                                    if (localStorage.reduced_motion != "true") {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            imgElement.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                            if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                            }
+                                                        });
+                                                
+                                                        card.addEventListener("mouseleave", () => {
+                                                            imgElement.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                            bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
+                                                        });
+                                                    }
+                                                    
+                                                });
+                                            } else if (product.type === PROFILE_EFFECT) {
+                                                card.classList.add("type_1");
+    
+                                                if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                } else {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                }
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                                
+                                                // Ensure the item ID is accessible here
+                                                let itemId = undefined;
+                                                if (Array.isArray(product.items)) {
+                                                    // If items is an array, find the item with type 1 and get its id
+                                                    const item = product.items.find(item => item.type === 1);
+                                                    if (item) {
+                                                        itemId = item.id;
+                                                    }
+                                                } else if (product.items && product.items.type === 1) {
+                                                    // If items is an object and has type 1, get its id
+                                                    itemId = product.items.id;
+                                                }
+                                            
+                                            
+                                                // Fetch profile effects API only if not already cached
+                                                if (!profileEffectsCache) {
+                                                    const response = await fetch(api + PROFILE_EFFECTS, {
+                                                        method: "GET",
+                                                        headers: {
+                                                            "Password": api_password,
+                                                            "Token": api_token
+                                                        }
+                                                    });
+                                                    const effectsData = await response.json();
+                                                    profileEffectsCache = effectsData.profile_effect_configs;
+                                                }
+                                            
+                                                // Find matching profile effect
+                                                const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                            
+                                                if (matchingEffect) {
+                                                    const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                    previewHolder.classList.add('profile-effect-image');
+                                            
+                                                    previewHolder.innerHTML = `
+                                                        <img class="thumbnail-preview" src="${matchingEffect.thumbnailPreviewSrc}">
+                                                    `;
+                                            
+                                                    // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                    const imgElement = card.querySelector("img");
+                                            
+                                                    if (localStorage.reduced_motion != "true") {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            if (matchingEffect.effects && matchingEffect.effects.length > 0) {
+                                                                const effectUrl = matchingEffect.effects[0]?.src;
+                                                                imgElement.src = effectUrl || matchingEffect.thumbnailPreviewSrc;
+                                                            }
+                                                        });
+                                                
+                                                        card.addEventListener("mouseleave", () => {
+                                                            // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                            imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                        });
+                                                    } else {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            imgElement.src = matchingEffect.reducedMotionSrc;
+                                                        });
+                                                
+                                                        card.addEventListener("mouseleave", () => {
+                                                            // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                            imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                        });
+                                                    }
+                                                }
+                                            } else if (product.type === NAMEPLATE) {
+                                                card.classList.add("type_2");
+    
+                                                if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                } else {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                }
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+    
+                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+    
+                                                if (localStorage.discord_username && localStorage.discord_username != '') {
+                                                    previewName = localStorage.discord_username;
+                                                } else {
+                                                    previewName = 'Discord User'
+                                                }
+    
+                                                previewHolder.innerHTML = `
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                    <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                        <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
+                                                        <p class="nameplate-user-name">${previewName}</p>
+                                                    </div>
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                    <div class="nameplate-null-user">
+                                                        <div class="nameplate-null-user-avatar"></div>
+                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    </div>
+                                                `;
+    
+                                                const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+    
+                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
+                                                nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+    
+                                                const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+    
+                                                nullUserNameRandomWidth.forEach(UserName => {
+                                                    const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                    UserName.style.width = randomWidth + `px`;
+                                                });
+    
+                                                const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+    
+                                                nullUserAvatar.forEach(UserAvatar => {
+                                                    UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                });
+                                                
+                                            } else if (product.type === BUNDLE) {
+                                                card.classList.add("type_1000");
+                                                // Fetch the bundled products for the bundle summary
+                                                const bundledProducts = product.bundled_products || [];
+                                            
+                                                // Generate the bundle summary from the names of the bundled products
+                                                const type0Product = bundledProducts.find(item => item.type === 0);
+                                                const type1Product = bundledProducts.find(item => item.type === 1);
+                                            
+                                                let bundleSummary = "Bundle Includes: ";
+                                                if (type0Product) {
+                                                    bundleSummary += `${type0Product.name} Decoration`;
+                                                }
+                                                if (type1Product) {
+                                                    bundleSummary += ` & ${type1Product.name} Profile Effect`;
+                                                }
+                                            
+                                                // Set the summary text
+                                                card.querySelector("[data-product-card-summary]").textContent = bundleSummary;
+                                            
+                                                // Set the basic card details
+                                                if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                } else {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                }
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                            
+                                                // Handle each item in the bundle
+                                                product.items.forEach(item => {
+                                                    if (item.type === 0) {
+                                                        // Avatar decoration
+                                                        const decoImage = document.createElement("img");
+                                                        decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                        decoImage.alt = "Avatar Decoration";
+                                                        decoImage.classList.add("avatar-decoration-image");
+                                                        card.querySelector("[data-shop-card-preview-holder]").appendChild(decoImage);
+    
+                                                        const bgimg = document.createElement("div");
+                                                        bgimg.classList.add("avatar-decoration-bg-image");
+                                                        
+                                                        card.querySelector("[data-shop-card-preview-holder]").appendChild(bgimg);
+                                            
+                                                        // Hover effect for decoration image
+                                                        if (localStorage.reduced_motion != "true") {
+                                                            card.addEventListener("mouseenter", () => {
+                                                                decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                                if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                    bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                                }
+                                                            });
+                                                            card.addEventListener("mouseleave", () => {
+                                                                decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                                bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
+                                                            });
+                                                        }
+                                                    } else if (item.type === 1) {
+                                                        // Profile effect
+                                                        (async () => {
+                                                            // Fetch profile effects if not cached
+                                                            if (!profileEffectsCache) {
+                                                                const response = await fetch(api + PROFILE_EFFECTS, {
+                                                                    method: "GET",
+                                                                    headers: {
+                                                                        "Password": api_password,
+                                                                        "Token": api_token
+                                                                    }
+                                                                });
+                                                                const effectsData = await response.json();
+                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                            }
+                                            
+                                                            // Find the matching effect
+                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                            
+                                                            if (matchingEffect) {
+                                                                const effectImage = document.createElement("img");
+                                                                effectImage.src = matchingEffect.thumbnailPreviewSrc;
+                                                                effectImage.alt = "Profile Effect";
+                                                                effectImage.classList.add("profile-effect-image");
+                                                                card.querySelector("[data-shop-card-preview-holder]").appendChild(effectImage);
+                                            
+                                                                // Hover effect for profile effect
+                                                                if (localStorage.reduced_motion != "true") {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        if (matchingEffect.effects && matchingEffect.effects[0] && matchingEffect.effects[0].src) {
+                                                                            effectImage.src = matchingEffect.effects[0].src;
+                                                                        }
+                                                                    });
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        effectImage.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                } else {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        effectImage.src = matchingEffect.reducedMotionSrc;
+                                                                    });
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        effectImage.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                }
+                                                            }
+                                                        })();
+                                                    }
+                                                });
+                                            } else if (product.type === VARIANTS_GROUP) {
+                                                // Update SKU and summary
+                                                if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                } else {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                }
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                            
+                                                // Always display the base variant name
+                                                card.querySelector("[data-product-card-name]").textContent = product.variants[0]?.base_variant_name || "Product";
+                                            
+                                                // Render variant color blocks as interactive divs
+                                                const variantContainer = card.querySelector("[data-shop-card-var-container]");
+                                                variantContainer.innerHTML = ""; // Clear existing variant blocks
+                                                let currentSelectedVariant = null; // Track selected variant
+                                            
+                                                product.variants.forEach((variant, index) => {
+                                                    // Create variant color block
+                                                    const variantColorBlockTmp = document.querySelector("[data-shop-varcolorblock-template]");
+                                                    const variantColorBlock = variantColorBlockTmp.content.cloneNode(true).children[0];
+                                                    variantColorBlock.classList.add("shop-card-var");
+                                                    variantColorBlock.id = "shop-card-var";
+                                                    variantColorBlock.style.backgroundColor = `${variant.variant_value}`;
+                                            
+                                                    // Add click event listener to switch variants
+                                                    variantColorBlock.addEventListener("click", () => {
+                                                        if (currentSelectedVariant) {
+                                                            currentSelectedVariant.classList.remove("shop-card-var-selected");
+                                                        }
+                                                        variantColorBlock.classList.add("shop-card-var-selected");
+                                                        currentSelectedVariant = variantColorBlock;
+                                                        applyVariant(variant);
+                                                    });
+                                            
+                                                    // Append the color block to the container
+                                                    variantContainer.appendChild(variantColorBlock);
+                                            
+                                                    // Set the first variant as the default selected
+                                                    if (index === 0) {
+                                                        currentSelectedVariant = variantColorBlock;
+                                                        variantColorBlock.classList.add("shop-card-var-selected");
+                                                    }
+                                                });
+    
+                                                let isFirstTimeLoadingVariant = true;
+                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                            
+                                                // Function to apply the selected variant
+                                                function applyVariant(selectedVariant) {
+                                                    card.querySelector("[data-shop-card-var-title]").textContent = `(${selectedVariant.variant_label})`;
+    
+                                                    if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                        card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                    } else {
+                                                        card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${selectedVariant.sku_id}`;
+                                                    }
+    
+                                                    if (localStorage.experiment_2025_02_shop_card_modals != "Treatment 1: Enable modals" && localStorage.experiment_2025_02_shop_card_modals != "Treatment 2: Enable modals w/ data downloads" && localStorage.experiment_2025_02_shop_card_modals != "Treatment 3: Enable modals w/ p+" && localStorage.experiment_2025_02_shop_card_modals != "Treatment 4: Enable modals w/ p+ on p+ page" && localStorage.experiment_2025_02_shop_card_modals != "Treatment 5: Enable modals w/ data downloads and p+" && localStorage.experiment_2025_02_shop_card_modals != "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                        card.querySelector("[data-share-product-card-button]").innerHTML = `
+                                                            <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${selectedVariant.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
+                                                        `;
+                                                    }
+    
+                                                    if (selectedVariant.type === 0) {
+                                                        card.classList.add("type_2000-0");
+                                                        previewHolder.innerHTML = ""; // Clear previous decorations
+                                                        previewHolder.classList.add('avatar-decoration-image');
+                                                        
+                                                        // Add the avatar decoration based on the selected variant
+                                                        selectedVariant.items?.forEach(item => {
+                                                            const decoImage = document.createElement("img");
+                                                            const bgimg = document.createElement("div");
+                                                            if (isFirstTimeLoadingVariant == true) {
+                                                                decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                                isFirstTimeLoadingVariant = false;
+                                                            } else {
+                                                                decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                                if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                    bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                                }
+                                                            }
+                                                            decoImage.alt = "Avatar Decoration";
+                                                            decoImage.id = "shop-card-deco-image";
+                                                            previewHolder.appendChild(decoImage);
+    
+                                                            bgimg.id = "shop-card-deco-bg-image";
+    
+                                                            previewHolder.appendChild(bgimg);
+                                                        
+                                                            // Hover effect for decoration image
+                                                            if (localStorage.reduced_motion !== "true") {
+                                                                card.addEventListener("mouseenter", () => {
+                                                                    decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=true`;
+                                                                    if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                        bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                                    }
+                                                                });
+                                                                card.addEventListener("mouseleave", () => {
+                                                                    decoImage.src = `https://cdn.discordapp.com/avatar-decoration-presets/${item.asset}.png?size=4096&passthrough=false`;
+                                                                    bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
+                                                                });
+                                                            }
+                                                        });
+                                                    } else if (selectedVariant.type === 1) {
+                                                        card.classList.add("type_2000-1");
+                                                        (async () => {
+                                                            // Ensure the item ID is accessible here
+                                                            let itemId = undefined;
+                                                            if (Array.isArray(selectedVariant.items)) {
+                                                                // If items is an array, find the item with type 1 and get its id
+                                                                const item = selectedVariant.items.find(item => item.type === 1);
+                                                                if (item) {
+                                                                    itemId = item.id;
+                                                                }
+                                                            } else if (selectedVariant.items && selectedVariant.items.type === 1) {
+                                                                // If items is an object and has type 1, get its id
+                                                                itemId = selectedVariant.items.id;
+                                                            }
+                                                        
+                                                        
+                                                            // Fetch profile effects API only if not already cached
+                                                            if (!profileEffectsCache) {
+                                                                const response = await fetch(api + PROFILE_EFFECTS, {
+                                                                    method: "GET",
+                                                                    headers: {
+                                                                        "Password": api_password,
+                                                                        "Token": api_token
+                                                                    }
+                                                                });
+                                                                const effectsData = await response.json();
+                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                            }
+                                                        
+                                                            // Find matching profile effect
+                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        
+                                                            if (matchingEffect) {
+                                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                                previewHolder.classList.add('profile-effect-image');
+                                                            
+                                                                if (isFirstTimeLoadingVariant == true) {
+                                                                    previewHolder.innerHTML = `
+                                                                        <img class="thumbnail-preview" src="${matchingEffect.thumbnailPreviewSrc}">
+                                                                    `;
+                                                                    isFirstTimeLoadingVariant = false;
+                                                                } else {
+                                                                    previewHolder.innerHTML = `
+                                                                        <img class="thumbnail-preview" src="${matchingEffect.effects[0]?.src}">
+                                                                    `;
+                                                                }
+                                                            
+                                                                // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                                const imgElement = card.querySelector("img");
+                                                            
+                                                                if (localStorage.reduced_motion != "true") {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        if (matchingEffect.effects && matchingEffect.effects.length > 0) {
+                                                                            const effectUrl = matchingEffect.effects[0]?.src;
+                                                                            imgElement.src = effectUrl || matchingEffect.thumbnailPreviewSrc;
+                                                                        }
+                                                                    });
+                                                                
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                        imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                } else {
+                                                                    card.addEventListener("mouseenter", () => {
+                                                                        imgElement.src = matchingEffect.reducedMotionSrc;
+                                                                    });
+                                                                
+                                                                    card.addEventListener("mouseleave", () => {
+                                                                        // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                                        imgElement.src = matchingEffect.thumbnailPreviewSrc;
+                                                                    });
+                                                                }
+                                                            }
+                                                        })();
+                                                    }
+                                                }
+                                            
+                                                // Apply the default variant (first one) initially
+                                                if (product.variants.length > 0) {
+                                                    applyVariant(product.variants[0]);
+                                                }
+                                            } else if (product.type === EXTERNAL_SKU) {
+                                                card.classList.add("type_3000");
+    
+                                                if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 1: Enable modals" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                } else {
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
+                                                }
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+    
+                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+    
+                                                previewHolder.innerHTML = `
+                                                    <p>item type 3000 (EXTERNAL_SKU) is not yet defined on the client, please remove it from the api</p>
+                                                `;
+                                                
+                                            } else if (product.type === 'plus_more') {
+                                                card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                card.querySelector("[data-product-card-name]").textContent = `Plus More...`;
+                                                card.querySelector("[data-product-card-summary]").textContent = `There are more items in this category that are coming soon.`;
+    
+                                                card.querySelector("[data-shop-price-container]").innerHTML = ``;
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = ``;
+                                                card.querySelector("[data-share-product-card-button]").innerHTML = ``;
+    
+                                                const plusMoreQuestionMark = document.createElement("img");
+                                                plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                                plusMoreQuestionMark.classList.add("plus-more-question-mark");
+                                                card.querySelector("[data-shop-card-preview-holder]").appendChild(plusMoreQuestionMark);
+                                    
+                                                // Hover effect for decoration image
+                                                if (localStorage.reduced_motion != "true") {
+                                                    card.addEventListener("mouseenter", () => {
+                                                        plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.gif`;
+                                                    });
+                                                    card.addEventListener("mouseleave", () => {
+                                                        plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                                    });
+                                                }
+                                            } else {
+                                                card.classList.add('hidden')
+                                            }
+                                            
+                                            
+                                            const priceTextNitro = card.querySelector("[data-price-nitro]");
+                                            const priceTextStandard = card.querySelector("[data-price-standard]");
+    
+                                            const priceContainerNitro = card.querySelector("[data-price-nitro-container]");
+                                            const priceContainerStandard = card.querySelector("[data-price-standard-container]");
+    
+                                            const priceContainer = card.querySelector("[data-shop-price-container]");
+    
+                                            let priceStandard = "N/A";
+                                            let priceNitro = "N/A";
+                                            let priceOrb = "N/A";
+    
+                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled") {
+                                                if (localStorage.is_nitro_user === "true") {
+                                                    if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                        product.prices["4"].country_prices.prices.forEach(price => {
+                                                            if (price.currency === "discord_orb") {
+                                                                priceOrb = price.amount;
+                                                            }
+                                                        });
+                                                    }
+                                            
+                                                    if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                        product.prices["4"].country_prices.prices.forEach(price => {
+                                                            if (price.currency === "usd") {
+                                                                priceStandard = price.amount;
+                                                            }
+                                                        });
+                                                    }
+        
+                                                    if (priceTextStandard) {
+                                                        standardPriceOutput = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                    }
+    
+                                                    priceContainerStandard.innerHTML = `
+                                                        <a style="font-size: large; font-weight: 900; margin-left: 23px">${standardPriceOutput}</a>
+                                                        <div class="nitro-icon" style="margin-left: -5px"></div>
+                                                    `;
+        
+                                                    let orb_price = document.createElement("div");
+                                                
+                                                    orb_price.innerHTML = `
+                                                        <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                        <div class="orb-icon" style="margin-left: -25px"></div>
+                                                    `;
+                                                    orb_price.style.position = `absolute`;
+                                                    orb_price.style.right = `0px`;
+        
+                                                    if (priceOrb != 'N/A') {
+                                                        priceContainer.appendChild(orb_price);
+                                                    }
+                                                } else {
+                                                    if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                        product.prices["0"].country_prices.prices.forEach(price => {
+                                                            if (price.currency === "discord_orb") {
+                                                                priceOrb = price.amount;
+                                                            }
+                                                        });
+                                                    }
+                                            
+                                                    if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                        product.prices["0"].country_prices.prices.forEach(price => {
+                                                            if (price.currency === "usd") {
+                                                                priceStandard = price.amount;
+                                                            }
+                                                        });
+                                                    }
+        
+                                                    if (priceTextStandard) {
+                                                        priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                    }
+        
+                                                    let orb_price = document.createElement("div");
+                                                
+                                                    orb_price.innerHTML = `
+                                                        <a style="font-size: large; font-weight: 900;">${priceOrb}</a>
+                                                        <div class="orb-icon" style="margin-left: -25px"></div>
+                                                    `;
+                                                    orb_price.style.position = `absolute`;
+                                                    orb_price.style.right = `0px`;
+        
+                                                    if (priceOrb != 'N/A') {
+                                                        priceContainer.appendChild(orb_price);
+                                                    }
+                                                }
+    
+                                            } else {
+                                                if (product.prices && product.prices["0"] && product.prices["0"].country_prices && product.prices["0"].country_prices.prices) {
+                                                    product.prices["0"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "usd") {
+                                                            priceStandard = price.amount;
+                                                        }
+                                                    });
+                                                }
+                                        
+                                                if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
+                                                    product.prices["4"].country_prices.prices.forEach(price => {
+                                                        if (price.currency === "usd") {
+                                                            priceNitro = price.amount;
+                                                        }
+                                                    });
+                                                }
+    
+                                                if (priceTextStandard) {
+                                                    priceTextStandard.textContent = priceStandard !== "N/A" ? `US$${(priceStandard / 100).toFixed(2)}` : "null";
+                                                }
+        
+                                                if (priceTextNitro) {
+                                                    priceTextNitro.textContent = priceNitro !== "N/A" ? `US$${(priceNitro / 100).toFixed(2)} with Nitro` : "null";
+                                                }
+                                            }
+    
+                                            if (priceTextStandard.textContent === "null" || priceTextNitro.textContent === "null") {
+                                                let error_warning = document.createElement("div");
+    
+                                                error_warning.classList.add('card_error');
+                                                error_warning.innerHTML = `
+                                                    <p>ERROR</p>
+                                                `;
+                                                         
+                                                card.appendChild(error_warning);
+                                            }
+    
+                                            card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                <button class="card-button" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';" title="Open this item in the Discord Shop">Open In Shop</button>
+                                            `;
+    
+                                            if (product.premium_type === 2) {
+                                                card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                    <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
+                                                `;
+                                            }
+    
+                                            card.querySelector("[data-share-product-card-button]").innerHTML = `
+                                                <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
+                                            `;
+    
+    
+                                            const unpublishedAt = new Date(product.unpublished_at);
+                                
+                                            if (product.unpublished_at && !isNaN(unpublishedAt.getTime())) {
+                                
+                                                function updateTimer() {
+                                                    const now = new Date();
+                                                    const timeDiff = unpublishedAt - now;
+                                
+                                                    if (timeDiff <= 0) {
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">OFF SALE</p>
+                                                            </div>
+                                                        `;
+                                                        clearInterval(timerInterval);
+                                                    } else {
+                                                        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                                
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">${days} DAYS LEFT IN SHOP</p>
+                                                            </div>
+                                                        `;
+                                                    }
+                                                }
+                                
+                                                const timerInterval = setInterval(updateTimer, 1000);
+                                                updateTimer();
+                                            }
+    
+                                            const ExpiredAt = new Date(product.expires_at);
+                                
+                                            if (product.expires_at && !isNaN(ExpiredAt.getTime())) {
+                                
+                                                function updateTimer() {
+                                                    const now = new Date();
+                                                    const timeDiff = ExpiredAt - now;
+                                
+                                                    if (timeDiff <= 0) {
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">EXPIRED</p>
+                                                            </div>
+                                                        `;
+                                                        clearInterval(timerInterval);
+                                                    } else {
+                                                        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                                                        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / 1000);
+                                
+                                                        card.querySelector("[data-shop-card-tag-container]").innerHTML = `
+                                                            <div class="unplublished-tag">
+                                                                <p class="unplublished-tag-text">EXPIRES IN ${days}D ${hours}H</p>
+                                                            </div>
+                                                        `;
+                                                    }
+                                                }
+                                
+                                                const timerInterval = setInterval(updateTimer, 1000);
+                                                updateTimer();
+                                            }
+    
+                                            // Append card to output
+                                            cardOutput.append(card);
+                                        }
+                                    }
+                
+                                    categoryOutput.append(category);
+                                }
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching the API:', error);
+                        document.getElementById("everything-housing-container").innerHTML = `
+                            <div style="text-align: center; margin-top: 10px;" id="failed-to-load-shop">
+                                <img style="width: 200px;" src="https://raw.githubusercontent.com/DTACat/Collectibles/main/Images/shopuhoh.png">
+                                <h2>Well, this is awkward.</h2>
+                                <p>Hmmm, we weren&#8217;t able to load the shop. Check back later.</p>
+                                <p>${error}</p>
+                                <button class="refresh-button" onclick="location.reload();">Reload</button>
+                            </div>
+                        `;
+                    });
+    
+            }
+        }
+
+        fetchData()
+
+
+        function createMainShopElement() {
+            document.getElementById("everything-housing-container").innerHTML = `
+                <div class="shop-container" style="overflow-y: auto;">
+                    <div class="shop-category" style="margin-top: 50px;">
+                        <template data-shop-category-template>
+                            <div class="thy-shop-category-idk">
+                                <img class="shop-category-marketing-bg" src="https://cdn.yapper.shop/assets/31.png" data-shop-category-marketing-bg>
+                                <div class="shop-category-banner" data-shop-category-banner>
+                                    <div class="discordLogo_be5025" style="display: none;" data-shop-discord-watermark-container>
+                                        <div><svg class="discordIcon_be5025" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.25.67-1.9.92.35.7.75 1.35 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83ZM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27Zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27Z" class=""></path></svg><svg class="discordWordmark_be5025" aria-hidden="true" role="img" width="55" height="16" viewBox="0 0 55 16"><g fill="currentColor"><path d="M3 4.78717H6.89554C7.83025 4.78717 8.62749 4.93379 9.27812 5.22703C9.92875 5.52027 10.4144 5.92348 10.7352 6.44582C11.0559 6.96815 11.2208 7.5638 11.2208 8.24192C11.2208 8.90171 11.0559 9.49736 10.7168 10.038C10.3778 10.5695 9.8646 11.0002 9.17732 11.3118C8.49003 11.6234 7.6378 11.7791 6.6197 11.7791H3V4.78717ZM6.57388 10.0014C7.2071 10.0014 7.69278 9.84559 8.03184 9.52485C8.3709 9.21328 8.54501 8.77343 8.54501 8.23276C8.54501 7.72875 8.38923 7.32555 8.08682 7.02314C7.78442 6.72073 7.32623 6.56495 6.71225 6.56495H5.49255V10.0014H6.57388Z"></path><path d="M17.2882 11.7709C16.7475 11.6335 16.2618 11.4319 15.8311 11.1569V9.4983C16.161 9.75489 16.5917 9.95649 17.1416 10.1214C17.6914 10.2864 18.2229 10.3689 18.7361 10.3689C18.9743 10.3689 19.1576 10.3414 19.2767 10.2772C19.3959 10.2131 19.46 10.1398 19.46 10.0481C19.46 9.94733 19.4233 9.86485 19.3592 9.80071C19.2951 9.73656 19.1668 9.68158 18.9743 9.62659L17.7739 9.36084C17.0866 9.20506 16.6009 8.97596 16.3077 8.70105C16.0144 8.42613 15.877 8.05042 15.877 7.59223C15.877 7.20735 16.0053 6.86829 16.2527 6.58421C16.5093 6.30013 16.8667 6.0802 17.334 5.92442C17.8014 5.76863 18.342 5.68616 18.9743 5.68616C19.5333 5.68616 20.0465 5.74114 20.5138 5.86944C20.9812 5.98857 21.3661 6.14435 21.6685 6.32763V7.89464C21.3569 7.71136 20.9904 7.56474 20.5871 7.45477C20.1748 7.34481 19.7533 7.28982 19.3226 7.28982C18.6994 7.28982 18.3878 7.39979 18.3878 7.61056C18.3878 7.71136 18.4337 7.78467 18.5345 7.83966C18.6353 7.89464 18.8094 7.94046 19.066 7.99544L20.0648 8.17871C20.7155 8.28868 21.2011 8.49028 21.5219 8.77436C21.8426 9.05844 21.9984 9.47081 21.9984 10.0298C21.9984 10.6346 21.7326 11.1203 21.2011 11.4685C20.6696 11.8259 19.9182 12 18.9468 12C18.3787 11.9817 17.8289 11.9084 17.2882 11.7709Z"></path><path d="M24.4735 11.5602C23.9054 11.2761 23.4655 10.9004 23.1814 10.4239C22.8882 9.94733 22.7507 9.40666 22.7507 8.80185C22.7507 8.20621 22.8974 7.66554 23.1998 7.19819C23.5022 6.72167 23.942 6.35512 24.5194 6.0802C25.0967 5.81445 25.7931 5.677 26.5995 5.677C27.5984 5.677 28.4231 5.88776 29.0829 6.3093V8.1329C28.8538 7.97712 28.5789 7.83965 28.2673 7.74802C27.9558 7.64721 27.6259 7.6014 27.2777 7.6014C26.6545 7.6014 26.178 7.71137 25.8206 7.94046C25.4724 8.16956 25.2983 8.46279 25.2983 8.82934C25.2983 9.18673 25.4632 9.47998 25.8115 9.70907C26.1505 9.93817 26.6453 10.0573 27.2868 10.0573C27.6167 10.0573 27.9466 10.0115 28.2673 9.91067C28.5881 9.80987 28.8722 9.69991 29.1013 9.55329V11.3219C28.3681 11.7618 27.5159 11.9817 26.5537 11.9817C25.7381 11.9817 25.0509 11.8351 24.4735 11.5602Z"></path><path d="M31.6955 11.5602C31.1182 11.2761 30.6783 10.9004 30.3759 10.4147C30.0735 9.929 29.9177 9.38834 29.9177 8.78353C29.9177 8.18788 30.0735 7.64722 30.3759 7.17986C30.6783 6.71251 31.1182 6.34595 31.6863 6.0802C32.2545 5.81445 32.9418 5.677 33.7299 5.677C34.518 5.677 35.2053 5.80529 35.7743 6.0802C36.3425 6.34595 36.7824 6.71251 37.0848 7.17986C37.3872 7.64722 37.5338 8.17872 37.5338 8.78353C37.5338 9.37918 37.3872 9.929 37.0848 10.4147C36.7824 10.9004 36.3517 11.2852 35.7743 11.5602C35.1961 11.8351 34.518 11.9817 33.7299 11.9817C32.951 11.9817 32.2728 11.8351 31.6955 11.5602ZM34.7287 9.79155C34.967 9.55329 35.0953 9.22339 35.0953 8.82934C35.0953 8.42614 34.9762 8.11457 34.7287 7.87632C34.4813 7.63806 34.1514 7.51892 33.7391 7.51892C33.3084 7.51892 32.9785 7.63806 32.731 7.87632C32.4928 8.11457 32.3645 8.42614 32.3645 8.82934C32.3645 9.23255 32.4836 9.55329 32.731 9.79155C32.9785 10.039 33.3084 10.1581 33.7391 10.1581C34.1514 10.1489 34.4905 10.0298 34.7287 9.79155Z"></path><path d="M43.6644 6.0435V8.19699C43.4078 8.03204 43.0779 7.94956 42.6747 7.94956C42.1432 7.94956 41.7308 8.11451 41.4467 8.43524C41.1626 8.75598 41.016 9.25999 41.016 9.93811V11.7709H38.5693V5.9427H40.9702V7.80295C41.0985 7.12482 41.3184 6.62082 41.6117 6.30008C41.9049 5.97935 42.2898 5.80524 42.7572 5.80524C43.1054 5.80524 43.4078 5.88771 43.6644 6.0435Z"></path><path d="M51.9136 4.58649V11.7801H49.4659V10.4696C49.2552 10.9645 48.9436 11.3402 48.5221 11.5968C48.1005 11.8534 47.5782 11.9817 46.9551 11.9817C46.4052 11.9817 45.9195 11.8442 45.5072 11.5785C45.0948 11.3127 44.7741 10.937 44.5542 10.4696C44.3342 9.99313 44.2242 9.46163 44.2242 8.87514C44.2151 8.26117 44.3342 7.71134 44.5816 7.22566C44.8199 6.73998 45.1681 6.36426 45.608 6.08935C46.0479 5.81444 46.5519 5.67698 47.12 5.67698C48.2838 5.67698 49.0627 6.18099 49.4659 7.19817V4.58649H51.9136ZM49.0994 9.7457C49.3468 9.50744 49.4751 9.18671 49.4751 8.80183C49.4751 8.42612 49.356 8.12371 49.1086 7.89462C48.8611 7.66552 48.5312 7.5464 48.1189 7.5464C47.7065 7.5464 47.3766 7.66553 47.1292 7.90378C46.8818 8.14204 46.7626 8.44444 46.7626 8.82932C46.7626 9.2142 46.8818 9.51661 47.1292 9.75487C47.3766 9.99313 47.6973 10.1123 48.1097 10.1123C48.5221 10.1123 48.852 9.99313 49.0994 9.7457Z"></path><path d="M13.4751 6.29095C14.1789 6.29095 14.7489 5.77778 14.7489 5.14547C14.7489 4.51317 14.1789 4 13.4751 4C12.7723 4 12.2014 4.51317 12.2014 5.14547C12.2014 5.77778 12.7723 6.29095 13.4751 6.29095Z"></path><path d="M14.7489 7.07812C13.97 7.41719 12.9986 7.42635 12.2014 7.07812V11.7792H14.7489V7.07812Z"></path></g></svg></div>
+                                    </div>
+                                    <div id="home-page-preview-banner-container" data-shop-banner-banner-container>
+                                        <img class="shop-category-banner-img" src="" data-shop-category-banner-image>
+                                    </div>
+                                    <div class="shop-category-logo-holder" style="display: none;" data-shop-category-logo-holder>
+                                        <img class="shop-category-banner-logo" src="" id="shop-banner-logo" data-shop-category-logo-image>
+                                    </div>
+                                    <div class="shop-category-text-holder">
+                                        <p style="font-size: 18px;" data-shop-category-desc></p>
+                                    </div>
+                                    <!-- Timer Display -->
+                                    <div class="shop-expiry-timer" style="display: none;">
+                                        <p class="shop-expiry-timer-timer" id="shop-expiry-timer"></p>
+                                    </div>
+                                    <div class="shop-card-tag-container" data-shop-card-tag-container>
+                                    </div>
+                                </div>
+                                <div class="shop-category-card-holder" id="shop-category-card-holder" data-shop-category-card-holder>
+                                </div>
+                            </div>
+                        </template>
+                        <template data-shop-item-card-template>
+                            <div class="shop-category-card">
+                                <div data-shop-card-preview-holder>
+                                </div>
+                                <div class="card-bottom">
+                                    <div title="Copy Link" data-share-product-card-button></div>
+                                    <a class="item-credits" data-product-card-sku-id>Failed To Load Item</a>
+                                    <h3 data-product-card-name>Failed To Load Item</h3>
+                                    <p class="shop-card-summary" data-product-card-summary>Failed To Load Item</p>
+                                    <div class="shop-price-container" data-shop-price-container>
+                                        <div data-price-standard-container>
+                                            <a style="font-size: large; font-weight: 900;" data-price-standard></a>
+                                        </div>
+                                        <div data-price-nitro-container>
+                                            <a data-price-nitro></a>
+                                        </div>
+                                    </div>
+                                    <div class="shop-card-var-container" data-shop-card-var-container>
+                                    </div>
+                                    <a class="shop-card-var-title" data-shop-card-var-title></a>
+                                </div>
+                                <div class="card-button-container"data-product-card-open-in-shop>
+                                    <button class="card-button" title="Open this item in the Discord Shop">Open In Shop</button>
+                                </div>
+                                <div class="shop-card-tag-container" data-shop-card-tag-container>
+                                </div>
+                            </div>
+                        </template>
+                        <template data-shop-varcolorblock-template>
+                            <div data-shop-card-var></div>
+                        </template>
+                        <div data-shop-output>
+                        </div>
+                        <div id="shop-category-loading-container">
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+
+
+    }
+} else if (localStorage.full_client_rework != "false") {
 
     sessionStorage.setItem('api-token', 'token');
 
@@ -134,7 +2372,8 @@ if (localStorage.full_client_rework != "false") {
             COLLECTIBLES_SHOP_HOME = "/collectibles-shop-home",
             NEW_ITEMS = "/new-items",
             ORBS_SHOP = "/orbs-shop",
-            ORBS_SHOP_DEFAULT = "/orbs-shop-default"
+            ORBS_SHOP_DEFAULT = "/orbs-shop-default",
+            HEARTBEAT_DATA = "/heartbeat-data"
         ]
     } else {
         endpoints = [
@@ -216,7 +2455,9 @@ if (localStorage.full_client_rework != "false") {
         RADIATE = "1336483992429658112",
         VALENTINES = "1333866045521395723",
         ORB = "1332505418219655258",
-        ANIME_V3 = "1341506445249609728"
+        ANIME_V3 = "1341506445249609728",
+        INSOMNIA = "1343751621364027462",
+        NAMEPLATE_TEST = "1344802365307621427"
     ]
 
     category_types = [
@@ -235,6 +2476,45 @@ if (localStorage.full_client_rework != "false") {
         VARIANTS_GROUP = 2e3,
         EXTERNAL_SKU = 3e3
     ]
+
+    const nameplate_palettes = {
+        crimson: {
+            "darkBackground": "#900007",
+            "lightBackground": "#E7040F"
+        },
+        berry: {
+            "darkBackground": "#893A99",
+            "lightBackground": "#B11FCF"
+        },
+        sky: {
+            "darkBackground": "#0080B7",
+            "lightBackground": "#56CCFF"
+        },
+        teal: {
+            "darkBackground": "#086460",
+            "lightBackground": "#7DEED7"
+        },
+        forest: {
+            "darkBackground": "#2D5401",
+            "lightBackground": "#6AA624"
+        },
+        bubble_gum: {
+            "darkBackground": "#DC3E97",
+            "lightBackground": "#F957B3"
+        },
+        violet: {
+            "darkBackground": "#730BC8",
+            "lightBackground": "#972FED"
+        },
+        cobalt: {
+            "darkBackground": "#0131C2",
+            "lightBackground": "#4278FF"
+        },
+        clover: {
+            "darkBackground": "#047B20",
+            "lightBackground": "#63CD5A"
+        }
+    }
 
 
     HELP_AVATAR_DECORATIONS = "13410113109911"
@@ -454,9 +2734,12 @@ if (localStorage.full_client_rework != "false") {
                                                     <p style="font-size: large; font-weight: 900;" data-product-modal-name></p>
                                                     <p style="color: var(--8)" data-product-modal-summary></p>
                                                     <p style="font-size: large; font-weight: 900;">Number of items in category: ${apiCategory.products.length}</p>
-                                                    <p style="font-size: large; font-weight: 900;">Assets:</p>
-                                                    <div class="shop-category-modal-assets-container" data-shop-category-modal-assets-container>
-                                                    </div>
+                                                    <details>
+                                                        <summary class="clickable" style="font-size: large; font-weight: 900;">Assets</summary>
+                                                        <div class="shop-category-modal-assets-container" data-shop-category-modal-assets-container></div>
+                                                    </details>
+                                                    <p style="font-size: large; font-weight: 900;" data-shop-modal-review-title></p>
+                                                    <div class="shop-modal-review-container" data-shop-modal-review-container></div>
                                                 </div>
                                                 <div class="shop-modal-tag-container" data-shop-card-tag-container></div>
                                                 <div data-modal-top-product-buttons>
@@ -468,6 +2751,93 @@ if (localStorage.full_client_rework != "false") {
                                                 </div>
                                             </div>
                                         `;
+
+                                        if (localStorage.experiment_2025_03_item_reviews === "Treatment 1: Enabled") {
+                                            fetch(`https://shop-archives-api.vercel.app/api/reviews?sku_id=${apiCategory.sku_id}`, {
+                                                method: "GET",
+                                                headers: {
+                                                    "Password": api_password,
+                                                    "Token": api_token
+                                                }
+                                            }) // Replace with your API URL
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                modal.querySelector("[data-shop-modal-review-title]").textContent = "Reviews (Beta):";
+                                                if (data.message) {
+                                                    const reviewContainer = modal.querySelector("[data-shop-modal-review-container]");
+                                                    let reviewElement = document.createElement("div");
+    
+                                                    reviewElement.classList.add("review-element");
+                                                    if (data.message === "Unknown SKU") {
+            
+                                                        reviewElement.innerHTML = `
+                                                            <p style="font-size: large; font-weight: 900;">No reviews yet.</p>
+                                                            <p style="color: var(--8)">Be the first to review this item!</p>
+                                                        `;
+                                                    } else if (data.message === "Missing Access") {
+                                                        
+                                                        reviewElement.innerHTML = `
+                                                            <p style="font-size: large; font-weight: 900;">Missing Access</p>
+                                                            <p style="color: var(--8)">You do not have permission to see the reviews of this item!</p>
+                                                        `;
+                                                    } else {
+                                                        
+                                                        reviewElement.innerHTML = `
+                                                            <p style="font-size: large; font-weight: 900;">Error</p>
+                                                            <p style="color: var(--8)">Check console for more details</p>
+                                                        `;
+                                                    }
+                                                    reviewContainer.appendChild(reviewElement);
+                                                } else {
+                                                    renderReviews(data)
+                                                }
+                                                
+                                            })
+                                            .catch(error => console.error('Error fetching data:', error));
+    
+                                            function renderReviews(datareview) {
+                                                const reviewContainer = modal.querySelector("[data-shop-modal-review-container]");
+                                                datareview.forEach(review => {
+                                                    let reviewElement = document.createElement("div");
+    
+                                                    reviewElement.classList.add("review-element");
+        
+                                                    reviewElement.innerHTML = `
+                                                        <p style="font-size: large; font-weight: 900;">${review.reviewer}</p>
+                                                        <div class="shop-modal-review-star-container" data-shop-modal-review-star-container></div>
+                                                        <p style="color: var(--8)">${review.review}</p>
+                                                    `;
+        
+                                                    if (review.stars === "5") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzIxKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iI0ZGRUMzRSIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzIxIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "4") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzMyKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iI0ZGRUMzRSIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzMyIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "3") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzM5KSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iI0ZGRUMzRSIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzM5Ij4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "2") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzQ2KSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iIzU3NTc1NyIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzQ2Ij4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "1") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzUzKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iIzU3NTc1NyIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzUzIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "0") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMyXzYwKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iIzU3NTc1NyIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMyXzYwIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    }
+        
+                                                    reviewContainer.appendChild(reviewElement);
+                                                });
+                                            }
+                                        }
 
                                         const asset_container = modal.querySelector("[data-shop-category-modal-assets-container]");
 
@@ -875,6 +3245,7 @@ if (localStorage.full_client_rework != "false") {
                                                     <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                 </div>
                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                    <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
                                                     <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                     <p class="nameplate-user-name">${previewName}</p>
                                                 </div>
@@ -888,22 +3259,29 @@ if (localStorage.full_client_rework != "false") {
                                                 </div>
                                             `;
 
-                                            const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                            product.items.forEach(item => {
+                                                const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                const paletteName = item.palette;
+                                                const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                const bgcolor = nameplate_palettes[paletteName].darkBackground;
 
-                                            nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
-                                            nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
 
-                                            const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
-
-                                            nullUserNameRandomWidth.forEach(UserName => {
-                                                const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
-                                                UserName.style.width = randomWidth + `px`;
-                                            });
-
-                                            const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
-
-                                            nullUserAvatar.forEach(UserAvatar => {
-                                                UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                
+                                                const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+                                                
+                                                nullUserNameRandomWidth.forEach(UserName => {
+                                                    const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                    UserName.style.width = randomWidth + `px`;
+                                                });
+                                            
+                                                const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+                                            
+                                                nullUserAvatar.forEach(UserAvatar => {
+                                                    UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                });
                                             });
                                             
                                         } else if (product.type === BUNDLE) {
@@ -1506,15 +3884,15 @@ if (localStorage.full_client_rework != "false") {
                                                             }
                                                         }
                                                     } else if (product.type === NAMEPLATE) {
-                                                        modal.classList.add('modal-2');
-        
+                                                        card.classList.add("modal-2");
+            
                                                         modal.querySelector("[data-product-modal-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
                                                         modal.querySelector("[data-product-modal-name]").textContent = product.name;
                                                         modal.querySelector("[data-product-modal-summary]").textContent = product.summary;
-
+            
                                                         const previewHolder = modal.querySelector("[data-modal-preview-holder]");
                                                         previewHolder.classList.add('nameplate-modal-preview');
-
+            
                                                         if (localStorage.discord_username && localStorage.discord_username != '') {
                                                             previewName = localStorage.discord_username;
                                                         } else {
@@ -1531,6 +3909,7 @@ if (localStorage.full_client_rework != "false") {
                                                                 <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                             </div>
                                                             <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                                <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
                                                                 <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                                 <p class="nameplate-user-name">${previewName}</p>
                                                             </div>
@@ -1543,25 +3922,31 @@ if (localStorage.full_client_rework != "false") {
                                                                 <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                             </div>
                                                         `;
-
-                                                        const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
-
-                                                        nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
-                                                        nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
-
-                                                        const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
-
-                                                        nullUserNameRandomWidth.forEach(UserName => {
-                                                            const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
-                                                            UserName.style.width = randomWidth + `px`;
+            
+                                                        product.items.forEach(item => {
+                                                            const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                            const paletteName = item.palette;
+                                                            const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                            const bgcolor = nameplate_palettes[paletteName].darkBackground;
+            
+                                                            previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
+            
+                                                            nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                            // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                            
+                                                            const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+                                                            
+                                                            nullUserNameRandomWidth.forEach(UserName => {
+                                                                const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                                UserName.style.width = randomWidth + `px`;
+                                                            });
+                                                        
+                                                            const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+                                                        
+                                                            nullUserAvatar.forEach(UserAvatar => {
+                                                                UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                            });
                                                         });
-
-                                                        const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
-
-                                                        nullUserAvatar.forEach(UserAvatar => {
-                                                            UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
-                                                        });
-
                                                         
                                                     } else if (product.type === BUNDLE) {
                                                         modal.classList.add('modal-1000');
@@ -3440,9 +5825,12 @@ if (localStorage.full_client_rework != "false") {
                                                     <p style="font-size: large; font-weight: 900;" data-product-modal-name></p>
                                                     <p style="color: var(--8)" data-product-modal-summary></p>
                                                     <p style="font-size: large; font-weight: 900;">Number of items in category: ${apiCategory.products.length}</p>
-                                                    <p style="font-size: large; font-weight: 900;">Assets:</p>
-                                                    <div class="shop-category-modal-assets-container" data-shop-category-modal-assets-container>
-                                                    </div>
+                                                    <details>
+                                                        <summary class="clickable" style="font-size: large; font-weight: 900;">Assets</summary>
+                                                        <div class="shop-category-modal-assets-container" data-shop-category-modal-assets-container></div>
+                                                    </details>
+                                                    <p style="font-size: large; font-weight: 900;" data-shop-modal-review-title></p>
+                                                    <div class="shop-modal-review-container" data-shop-modal-review-container></div>
                                                 </div>
                                                 <div class="shop-modal-tag-container" data-shop-card-tag-container></div>
                                                 <div data-modal-top-product-buttons>
@@ -3454,6 +5842,94 @@ if (localStorage.full_client_rework != "false") {
                                                 </div>
                                             </div>
                                         `;
+
+                                        if (localStorage.experiment_2025_03_item_reviews === "Treatment 1: Enabled") {
+                                            fetch(`https://shop-archives-api.vercel.app/api/reviews?sku_id=${apiCategory.sku_id}`, {
+                                                method: "GET",
+                                                headers: {
+                                                    "Password": api_password,
+                                                    "Token": api_token
+                                                }
+                                            }) // Replace with your API URL
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                modal.querySelector("[data-shop-modal-review-title]").textContent = "Reviews (Beta):";
+                                                if (data.message) {
+                                                    const reviewContainer = modal.querySelector("[data-shop-modal-review-container]");
+                                                    let reviewElement = document.createElement("div");
+    
+                                                    reviewElement.classList.add("review-element");
+                                                    if (data.message === "Unknown SKU") {
+            
+                                                        reviewElement.innerHTML = `
+                                                            <p style="font-size: large; font-weight: 900;">No reviews yet.</p>
+                                                            <p style="color: var(--8)">Be the first to review this item!</p>
+                                                        `;
+                                                    } else if (data.message === "Missing Access") {
+                                                        
+                                                        reviewElement.innerHTML = `
+                                                            <p style="font-size: large; font-weight: 900;">Missing Access</p>
+                                                            <p style="color: var(--8)">You do not have permission to see the reviews of this item!</p>
+                                                        `;
+                                                    } else {
+                                                        
+                                                        reviewElement.innerHTML = `
+                                                            <p style="font-size: large; font-weight: 900;">Error</p>
+                                                            <p style="color: var(--8)">Check console for more details</p>
+                                                        `;
+                                                    }
+                                                    reviewContainer.appendChild(reviewElement);
+                                                } else {
+                                                    renderReviews(data)
+                                                }
+                                                
+                                            })
+                                            .catch(error => console.error('Error fetching data:', error));
+    
+                                            function renderReviews(datareview) {
+                                                const reviewContainer = modal.querySelector("[data-shop-modal-review-container]");
+                                                datareview.forEach(review => {
+                                                    let reviewElement = document.createElement("div");
+    
+                                                    reviewElement.classList.add("review-element");
+        
+                                                    reviewElement.innerHTML = `
+                                                        <p style="font-size: large; font-weight: 900;">${review.reviewer}</p>
+                                                        <div class="shop-modal-review-star-container" data-shop-modal-review-star-container></div>
+                                                        <p style="color: var(--8)">${review.review}</p>
+                                                    `;
+        
+                                                    if (review.stars === "5") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzIxKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iI0ZGRUMzRSIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzIxIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "4") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzMyKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iI0ZGRUMzRSIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzMyIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "3") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzM5KSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iI0ZGRUMzRSIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzM5Ij4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "2") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzQ2KSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjRkZFQzNFIi8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iIzU3NTc1NyIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzQ2Ij4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "1") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMxXzUzKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiNGRkVDM0UiLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iIzU3NTc1NyIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMxXzUzIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    } else if (review.stars === "0") {
+                                                        reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
+                                                            <img class="shop-modal-review-stars-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTIwIDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMTMyXzYwKSI+CjxwYXRoIGQ9Ik0xMiAwTDE0LjY5NDIgOC4yOTE4SDIzLjQxMjdMMTYuMzU5MyAxMy40MTY0TDE5LjA1MzQgMjEuNzA4MkwxMiAxNi41ODM2TDQuOTQ2NTggMjEuNzA4Mkw3LjY0MDc0IDEzLjQxNjRMMC41ODczMjIgOC4yOTE4SDkuMzA1ODNMMTIgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTM2IDBMMzguNjk0MiA4LjI5MThINDcuNDEyN0w0MC4zNTkzIDEzLjQxNjRMNDMuMDUzNCAyMS43MDgyTDM2IDE2LjU4MzZMMjguOTQ2NiAyMS43MDgyTDMxLjY0MDcgMTMuNDE2NEwyNC41ODczIDguMjkxOEgzMy4zMDU4TDM2IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjxwYXRoIGQ9Ik02MCAwTDYyLjY5NDIgOC4yOTE4SDcxLjQxMjdMNjQuMzU5MyAxMy40MTY0TDY3LjA1MzQgMjEuNzA4Mkw2MCAxNi41ODM2TDUyLjk0NjYgMjEuNzA4Mkw1NS42NDA3IDEzLjQxNjRMNDguNTg3MyA4LjI5MThINTcuMzA1OEw2MCAwWiIgZmlsbD0iIzU3NTc1NyIvPgo8cGF0aCBkPSJNODQgMEw4Ni42OTQyIDguMjkxOEg5NS40MTI3TDg4LjM1OTMgMTMuNDE2NEw5MS4wNTM0IDIxLjcwODJMODQgMTYuNTgzNkw3Ni45NDY2IDIxLjcwODJMNzkuNjQwNyAxMy40MTY0TDcyLjU4NzMgOC4yOTE4SDgxLjMwNThMODQgMFoiIGZpbGw9IiM1NzU3NTciLz4KPHBhdGggZD0iTTEwOCAwTDExMC42OTQgOC4yOTE4SDExOS40MTNMMTEyLjM1OSAxMy40MTY0TDExNS4wNTMgMjEuNzA4MkwxMDggMTYuNTgzNkwxMDAuOTQ3IDIxLjcwODJMMTAzLjY0MSAxMy40MTY0TDk2LjU4NzMgOC4yOTE4SDEwNS4zMDZMMTA4IDBaIiBmaWxsPSIjNTc1NzU3Ii8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMTMyXzYwIj4KPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K"></img>
+                                                        `;
+                                                    }
+        
+                                                    reviewContainer.appendChild(reviewElement);
+                                                });
+                                            }
+                                        }
+
 
                                         const asset_container = modal.querySelector("[data-shop-category-modal-assets-container]");
 
@@ -3946,6 +6422,7 @@ if (localStorage.full_client_rework != "false") {
                                                     <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                 </div>
                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                    <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
                                                     <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                     <p class="nameplate-user-name">${previewName}</p>
                                                 </div>
@@ -3959,22 +6436,29 @@ if (localStorage.full_client_rework != "false") {
                                                 </div>
                                             `;
 
-                                            const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                            product.items.forEach(item => {
+                                                const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                const paletteName = item.palette;
+                                                const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                const bgcolor = nameplate_palettes[paletteName].darkBackground;
 
-                                            nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
-                                            nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
 
-                                            const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
-
-                                            nullUserNameRandomWidth.forEach(UserName => {
-                                                const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
-                                                UserName.style.width = randomWidth + `px`;
-                                            });
-
-                                            const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
-
-                                            nullUserAvatar.forEach(UserAvatar => {
-                                                UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                
+                                                const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+                                                
+                                                nullUserNameRandomWidth.forEach(UserName => {
+                                                    const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                    UserName.style.width = randomWidth + `px`;
+                                                });
+                                            
+                                                const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+                                            
+                                                nullUserAvatar.forEach(UserAvatar => {
+                                                    UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                });
                                             });
                                             
                                         } else if (product.type === BUNDLE) {
@@ -4716,15 +7200,15 @@ if (localStorage.full_client_rework != "false") {
                                                             }
                                                         }
                                                     } else if (product.type === NAMEPLATE) {
-                                                        modal.classList.add('modal-2');
-        
+                                                        card.classList.add("modal-2");
+            
                                                         modal.querySelector("[data-product-modal-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
                                                         modal.querySelector("[data-product-modal-name]").textContent = product.name;
                                                         modal.querySelector("[data-product-modal-summary]").textContent = product.summary;
-
+            
                                                         const previewHolder = modal.querySelector("[data-modal-preview-holder]");
                                                         previewHolder.classList.add('nameplate-modal-preview');
-
+            
                                                         if (localStorage.discord_username && localStorage.discord_username != '') {
                                                             previewName = localStorage.discord_username;
                                                         } else {
@@ -4741,6 +7225,7 @@ if (localStorage.full_client_rework != "false") {
                                                                 <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                             </div>
                                                             <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                                <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
                                                                 <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                                 <p class="nameplate-user-name">${previewName}</p>
                                                             </div>
@@ -4753,25 +7238,31 @@ if (localStorage.full_client_rework != "false") {
                                                                 <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                             </div>
                                                         `;
-
-                                                        const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
-
-                                                        nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
-                                                        nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
-
-                                                        const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
-
-                                                        nullUserNameRandomWidth.forEach(UserName => {
-                                                            const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
-                                                            UserName.style.width = randomWidth + `px`;
+            
+                                                        product.items.forEach(item => {
+                                                            const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                            const paletteName = item.palette;
+                                                            const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                            const bgcolor = nameplate_palettes[paletteName].darkBackground;
+            
+                                                            previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
+            
+                                                            nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                            // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                            
+                                                            const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+                                                            
+                                                            nullUserNameRandomWidth.forEach(UserName => {
+                                                                const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                                UserName.style.width = randomWidth + `px`;
+                                                            });
+                                                        
+                                                            const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+                                                        
+                                                            nullUserAvatar.forEach(UserAvatar => {
+                                                                UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                            });
                                                         });
-
-                                                        const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
-
-                                                        nullUserAvatar.forEach(UserAvatar => {
-                                                            UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
-                                                        });
-
                                                         
                                                     } else if (product.type === BUNDLE) {
                                                         modal.classList.add('modal-1000');
@@ -5992,6 +8483,7 @@ if (localStorage.full_client_rework != "false") {
                                                         <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                     </div>
                                                     <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                        <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
                                                         <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                         <p class="nameplate-user-name">${previewName}</p>
                                                     </div>
@@ -6005,22 +8497,29 @@ if (localStorage.full_client_rework != "false") {
                                                     </div>
                                                 `;
     
-                                                const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                product.items.forEach(item => {
+                                                    const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                    const paletteName = item.palette;
+                                                    const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                    const bgcolor = nameplate_palettes[paletteName].darkBackground;
     
-                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
-                                                nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                    previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
     
-                                                const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
-    
-                                                nullUserNameRandomWidth.forEach(UserName => {
-                                                    const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
-                                                    UserName.style.width = randomWidth + `px`;
-                                                });
-    
-                                                const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
-    
-                                                nullUserAvatar.forEach(UserAvatar => {
-                                                    UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                    nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                    // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                    
+                                                    const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+                                                    
+                                                    nullUserNameRandomWidth.forEach(UserName => {
+                                                        const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                        UserName.style.width = randomWidth + `px`;
+                                                    });
+                                                
+                                                    const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+                                                
+                                                    nullUserAvatar.forEach(UserAvatar => {
+                                                        UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                    });
                                                 });
                                                 
                                             } else if (product.type === BUNDLE) {
@@ -6761,15 +9260,15 @@ if (localStorage.full_client_rework != "false") {
                                                                 }
                                                             }
                                                         } else if (product.type === NAMEPLATE) {
-                                                            modal.classList.add('modal-2');
-            
+                                                            card.classList.add("modal-2");
+                
                                                             modal.querySelector("[data-product-modal-sku-id]").textContent = `SKU ID: ${product.sku_id}`;
                                                             modal.querySelector("[data-product-modal-name]").textContent = product.name;
                                                             modal.querySelector("[data-product-modal-summary]").textContent = product.summary;
-    
+                
                                                             const previewHolder = modal.querySelector("[data-modal-preview-holder]");
                                                             previewHolder.classList.add('nameplate-modal-preview');
-    
+                
                                                             if (localStorage.discord_username && localStorage.discord_username != '') {
                                                                 previewName = localStorage.discord_username;
                                                             } else {
@@ -6786,6 +9285,7 @@ if (localStorage.full_client_rework != "false") {
                                                                     <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                                 </div>
                                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                                    <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
                                                                     <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                                     <p class="nameplate-user-name">${previewName}</p>
                                                                 </div>
@@ -6798,25 +9298,31 @@ if (localStorage.full_client_rework != "false") {
                                                                     <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                                 </div>
                                                             `;
-    
-                                                            const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
-    
-                                                            nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
-                                                            nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
-    
-                                                            const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
-    
-                                                            nullUserNameRandomWidth.forEach(UserName => {
-                                                                const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
-                                                                UserName.style.width = randomWidth + `px`;
+                
+                                                            product.items.forEach(item => {
+                                                                const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                                const paletteName = item.palette;
+                                                                const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                                const bgcolor = nameplate_palettes[paletteName].darkBackground;
+                
+                                                                previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
+                
+                                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                                // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                                
+                                                                const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+                                                                
+                                                                nullUserNameRandomWidth.forEach(UserName => {
+                                                                    const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                                    UserName.style.width = randomWidth + `px`;
+                                                                });
+                                                            
+                                                                const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+                                                            
+                                                                nullUserAvatar.forEach(UserAvatar => {
+                                                                    UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                                });
                                                             });
-    
-                                                            const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
-    
-                                                            nullUserAvatar.forEach(UserAvatar => {
-                                                                UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
-                                                            });
-    
                                                             
                                                         } else if (product.type === BUNDLE) {
                                                             modal.classList.add('modal-1000');
@@ -11939,6 +14445,22 @@ if (localStorage.full_client_rework != "false") {
                     </div>
 
                     <div class="options-option-card">
+                        <p class="option-card-title">Item Reviews</p>
+                        <p class="new-experiment-subtext">2025_03_item_reviews</p>
+                        <select id="experiment_2025_03_item_reviews_treatment_container" class="experiment-treatment-picker">
+                        </select>
+                        <button class="new-experiment-clear-button" onclick="experiment_2025_03_item_reviews_clear()">Clear</button>
+                    </div>
+
+                    <div class="options-option-card">
+                        <p class="option-card-title">Heartbeat</p>
+                        <p class="new-experiment-subtext">2025_03_heartbeat</p>
+                        <select id="experiment_2025_03_heartbeat_treatment_container" class="experiment-treatment-picker">
+                        </select>
+                        <button class="new-experiment-clear-button" onclick="experiment_2025_03_heartbeat_clear()">Clear</button>
+                    </div>
+
+                    <div class="options-option-card">
                         <p class="option-card-title">Fetch From Vercel Endpoints</p>
                         <p class="new-experiment-subtext">2025_02_fetch_from_vercel_endpoits</p>
                         <select id="experiment_2025_02_fetch_from_vercel_endpoits_treatment_container" class="experiment-treatment-picker">
@@ -12038,6 +14560,69 @@ if (localStorage.full_client_rework != "false") {
 
                 if (localStorage.experiment_force_rollout == "false") {
                     document.getElementById("experiment-force-rollout").checked = true;
+                }
+
+
+                try {
+                    const experiment_2025_03_item_reviews_treatments = ["Treatment -1: Disabled", "Treatment 1: Enabled"];
+
+                    const experiment_2025_03_item_reviews_treatment_picker = document.getElementById("experiment_2025_03_item_reviews_treatment_container");
+                    
+
+                    populate_experiment_2025_03_item_reviews();
+                    
+                    const storedTreatment = localStorage.getItem("experiment_2025_03_item_reviews");
+                    if (storedTreatment) {
+                        experiment_2025_03_item_reviews_treatment_picker.value = storedTreatment;
+                    }
+
+                    function populate_experiment_2025_03_item_reviews() {
+                        experiment_2025_03_item_reviews_treatments.forEach((treatments) => {
+                            const optElement = document.createElement("option");
+                            optElement.value = treatments;
+                            optElement.textContent = treatments;
+                            experiment_2025_03_item_reviews_treatment_picker.appendChild(optElement);
+                        });
+                    }
+
+                    experiment_2025_03_item_reviews_treatment_picker.addEventListener("change", () => {
+                        const selectedTreatment = experiment_2025_03_item_reviews_treatment_picker.value;
+                    
+                        // Store the selection
+                        localStorage.setItem("experiment_2025_03_item_reviews", selectedTreatment);
+                    });
+                } catch(error) {
+                }
+
+                try {
+                    const experiment_2025_03_heartbeat_treatments = ["Treatment -1: Disabled", "Treatment 1: Fetch once on startup", "Treatment 2: Fetch every 60 seconds"];
+
+                    const experiment_2025_03_heartbeat_treatment_picker = document.getElementById("experiment_2025_03_heartbeat_treatment_container");
+                    
+
+                    populate_experiment_2025_03_heartbeat();
+                    
+                    const storedTreatment = localStorage.getItem("experiment_2025_03_heartbeat");
+                    if (storedTreatment) {
+                        experiment_2025_03_heartbeat_treatment_picker.value = storedTreatment;
+                    }
+
+                    function populate_experiment_2025_03_heartbeat() {
+                        experiment_2025_03_heartbeat_treatments.forEach((treatments) => {
+                            const optElement = document.createElement("option");
+                            optElement.value = treatments;
+                            optElement.textContent = treatments;
+                            experiment_2025_03_heartbeat_treatment_picker.appendChild(optElement);
+                        });
+                    }
+
+                    experiment_2025_03_heartbeat_treatment_picker.addEventListener("change", () => {
+                        const selectedTreatment = experiment_2025_03_heartbeat_treatment_picker.value;
+                    
+                        // Store the selection
+                        localStorage.setItem("experiment_2025_03_heartbeat", selectedTreatment);
+                    });
+                } catch(error) {
                 }
 
                 try {
@@ -12504,6 +15089,8 @@ if (localStorage.full_client_rework != "false") {
     }
 
     if (localStorage.experiment_force_rollout != "false") {
+        localStorage.experiment_2025_03_item_reviews = EXPERIMENT_ID_21;
+        localStorage.experiment_2025_03_heartbeat = EXPERIMENT_ID_20;
         localStorage.experiment_2025_02_fetch_from_vercel_endpoits = EXPERIMENT_ID_19;
         localStorage.experiment_2025_02_extra_options = EXPERIMENT_ID_18;
         localStorage.experiment_2025_02_profiles_plus_home = EXPERIMENT_ID_17;
@@ -12518,6 +15105,14 @@ if (localStorage.full_client_rework != "false") {
         localStorage.experiment_2024_11_collectibles_variants = EXPERIMENT_ID_8;
         localStorage.experiment_2024_11_recap = EXPERIMENT_ID_7;
     } else {
+
+        if (localStorage.experiment_2025_03_item_reviews == null) {
+            localStorage.experiment_2025_02_2025_03_item_reviews = EXPERIMENT_ID_21;
+        }
+
+        if (localStorage.experiment_2025_03_heartbeat == null) {
+            localStorage.experiment_2025_02_2025_03_heartbeat = EXPERIMENT_ID_20;
+        }
 
         if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits == null) {
             localStorage.experiment_2025_02_fetch_from_vercel_endpoits = EXPERIMENT_ID_19;
@@ -12571,6 +15166,16 @@ if (localStorage.full_client_rework != "false") {
             localStorage.experiment_2024_11_recap = EXPERIMENT_ID_7;
         }
     }
+
+    function experiment_2025_03_item_reviews_clear() {
+        localStorage.experiment_2025_03_item_reviews = EXPERIMENT_ID_21;
+        document.getElementById("experiment_2025_03_item_reviews_treatment_container").value = EXPERIMENT_ID_21;
+    };
+
+    function experiment_2025_03_heartbeat_clear() {
+        localStorage.experiment_2025_03_heartbeat = EXPERIMENT_ID_20;
+        document.getElementById("experiment_2025_03_heartbeat_treatment_container").value = EXPERIMENT_ID_20;
+    };
 
     function experiment_2025_02_fetch_from_vercel_endpoits_clear() {
         localStorage.experiment_2025_02_fetch_from_vercel_endpoits = EXPERIMENT_ID_19;
@@ -13058,14 +15663,6 @@ if (localStorage.full_client_rework != "false") {
                 </div>
             </div>
         `;
-    }
-    
-    if (localStorage.experiment_2025_02_mobile_render === "Treatment 1: Use new mobile check") {
-        
-    } else {
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-            openMobileModal()
-        }
     }
     
     function openOptionsModal() {
@@ -13855,5 +16452,72 @@ if (localStorage.full_client_rework != "false") {
         // Store the updated counter back to localStorage
         localStorage.setItem('crash_count', crashCount);
     }
+
+    function heartBeat() {
+        fetch(api + HEARTBEAT_DATA, {
+            method: "GET",
+            headers: {
+                "Token": api_token
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('sending heartbeat');
+
+                if (isFirstHeartbeat === true && localStorage.ongoing_discord_event_version != data.ongoing_discord_events[0].version) {
+
+                }
+
+                if (app_version2 === "Dev") {
+                    if (app_version1 != data.latest_version_dev) {
+                        console.log('Update Ready!')
+
+                        let update_button = document.createElement("div");
+
+                        update_button.style.position = 'absolute';
+                        update_button.style.marginLeft = '70px';
+                        update_button.style.marginTop = '-5px';
+                        update_button.innerHTML = `
+                            <button type="button" class="card-button" onClick="location.reload();">
+                                <div class="contents_dd4f85">Update Ready!</div>
+                            </button>
+                        `;
+
+
+                        document.body.appendChild(update_button);
+                    }
+                } else if (app_version2 === "Stable") {
+                    if (app_version1 != data.latest_version_stable) {
+                        console.log('Update Ready!')
+
+                        let update_button = document.createElement("div");
+
+                        update_button.style.position = 'absolute';
+                        update_button.style.marginLeft = '70px';
+                        update_button.style.marginTop = '-5px';
+                        update_button.innerHTML = `
+                            <button type="button" class="card-button" onClick="location.reload();">
+                                <div class="contents_dd4f85">Update Ready!</div>
+                            </button>
+                        `;
+
+
+                        document.body.appendChild(update_button);
+                    }
+                }
+                isFirstHeartbeat = false;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    let isFirstHeartbeat = true;
+    
+    if (localStorage.experiment_2025_03_heartbeat === "Treatment 1: Fetch once on startup") {
+        heartBeat();
+    } else if (localStorage.experiment_2025_03_heartbeat === "Treatment 2: Fetch every 60 seconds") {
+        heartBeat();
+        setInterval(heartBeat, 60000);
+    }
+    
     
 }

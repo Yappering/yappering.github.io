@@ -17,12 +17,12 @@
     <div class="housing">
         <div class="sidebar">
             <div class="dm-list">
-                <div style="overflow: auto; height: 100%; margin-top: 50px;" id="clickable-side-tabs-container">
+                <div style="height: 100%;" id="clickable-side-tabs-container">
                 </div>
             </div>
             <div class="server-list">
                 <div class="server-avatar">
-                    <button class="server-icon server-icon-selected server-home" onclick="location.href='/home';">
+                    <button class="server-icon server-icon-selected server-home" id="activate-dev-mode-button">
                     </button>
                     <div class="server-pill">
                     </div>
@@ -57,6 +57,20 @@
     <script>
         if (localStorage.full_client_rework === "false") {
             location.href='/home';
+        } else {
+            let clickCount = 0;
+
+            document.getElementById("activate-dev-mode-button").addEventListener("click", function() {
+                clickCount++;
+
+                if (clickCount === 8) {
+                    if (localStorage.dev === "true") {
+                        turnOffDevMode();
+                    } else {
+                        dev();
+                    }
+                }
+            });
         }
     </script>
 </body>

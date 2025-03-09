@@ -4,7 +4,7 @@ mgx2tmg9tx = "Experiments";
 mn7829t62d = "Test out new features";
 y5n875tx29 = "Dev Options";
 
-app_version1 = "253"
+app_version1 = "259"
 app_version2 = "Stable"
 tcbx926n29 = app_version2 + " " + app_version1;
 
@@ -181,7 +181,9 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             VALENTINES = "1333866045521395723",
             ORB = "1332505418219655258",
             ANIME_V3 = "1341506445249609728",
-            INSOMNIA = "1343751621364027462"
+            INSOMNIA = "1343751621364027462",
+            NAMEPLATE_TEST = "1344802365307621427",
+            AESPA = "1346499610977243196"
         ]
     
         category_types = [
@@ -200,6 +202,45 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             VARIANTS_GROUP = 2e3,
             EXTERNAL_SKU = 3e3
         ]
+
+        const nameplate_palettes = {
+            crimson: {
+                "darkBackground": "#900007",
+                "lightBackground": "#E7040F"
+            },
+            berry: {
+                "darkBackground": "#893A99",
+                "lightBackground": "#B11FCF"
+            },
+            sky: {
+                "darkBackground": "#0080B7",
+                "lightBackground": "#56CCFF"
+            },
+            teal: {
+                "darkBackground": "#086460",
+                "lightBackground": "#7DEED7"
+            },
+            forest: {
+                "darkBackground": "#2D5401",
+                "lightBackground": "#6AA624"
+            },
+            bubble_gum: {
+                "darkBackground": "#DC3E97",
+                "lightBackground": "#F957B3"
+            },
+            violet: {
+                "darkBackground": "#730BC8",
+                "lightBackground": "#972FED"
+            },
+            cobalt: {
+                "darkBackground": "#0131C2",
+                "lightBackground": "#4278FF"
+            },
+            clover: {
+                "darkBackground": "#047B20",
+                "lightBackground": "#63CD5A"
+            }
+        }
 
         const params = new URLSearchParams(window.location.search);
 
@@ -1644,6 +1685,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         <div class="nameplate-null-user-name" data-null-user-random-name></div>
                                                     </div>
                                                     <div class="nameplate-null-user" data-user-nameplate-preview>
+                                                        <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
                                                         <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                         <p class="nameplate-user-name">${previewName}</p>
                                                     </div>
@@ -1657,22 +1699,29 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     </div>
                                                 `;
     
-                                                const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                product.items.forEach(item => {
+                                                    const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
+                                                    const paletteName = item.palette;
+                                                    const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                    const bgcolor = nameplate_palettes[paletteName].darkBackground;
     
-                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%,rgb(144, 0, 7) 180%), linear-gradient(170deg, #00000000 40%,rgb(144, 0, 7) 180%)`;
-                                                nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                    previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
     
-                                                const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
-    
-                                                nullUserNameRandomWidth.forEach(UserName => {
-                                                    const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
-                                                    UserName.style.width = randomWidth + `px`;
-                                                });
-    
-                                                const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
-    
-                                                nullUserAvatar.forEach(UserAvatar => {
-                                                    UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                    nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                    // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
+                                                    
+                                                    const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
+                                                    
+                                                    nullUserNameRandomWidth.forEach(UserName => {
+                                                        const randomWidth = Math.floor(Math.random() * (180 - 80 + 1)) + 80;
+                                                        UserName.style.width = randomWidth + `px`;
+                                                    });
+                                                
+                                                    const nullUserAvatar = previewHolder.querySelectorAll("[data-nameplate-user-random-avatar]");
+                                                
+                                                    nullUserAvatar.forEach(UserAvatar => {
+                                                        UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
+                                                    });
                                                 });
                                                 
                                             } else if (product.type === BUNDLE) {
@@ -2322,7 +2371,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     const api_password = localStorage.getItem("api-password");
     const api_token = sessionStorage.getItem("api-token");
 
-    api = 'https://raw.githubusercontent.com/Yappering/api/main/v2';
+    // api = 'https://raw.githubusercontent.com/Yappering/api/main/v2';
+    api = 'https://shop-archives-api.vercel.app/api';
     prvapi = 'https://raw.githubusercontent.com/Yappering/private-api/refs/heads/main/v2';
     discordsupport = 'https://support.discord.com/hc/en-us/articles/';
     discordblog = 'https://discord.com/blog/';
@@ -2331,13 +2381,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     cdn = 'https://cdn.yapper.shop/';
     tmpapi = 'https://api.yapper.shop/tmp';
 
-    if (localStorage.api_designed_url != "false") {
-        if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
-            api = 'https://shop-archives-api.vercel.app/api'
-        } else {
-            api = apidesignedurl;
-        }
-    }
+    // if (localStorage.api_designed_url != "false") {
+    //     if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+    //         api = 'https://shop-archives-api.vercel.app/api'
+    //     } else {
+    //         api = apidesignedurl;
+    //     }
+    // }
 
     function privateAPICheck() {
         // if (localStorage.force_all_api_to_fectch_private_api == "true") {
@@ -2457,7 +2507,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         ORB = "1332505418219655258",
         ANIME_V3 = "1341506445249609728",
         INSOMNIA = "1343751621364027462",
-        NAMEPLATE_TEST = "1344802365307621427"
+        NAMEPLATE_TEST = "1344802365307621427",
+        AESPA = "1346499610977243196"
     ]
 
     category_types = [
@@ -2738,8 +2789,9 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         <summary class="clickable" style="font-size: large; font-weight: 900;">Assets</summary>
                                                         <div class="shop-category-modal-assets-container" data-shop-category-modal-assets-container></div>
                                                     </details>
-                                                    <p style="font-size: large; font-weight: 900;" data-shop-modal-review-title></p>
-                                                    <div class="shop-modal-review-container" data-shop-modal-review-container></div>
+                                                    <div class="shop-modal-review-container" data-shop-modal-review-container>
+                                                        <p style="font-size: large; font-weight: 900;" data-shop-modal-review-title></p>
+                                                    </div>
                                                 </div>
                                                 <div class="shop-modal-tag-container" data-shop-card-tag-container></div>
                                                 <div data-modal-top-product-buttons>
@@ -2752,7 +2804,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             </div>
                                         `;
 
-                                        if (localStorage.experiment_2025_03_item_reviews === "Treatment 1: Enabled") {
+                                        if (localStorage.experiment_2025_03_item_reviews === "Treatment 1: Enabled" || localStorage.experiment_2025_03_item_reviews === "Treatment 2: Simulate not logged in" || localStorage.experiment_2025_03_item_reviews === "Treatment 3: Simulate logged in") {
+                                            modal.querySelector("[data-shop-modal-review-title]").textContent = "Reviews (Beta):";
+
+                                            let reviewLoadingElement = document.createElement("div");
+                                            reviewLoadingElement.innerHTML = `
+                                                <p style="font-size: large; font-weight: 900;">Loading Reviews...</p>
+                                            `;
+                                            reviewLoadingElement.classList.add("review-element");
+                                            modal.querySelector("[data-shop-modal-review-container]").appendChild(reviewLoadingElement);
                                             fetch(`https://shop-archives-api.vercel.app/api/reviews?sku_id=${apiCategory.sku_id}`, {
                                                 method: "GET",
                                                 headers: {
@@ -2762,7 +2822,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             }) // Replace with your API URL
                                             .then(response => response.json())
                                             .then(data => {
-                                                modal.querySelector("[data-shop-modal-review-title]").textContent = "Reviews (Beta):";
                                                 if (data.message) {
                                                     const reviewContainer = modal.querySelector("[data-shop-modal-review-container]");
                                                     let reviewElement = document.createElement("div");
@@ -2772,8 +2831,9 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             
                                                         reviewElement.innerHTML = `
                                                             <p style="font-size: large; font-weight: 900;">No reviews yet.</p>
-                                                            <p style="color: var(--8)">Be the first to review this item!</p>
-                                                        `;
+                                                            <p style="color: var(--8)">This item has no reviews</p>
+                                                        `
+                                                        // Be the first to review this item!
                                                     } else if (data.message === "Missing Access") {
                                                         
                                                         reviewElement.innerHTML = `
@@ -2791,6 +2851,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 } else {
                                                     renderReviews(data)
                                                 }
+
+                                                reviewLoadingElement.remove();
                                                 
                                             })
                                             .catch(error => console.error('Error fetching data:', error));
@@ -2803,10 +2865,28 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     reviewElement.classList.add("review-element");
         
                                                     reviewElement.innerHTML = `
-                                                        <p style="font-size: large; font-weight: 900;">${review.reviewer}</p>
+                                                        <div class="shop-modal-review-name-container" data-shop-modal-review-name-container>
+                                                            <p class="shop-modal-review-name" style="font-size: large; font-weight: 900;">${review.reviewer.name}</p>
+                                                        </div>
                                                         <div class="shop-modal-review-star-container" data-shop-modal-review-star-container></div>
                                                         <p style="color: var(--8)">${review.review}</p>
                                                     `;
+
+                                                    if (review.reviewer.moderator === "true") {
+                                                        let moderatorNametag = document.createElement("p");
+    
+                                                        moderatorNametag.classList.add("shop-modal-review-nametag-moderator");
+                                                        moderatorNametag.textContent = "MODERATOR";
+                                                        
+                                                        reviewElement.querySelector("[data-shop-modal-review-name-container]").appendChild(moderatorNametag);
+                                                    } else if (review.reviewer.special === "true") {
+                                                        let moderatorNametag = document.createElement("p");
+    
+                                                        moderatorNametag.classList.add("shop-modal-review-nametag-special");
+                                                        moderatorNametag.textContent = "ILL PUT SOMETHING HERE LATER";
+                                                        
+                                                        reviewElement.querySelector("[data-shop-modal-review-name-container]").appendChild(moderatorNametag);
+                                                    }
         
                                                     if (review.stars === "5") {
                                                         reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
@@ -3262,7 +3342,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             product.items.forEach(item => {
                                                 const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
                                                 const paletteName = item.palette;
-                                                const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                const asset = `https://cdn.yapper.shop/custom-collectibles/${item.asset}.png`;
                                                 const bgcolor = nameplate_palettes[paletteName].darkBackground;
 
                                                 previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
@@ -3699,7 +3779,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             modal.querySelector("[data-product-modal-name]").textContent = product.name;
                                                             modal.querySelector("[data-product-modal-summary]").textContent = product.summary;
 
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
 
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
@@ -3801,7 +3881,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         const previewHolderLeft = modal.querySelector("[data-modal-left-preview-holder]");
                                                     
                                                         if (matchingEffect) {
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile2">
@@ -3977,7 +4057,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     
                                                         // Handle each item in the bundle
                                                         product.items.forEach(item => {
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 
                                                                 if (item.type === 0) {
                                                                     decosrc = item.animated
@@ -4156,7 +4236,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${selectedVariant.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
                                                                 `;
                                                             }
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 
                                                                 if (selectedVariant.type === 0) {
                                                                     selectedVariant.items?.forEach(item => {
@@ -5829,8 +5909,9 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         <summary class="clickable" style="font-size: large; font-weight: 900;">Assets</summary>
                                                         <div class="shop-category-modal-assets-container" data-shop-category-modal-assets-container></div>
                                                     </details>
-                                                    <p style="font-size: large; font-weight: 900;" data-shop-modal-review-title></p>
-                                                    <div class="shop-modal-review-container" data-shop-modal-review-container></div>
+                                                    <div class="shop-modal-review-container" data-shop-modal-review-container>
+                                                        <p style="font-size: large; font-weight: 900;" data-shop-modal-review-title></p>
+                                                    </div>
                                                 </div>
                                                 <div class="shop-modal-tag-container" data-shop-card-tag-container></div>
                                                 <div data-modal-top-product-buttons>
@@ -5843,7 +5924,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             </div>
                                         `;
 
-                                        if (localStorage.experiment_2025_03_item_reviews === "Treatment 1: Enabled") {
+                                        if (localStorage.experiment_2025_03_item_reviews === "Treatment 1: Enabled" || localStorage.experiment_2025_03_item_reviews === "Treatment 2: Simulate not logged in" || localStorage.experiment_2025_03_item_reviews === "Treatment 3: Simulate logged in") {
+                                            modal.querySelector("[data-shop-modal-review-title]").textContent = "Reviews (Beta):";
+
+                                            let reviewLoadingElement = document.createElement("div");
+                                            reviewLoadingElement.innerHTML = `
+                                                <p style="font-size: large; font-weight: 900;">Loading Reviews...</p>
+                                            `;
+                                            reviewLoadingElement.classList.add("review-element");
+                                            modal.querySelector("[data-shop-modal-review-container]").appendChild(reviewLoadingElement);
                                             fetch(`https://shop-archives-api.vercel.app/api/reviews?sku_id=${apiCategory.sku_id}`, {
                                                 method: "GET",
                                                 headers: {
@@ -5853,7 +5942,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             }) // Replace with your API URL
                                             .then(response => response.json())
                                             .then(data => {
-                                                modal.querySelector("[data-shop-modal-review-title]").textContent = "Reviews (Beta):";
                                                 if (data.message) {
                                                     const reviewContainer = modal.querySelector("[data-shop-modal-review-container]");
                                                     let reviewElement = document.createElement("div");
@@ -5863,8 +5951,9 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             
                                                         reviewElement.innerHTML = `
                                                             <p style="font-size: large; font-weight: 900;">No reviews yet.</p>
-                                                            <p style="color: var(--8)">Be the first to review this item!</p>
-                                                        `;
+                                                            <p style="color: var(--8)">This item has no reviews</p>
+                                                        `
+                                                        // Be the first to review this item!
                                                     } else if (data.message === "Missing Access") {
                                                         
                                                         reviewElement.innerHTML = `
@@ -5882,6 +5971,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 } else {
                                                     renderReviews(data)
                                                 }
+
+                                                reviewLoadingElement.remove();
                                                 
                                             })
                                             .catch(error => console.error('Error fetching data:', error));
@@ -5894,10 +5985,28 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     reviewElement.classList.add("review-element");
         
                                                     reviewElement.innerHTML = `
-                                                        <p style="font-size: large; font-weight: 900;">${review.reviewer}</p>
+                                                        <div class="shop-modal-review-name-container" data-shop-modal-review-name-container>
+                                                            <p class="shop-modal-review-name" style="font-size: large; font-weight: 900;">${review.reviewer.name}</p>
+                                                        </div>
                                                         <div class="shop-modal-review-star-container" data-shop-modal-review-star-container></div>
                                                         <p style="color: var(--8)">${review.review}</p>
                                                     `;
+
+                                                    if (review.reviewer.moderator === "true") {
+                                                        let moderatorNametag = document.createElement("p");
+    
+                                                        moderatorNametag.classList.add("shop-modal-review-nametag-moderator");
+                                                        moderatorNametag.textContent = "MODERATOR";
+                                                        
+                                                        reviewElement.querySelector("[data-shop-modal-review-name-container]").appendChild(moderatorNametag);
+                                                    } else if (review.reviewer.special === "true") {
+                                                        let moderatorNametag = document.createElement("p");
+    
+                                                        moderatorNametag.classList.add("shop-modal-review-nametag-special");
+                                                        moderatorNametag.textContent = "ILL PUT SOMETHING HERE LATER";
+                                                        
+                                                        reviewElement.querySelector("[data-shop-modal-review-name-container]").appendChild(moderatorNametag);
+                                                    }
         
                                                     if (review.stars === "5") {
                                                         reviewElement.querySelector("[data-shop-modal-review-star-container]").innerHTML = `
@@ -6808,7 +6917,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                         let priceNitro = "N/A";
                                         let priceOrb = "N/A";
 
-                                        if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled") {
+                                        if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                             if (localStorage.is_nitro_user === "true") {
                                                 if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
                                                     product.prices["4"].country_prices.prices.forEach(price => {
@@ -7016,7 +7125,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             modal.querySelector("[data-product-modal-name]").textContent = product.name;
                                                             modal.querySelector("[data-product-modal-summary]").textContent = product.summary;
 
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
 
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
@@ -7117,7 +7226,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         const previewHolderLeft = modal.querySelector("[data-modal-left-preview-holder]");
                                                     
                                                         if (matchingEffect) {
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile2">
@@ -7292,7 +7401,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     
                                                         // Handle each item in the bundle
                                                         product.items.forEach(item => {
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 
                                                                 if (item.type === 0) {
                                                                     decosrc = item.asset
@@ -7472,7 +7581,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${selectedVariant.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
                                                                 `;
                                                             }
-                                                            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+                                                            if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 
                                                                 if (selectedVariant.type === 0) {
                                                                     selectedVariant.items?.forEach(item => {
@@ -7772,7 +7881,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     let priceNitro = "N/A";
                                                     let priceOrb = "N/A";
 
-                                                    if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled") {
+                                                    if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                         if (localStorage.is_nitro_user === "true") {
                                                             if (product.prices && product.prices["4"] && product.prices["4"].country_prices && product.prices["4"].country_prices.prices) {
                                                                 product.prices["4"].country_prices.prices.forEach(price => {
@@ -12162,6 +12271,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     const clickable_side_tabs_container = document.getElementById('clickable-side-tabs-container');
     if (clickable_side_tabs_container) {  // Check if element exists
         document.getElementById('clickable-side-tabs-container').innerHTML = `
+            <p class="center-text" style="font-size: 10px; display: flex; color: var(--white); opacity: 0;">${hrft33n87d}</p>
             <p class="center-text" style="font-size: 12px; display: flex; color: var(--white);">${hrft33n87d}</p>
             <div id="home-section">
                 <button class="dm-button" id="home-tab" onclick="setParams({page: 'home'}); location.reload();">
@@ -12688,9 +12798,19 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 <hr style="opacity: 0; height: 30px;">
 
                 <div class="a2024-recap-text-card-1">
+                    <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Nameplates</h1>
+
+                    <img class="a2024-recap-img-1" src="${cdn}assets/170.png">
+
+                    <p class="center-text" style="font-size: 18px;">[replace with something from support article, if they release this year]</p>
+                </div>
+
+                <hr style="opacity: 0; height: 30px;">
+
+                <div class="a2024-recap-text-card-1">
                     <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">Spring Nitro Promotion</h1>
 
-                    <img class="a2024-recap-img-1" src="${cdn}assets/.png">
+                    <img class="a2024-recap-img-1" src="${cdn}assets/169.png">
 
                     <p class="center-text" style="font-size: 18px;">During Spring, if you were a first time Nitro subscriber, you can choose 1 of 3 Avatar Decorations of your own to collect and keep with an active Nitro subscription!</p>
                 </div>
@@ -12766,6 +12886,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 const totalItems2024 = parsedData.filter(item => new Date(item.purchased_at).getFullYear() === 2025);
                 const totalDecorations = totalItems2024.filter(item => item.type === 0).length;
                 const totalEffects = totalItems2024.filter(item => item.type === 1).length;
+                const totalNameplates = totalItems2024.filter(item => item.type === 2).length;
                 const totalBundles = totalItems2024.filter(item => item.type === 1000).length;
         
                 const purchaseTypes = {
@@ -12817,6 +12938,17 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                         <div class="box-expandable-content">
                             <ul>
                                 ${totalItems2024.filter(item => item.type === 1).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="output-box">
+                        <div class="box-header">
+                            <span>Total Nameplates:</span><span>${totalNameplates}</span>
+                        </div>
+                        <div class="subtext">All Profile Nameplates you obtained in 2025.</div>
+                        <div class="box-expandable-content">
+                            <ul>
+                                ${totalItems2024.filter(item => item.type ===2).map(item => `<li>${item.name} (${item.sku_id})</li>`).join('')}
                             </ul>
                         </div>
                     </div>
@@ -14027,6 +14159,23 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             });
     }
 
+
+    if (localStorage.experiment_2025_02_extra_options === "Treatment 6: Settings like discord") {
+        const dm_container = document.querySelector(".dm-list");
+        let u_bar = document.createElement("div");
+
+        u_bar.classList.add("ubar-profile-and-settings")
+        u_bar.innerHTML = `
+            <img id="ubar-avatar" class="ubar-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
+            <div class="ubar-status-bg"></div>
+            <div class="ubar-status-color"></div>
+            <p class="ubar-displayname" id="ubar-displayname">${localStorage.discord_username}</p>
+            <svg title="Options" x="0" y="0" onclick="optionsSidebarToggle()" id="ubar-options-cog" aria-hidden="true" role="img" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4483 8.3333H18.3333V11.6667H16.4492C16.2483 12.4425 15.9167 13.165 15.4708 13.8033L16.6667 15 15 16.6667 13.8042 15.47C13.1642 15.9158 12.4433 16.2483 11.6667 16.4483V18.3333H8.3333V16.4483C7.5575 16.2483 6.8358 15.9158 6.1967 15.47L5 16.6667 3.3333 15 4.53 13.8033C4.0842 13.1658 3.7517 12.4433 3.5517 11.6667H1.6667V8.3333H3.5517C3.7517 7.5567 4.0833 6.835 4.53 6.1967L3.3333 5 5 3.3333 6.1967 4.53C6.835 4.0833 7.5567 3.7517 8.3333 3.5517V1.6667H11.6667V3.5508C12.4433 3.7517 13.1642 4.0833 13.8042 4.5292L15 3.3325 16.6667 4.9992 15.47 6.1967C15.9158 6.835 16.2483 7.5575 16.4483 8.3333ZM10 13.3333C11.8409 13.3333 13.3333 11.8409 13.3333 10 13.3333 8.159 11.8409 6.6667 10 6.6667 8.159 6.6667 6.6667 8.159 6.6667 10 6.6667 11.8409 8.159 13.3333 10 13.3333Z" )=""></path></svg>
+        `;
+
+        dm_container.appendChild(u_bar);
+    }
+
     function optionsSidebarToggle() {
         if (document.getElementById('options-sidebar-container').classList.contains('options-sidebar-container-expanded')) {
             document.getElementById('options-sidebar-container').classList.remove("options-sidebar-container-expanded");
@@ -14056,7 +14205,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                         </div>
                     </div>
 
-                    <div id="username-picker-container-dev"></div>
+                    <div class="username-picker-container" id="username-picker-container-dev"></div>
 
                 </div>
                 <div id="theme-picker-container"></div>
@@ -14094,7 +14243,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 App Version: ${tcbx926n29}
             `;
 
-            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker") {
+            if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker" || localStorage.experiment_2025_02_extra_options === "Treatment 6: Settings like discord") {
                 document.getElementById("username-picker-container-dev").innerHTML = `
                     <p class="center-text" style="font-size: 20px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">Profile</p>
                     <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">Your Profile will be seen around the website.</p>
@@ -14125,6 +14274,24 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                         <p class="options-preview-profile-username" id="options-username-preview"></p>
                     </div>
                 `;
+
+                if (localStorage.experiment_2025_03_item_reviews === "Treatment 3: Simulate logged in") {
+                    let cantChangeProfileWhenLoggedIn = document.createElement("div");
+
+                    cantChangeProfileWhenLoggedIn.classList.add('cant-change-profile-when-logged-in-container');
+                    cantChangeProfileWhenLoggedIn.innerHTML = `
+                        <div class="profile-no-text-container">
+                            <p class="center-text" style="font-size: 20px; margin-top: 20px; margin-bottom: 0px; color: white;">Cannot change profile when logged in.</p>
+                            <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: white;">Your profile is synced with your Discord profile.</p>
+                        </div>
+                    `;
+
+
+                    document.getElementById("username-picker-container-dev").appendChild(cantChangeProfileWhenLoggedIn);
+                }
+
+                
+                
                 document.getElementById("accessibility-options-container").innerHTML = `
                     <p class="center-text" style="font-size: 20px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">Accessibility</p>
                     <div id="currency-picker-experiment-container"></div>
@@ -14363,7 +14530,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 document.getElementById("reduced-motion-box").checked = true;
             }
 
-            if (localStorage.is_nitro_user == "true") {
+            if (localStorage.is_nitro_user == "true" && localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                 document.getElementById("options-has-nitro-box").checked = true;
             }
 
@@ -14564,7 +14731,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
 
                 try {
-                    const experiment_2025_03_item_reviews_treatments = ["Treatment -1: Disabled", "Treatment 1: Enabled"];
+                    const experiment_2025_03_item_reviews_treatments = ["Treatment -1: Disabled", "Treatment 1: Enabled", "Treatment 2: Simulate not logged in", "Treatment 3: Simulate logged in"];
 
                     const experiment_2025_03_item_reviews_treatment_picker = document.getElementById("experiment_2025_03_item_reviews_treatment_container");
                     
@@ -14657,7 +14824,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 }
 
                 try {
-                    const experiment_2025_02_extra_options_treatments = ["Treatment -1: Disabled", "Treatment 4: Enabled", "Treatment 5: Enabled w/o currency picker"];
+                    const experiment_2025_02_extra_options_treatments = ["Treatment -1: Disabled", "Treatment 4: Enabled", "Treatment 5: Enabled w/o currency picker", "Treatment 6: Settings like discord"];
 
                     const experiment_2025_02_extra_options_treatment_picker = document.getElementById("experiment_2025_02_extra_options_treatment_container");
                     

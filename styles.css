@@ -342,9 +342,12 @@ body {
 }
 
 .shop-modal-review-container {
-    height: 300px;
+    position: absolute;
+    height: 200px;
+    width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    bottom: 0px;
 }
 
 .review-element {
@@ -354,6 +357,107 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-top: 5px;
+}
+
+.shop-modal-review-name-container {
+    display: flex;
+}
+
+.shop-modal-review-name-container .shop-modal-review-nametag-moderator {
+    margin-top: 15px;
+    margin-bottom: auto;
+    margin-left: 10px;
+    background-color: #615DED;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 15px !important;
+}
+
+.shop-modal-review-name-container .shop-modal-review-nametag-special {
+    margin-top: 15px;
+    margin-bottom: auto;
+    margin-left: 10px;
+    background-color: #05814B;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 15px !important;
+}
+
+.ubar-profile-and-settings {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+    background-color: var(--background-tertiary);
+}
+
+.ubar-avatar-preview {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.ubar-status-color {
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    width: 15px;
+    height: 15px;
+    background-color: #00A661;
+    border-radius: 50px;
+}
+
+.ubar-status-bg {
+    position: absolute;
+    top: 33px;
+    left: 33px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--background-tertiary);
+    border-radius: 50px;
+}
+
+.ubar-displayname {
+    position: absolute;
+    left: 60px;
+    top: -5px;
+    font-size: 18px;
+    color: var(--white);
+}
+
+#ubar-options-cog {
+    position: absolute;
+    scale: 1.3;
+    height: 24px;
+    width: 24px;
+    right: 10px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.username-picker-container {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.profile-no-text-container {
+    width: 100%;
+    height: 100px;
+}
+
+.cant-change-profile-when-logged-in-container {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #000000c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dev-modal {
@@ -3242,7 +3346,7 @@ data-share-product-card-button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     display: flex;
     width: 800px; /* Fixed width */
-    height: 600px; /* Fixed height */
+    height: 800px; /* Fixed height */
     overflow: hidden;
 }
 
@@ -3286,7 +3390,7 @@ data-share-product-card-button {
 .shop-category-modal-assets-container {
     overflow-y: auto;
     overflow-x: hidden;
-    height: 350px;
+    height: 300px;
     width: 800px;
 }
 

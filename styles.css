@@ -2845,6 +2845,15 @@ data-share-product-card-button {
 }
 
 
+.nameplate-modal-early-warning-container {
+    background-color: var(--button-danger-background);
+    margin-top: 50px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
 
 
 [data-price-standard-container]:has(.orb-icon) [data-price-standard] {

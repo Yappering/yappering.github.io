@@ -48,7 +48,8 @@ const experimentsList = [
             "Treatment 2: Simulate not logged in",
             "Treatment 3: Simulate logged in"
         ],
-        rollout: "Treatment -1: Disabled"
+        rollout: "Treatment -1: Disabled",
+        needs_api_token: "true"
     },
     {
         title: "Heartbeat",
@@ -59,7 +60,8 @@ const experimentsList = [
             "Treatment 1: Fetch once on startup",
             "Treatment 2: Fetch every 60 seconds"
         ],
-        rollout: "Treatment -1: Disabled"
+        rollout: "Treatment -1: Disabled",
+        needs_api_token: "true"
     },
     {
         title: "Fetch From Vercel Endpoits",
@@ -138,9 +140,11 @@ const experimentsList = [
         treatments: [
             "Treatment -1: Disabled",
             "Treatment 1: Orb Shop done like Potions",
-            "Treatment 2: Orb Shop done like default"
+            "Treatment 2: Orb Shop done like default",
+            "Treatment 3: Default + New tag"
         ],
-        rollout: "Treatment -1: Disabled"
+        rollout: "Treatment -1: Disabled",
+        needs_api_token: "true"
     },
     {
         title: "Orb Testing",
@@ -203,5 +207,53 @@ const experimentsList = [
             "Treatment 1: Enabled"
         ],
         rollout: "Treatment -1: Disabled"
+    }
+];
+
+const dismissibleContentList = [
+    {
+        title: "Orbs Shop New Tag",
+        id: "dismissible_content_orbs_shop_new_tag",
+        name: "dismissible_orbs_shop_new_tag",
+        treatments: [
+            "Treatment -1: Unseen",
+            "Treatment 1: Seen"
+        ]
+    },
+    {
+        title: "New Profile Settings",
+        id: "dismissible_content_newProfileSettings",
+        name: "dismissible_newProfileSettings",
+        treatments: [
+            "Treatment -1: Unseen",
+            "Treatment 1: Seen"
+        ]
+    },
+    {
+        title: "Roblox Doors Marketing",
+        id: "dismissible_content_roblox_doors_marketing",
+        name: "dismissible_roblox_doors_marketing",
+        treatments: [
+            "Treatment -1: Unseen",
+            "Treatment 1: Seen"
+        ]
+    },
+    {
+        title: "Paper Beach V2 Marketing",
+        id: "dismissible_content_paper_beach_v2_marketing",
+        name: "dismissible_paper_beach_v2_marketing",
+        treatments: [
+            "Treatment -1: Unseen",
+            "Treatment 1: Seen"
+        ]
+    },
+    {
+        title: "Recap 2024",
+        id: "dismissible_content_recap_2024",
+        name: "dismissible_recap_2024",
+        treatments: [
+            "Treatment -1: Unseen",
+            "Treatment 1: Seen"
+        ]
     }
 ];

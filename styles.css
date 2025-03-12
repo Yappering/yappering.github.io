@@ -650,6 +650,10 @@ body {
     height: 100px;
 }
 
+.options-option-card:has(.new-experiment-subtext-api-notice) {
+    height: 140px;
+}
+
 .option-card-title {
     position: absolute;
     left: 10px;
@@ -659,6 +663,13 @@ body {
 .new-experiment-subtext {
     position: absolute;
     top: 25px;
+    left: 10px;
+    color: var(--8);
+}
+
+.new-experiment-subtext-api-notice {
+    position: absolute;
+    top: 90px;
     left: 10px;
     color: var(--8);
 }
@@ -1817,6 +1828,22 @@ body {
 .potion-card-preview {
     width: 264px;
     height: 264px;
+}
+
+.nitro-3-days-orb-preview {
+    margin-top: 20px;
+}
+
+.profile-badge-orb-preview {
+    scale: 0.65 !important;
+}
+
+.modal-potion-img .nitro-3-days-orb-preview {
+    margin-left: 20px;
+}
+
+.modal-potion-img .profile-badge-orb-preview {
+    margin-left: 20px;
 }
 
 .discordLogo_be5025 {

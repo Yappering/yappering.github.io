@@ -141,7 +141,8 @@ const experimentsList = [
             "Treatment -1: Disabled",
             "Treatment 1: Orb Shop done like Potions",
             "Treatment 2: Orb Shop done like default",
-            "Treatment 3: Default + New tag"
+            "Treatment 3: Default + New tag",
+            "Treatment 4: Add to misc page"
         ],
         rollout: "Treatment -1: Disabled",
         needs_api_token: "true"

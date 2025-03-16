@@ -18,6 +18,28 @@ EXPERIMENT_ID_6 = 1
 
 const experimentsList = [
     {
+        title: "Quick Info Tab",
+        id: "2025-03_quick_info",
+        name: "experiment_2025_03_quick_info",
+        treatments: [
+            "Treatment -1: Disabled",
+            "Treatment 1: Enabled"
+        ],
+        rollout: "Treatment -1: Disabled",
+        needs_api_token: "true"
+    },
+    {
+        title: "Orbs and Holiday in misc",
+        id: "2025-03_orbs_and_holiday",
+        name: "experiment_2025_03_orbs_and_holiday",
+        treatments: [
+            "Treatment -1: Disabled",
+            "Treatment 1: Enabled"
+        ],
+        rollout: "Treatment -1: Disabled",
+        needs_api_token: "true"
+    },
+    {
         title: "Extra Options Dismissible Content",
         id: "2025-03_extra_options_dismissible_content",
         name: "experiment_2025_03_extra_options_dismissible_content",
@@ -141,8 +163,7 @@ const experimentsList = [
             "Treatment -1: Disabled",
             "Treatment 1: Orb Shop done like Potions",
             "Treatment 2: Orb Shop done like default",
-            "Treatment 3: Default + New tag",
-            "Treatment 4: Add to misc page"
+            "Treatment 3: Default + New tag"
         ],
         rollout: "Treatment -1: Disabled",
         needs_api_token: "true"
@@ -205,7 +226,8 @@ const experimentsList = [
         name: "experiment_2024_11_recap",
         treatments: [
             "Treatment -1: Disabled",
-            "Treatment 1: Enabled"
+            "Treatment 1: Enabled",
+            "Treatment 2: Nameplate Marketing"
         ],
         rollout: "Treatment -1: Disabled"
     }

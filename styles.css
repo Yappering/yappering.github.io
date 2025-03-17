@@ -25,6 +25,7 @@
     --white: #ffffff;
     --profile-background: #111214;
     --profile-badge-background: #1f2024;
+    --nameplate-null: #2B2D3196;
 }
 
 .theme-midnight {
@@ -698,6 +699,18 @@ body {
     background-color: var(--input-background);
 }
 
+.options-color-input {
+    position: absolute;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--input-background);
+    cursor: pointer;
+}
+
 .newProfileSettingsDismissible {
     position: fixed;
     right: 50px;
@@ -840,7 +853,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100px;
-    background-color: rgb(130, 159, 244);
 }
 
 .options-preview-profile-banner {
@@ -1297,12 +1309,15 @@ body {
     background-color: rgb(71, 81, 192);
 }
 
+[data-shop-card-preview-holder]:has(.nameplate-null-user) {
+    margin-top: 10px;
+}
 
 .nameplate-null-user {
     position: relative;
     width: 250px;
     height: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
@@ -1329,11 +1344,11 @@ body {
 }
 
 .nameplate-null-user-name._1 {
-    width: 50px;
+    width: 100px;
 }
 
 .nameplate-null-user-name._2 {
-    width: 180px;
+    width: 130px;
 }
 
 .nameplate-null-user-name._3 {
@@ -1342,6 +1357,42 @@ body {
 
 .nameplate-null-user-name._4 {
     width: 100px;
+}
+
+.nameplate-fade-bottom {
+    position: absolute;
+    bottom: 150px;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%,var(--shop-card-background) 100%);
+}
+
+.nameplate-fade-top {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 10%,var(--shop-card-background) 100%);
+}
+
+.nameplate-preview-status-color {
+    position: absolute;
+    top: 33px;
+    left: 36px;
+    width: 13px;
+    height: 13px;
+    background-color: var(--nameplate-null);
+    border-radius: 50px;
+}
+
+.nameplate-preview-status-bg {
+    position: absolute;
+    top: 29px;
+    left: 32px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--shop-card-background);
+    border-radius: 50px;
 }
 
 
@@ -1370,11 +1421,11 @@ body {
 
 .nameplate-modal-preview {
     position: absolute;
-    height: 300px;
+    height: 280px;
     width: 250px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #000;
+    background-color: var(--shop-card-background);
     padding: 10px;
     border-radius: 10px;
 }

@@ -1,6 +1,6 @@
 
 
-app_version1 = "278"
+app_version1 = "281"
 app_version2 = "Stable"
 tcbx926n29 = app_version2 + " " + app_version1;
 
@@ -32,6 +32,12 @@ if (localStorage.discord_banner) {
     
 } else {
     localStorage.discord_banner = ``;
+}
+
+if (localStorage.discord_banner_color) {
+    
+} else {
+    localStorage.discord_banner_color = `#829ff4`;
 }
 
 if (localStorage.discord_avatar && localStorage.discord_avatar != '') {
@@ -689,11 +695,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 previewHolder.innerHTML = `
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _1"></div>
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _2"></div>
                                                     </div>
                                                     <div class="nameplate-null-user" data-user-nameplate-preview>
                                                         <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
@@ -701,11 +707,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _2"></div>
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _1"></div>
                                                     </div>
                                                 `;
     
@@ -1674,25 +1680,35 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 previewHolder.innerHTML = `
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _1"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _2"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
                                                     <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                        <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
+                                                        <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
                                                         <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                         <p class="nameplate-user-name">${previewName}</p>
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _2"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _1"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
+                                                    <div class="nameplate-fade-top"></div>
+                                                    <div class="nameplate-fade-bottom"></div>
                                                 `;
     
                                                 product.items.forEach(item => {
@@ -2871,11 +2887,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 previewHolder.innerHTML = `
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _1"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _2"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
                                                     <div class="nameplate-null-user" data-user-nameplate-preview>
                                                         <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
@@ -2884,12 +2904,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _2"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
                                                     <div class="nameplate-null-user">
                                                         <div class="nameplate-null-user-avatar"></div>
-                                                        <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                        <div class="nameplate-null-user-name _1"></div>
+                                                        <div class="nameplate-preview-status-bg"></div>
+                                                        <div class="nameplate-preview-status-color"></div>
                                                     </div>
+                                                    <div class="nameplate-fade-top"></div>
+                                                    <div class="nameplate-fade-bottom"></div>
                                                 `;
     
                                                 product.items.forEach(item => {
@@ -3576,7 +3602,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     previewHolder.classList.add('modal-preview-profile-container');
                                                                     previewHolder.innerHTML = `
                                                                         <div class="modal-preview-profile1">
-                                                                            <div class="options-preview-profile-banner-color"></div>
+                                                                            <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                             <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                             <div class="profile-avatar-preview-bg"></div>
                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -3676,7 +3702,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     previewHolder.classList.add('modal-preview-profile-container');
                                                                     previewHolder.innerHTML = `
                                                                         <div class="modal-preview-profile2">
-                                                                            <div class="options-preview-profile-banner-color"></div>
+                                                                            <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                             <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                             <div class="profile-avatar-preview-bg"></div>
                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -3786,11 +3812,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             previewHolder.innerHTML = `
                                                                 <div class="nameplate-null-user">
                                                                     <div class="nameplate-null-user-avatar"></div>
-                                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                    <div class="nameplate-null-user-name _1"></div>
+                                                                    <div class="nameplate-preview-status-bg"></div>
+                                                                    <div class="nameplate-preview-status-color"></div>
                                                                 </div>
                                                                 <div class="nameplate-null-user">
                                                                     <div class="nameplate-null-user-avatar"></div>
-                                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                    <div class="nameplate-null-user-name _2"></div>
+                                                                    <div class="nameplate-preview-status-bg"></div>
+                                                                    <div class="nameplate-preview-status-color"></div>
                                                                 </div>
                                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
                                                                     <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
@@ -3799,11 +3829,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 </div>
                                                                 <div class="nameplate-null-user">
                                                                     <div class="nameplate-null-user-avatar"></div>
-                                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                    <div class="nameplate-null-user-name _2"></div>
+                                                                    <div class="nameplate-preview-status-bg"></div>
+                                                                    <div class="nameplate-preview-status-color"></div>
                                                                 </div>
                                                                 <div class="nameplate-null-user">
                                                                     <div class="nameplate-null-user-avatar"></div>
-                                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                    <div class="nameplate-null-user-name _1"></div>
+                                                                    <div class="nameplate-preview-status-bg"></div>
+                                                                    <div class="nameplate-preview-status-color"></div>
                                                                 </div>
                                                             `;
                 
@@ -3907,7 +3941,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         previewHolder.classList.add('modal-preview-profile-container');
                                                                         previewHolder.innerHTML = `
                                                                             <div class="modal-preview-profile2">
-                                                                                <div class="options-preview-profile-banner-color"></div>
+                                                                                <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                 <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                 <div class="profile-avatar-preview-bg"></div>
                                                                                 <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -4058,7 +4092,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             previewHolder.classList.add('modal-preview-profile-container');
                                                                             previewHolder.innerHTML = `
                                                                                 <div class="modal-preview-profile1">
-                                                                                    <div class="options-preview-profile-banner-color"></div>
+                                                                                    <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                     <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                     <div class="profile-avatar-preview-bg"></div>
                                                                                     <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -4129,7 +4163,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                     previewHolder.classList.add('modal-preview-profile-container');
                                                                                     previewHolder.innerHTML = `
                                                                                         <div class="modal-preview-profile2">
-                                                                                            <div class="options-preview-profile-banner-color"></div>
+                                                                                            <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                             <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                             <div class="profile-avatar-preview-bg"></div>
                                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -4291,7 +4325,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile3">
-                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -5089,25 +5123,35 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             previewHolder.innerHTML = `
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _1"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _2"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                    <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
+                                                    <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
                                                     <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                     <p class="nameplate-user-name">${previewName}</p>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _2"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _1"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
+                                                <div class="nameplate-fade-top"></div>
+                                                <div class="nameplate-fade-bottom"></div>
                                             `;
 
                                             product.items.forEach(item => {
@@ -5555,7 +5599,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile1">
-                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -5656,7 +5700,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile2">
-                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -5766,25 +5810,35 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         previewHolder.innerHTML = `
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _1"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _2"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                                <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
+                                                                <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
                                                                 <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                                 <p class="nameplate-user-name">${previewName}</p>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _2"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _1"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
+                                                            <div class="nameplate-fade-top"></div>
+                                                            <div class="nameplate-fade-bottom"></div>
                                                         `;
             
                                                         product.items.forEach(item => {
@@ -5877,7 +5931,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     previewHolder.classList.add('modal-preview-profile-container');
                                                                     previewHolder.innerHTML = `
                                                                         <div class="modal-preview-profile2">
-                                                                            <div class="options-preview-profile-banner-color"></div>
+                                                                            <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                             <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                             <div class="profile-avatar-preview-bg"></div>
                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -6027,7 +6081,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         previewHolder.classList.add('modal-preview-profile-container');
                                                                         previewHolder.innerHTML = `
                                                                             <div class="modal-preview-profile1">
-                                                                                <div class="options-preview-profile-banner-color"></div>
+                                                                                <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                 <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                 <div class="profile-avatar-preview-bg"></div>
                                                                                 <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -6098,7 +6152,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                                 previewHolder.innerHTML = `
                                                                                     <div class="modal-preview-profile2">
-                                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -7542,25 +7596,35 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             previewHolder.innerHTML = `
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _1"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _2"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                    <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
+                                                    <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
                                                     <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                     <p class="nameplate-user-name">${previewName}</p>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _2"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _1"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
+                                                <div class="nameplate-fade-top"></div>
+                                                <div class="nameplate-fade-bottom"></div>
                                             `;
 
                                             product.items.forEach(item => {
@@ -8008,7 +8072,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile1">
-                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -8109,7 +8173,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile2">
-                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -8219,24 +8283,32 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         previewHolder.innerHTML = `
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _1"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _2"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                                <img class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></img>
+                                                                <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
                                                                 <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                                 <p class="nameplate-user-name">${previewName}</p>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _2"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _1"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                         `;
             
@@ -8330,7 +8402,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     previewHolder.classList.add('modal-preview-profile-container');
                                                                     previewHolder.innerHTML = `
                                                                         <div class="modal-preview-profile2">
-                                                                            <div class="options-preview-profile-banner-color"></div>
+                                                                            <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                             <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                             <div class="profile-avatar-preview-bg"></div>
                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -8480,7 +8552,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         previewHolder.classList.add('modal-preview-profile-container');
                                                                         previewHolder.innerHTML = `
                                                                             <div class="modal-preview-profile1">
-                                                                                <div class="options-preview-profile-banner-color"></div>
+                                                                                <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                 <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                 <div class="profile-avatar-preview-bg"></div>
                                                                                 <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -8551,7 +8623,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                                 previewHolder.innerHTML = `
                                                                                     <div class="modal-preview-profile2">
-                                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -10703,11 +10775,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             previewHolder.innerHTML = `
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _1"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _2"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
                                                     <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
@@ -10716,12 +10792,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _2"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user">
                                                     <div class="nameplate-null-user-avatar"></div>
-                                                    <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                    <div class="nameplate-null-user-name _1"></div>
+                                                    <div class="nameplate-preview-status-bg"></div>
+                                                    <div class="nameplate-preview-status-color"></div>
                                                 </div>
+                                                <div class="nameplate-fade-top"></div>
+                                                <div class="nameplate-fade-bottom"></div>
                                             `;
 
                                             product.items.forEach(item => {
@@ -11408,7 +11490,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile1">
-                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -11508,7 +11590,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                 previewHolder.innerHTML = `
                                                                     <div class="modal-preview-profile2">
-                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -11618,11 +11700,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         previewHolder.innerHTML = `
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _1"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _2"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user" data-user-nameplate-preview>
                                                                 <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
@@ -11631,11 +11717,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _2"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user">
                                                                 <div class="nameplate-null-user-avatar"></div>
-                                                                <div class="nameplate-null-user-name" data-null-user-random-name></div>
+                                                                <div class="nameplate-null-user-name _1"></div>
+                                                                <div class="nameplate-preview-status-bg"></div>
+                                                                <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                         `;
             
@@ -11739,7 +11829,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     previewHolder.classList.add('modal-preview-profile-container');
                                                                     previewHolder.innerHTML = `
                                                                         <div class="modal-preview-profile2">
-                                                                            <div class="options-preview-profile-banner-color"></div>
+                                                                            <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                             <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                             <div class="profile-avatar-preview-bg"></div>
                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -11890,7 +11980,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         previewHolder.classList.add('modal-preview-profile-container');
                                                                         previewHolder.innerHTML = `
                                                                             <div class="modal-preview-profile1">
-                                                                                <div class="options-preview-profile-banner-color"></div>
+                                                                                <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                 <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                 <div class="profile-avatar-preview-bg"></div>
                                                                                 <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -11961,7 +12051,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 previewHolder.classList.add('modal-preview-profile-container');
                                                                                 previewHolder.innerHTML = `
                                                                                     <div class="modal-preview-profile2">
-                                                                                        <div class="options-preview-profile-banner-color"></div>
+                                                                                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                                         <div class="profile-avatar-preview-bg"></div>
                                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -12123,7 +12213,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             previewHolder.classList.add('modal-preview-profile-container');
                                                             previewHolder.innerHTML = `
                                                                 <div class="modal-preview-profile3">
-                                                                    <div class="options-preview-profile-banner-color"></div>
+                                                                    <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                                                                     <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                                                                     <div class="profile-avatar-preview-bg"></div>
                                                                     <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -12991,10 +13081,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                     url = api + MISCELLANEOUS;
                     apiUrl = new URL(url);
                     apiUrl.searchParams.set("include-unpublished", "true");
-                } else if (localStorage.experiment_2025_03_orbs_and_holiday === "Treatment 1: Enabled") {
-                    url = api + MISCELLANEOUS;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-orbs-and-holidays", "true");
                 } else {
                     apiUrl = api + MISCELLANEOUS;
                 }
@@ -13638,7 +13724,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 <div class="a2024-recap-text-card-1">
                     <h1 class="center-text abcgintonord" style="font-size: 44px; margin-top: 0px; margin-bottom: 0px;">${getTextString("QUICK_INFO_PAGE_TITLE")}</h1>
 
-                    <p class="center-text" style="font-size: 18px;">${getTextString("LOREM_IPSUM_LONG")}</p>
+                    <p class="center-text" style="font-size: 18px;">${getTextString("QUICK_INFO_DESC")}</p>
 
                     <div class="quick-info-info-container" id="quick-info-info-container">
                     </div>
@@ -14830,6 +14916,10 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                         <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_EXTRA_PROFILE_CHANGE_USERNAME")}</p>
                         <input class="options-text-input" autocomplete="off" oninput="changeUsernameFromInput();" style="posision: center;" id="profile-username-text-input" value="${localStorage.discord_username}" type="text">
                     </div>
+                    <div class="options-option-card" id="options-text-input-option">
+                        <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_EXTRA_PROFILE_CHANGE_BANNER_COLOR")}</p>
+                        <input class="options-color-input" autocomplete="off" oninput="changeBannerColorFromInput();" style="posision: center;" id="profile-banner-color-input" value="${localStorage.discord_banner_color}" type="color">
+                    </div>
                     <div class="options-option-card" id="options-img-input-option">
                         <label for="profileAvatarInput" class="profile-avatar-upload-label">${getTextString("OPTIONS_EXTRA_PROFILE_CHANGE_AVATAR")}</label>
                         <input type="file" id="profileAvatarInput" class="profile-avatar-file-input" accept="image/*">
@@ -14843,7 +14933,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                     </div>
                     <div id="options-banner-img-input-option-error"></div>
                     <div class="options-preview-profile">
-                        <div class="options-preview-profile-banner-color"></div>
+                        <div class="options-preview-profile-banner-color" id="options-preview-profile-banner-color" style="background-color: ${localStorage.discord_banner_color};"></div>
                         <div id="profileBannerPreview" class="options-preview-profile-banner" style="background-image: url(${localStorage.discord_banner});"></div>
                         <div class="profile-avatar-preview-bg"></div>
                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
@@ -15377,6 +15467,16 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         const usernamename = document.getElementById('options-username-preview')
 
         usernamename.textContent = input.value.toLowerCase();
+    }
+
+    function changeBannerColorFromInput() {
+        const input = document.getElementById('profile-banner-color-input')
+
+        localStorage.discord_banner_color = input.value;
+
+        const banner = document.getElementById('options-preview-profile-banner-color')
+
+        banner.style.backgroundColor = input.value;
     }
 
     function changeAvatarFromInput() {

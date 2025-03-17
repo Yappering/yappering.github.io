@@ -25,18 +25,7 @@ const experimentsList = [
             "Treatment -1: Disabled",
             "Treatment 1: Enabled"
         ],
-        rollout: "Treatment -1: Disabled",
-        needs_api_token: "true"
-    },
-    {
-        title: "Orbs and Holiday in misc",
-        id: "2025-03_orbs_and_holiday",
-        name: "experiment_2025_03_orbs_and_holiday",
-        treatments: [
-            "Treatment -1: Disabled",
-            "Treatment 1: Enabled"
-        ],
-        rollout: "Treatment -1: Disabled",
+        rollout: "Treatment 1: Enabled",
         needs_api_token: "true"
     },
     {

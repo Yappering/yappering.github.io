@@ -18,6 +18,18 @@ EXPERIMENT_ID_6 = 1
 
 const experimentsList = [
     {
+        title: "Copy SKU Card",
+        id: "2025-03_copy_sku_card",
+        name: "experiment_2025_03_copy_sku_card",
+        treatments: [
+            "Treatment -1: Disabled",
+            "Treatment 1: Enabled",
+            "Treatment 2: w/ share button",
+            "Treatment 3: only share button"
+        ],
+        rollout: "Treatment -1: Disabled"
+    },
+    {
         title: "Quick Info Tab",
         id: "2025-03_quick_info",
         name: "experiment_2025_03_quick_info",
@@ -105,7 +117,7 @@ const experimentsList = [
             "Treatment 2: Enabled",
             "Treatment 3: Hide All Profiles Plus Tabs"
         ],
-        rollout: "Treatment 2: Enabled"
+        rollout: "Treatment 3: Hide All Profiles Plus Tabs"
     },
     {
         title: "Shop Category Modals",

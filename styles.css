@@ -2906,6 +2906,12 @@ data-share-product-card-button {
     width: 90%;
 }
 
+.card-multi-button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 5px;
+}
+
 .card-button {
     display: block;
     margin: 5px 0; /* Space between buttons */

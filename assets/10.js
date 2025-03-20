@@ -18,6 +18,16 @@ EXPERIMENT_ID_6 = 1
 
 const experimentsList = [
     {
+        title: "View Raw Modal",
+        id: "2025-03_view_raw_modal",
+        name: "experiment_2025_03_view_raw_modal",
+        treatments: [
+            "Treatment -1: Disabled",
+            "Treatment 1: Enabled"
+        ],
+        rollout: "Treatment 1: Enabled"
+    },
+    {
         title: "Copy SKU Card",
         id: "2025-03_copy_sku_card",
         name: "experiment_2025_03_copy_sku_card",
@@ -27,7 +37,7 @@ const experimentsList = [
             "Treatment 2: w/ share button",
             "Treatment 3: only share button"
         ],
-        rollout: "Treatment -1: Disabled"
+        rollout: "Treatment 1: Enabled"
     },
     {
         title: "Quick Info Tab",

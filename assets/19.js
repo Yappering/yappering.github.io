@@ -1,8 +1,10 @@
 
 
-app_version1 = "284"
+app_version1 = "290"
 app_version2 = "Stable"
 tcbx926n29 = app_version2 + " " + app_version1;
+
+let modalIsAlreadyOpen = false;
 
 defaultAvatar1 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAY1BMVEVYZfJib/OMlfahqPeWn/eBi/XLz/vq6/7////19f5tePTq7P22vPnV2Pyrsvirsvl3gvT09f7Axfp3gfRtePNsePPg4v22vPq2u/qCi/WhqPjf4/zf4v2Xn/essvjLzvuXnvdbidFTAAAETElEQVR4AezBgQAAAACAoP2pF6kCAAAAAAAAAAAAAAAAAAAAAIDZudMtV1UlDuCFRKlWIEJ6uOwbzXn/lzzzYc/GWiT6zya/79WrLeYSc5Vq9IFWa3Sr6JehWt0ZZn5RtFJvmHnodPsrPLx1/B9PKx1ziLOPnIRRO84EXaAP/CWnR3pArTWcybpA5G8NsX20pw+cSbpAngEeOQenY+Cf8KIZ4FuDfSV4Ko/7hS7wNjYH7W3MvNeHtn2jvxn+OXcgaP0x8KJo43vgnwqu85EXDfGVULWON9G1BOmDN/M/AnTgDSWC0xve0KAITeSsykFw4qzOQWB4YwNBOfLmPAHpeXsvr5XOgJkjGA3vIlU6A2bvOHvAnXwiCMrwTl5UpUtg5us7BAB2gcg78nXugaC6QORd+bo7AEAXiLwzX+8SANEFNHPdXcAwV90FDgxA037+zwAc7aZlCKnSNTDrADZBdU6DBwbha5wCAabBkWGkSqfAzFa6C8xeADYB9Y2ByEBsbSMAYAy0zHWPActQLPQuKBh3DiwiDRlwzwFOv9JfTpORh5x5rVfQc8CQiLLJiEMaA1oW6XgVq+grVh4yY56JA68x07fm8hCIhXCUPn823zgkG/HK4Rf6kYv8YBt5BQ03BQyv9CMq8M/JQ7IItw+e6cd8QQjKTqCX3OMTtOdCCNZOoCnqkrYgZEFD2/FF/08qDAE4Dji+TtHPKHknVmBboVB2i9HI9zIGahZUhaVqVxCyQEEVQ7rSBMj3QiPUUTCWJkC+8zrQVjzmELBYG2H5jDYUFqAiQDlMtAwKQgjr+nwoq9O2BSEQJQFVWKeNBSEQ6+BYeG3BFIUAHIfasmsLh7IQgLcjDZd0AWXEIZRDMDYCuuj73g95yJGxEuBLPmr6VBSyzMO9Fpzko3kqeA1r8W4GHOWNKQ/JIl4COL4SZf2lPAQhAY4lYrv860rlIVmHlYAsuBhjFwpCwO4LOkb0TMAzAc8EPBPwTMAGngl4JuCZgMig4jMB27AMykJUhCr4ekwzKI10T9hpwzcz6DNSUbRdORzThW/CJSKagd4LjKurof1suFCYVR54MDckpsBXDLk3pliQgxBTHneBrwiaNtOfeUUKCnMQYlKC32x2r7SlmSUpoOQdi5xtoqx1DNP8WW9kKSCVvAu8QnC2USR4/I2bP5vDmhS80pdOjXULw8dc7HSiL6ljYLTmz/ooKvJTdkqTt9G5s/mHczH6qXlV9I32Ehi0+QVfQbn7HryHhvY033V1Tuu3CRncOIj3rL3EV9pf7+53ced0bY+MIZm7ndEt9uNnkxN8OSWhAvjjZ8ktnIoKaMDHF0yH8S416C4Rpv7bU094pWJ9QFv4BJOBvnkFzjWKMvhu4G78IibMIz2EFM3KFUAwCEI+ID9MDia6kd/+enpFj+YE+af+aA8OZAAAAAAG+Vvf46sAAAAAAAAAAAAAAAAAAAAAAFYCeHSjWah9hFcAAAAASUVORK5CYII=`;
 defaultAvatar2 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAhFBMVEV1fop9hpGgpq+ytr2prraXnqfT19vu7/H////29/iGjpju7/DCxszc3+K6vsS6v8WOlqD39/fLztPLz9OPlqDl5+nDx8ygpq6xtr6xtr3m5+iOlp/Dxsvc3+Hd3+GorraGjpnT19rT1tv29/eOlqHU19p+hpGprrWxt72or7bLz9Kfpq+ibmTzAAAEY0lEQVR4AezBAQEAAAQAIPB/swkMqAIAAAAAAAAAAAAAAAAAAAAAgBNZPfFWy86dLimOw3AAV5qYEXFicMKxHIFs03e///PtvaouagjRGMKfNr/vmhorsiMbpwcm+UZjN4PhD2YedR5TZpnZDgfmOww+L/h/jjoaS0iRG7pdk0HBQlECmeevisGEbpDJf7DQlUDJh2xlbm30noWmBGQFuOUcTMeej3CqFeCQzTOCl8i8bymBbPKQDlxeCecGqTH/Dc/ycUVK0LKx51ZVXs08H+WLoSu5la0yQmUK7sXQEKQ592ZOgFLukSE4meUe2YTQlCyinARTFnFOAss9swRlzL1zBCTj/o2ySFdAURCMBV+FiXQFFLP4esADvxGExPKVjJJIX4HCxbcJACyBkq/IxdkDQZVAyVfl4i4AgBIo+cpcvK8AiBJYMsddApY56hJIGcCSrmfFAAq6GsMQTKTvQDEEaILiXAZTBuEAlsAYl8E1wzCRLoEij7QLFKNYmwBhIp0BIo9tBgDMAcMc9xzYMJQcugvytl55VtCHWNx9wHaZ0d+mO6sP6Z7mBnQfYA2R2Fl1yMKCHov8zp3kycHKoQ9x3Mkj9Wv/i9s0FxCC9CJca8cv3JlDxBPecfgz/cwzt9j+etO5hFsCbEM/89I2e/QhoqI+2YBzGnfWEGHRuoBRQ6R9nu0hQJ3AIqgkNwEhLR6oPy7o/2MCQwC2AwWfltAxL/oifgFrhfZhtxitvpexAKug7nnU+gKqw2sO6DDk8bwJKKF6wZRPq8IToO28XqkvDnMK5FiNMB1n9SErqGZ4xeGvQV0IYV2f34ed05qgEIAjgZfAc9oyIATiPbgOvLZgA0IgtkMm7NpCGhCC8evIgkNKILHqEJIQjEZgGfR971wfMmasBLiQj5regkLaObifBd/p0Ls+xHBXOd7NgLH+YepDRIWXAK4yIpE9B4QAJaBgjcq0/3Wl8BDxiJUA4Yuqqob+YiGi7i0BiO4JuCfgnoB7Au4J6ME9AfcE3BNQMqjqnoAYrgkDnAc4BuWoH0sGtUS6J7xdWj4bu5wBHIqqL+yYZz6Lrek47wzOL0M7+kfjLAfyLpGJB3NDYrfnE2wq5VLagNF/GJl3nk/wS+pNM+PuKZAc6EefKP5m87ahPjnWpICMq1lllRsSpmCYxy8aq0sBJcbVnjvw23yR0OHwcR6/cPsuKcjoq+kir1d8lH3O0yl9lYw9oz1+0ZSqQ34SU5O6/KOuV/Zfdf3x4dJFltAB8+wZ9PErvoKqL7vxtp90TY5Pmlyy5ZI2QcDNg+qSZy9VQ9fX1Je7uDM91SNjMPZie/QN9vDFrtZ8OaXwsgcfvjB1y64owBJp+PrlsLrIGfSzIUzN4a7HNxSs2cO8+PSLwfLsJ3Dbh4QEfBlsz/xDjHcTQicHAPIGONck8LJBvpkc7OhMduxzk9CtmUL+U3+2BwcyAAAAAIP8re/xVQAAAAAAAAAAAAAAAAAAAAAAKwFiKavpSRGzHgAAAABJRU5ErkJggg==`;
@@ -281,7 +283,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                         <p class="dm-button-text">Shop</p>
                     </button>
                     <button class="dm-button" id="miscellaneous-tab" onclick="setParams({page: 'miscellaneous'}); location.reload();">
-                        <p class="dm-button-text">Other</p>
+                        <p class="dm-button-text">Misc</p>
                     </button>
                 </div>
                 <div id="new-profiles-plus-tab-container">
@@ -505,7 +507,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         pageCheck();
 
         function fetchData() {
-            if (params.get("page") != "home" && params.get("page") != "pplus-home" && params.get("page") != "year_recap") {
+            if (params.get("page") != "home" && params.get("page") != "pplus-home" && params.get("page") != "year-recap") {
     
                 let profileEffectsCache = null; // Cache for the profile effects data
     
@@ -1714,10 +1716,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 product.items.forEach(item => {
                                                     const nameplatePreview = previewHolder.querySelector("[data-user-nameplate-preview]");
                                                     const paletteName = item.palette;
-                                                    const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}img.png`;
+                                                    const asset = `https://cdn.discordapp.com/assets/collectibles/${item.asset}asset.webm`;
                                                     const bgcolor = nameplate_palettes[paletteName].darkBackground;
     
-                                                    previewHolder.querySelector("[data-user-nameplate-preview-img]").src = asset;
+                                                    const videoElement = previewHolder.querySelector("[data-user-nameplate-preview-img]");
+    
+                                                    videoElement.src = asset;
     
                                                     nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
                                                     // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
@@ -1734,6 +1738,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     nullUserAvatar.forEach(UserAvatar => {
                                                         UserAvatar.style.backgroundImage = `url(${localStorage.discord_avatar})`;
                                                     });
+    
+                                                    if (localStorage.reduced_motion != "true") {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            videoElement.play();
+                                                        });
+                                                        card.addEventListener("mouseleave", () => {
+                                                            videoElement.pause();
+                                                        });
+                                                    }
                                                 });
                                                 
                                             } else if (product.type === BUNDLE) {
@@ -2378,6 +2391,36 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     }
 } else if (localStorage.full_client_rework != "false") {
 
+    experimentsList.forEach(({ name, rollout }) => {
+        try {
+            if (localStorage.experiment_force_rollout != "false") {
+                localStorage.setItem(name, rollout);
+            } else if (localStorage.getItem(name) == null) {
+                localStorage.setItem(name, rollout);
+            }
+    
+        } catch (error) {
+            console.error(`Error setting up experiment: ${name}`, error);
+        }
+    });
+
+    function clearSetExperiment(experimentName) {
+        const experiment = experimentsList.find(exp => exp.name === experimentName);
+        
+        if (!experiment) {
+            console.warn(`Experiment "${experimentName}" not found.`);
+            return;
+        }
+    
+        const { rollout } = experiment;
+        const treatmentPicker = document.getElementById(`${experimentName}_treatment_container`);
+    
+        if (treatmentPicker) {
+            treatmentPicker.value = rollout;
+            localStorage.setItem(experimentName, rollout);
+        }
+    }
+
     sessionStorage.setItem('api-token', 'token');
 
     const api_password = localStorage.getItem("api-password");
@@ -2652,7 +2695,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         // Update the URL without reloading the page
         history.replaceState(null, '', url);
     }
-    
+
     // Function to clear the shop data
     function clearShopData() {
         const output = document.querySelector("[data-shop-output]");
@@ -2756,6 +2799,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                         for (const product of apiCategory.products) {
                                             const cardTemplate = document.querySelector("[data-shop-item-card-template]");
                                             const card = cardTemplate.content.cloneNode(true).children[0];
+    
+                                            card.id = product.sku_id;
     
                                             if (product.type === NONE) {
                                                 card.classList.add("type_100");
@@ -2913,7 +2958,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         <div class="nameplate-preview-status-color"></div>
                                                     </div>
                                                     <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                        <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
+                                                        <video disablepictureinpicture muted loop class="nameplate-null-user" style="position: absolute; height: 100%; width: auto; right: 0;" data-user-nameplate-preview-img></video>
                                                         <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                         <p class="nameplate-user-name">${previewName}</p>
                                                     </div>
@@ -2943,7 +2988,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     
                                                     videoElement.src = asset;
     
-                                                    nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                    nameplatePreview.style.backgroundImage = `linear-gradient(90deg, #00000000 -30%, ${bgcolor} 200%)`;
                                                     // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
                                                     
                                                     const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
@@ -3519,7 +3564,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
                                                     <div class="card-multi-button-container" card-multi-button-container>
                                                         <button class="card-button" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}">${getTextString("CARD_OPEN_IN_SHOP_V2")}</button>
-                                                        <button class="card-button" onclick="copyEmoji('${product.sku_id}');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
+                                                        <button class="card-button" onclick="copyEmoji('${product.sku_id}'); copyNotice('copysku');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
                                                     </div>
                                                 `;
                                             } else {
@@ -3542,8 +3587,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         if (event.target.matches("[data-shop-card-var]") || event.target.matches(".card-button") || event.target.matches(".shareIcon_f4a996")) {
                                                         } else {
                                                             openItemModal();
+                                                            addParams({itemSkuId: product.sku_id})
                                                         }
                                                     });
+    
+                                                    const itemSKUForScroll = params.get("itemSkuId");
+    
+                                                    if (itemSKUForScroll === product.sku_id && modalIsAlreadyOpen != true) {
+                                                        modalIsAlreadyOpen = true;
+                                                        setTimeout(() => {
+                                                            openItemModal();
+                                                        }, 500);
+                                                    }
                                                     
     
                                                     async function openItemModal() {
@@ -3587,8 +3642,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     <div title="Close" data-close-product-card-button>
                                                                         <svg class="closeIcon_modal" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M17.3 18.7a1 1 0 0 0 1.4-1.4L13.42 12l5.3-5.3a1 1 0 0 0-1.42-1.4L12 10.58l-5.3-5.3a1 1 0 0 0-1.4 1.42L10.58 12l-5.3 5.3a1 1 0 1 0 1.42 1.4L12 13.42l5.3 5.3Z" class=""></path></svg>
                                                                     </div>
-                                                                    <div title="Copy Link" data-share-product-card-button></div>
-                                                                    <div title="Download Data" data-download-product-card-button></div>
                                                                 </div>
     
                                                                 <div id="modalv2-inner-right" class="modalv2-inner-right">
@@ -3607,6 +3660,100 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         if (apiCategory.logo != null) {
                                                             modal.querySelector("[data-modalv2-inner-logo]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.logo}.png?size=4096`;
                                                         }
+    
+                                                        const button_container = document.querySelector("[data-modal-buttons]");
+                                                        const top_button_container = document.querySelector("[data-modal-top-product-buttons]");
+                                                        
+    
+                                                        let copyDiscordLink = document.createElement("div");
+    
+                                                        copyDiscordLink.title = getTextString("SHOP_SHARE_DISCORD_LINK");
+                                                        copyDiscordLink.innerHTML = `
+                                                            <svg data-share-product-card-button class="shareIcon_modal" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}'); copyNotice('copylink');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
+                                                        `;
+                                                        
+                                                        top_button_container.appendChild(copyDiscordLink);
+                                                        
+                                                        if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                            let downloadItemData = document.createElement("div");
+    
+                                                            downloadItemData.title = getTextString("SHOP_DOWNLOAD_DATA");
+                                                            downloadItemData.innerHTML = `
+                                                                <svg data-download-product-card-button class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
+                                                            `;
+    
+                                                            top_button_container.appendChild(downloadItemData);
+                                                        }
+    
+                                                        if (localStorage.experiment_2025_03_view_raw_modal === "Treatment 1: Enabled") {
+                                                            let rawItemData = document.createElement("div");
+    
+                                                            rawItemData.title = getTextString("SHOP_VIEW_RAW_DATA");
+                                                            rawItemData.innerHTML = `
+                                                                <svg data-view-raw-product-card-button class="shareIcon_modal" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.7376 3.18925C15.4883 2.93731 15.0814 2.93686 14.8316 3.18824L14.0087 4.01625C13.7618 4.26471 13.7614 4.66581 14.0078 4.91476L20.3804 11.3527C20.6265 11.6013 20.6265 12.0017 20.3804 12.2503L14.0078 18.6882C13.7614 18.9373 13.7618 19.3383 14.0087 19.5867L14.8316 20.4148C15.0814 20.6662 15.4883 20.6658 15.7376 20.4138L23.815 12.2503C24.061 12.0016 24.061 11.6014 23.815 11.3528L15.7376 3.18925Z" fill="currentColor"/><path d="M9.99171 4.91476C10.2381 4.66581 10.2377 4.26471 9.99081 4.01625L9.16787 3.18824C8.91804 2.93686 8.51118 2.93731 8.2619 3.18925L0.184466 11.3528C-0.0614893 11.6014 -0.061488 12.0016 0.184466 12.2503L8.2619 20.4138C8.51118 20.6658 8.91803 20.6662 9.16787 20.4148L9.99081 19.5867C10.2377 19.3383 10.2381 18.9373 9.99171 18.6882L3.61906 12.2503C3.37298 12.0017 3.37298 11.6013 3.61906 11.3527L9.99171 4.91476Z" fill="currentColor"/></svg>
+                                                            `;
+    
+                                                            top_button_container.appendChild(rawItemData);
+    
+                                                            modal.querySelector("[data-view-raw-product-card-button]").onclick = function(){
+                                                                openRawModal();
+                                                            };
+    
+                                                            async function openRawModal() {
+                                                                let modal = document.createElement("div");
+                        
+                                                                modal.classList.add('modalv2');
+                        
+                                                                modal.innerHTML = `
+                                                                    <div class="view-raw-modalv2-inner">
+                                                                        <textarea class="view-raw-modal-textbox" readonly>${JSON.stringify(product, undefined, 4)}</textarea>
+                                                                    </div>
+                                                                `;
+                        
+                                                                document.body.appendChild(modal);
+                        
+                                                                setTimeout(() => {
+                                                                    modal.classList.add('show');
+                                                                }, 1);
+                                                                
+                        
+                                                                let modal_back = document.createElement("div");
+                        
+                                                                modal_back.classList.add('modalv2-back');
+                                                                modal_back.id = 'modalv2-back';
+                        
+                                                                document.body.appendChild(modal_back);
+                        
+                                                                setTimeout(() => {
+                                                                    modal_back.classList.add('show');
+                                                                }, 1);
+                        
+                        
+                                                                modal.addEventListener('click', (event) => {
+                                                                    if (event.target === modal) {
+                                                                        modal.classList.remove('show');
+                                                                        modal_back.classList.remove('show');
+                                                                        setTimeout(() => {
+                                                                            modal.remove();
+                                                                            modal_back.remove();
+                                                                        }, 300);
+                                                                    }
+                                                                });
+                        
+                                                                document.querySelector("[data-close-product-card-button]").addEventListener('click', () => {
+                                                                    modal.classList.remove('show');
+                                                                    modal_back.classList.remove('show');
+                                                                    setTimeout(() => {
+                                                                        modal.remove();
+                                                                        modal_back.remove();
+                                                                    }, 300);
+                                                                });
+                                                            }
+                                                        }
+    
+                                                        button_container.innerHTML = `
+                                                            <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
+                                                        `;
     
                                                         if (product.type === AVATAR_DECORATION) {
     
@@ -3847,7 +3994,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     <div class="nameplate-preview-status-color"></div>
                                                                 </div>
                                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                                    <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
+                                                                    <video disablepictureinpicture muted loop class="nameplate-null-user" style="position: absolute; height: 100%; width: auto; right: 0;" data-user-nameplate-preview-img></video>
                                                                     <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                                     <p class="nameplate-user-name">${previewName}</p>
                                                                 </div>
@@ -3875,7 +4022,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     
                                                                 videoElement.src = asset;
                 
-                                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                                nameplatePreview.style.backgroundImage = `linear-gradient(90deg, #00000000 -30%, ${bgcolor} 200%)`;
                                                                 // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
                                                                 
                                                                 const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
@@ -3892,12 +4039,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 });
     
                                                                 if (localStorage.reduced_motion != "true") {
-                                                                    document.getElementById('modalv2-inner-right').addEventListener("mouseenter", () => {
-                                                                        videoElement.play();
-                                                                    });
-                                                                    document.getElementById('modalv2-inner-right').addEventListener("mouseleave", () => {
-                                                                        videoElement.pause();
-                                                                    });
+                                                                    videoElement.play();
                                                                 }
                                                             });
                                                             
@@ -4101,13 +4243,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             function applyVariant(selectedVariant) {
                                                                 modal.querySelector("[data-shop-modal-var-title]").textContent = `(${selectedVariant.variant_label})`;
                                                                 modal.querySelector("[data-product-modal-sku-id]").textContent = `SKU ID: ${selectedVariant.sku_id}`;
-                                                                modal.querySelector("[data-share-product-card-button]").innerHTML = `
-                                                                    <svg class="shareIcon_modal" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${selectedVariant.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
-                                                                `;
+                                                                modal.querySelector("[data-share-product-card-button]").onclick = function(){
+                                                                    copyEmoji(`https://canary.discord.com/shop#itemSkuId=${selectedVariant.sku_id}`);
+                                                                };
                                                                 if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
-                                                                    modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                        <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${selectedVariant.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                                    `;
+                                                                    modal.querySelector("[data-download-product-card-button]").onclick = function(){
+                                                                        window.open(`https://item.yapper.shop/sku/${selectedVariant.sku_id}/data.zip`);
+                                                                    };
                                                                 }
                                                                 if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                     
@@ -4388,64 +4530,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         }
     
     
-                                                        const button_container = document.querySelector("[data-modal-buttons]");
-                                                        
-                                                        if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads") {
-                                                            button_container.innerHTML = `
-                                                                <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                            `;
-                                                            modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                            `;
-                                                        } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+") {
-                                                            if (typeof product.emojiCopy != 'undefined') {
-                                                                button_container.innerHTML = `
-                                                                    <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                    <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
-                                                                `;
-                                                            } else {
-                                                                button_container.innerHTML = `
-                                                                    <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                    <button class="card-button card-button-no-emoji" title="${getTextString("CARD_PPLUS_ERROR_TITLE")}">${getTextString("CARD_PPLUS_ERROR")}</button>
-                                                                `;
-                                                            }
-                                                        } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+") {
-                                                            if (typeof product.emojiCopy != 'undefined') {
-                                                                button_container.innerHTML = `
-                                                                    <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                    <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
-                                                                `;
-                                                                modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                    <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                                `;
-                                                            } else {
-                                                                button_container.innerHTML = `
-                                                                    <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                    <button class="card-button card-button-no-emoji" title="${getTextString("CARD_PPLUS_ERROR_TITLE")}">${getTextString("CARD_PPLUS_ERROR")}</button>
-                                                                `;
-                                                                modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                    <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                                `;
-                                                            }
-                                                        } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
-                                                            button_container.innerHTML = `
-                                                                <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                            `;
-                                                            modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                            `;
-                                                        } else {
-                                                            button_container.innerHTML = `
-                                                                <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                            `;
-                                                        }
-    
-    
-                                                        modal.querySelector("[data-share-product-card-button]").innerHTML = `
-                                                            <svg class="shareIcon_modal" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
-                                                        `;
-    
-    
                                                         const priceTextNitro = modal.querySelector("[data-price-nitro]");
                                                         const priceTextStandard = modal.querySelector("[data-price-standard]");
     
@@ -4478,7 +4562,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             <div class="orb-icon" style="margin-left: -25px"></div>
                                                                         `;
                                                                         orb_price.style.position = `absolute`;
-                                                                        orb_price.style.right = `0px`;
+                                                                        orb_price.style.right = `-15px`;
                                                                         
                                                                         priceContainer.appendChild(orb_price);
                     
@@ -4507,7 +4591,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             <div class="orb-icon" style="margin-left: -25px"></div>
                                                                         `;
                                                                         orb_price.style.position = `absolute`;
-                                                                        orb_price.style.left = `20px`;
+                                                                        orb_price.style.left = `18px`;
                                                                         
                                                                         priceContainer.appendChild(orb_price);
                     
@@ -4538,7 +4622,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             <div class="orb-icon" style="margin-left: -25px"></div>
                                                                         `;
                                                                         orb_price.style.position = `absolute`;
-                                                                        orb_price.style.right = `0px`;
+                                                                        orb_price.style.right = `-15px`;
                                                                         
                                                                         priceContainer.appendChild(orb_price);
                     
@@ -4557,7 +4641,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             <div class="orb-icon" style="margin-left: -25px"></div>
                                                                         `;
                                                                         orb_price.style.position = `absolute`;
-                                                                        orb_price.style.left = `23px`;
+                                                                        orb_price.style.left = `18px`;
                                                                         
                                                                         priceContainer.appendChild(orb_price);
                     
@@ -4710,6 +4794,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     modal.remove();
                                                                     modal_back.remove();
                                                                 }, 300);
+                                                                removeParams('itemSkuId');
+                                                                modalIsAlreadyOpen = false;
                                                             }
                                                         });
     
@@ -4727,7 +4813,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     
                                             if (localStorage.experiment_2025_03_copy_sku_card === "Treatment 2: w/ share button" || localStorage.experiment_2025_03_copy_sku_card === "Treatment 3: only share button") {
                                                 card.querySelector("[data-share-product-card-button]").innerHTML = `
-                                                    <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
+                                                    <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}'); copyNotice('copylink');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
                                                 `;
                                             }
     
@@ -6907,9 +6993,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                     console.error('Error fetching the API:', error);
                 });
             }
-        } else if (params.get("page") === "year_recap") {
-            createRecap2024Element()
-        } else if (params.get("page") === "quick_info") {
+        } else if (params.get("page") === "quick-info") {
             createQuickInfoElement()
 
             fetch(apiUrl, {
@@ -9701,7 +9785,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                     potionCard.querySelector("[data-product-card-open-in-shop]").innerHTML = `
                                         <div class="card-multi-button-container" card-multi-button-container>
                                             <button class="card-button" onclick="location.href='${discordsupport}${apiCategory.support_id}';" title="${getTextString("CARD_OPEN_SUPPORT_ARTICLE_TITLE")}">${getTextString("CARD_OPEN_IN_SHOP_V2")}</button>
-                                            <button class="card-button" onclick="copyEmoji('${apiCategory.sku_id}');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
+                                            <button class="card-button" onclick="copyEmoji('${apiCategory.sku_id}'); copyNotice('copysku');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
                                         </div>
                                     `;
                                 } else {
@@ -10218,7 +10302,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                     const itemSKUForScroll = params.get("itemSkuId");
 
-                                    if (itemSKUForScroll === apiCategory.sku_id) {
+                                    if (itemSKUForScroll === apiCategory.sku_id && modalIsAlreadyOpen != true) {
+                                        modalIsAlreadyOpen = true;
                                         setTimeout(() => {
                                             openCategoryModal();
                                         }, 500);
@@ -10624,6 +10709,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     modal_back.remove();
                                                 }, 300);
                                                 removeParams('itemSkuId');
+                                                modalIsAlreadyOpen = false;
                                             }
                                         });
 
@@ -10836,7 +10922,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     <div class="nameplate-preview-status-color"></div>
                                                 </div>
                                                 <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                    <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
+                                                    <video disablepictureinpicture muted loop class="nameplate-null-user" style="position: absolute; height: 100%; width: auto; right: 0;" data-user-nameplate-preview-img></video>
                                                     <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                     <p class="nameplate-user-name">${previewName}</p>
                                                 </div>
@@ -10866,7 +10952,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                                 videoElement.src = asset;
 
-                                                nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                nameplatePreview.style.backgroundImage = `linear-gradient(90deg, #00000000 -30%, ${bgcolor} 200%)`;
                                                 // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
                                                 
                                                 const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
@@ -11442,7 +11528,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
                                                 <div class="card-multi-button-container" card-multi-button-container>
                                                     <button class="card-button" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}">${getTextString("CARD_OPEN_IN_SHOP_V2")}</button>
-                                                    <button class="card-button" onclick="copyEmoji('${product.sku_id}');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
+                                                    <button class="card-button" onclick="copyEmoji('${product.sku_id}'); copyNotice('copysku');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
                                                 </div>
                                             `;
                                         } else {
@@ -11471,7 +11557,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                                 const itemSKUForScroll = params.get("itemSkuId");
 
-                                                if (itemSKUForScroll === product.sku_id) {
+                                                if (itemSKUForScroll === product.sku_id && modalIsAlreadyOpen != true) {
+                                                    modalIsAlreadyOpen = true;
                                                     setTimeout(() => {
                                                         openItemModal();
                                                     }, 500);
@@ -11519,8 +11606,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 <div title="Close" data-close-product-card-button>
                                                                     <svg class="closeIcon_modal" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M17.3 18.7a1 1 0 0 0 1.4-1.4L13.42 12l5.3-5.3a1 1 0 0 0-1.42-1.4L12 10.58l-5.3-5.3a1 1 0 0 0-1.4 1.42L10.58 12l-5.3 5.3a1 1 0 1 0 1.42 1.4L12 13.42l5.3 5.3Z" class=""></path></svg>
                                                                 </div>
-                                                                <div title="Copy Link" data-share-product-card-button></div>
-                                                                <div title="Download Data" data-download-product-card-button></div>
                                                             </div>
 
                                                             <div id="modalv2-inner-right" class="modalv2-inner-right">
@@ -11539,6 +11624,100 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     if (apiCategory.logo != null) {
                                                         modal.querySelector("[data-modalv2-inner-logo]").src = `https://cdn.discordapp.com/app-assets/1096190356233670716/${apiCategory.logo}.png?size=4096`;
                                                     }
+
+                                                    const button_container = document.querySelector("[data-modal-buttons]");
+                                                    const top_button_container = document.querySelector("[data-modal-top-product-buttons]");
+                                                    
+
+                                                    let copyDiscordLink = document.createElement("div");
+
+                                                    copyDiscordLink.title = getTextString("SHOP_SHARE_DISCORD_LINK");
+                                                    copyDiscordLink.innerHTML = `
+                                                        <svg data-share-product-card-button class="shareIcon_modal" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}'); copyNotice('copylink');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
+                                                    `;
+                                                    
+                                                    top_button_container.appendChild(copyDiscordLink);
+                                                    
+                                                    if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
+                                                        let downloadItemData = document.createElement("div");
+
+                                                        downloadItemData.title = getTextString("SHOP_DOWNLOAD_DATA");
+                                                        downloadItemData.innerHTML = `
+                                                            <svg data-download-product-card-button class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
+                                                        `;
+
+                                                        top_button_container.appendChild(downloadItemData);
+                                                    }
+
+                                                    if (localStorage.experiment_2025_03_view_raw_modal === "Treatment 1: Enabled") {
+                                                        let rawItemData = document.createElement("div");
+
+                                                        rawItemData.title = getTextString("SHOP_VIEW_RAW_DATA");
+                                                        rawItemData.innerHTML = `
+                                                            <svg data-view-raw-product-card-button class="shareIcon_modal" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.7376 3.18925C15.4883 2.93731 15.0814 2.93686 14.8316 3.18824L14.0087 4.01625C13.7618 4.26471 13.7614 4.66581 14.0078 4.91476L20.3804 11.3527C20.6265 11.6013 20.6265 12.0017 20.3804 12.2503L14.0078 18.6882C13.7614 18.9373 13.7618 19.3383 14.0087 19.5867L14.8316 20.4148C15.0814 20.6662 15.4883 20.6658 15.7376 20.4138L23.815 12.2503C24.061 12.0016 24.061 11.6014 23.815 11.3528L15.7376 3.18925Z" fill="currentColor"/><path d="M9.99171 4.91476C10.2381 4.66581 10.2377 4.26471 9.99081 4.01625L9.16787 3.18824C8.91804 2.93686 8.51118 2.93731 8.2619 3.18925L0.184466 11.3528C-0.0614893 11.6014 -0.061488 12.0016 0.184466 12.2503L8.2619 20.4138C8.51118 20.6658 8.91803 20.6662 9.16787 20.4148L9.99081 19.5867C10.2377 19.3383 10.2381 18.9373 9.99171 18.6882L3.61906 12.2503C3.37298 12.0017 3.37298 11.6013 3.61906 11.3527L9.99171 4.91476Z" fill="currentColor"/></svg>
+                                                        `;
+
+                                                        top_button_container.appendChild(rawItemData);
+
+                                                        modal.querySelector("[data-view-raw-product-card-button]").onclick = function(){
+                                                            openRawModal();
+                                                        };
+
+                                                        async function openRawModal() {
+                                                            let modal = document.createElement("div");
+                    
+                                                            modal.classList.add('modalv2');
+                    
+                                                            modal.innerHTML = `
+                                                                <div class="view-raw-modalv2-inner">
+                                                                    <textarea class="view-raw-modal-textbox" readonly>${JSON.stringify(product, undefined, 4)}</textarea>
+                                                                </div>
+                                                            `;
+                    
+                                                            document.body.appendChild(modal);
+                    
+                                                            setTimeout(() => {
+                                                                modal.classList.add('show');
+                                                            }, 1);
+                                                            
+                    
+                                                            let modal_back = document.createElement("div");
+                    
+                                                            modal_back.classList.add('modalv2-back');
+                                                            modal_back.id = 'modalv2-back';
+                    
+                                                            document.body.appendChild(modal_back);
+                    
+                                                            setTimeout(() => {
+                                                                modal_back.classList.add('show');
+                                                            }, 1);
+                    
+                    
+                                                            modal.addEventListener('click', (event) => {
+                                                                if (event.target === modal) {
+                                                                    modal.classList.remove('show');
+                                                                    modal_back.classList.remove('show');
+                                                                    setTimeout(() => {
+                                                                        modal.remove();
+                                                                        modal_back.remove();
+                                                                    }, 300);
+                                                                }
+                                                            });
+                    
+                                                            document.querySelector("[data-close-product-card-button]").addEventListener('click', () => {
+                                                                modal.classList.remove('show');
+                                                                modal_back.classList.remove('show');
+                                                                setTimeout(() => {
+                                                                    modal.remove();
+                                                                    modal_back.remove();
+                                                                }, 300);
+                                                            });
+                                                        }
+                                                    }
+
+                                                    button_container.innerHTML = `
+                                                        <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
+                                                    `;
 
                                                     if (product.type === AVATAR_DECORATION) {
 
@@ -11779,7 +11958,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 <div class="nameplate-preview-status-color"></div>
                                                             </div>
                                                             <div class="nameplate-null-user" data-user-nameplate-preview>
-                                                                <video muted loop class="nameplate-null-user" style="position: absolute;" data-user-nameplate-preview-img></video>
+                                                                <video disablepictureinpicture muted loop class="nameplate-null-user" style="position: absolute; height: 100%; width: auto; right: 0;" data-user-nameplate-preview-img></video>
                                                                 <div class="nameplate-user-avatar" data-nameplate-user-random-avatar></div>
                                                                 <p class="nameplate-user-name">${previewName}</p>
                                                             </div>
@@ -11807,7 +11986,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                                             videoElement.src = asset;
             
-                                                            nameplatePreview.style.backgroundImage = `linear-gradient(10deg, #00000000 40%, ${bgcolor} 180%), linear-gradient(170deg, #00000000 40%, ${bgcolor} 180%)`;
+                                                            nameplatePreview.style.backgroundImage = `linear-gradient(90deg, #00000000 -30%, ${bgcolor} 200%)`;
                                                             // nameplatePreview.style.boxShadow = `0 0 0 1px #a10606`;
                                                             
                                                             const nullUserNameRandomWidth = previewHolder.querySelectorAll("[data-null-user-random-name]");
@@ -11824,12 +12003,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             });
 
                                                             if (localStorage.reduced_motion != "true") {
-                                                                document.getElementById('modalv2-inner-right').addEventListener("mouseenter", () => {
-                                                                    videoElement.play();
-                                                                });
-                                                                document.getElementById('modalv2-inner-right').addEventListener("mouseleave", () => {
-                                                                    videoElement.pause();
-                                                                });
+                                                                videoElement.play();
                                                             }
                                                         });
                                                         
@@ -12033,13 +12207,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         function applyVariant(selectedVariant) {
                                                             modal.querySelector("[data-shop-modal-var-title]").textContent = `(${selectedVariant.variant_label})`;
                                                             modal.querySelector("[data-product-modal-sku-id]").textContent = `SKU ID: ${selectedVariant.sku_id}`;
-                                                            modal.querySelector("[data-share-product-card-button]").innerHTML = `
-                                                                <svg class="shareIcon_modal" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${selectedVariant.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
-                                                            `;
+                                                            modal.querySelector("[data-share-product-card-button]").onclick = function(){
+                                                                copyEmoji(`https://canary.discord.com/shop#itemSkuId=${selectedVariant.sku_id}`);
+                                                            };
                                                             if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
-                                                                modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                    <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${selectedVariant.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                                `;
+                                                                modal.querySelector("[data-download-product-card-button]").onclick = function(){
+                                                                    window.open(`https://item.yapper.shop/sku/${selectedVariant.sku_id}/data.zip`);
+                                                                };
                                                             }
                                                             if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 
@@ -12320,64 +12494,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     }
 
 
-                                                    const button_container = document.querySelector("[data-modal-buttons]");
-                                                    
-                                                    if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 2: Enable modals w/ data downloads") {
-                                                        button_container.innerHTML = `
-                                                            <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                        `;
-                                                        modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                            <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                        `;
-                                                    } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+") {
-                                                        if (typeof product.emojiCopy != 'undefined') {
-                                                            button_container.innerHTML = `
-                                                                <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
-                                                            `;
-                                                        } else {
-                                                            button_container.innerHTML = `
-                                                                <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                <button class="card-button card-button-no-emoji" title="${getTextString("CARD_PPLUS_ERROR_TITLE")}">${getTextString("CARD_PPLUS_ERROR")}</button>
-                                                            `;
-                                                        }
-                                                    } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+") {
-                                                        if (typeof product.emojiCopy != 'undefined') {
-                                                            button_container.innerHTML = `
-                                                                <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
-                                                            `;
-                                                            modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                            `;
-                                                        } else {
-                                                            button_container.innerHTML = `
-                                                                <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                                <button class="card-button card-button-no-emoji" title="${getTextString("CARD_PPLUS_ERROR_TITLE")}">${getTextString("CARD_PPLUS_ERROR")}</button>
-                                                            `;
-                                                            modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                                <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                            `;
-                                                        }
-                                                    } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
-                                                        button_container.innerHTML = `
-                                                            <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                        `;
-                                                        modal.querySelector("[data-download-product-card-button]").innerHTML = `
-                                                            <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
-                                                        `;
-                                                    } else {
-                                                        button_container.innerHTML = `
-                                                            <button class="card-button" title="${getTextString("CARD_OPEN_IN_SHOP_TITLE")}" onclick="location.href='https://discord.com/shop#itemSkuId=${product.sku_id}';">${getTextString("CARD_OPEN_IN_SHOP")}</button>
-                                                        `;
-                                                    }
-
-
-                                                    modal.querySelector("[data-share-product-card-button]").innerHTML = `
-                                                        <svg class="shareIcon_modal" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
-                                                    `;
-
-
                                                     const priceTextNitro = modal.querySelector("[data-price-nitro]");
                                                     const priceTextStandard = modal.querySelector("[data-price-standard]");
 
@@ -12410,7 +12526,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         <div class="orb-icon" style="margin-left: -25px"></div>
                                                                     `;
                                                                     orb_price.style.position = `absolute`;
-                                                                    orb_price.style.right = `0px`;
+                                                                    orb_price.style.right = `-15px`;
                                                                     
                                                                     priceContainer.appendChild(orb_price);
                 
@@ -12439,7 +12555,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         <div class="orb-icon" style="margin-left: -25px"></div>
                                                                     `;
                                                                     orb_price.style.position = `absolute`;
-                                                                    orb_price.style.left = `20px`;
+                                                                    orb_price.style.left = `18px`;
                                                                     
                                                                     priceContainer.appendChild(orb_price);
                 
@@ -12470,7 +12586,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         <div class="orb-icon" style="margin-left: -25px"></div>
                                                                     `;
                                                                     orb_price.style.position = `absolute`;
-                                                                    orb_price.style.right = `0px`;
+                                                                    orb_price.style.right = `-15px`;
                                                                     
                                                                     priceContainer.appendChild(orb_price);
                 
@@ -12489,7 +12605,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         <div class="orb-icon" style="margin-left: -25px"></div>
                                                                     `;
                                                                     orb_price.style.position = `absolute`;
-                                                                    orb_price.style.left = `23px`;
+                                                                    orb_price.style.left = `18px`;
                                                                     
                                                                     priceContainer.appendChild(orb_price);
                 
@@ -12643,6 +12759,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 modal_back.remove();
                                                             }, 300);
                                                             removeParams('itemSkuId');
+                                                            modalIsAlreadyOpen = false;
                                                         }
                                                     });
 
@@ -12660,7 +12777,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                         if (localStorage.experiment_2025_03_copy_sku_card === "Treatment 2: w/ share button" || localStorage.experiment_2025_03_copy_sku_card === "Treatment 3: only share button") {
                                             card.querySelector("[data-share-product-card-button]").innerHTML = `
-                                                <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
+                                                <svg class="shareIcon_f4a996" onclick="copyEmoji('https://canary.discord.com/shop#itemSkuId=${product.sku_id}'); copyNotice('copylink');" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3.98 3.98 0 0 0-5.62-5.63l-2.52 2.51a1 1 0 0 1-1.41-1.41l2.52-2.52a5.98 5.98 0 0 1 8.45 8.46l-2.52 2.51a1 1 0 0 1-1.41 0ZM7.68 9.29a1 1 0 0 1 0 1.41l-2.52 2.51a3.98 3.98 0 1 0 5.63 5.63l2.51-2.52a1 1 0 0 1 1.42 1.42l-2.52 2.51a5.98 5.98 0 0 1-8.45-8.45l2.51-2.51a1 1 0 0 1 1.42 0Z" class=""></path><path fill="currentColor" d="M14.7 10.7a1 1 0 0 0-1.4-1.4l-4 4a1 1 0 1 0 1.4 1.4l4-4Z" class=""></path></svg>
                                             `;
                                         }
 
@@ -12786,7 +12903,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                     if (itemSKUForScroll === sku_id) {
                                         setTimeout(() => {
-                                            document.getElementById(itemSKUForScroll).scrollIntoView({ behavior: "smooth" });
+                                            try {
+                                                document.getElementById(itemSKUForScroll).scrollIntoView({ behavior: "smooth" });
+                                            }
+                                            catch(error) {
+                                                scrollToSKU(sku_id)
+                                            }
                                         }, 500);
                                     }
                                 }
@@ -12927,7 +13049,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     }
     
 
-    if (params.get("page") != "item_tool" && params.get("page") != "published_listings" && params.get("page") != "orb_converter") {
+    if (params.get("page") != "item_tool" && params.get("page") != "published_listings" && params.get("page") != "orb_converter" && params.get("page") != "year-recap") {
         window.onload = fetchData;
     }
 
@@ -13020,7 +13142,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     if (localStorage.experiment_2024_11_recap === "Treatment 1: Enabled") {
         document.getElementById('recap-2024-tab-loading').innerHTML = `
             <img class="recap-2024-tab-decoration" src="https://cdn.yapper.shop/assets/157.png">
-            <button class="dm-button" id="recap-2024-tab" onclick="setParams({page: 'year_recap'}); location.reload();">
+            <button class="dm-button" id="recap-2024-tab" onclick="setParams({page: 'year-recap'}); location.reload();">
                 <p class="dm-button-text">${getTextString("RECAP_2024_TAB_TITLE")}</p>
             </button>
 
@@ -13029,7 +13151,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     } else if (localStorage.experiment_2024_11_recap === "Treatment 2: Nameplate Marketing") {
         document.getElementById('recap-2024-tab-loading').innerHTML = `
             <video autoplay muted loop class="recap-2025-tab-decoration nameplate-null-user" style="position: absolute;" src="https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates/vengeance/asset.webm"></video>
-            <button class="dm-button" id="recap-2024-tab" onclick="setParams({page: 'year_recap'}); location.reload();">
+            <button class="dm-button" id="recap-2024-tab" onclick="setParams({page: 'year-recap'}); location.reload();">
                 <p class="dm-button-text">${getTextString("RECAP_2024_TAB_TITLE")}</p>
             </button>
 
@@ -13039,7 +13161,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
     if (localStorage.experiment_2025_03_quick_info === "Treatment 1: Enabled") {
         document.getElementById('quick-info-tab-container').innerHTML = `
-            <button class="dm-button" id="quick-info-tab" onclick="setParams({page: 'quick_info'}); location.reload();">
+            <button class="dm-button" id="quick-info-tab" onclick="setParams({page: 'quick-info'}); location.reload();">
                 <p class="dm-button-text">${getTextString("QUICK_INFO_TAB_TITLE")}</p>
             </button>
         `;
@@ -13066,15 +13188,16 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 <h2 style="margin-left: 260px; margin-top: 10px;">${getTextString("FEATURED_TAB_PAGE_TITLE")}</h2>
                 <div id="open-help-modals-buttons-holder"></div>
             `;
-        } else if (params.get("page") === "year_recap") {
+        } else if (params.get("page") === "year-recap") {
             document.title = `${getTextString("RECAP_2024_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
+            createRecap2024Element()
             document.getElementById("recap-2024-tab").classList.add('dm-button-selected');
             localStorage.dismissible_recap_2024 = "Treatment 1: Seen";
             document.getElementById("top-bar-container").innerHTML = `
                 <h2 style="margin-left: 260px; margin-top: 10px;">${getTextString("RECAP_2024_TAB_PAGE_TITLE")}</h2>
                 <div id="open-help-modals-buttons-holder"></div>
             `;
-        } else if (params.get("page") === "quick_info") {
+        } else if (params.get("page") === "quick-info") {
             document.title = `${getTextString("QUICK_INFO_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             apiUrl = api + QUICK_INFO;
             document.getElementById("quick-info-tab").classList.add('dm-button-selected');
@@ -13478,7 +13601,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     }
 
     function dismissibleContentRecap2024() {
-        setParams({page: 'year_recap'}); location.reload();
+        setParams({page: 'year-recap'}); location.reload();
         localStorage.dismissible_recap_2024 = "Treatment 1: Seen";
     }
 
@@ -15508,36 +15631,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         }
     }
 
-    experimentsList.forEach(({ name, rollout }) => {
-        try {
-            if (localStorage.experiment_force_rollout != "false") {
-                localStorage.setItem(name, rollout);
-            } else if (localStorage.getItem(name) == null) {
-                localStorage.setItem(name, rollout);
-            }
-    
-        } catch (error) {
-            console.error(`Error setting up experiment: ${name}`, error);
-        }
-    });
-
-    function clearSetExperiment(experimentName) {
-        const experiment = experimentsList.find(exp => exp.name === experimentName);
-        
-        if (!experiment) {
-            console.warn(`Experiment "${experimentName}" not found.`);
-            return;
-        }
-    
-        const { rollout } = experiment;
-        const treatmentPicker = document.getElementById(`${experimentName}_treatment_container`);
-    
-        if (treatmentPicker) {
-            treatmentPicker.value = rollout;
-            localStorage.setItem(experimentName, rollout);
-        }
-    }
-
 
     function changeUsernameFromInput() {
         const input = document.getElementById('profile-username-text-input')
@@ -16658,6 +16751,36 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     } else if (localStorage.experiment_2025_03_heartbeat === "Treatment 2: Fetch every 60 seconds") {
         heartBeat();
         setInterval(heartBeat, 60000);
+    }
+
+    function copyNotice(type) {
+        if (type === "copylink") {
+            let copyNotice = document.createElement("div");
+
+            copyNotice.classList.add('copy-notice-container');
+            copyNotice.innerHTML = `
+                <p>${getTextString("SHOP_LINK_COPY_SUCCESS")}</p>
+            `;
+                         
+            document.body.appendChild(copyNotice);
+            setTimeout(() => {
+                copyNotice.remove();
+            }, 5000);
+        } else if (type === "copysku") {
+            let copyNotice = document.createElement("div");
+
+            copyNotice.classList.add('copy-notice-container');
+            copyNotice.innerHTML = `
+                <p>${getTextString("SHOP_SKU_ID_COPY_SUCCESS")}</p>
+            `;
+                         
+            document.body.appendChild(copyNotice);
+            setTimeout(() => {
+                copyNotice.remove();
+            }, 5000);
+        } else {
+            console.warn('Invalid copyNotice')
+        }
     }
     
     

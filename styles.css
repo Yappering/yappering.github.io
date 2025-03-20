@@ -2235,7 +2235,7 @@ data-share-product-card-button {
 .shop-card-var-title {
     position: absolute;
     bottom: 40px;
-    right: 10px;
+    right: 15px;
     color: #b1b5bb;
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -2908,7 +2908,7 @@ data-share-product-card-button {
 
 .card-multi-button-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 5px;
 }
 
@@ -3558,6 +3558,29 @@ data-share-product-card-button {
     width: 800px;
 }
 
+.view-raw-modal-textbox {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: var(--input-background);
+    color: var(--white);
+}
+
+.view-raw-modalv2-inner {
+    position: relative;
+    z-index: 1001;
+    background-color: var(--background-primary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 1000px;
+    height: 800px;
+    overflow: hidden;
+}
+
 .modalv2 {
     position: fixed;
     top: 0;
@@ -3783,7 +3806,7 @@ data-share-product-card-button {
 
 .shop-modal-var-title {
     position: absolute;
-    right: 10px;
+    right: 20px;
     color: var(--8);
     pointer-events: none;
 }
@@ -4224,6 +4247,32 @@ data-share-product-card-button {
 
 .shop-notice-text {
     margin-top: 5px;
+}
+
+.copy-notice-container {
+    position: fixed;
+    opacity: 0;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1e1f22;
+    color: var(--white);
+    border-radius: 50px;
+    width: auto;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    pointer-events: none;
+    animation: gtfin76g7ererg 5s;
+    z-index: 2000;
+}
+
+@keyframes gtfin76g7ererg {
+    0% {opacity: 0; transform: translateY(-50px);}
+    10% {opacity: 1; transform: translateY(0px);}
+    90% {opacity: 1; transform: translateY(0px);}
+    100% {opacity: 0; transform: translateY(-50px);}
 }
 
 .home-page-preview-banner {

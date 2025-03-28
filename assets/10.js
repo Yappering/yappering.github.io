@@ -142,8 +142,7 @@ const experimentsList = [
             "Treatment 2: Enabled",
             "Treatment 3: Hide All Profiles Plus Tabs"
         ],
-        rollout: "Treatment 3: Hide All Profiles Plus Tabs",
-        not_needed: "true"
+        rollout: "Treatment 3: Hide All Profiles Plus Tabs"
     },
     {
         title: "Shop Category Modals",
@@ -307,5 +306,56 @@ const dismissibleContentList = [
             "Treatment -1: Unseen",
             "Treatment 1: Seen"
         ]
+    }
+];
+
+const testFetchAPIList = [
+    {
+        title: "Test Fetch Old API",
+        id: "testfetch",
+        name: "testfetch_testfetch",
+        treatments: [
+            "none",
+            "collectibles-categories",
+            "consumables",
+            "miscellaneous-categories",
+            "preview-1",
+            "user-profile-effects",
+            "downloads",
+            "leaked-categories",
+            "orbs-shop-default"
+        ],
+        rollout: "none",
+        needs_api_token: "true"
+    },
+    {
+        title: "Test Fetch Collectibles Shop API",
+        id: "testfetch_collectibles-shop",
+        name: "testfetch_testfetchnew",
+        treatments: [
+            "none",
+            "home",
+            "shop",
+            "orbs",
+            "leaks",
+            "consumables",
+            "miscellaneous",
+            "pplus-home",
+            "pplus"
+        ],
+        rollout: "none",
+        needs_api_token: "true"
+    },
+    {
+        title: "Test Fetch Profile Effects API",
+        id: "testfetch_profile-effects",
+        name: "testfetch_testfetcheffects",
+        treatments: [
+            "none",
+            "discord",
+            "pplus"
+        ],
+        rollout: "none",
+        needs_api_token: "true"
     }
 ];

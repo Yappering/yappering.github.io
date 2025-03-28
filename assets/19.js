@@ -1,10 +1,12 @@
 
 
-app_version1 = "295"
+app_version1 = "300"
 app_version2 = "Stable"
 tcbx926n29 = app_version2 + " " + app_version1;
 
 let modalIsAlreadyOpen = false;
+let discordProfileEffectsCache = null;
+let pplusProfileEffectsCache = null;
 
 defaultAvatar1 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAY1BMVEVYZfJib/OMlfahqPeWn/eBi/XLz/vq6/7////19f5tePTq7P22vPnV2Pyrsvirsvl3gvT09f7Axfp3gfRtePNsePPg4v22vPq2u/qCi/WhqPjf4/zf4v2Xn/essvjLzvuXnvdbidFTAAAETElEQVR4AezBgQAAAACAoP2pF6kCAAAAAAAAAAAAAAAAAAAAAIDZudMtV1UlDuCFRKlWIEJ6uOwbzXn/lzzzYc/GWiT6zya/79WrLeYSc5Vq9IFWa3Sr6JehWt0ZZn5RtFJvmHnodPsrPLx1/B9PKx1ziLOPnIRRO84EXaAP/CWnR3pArTWcybpA5G8NsX20pw+cSbpAngEeOQenY+Cf8KIZ4FuDfSV4Ko/7hS7wNjYH7W3MvNeHtn2jvxn+OXcgaP0x8KJo43vgnwqu85EXDfGVULWON9G1BOmDN/M/AnTgDSWC0xve0KAITeSsykFw4qzOQWB4YwNBOfLmPAHpeXsvr5XOgJkjGA3vIlU6A2bvOHvAnXwiCMrwTl5UpUtg5us7BAB2gcg78nXugaC6QORd+bo7AEAXiLwzX+8SANEFNHPdXcAwV90FDgxA037+zwAc7aZlCKnSNTDrADZBdU6DBwbha5wCAabBkWGkSqfAzFa6C8xeADYB9Y2ByEBsbSMAYAy0zHWPActQLPQuKBh3DiwiDRlwzwFOv9JfTpORh5x5rVfQc8CQiLLJiEMaA1oW6XgVq+grVh4yY56JA68x07fm8hCIhXCUPn823zgkG/HK4Rf6kYv8YBt5BQ03BQyv9CMq8M/JQ7IItw+e6cd8QQjKTqCX3OMTtOdCCNZOoCnqkrYgZEFD2/FF/08qDAE4Dji+TtHPKHknVmBboVB2i9HI9zIGahZUhaVqVxCyQEEVQ7rSBMj3QiPUUTCWJkC+8zrQVjzmELBYG2H5jDYUFqAiQDlMtAwKQgjr+nwoq9O2BSEQJQFVWKeNBSEQ6+BYeG3BFIUAHIfasmsLh7IQgLcjDZd0AWXEIZRDMDYCuuj73g95yJGxEuBLPmr6VBSyzMO9Fpzko3kqeA1r8W4GHOWNKQ/JIl4COL4SZf2lPAQhAY4lYrv860rlIVmHlYAsuBhjFwpCwO4LOkb0TMAzAc8EPBPwTMAGngl4JuCZgMig4jMB27AMykJUhCr4ekwzKI10T9hpwzcz6DNSUbRdORzThW/CJSKagd4LjKurof1suFCYVR54MDckpsBXDLk3pliQgxBTHneBrwiaNtOfeUUKCnMQYlKC32x2r7SlmSUpoOQdi5xtoqx1DNP8WW9kKSCVvAu8QnC2USR4/I2bP5vDmhS80pdOjXULw8dc7HSiL6ljYLTmz/ooKvJTdkqTt9G5s/mHczH6qXlV9I32Ehi0+QVfQbn7HryHhvY033V1Tuu3CRncOIj3rL3EV9pf7+53ced0bY+MIZm7ndEt9uNnkxN8OSWhAvjjZ8ktnIoKaMDHF0yH8S416C4Rpv7bU094pWJ9QFv4BJOBvnkFzjWKMvhu4G78IibMIz2EFM3KFUAwCEI+ID9MDia6kd/+enpFj+YE+af+aA8OZAAAAAAG+Vvf46sAAAAAAAAAAAAAAAAAAAAAAFYCeHSjWah9hFcAAAAASUVORK5CYII=`;
 defaultAvatar2 = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAMAAABrrFhUAAAAhFBMVEV1fop9hpGgpq+ytr2prraXnqfT19vu7/H////29/iGjpju7/DCxszc3+K6vsS6v8WOlqD39/fLztPLz9OPlqDl5+nDx8ygpq6xtr6xtr3m5+iOlp/Dxsvc3+Hd3+GorraGjpnT19rT1tv29/eOlqHU19p+hpGprrWxt72or7bLz9Kfpq+ibmTzAAAEY0lEQVR4AezBAQEAAAQAIPB/swkMqAIAAAAAAAAAAAAAAAAAAAAAgBNZPfFWy86dLimOw3AAV5qYEXFicMKxHIFs03e///PtvaouagjRGMKfNr/vmhorsiMbpwcm+UZjN4PhD2YedR5TZpnZDgfmOww+L/h/jjoaS0iRG7pdk0HBQlECmeevisGEbpDJf7DQlUDJh2xlbm30noWmBGQFuOUcTMeej3CqFeCQzTOCl8i8bymBbPKQDlxeCecGqTH/Dc/ycUVK0LKx51ZVXs08H+WLoSu5la0yQmUK7sXQEKQ592ZOgFLukSE4meUe2YTQlCyinARTFnFOAss9swRlzL1zBCTj/o2ySFdAURCMBV+FiXQFFLP4esADvxGExPKVjJJIX4HCxbcJACyBkq/IxdkDQZVAyVfl4i4AgBIo+cpcvK8AiBJYMsddApY56hJIGcCSrmfFAAq6GsMQTKTvQDEEaILiXAZTBuEAlsAYl8E1wzCRLoEij7QLFKNYmwBhIp0BIo9tBgDMAcMc9xzYMJQcugvytl55VtCHWNx9wHaZ0d+mO6sP6Z7mBnQfYA2R2Fl1yMKCHov8zp3kycHKoQ9x3Mkj9Wv/i9s0FxCC9CJca8cv3JlDxBPecfgz/cwzt9j+etO5hFsCbEM/89I2e/QhoqI+2YBzGnfWEGHRuoBRQ6R9nu0hQJ3AIqgkNwEhLR6oPy7o/2MCQwC2AwWfltAxL/oifgFrhfZhtxitvpexAKug7nnU+gKqw2sO6DDk8bwJKKF6wZRPq8IToO28XqkvDnMK5FiNMB1n9SErqGZ4xeGvQV0IYV2f34ed05qgEIAjgZfAc9oyIATiPbgOvLZgA0IgtkMm7NpCGhCC8evIgkNKILHqEJIQjEZgGfR971wfMmasBLiQj5regkLaObifBd/p0Ls+xHBXOd7NgLH+YepDRIWXAK4yIpE9B4QAJaBgjcq0/3Wl8BDxiJUA4Yuqqob+YiGi7i0BiO4JuCfgnoB7Au4J6ME9AfcE3BNQMqjqnoAYrgkDnAc4BuWoH0sGtUS6J7xdWj4bu5wBHIqqL+yYZz6Lrek47wzOL0M7+kfjLAfyLpGJB3NDYrfnE2wq5VLagNF/GJl3nk/wS+pNM+PuKZAc6EefKP5m87ahPjnWpICMq1lllRsSpmCYxy8aq0sBJcbVnjvw23yR0OHwcR6/cPsuKcjoq+kir1d8lH3O0yl9lYw9oz1+0ZSqQ34SU5O6/KOuV/Zfdf3x4dJFltAB8+wZ9PErvoKqL7vxtp90TY5Pmlyy5ZI2QcDNg+qSZy9VQ9fX1Je7uDM91SNjMPZie/QN9vDFrtZ8OaXwsgcfvjB1y64owBJp+PrlsLrIGfSzIUzN4a7HNxSs2cO8+PSLwfLsJ3Dbh4QEfBlsz/xDjHcTQicHAPIGONck8LJBvpkc7OhMduxzk9CtmUL+U3+2BwcyAAAAAIP8re/xVQAAAAAAAAAAAAAAAAAAAAAAKwFiKavpSRGzHgAAAABJRU5ErkJggg==`;
@@ -509,7 +511,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         function fetchData() {
             if (params.get("page") != "home" && params.get("page") != "pplus-home" && params.get("page") != "year-recap") {
     
-                let profileEffectsCache = null; // Cache for the profile effects data
     
                 // Make the function async
                 fetch(apiUrl, {
@@ -626,7 +627,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             
                                             
                                                 // Fetch profile effects API only if not already cached
-                                                if (!profileEffectsCache) {
+                                                if (!discordProfileEffectsCache) {
                                                     const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
                                                         method: "GET",
                                                         headers: {
@@ -635,11 +636,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         }
                                                     });
                                                     const effectsData = await response.json();
-                                                    profileEffectsCache = effectsData.profile_effect_configs;
+                                                    discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                 }
                                             
                                                 // Find matching profile effect
-                                                const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                             
                                                 if (matchingEffect) {
                                                     const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -789,10 +790,10 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         }
                                                     } else if (item.type === 1) {
                                                         // Profile effect
-                                                        let profileEffectsCache = null; // Cache profile effects to avoid multiple fetches
+                                                        let discordProfileEffectsCache = null; // Cache profile effects to avoid multiple fetches
                                             
                                                         (async () => {
-                                                            if (!profileEffectsCache) {
+                                                            if (!discordProfileEffectsCache) {
                                                                 const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
                                                                     method: "GET",
                                                                     headers: {
@@ -801,10 +802,10 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     }
                                                                 });
                                                                 const effectsData = await response.json();
-                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                             }
                                             
-                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                             
                                                             if (matchingEffect) {
                                                                 const effectImage = document.createElement("img");
@@ -940,7 +941,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         
                                                         
                                                             // Fetch profile effects API only if not already cached
-                                                            if (!profileEffectsCache) {
+                                                            if (!discordProfileEffectsCache) {
                                                                 const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
                                                                     method: "GET",
                                                                     headers: {
@@ -949,11 +950,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     }
                                                                 });
                                                                 const effectsData = await response.json();
-                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                             }
                                                         
                                                             // Find matching profile effect
-                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                         
                                                             if (matchingEffect) {
                                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -1611,7 +1612,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             
                                             
                                                 // Fetch profile effects API only if not already cached
-                                                if (!profileEffectsCache) {
+                                                if (!discordProfileEffectsCache) {
                                                     const response = await fetch(api + PROFILE_EFFECTS, {
                                                         method: "GET",
                                                         headers: {
@@ -1620,11 +1621,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         }
                                                     });
                                                     const effectsData = await response.json();
-                                                    profileEffectsCache = effectsData.profile_effect_configs;
+                                                    discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                 }
                                             
                                                 // Find matching profile effect
-                                                const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                             
                                                 if (matchingEffect) {
                                                     const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -1809,7 +1810,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         // Profile effect
                                                         (async () => {
                                                             // Fetch profile effects if not cached
-                                                            if (!profileEffectsCache) {
+                                                            if (!discordProfileEffectsCache) {
                                                                 const response = await fetch(api + PROFILE_EFFECTS, {
                                                                     method: "GET",
                                                                     headers: {
@@ -1818,11 +1819,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     }
                                                                 });
                                                                 const effectsData = await response.json();
-                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                             }
                                             
                                                             // Find the matching effect
-                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                             
                                                             if (matchingEffect) {
                                                                 const effectImage = document.createElement("img");
@@ -1975,7 +1976,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         
                                                         
                                                             // Fetch profile effects API only if not already cached
-                                                            if (!profileEffectsCache) {
+                                                            if (!discordProfileEffectsCache) {
                                                                 const response = await fetch(api + PROFILE_EFFECTS, {
                                                                     method: "GET",
                                                                     headers: {
@@ -1984,11 +1985,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     }
                                                                 });
                                                                 const effectsData = await response.json();
-                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                             }
                                                         
                                                             // Find matching profile effect
-                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                         
                                                             if (matchingEffect) {
                                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -2464,14 +2465,15 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             CONSUMABLES = "/consumables",
             MISCELLANEOUS = "/miscellaneous-categories",
             HOME_PAGE_ALL = "/preview-1",
-            PROFILE_EFFECTS = "/user-profile-effects",
             DOWNLOADABLE_DATA = "/downloads",
+            PROFILES_PLUS_EFFECTS = "/profiles-plus-profile-effects",
             LEAKS = "/leaked-categories",
             COLLECTIBLES_MARKETING = "/collectibles-marketing",
             EXPERIMENT_ROLLOUTS = "/rollout-handler",
             COLLECTIBLES_SHOP_HOME = "/collectibles-shop-home",
             ORBS_SHOP_DEFAULT = "/orbs-shop-default",
-            QUICK_INFO = "/quick-info"
+            COLLECTIBLES_SHOP = "/collectibles-shop",
+            PROFILE_EFFECTS = "/profile-effects"
         ]
     } else {
         endpoints = [
@@ -2498,15 +2500,16 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
 
     yapper_categories = [
-        WINDOWKILL = "profiles-plus-1",
-        BOPL_BATTLE = "profiles-plus-2",
-        PAPER_BEACH = "profiles-plus-3",
-        WINDOWKILL_V2 = "profiles-plus-4",
-        FIVE_NIGHTS_AT_FREDDYS = "profiles-plus-5",
-        PLUS_SPECIAL_EVENT = "profiles-plus-6",
-        GEOMETRY_DASH = "profiles-plus-7",
-        PAPER_BEACH_V2 = "profiles-plus-8",
-        RBXDOORS = "profiles-plus-9"
+        WINDOWKILL = "1",
+        BOPL_BATTLE = "7",
+        PAPER_BEACH = "20",
+        WINDOWKILL_V2 = "35",
+        FIVE_NIGHTS_AT_FREDDYS = "54",
+        PLUS_SPECIAL_EVENT = "55",
+        GEOMETRY_DASH = "68",
+        PAPER_BEACH_V2 = "77",
+        RBXDOORS = "82",
+        DATA_EXTRACTION_PROCESS = "85"
     ]
 
 
@@ -2644,7 +2647,39 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     N = new Date();
     I = ["1212569433839636530", "1144308439720394944", "1314020996201713685", "1212570343567261736", "1314020996776329279", "1271174640026255380", "1271175049168031815", "1232073608168472638", "1293373563407175680", "1314020996327542894", "1139323093991575696", "1232071157746765906", "1232071712695386162", "1144307957425778779", "1306330662990643252", "1280621222496964630", "1306330663015809024", "1306330663070334996", "1243617249974288404", "1309668861578186803", "1303490165213237338", "1306330662898372639", "1298033986508951685", "1282816432026943488", "1306330663137443991", "1197344764174008452", "1298033986727055370", "1298033986571866112", "1271175120437641261", "1314020996361093171", "1309668861645426729", "1256321669467865088", "1314020996864413717", "1306752744278982737", "1271174732577767626", "1144307257807491094", "1144308196723408958", "1287835633787732070", "1306330663162609685", "1306330662940311726", "1309668861901279422", "1282816431871754281", "1287835633485877369", "1228234634379132958", "1144305233707671573", "1298033986643169360", "1139323093551165533", "1212569856189407352", "1282816431850782730", "1144307629225672846", "1232070870093008937", "1207047014769234001", "1212582298893946880", "1232073286582538261", "1282816431985004594", "1293373563381878836", "1282816431964028958", "1306752744258011166", "1309668861846753372", "1271174324375519273", "1256321669426053198", "1287835633615765524", "1286504131325853739", "1306330663183581247", "1139323099687436419", "1287835633590734848", "1256321669493166214", "1286504131518791816", "1243620093431119922", "1262492035558932604", "1306330662927859723", "1197344326133502032", "1228251351415263242", "1232073448415821854", "1158572178179108968", "1298033986752221204", "1262491137394868311", "1309668861620260874", "1271174241860980907", "1220513989729976411", "1282820582408192061", "1154896005045694555", "1207047597294886923", "1306330663036780695", "1309668861674786877", "1197344693630009424", "1306330662965477478", "1174460780842856588", "1271174907081789524", "1282816431813169272", "1298033986622328842", "1139323101881061466", "1262491690900656267", "1303490165171294268", "1139323100568244355", "1243619479645065287", "1262491690971955284", "1316087100260483174", "1139323101008642101", "1228251144065777765", "1207048289610899526", "1287835633561239683", "1232072121950146560", "1303490165045727317", "1228246010116050965", "1309668861871919316", "1207049364464345158", "1243618816639107223", "1265421074514841751", "1316087100277395607", "1159280677246742548", "1262492035558932607", "1207047808838799410", "1306752744299954306", "1298033986668335135", "1266160780928352268", "1262491137386614812", "1139323092645183591", "1220513977683935373", "1256321669467865091", "1237654942202990602", "1287835633536209079", "1262491137394868305", "1256321669493166217", "1212582452640350238", "1158572275507937342", "1306752744228524052", "1174459546748600481", "1262491137394868308", "1309668861599285249", "1262492035558932610", "1144046002110738634", "1293373563184877618", "1298033986693500960", "1285465421260263464", "1306330663091306608", "1287835633645125653", "1303490165074825296", "1298033986538569781", "1303490165150322698", "1262491690900656261", "1256321669467865094", "1207048656289534022", "1285681070196396177", "1287835633674620949", "1237654224712765440", "1293373563121696891", "1303490165255180298", "1303490165120962651", "1212582372877541427", "1287835634005970994", "1303490165099991143", "1271564593746939904", "1314020996629532686", "1316087100260483176", "1228233390260486164", "1287835633867559022", "1158572263411556373", "1303490165192265799", "1237654783209508904", "1309668861704146984", "1212581147675205652", "1309668861548957738", "1245088205330710539", "1287835633896783952", "1316087100260483178", "1139323099251232828", "1262491690900656258", "1232072859485208687", "1197344396983664670", "1309668861788033074", "1314020996600172554", "1159280847262859364", "1314020996461760542", "1220514048068812901", "1293373563302318110", "1228251846032756796", "1197344636558114986", "1282820582223642624", "1287835634035331072", "1298033986777387059", "1243619781362450442", "1282816432001777794", "1212570596970467378", "1157409074422481023", "1256321669426053195", "1146328961417224193", "1293373563327483984", "1303490165234208810", "1266160780978556969", "1228237157554978817", "1287835633947115570", "1282820582345408595", "1271174810227179562", "1282816431830077542", "1287835633842258022", "1283211414323990538", "1282820582303334482", "1282820582429298748", "1306330663116472371", "1157407831348228141", "1293373563210043442", "1287835633515102228", "1309668861758672997", "1287835633703845888", "1287835633733341224", "1197344575832981605", "1316087100260483180", "1237653964582031400", "1287835633817227297", "1266493591207940133", "1309668861817393263", "1316087100260483182", "1298033986555351132", "1237650542772228096", "1207049498065375343", "1287835633980669972", "1314020996516286485", "1285465421193154560", "1268362891946627103", "1282820582244880496", "1293373563352649961", "1220432740638523543", "1243620329331626044", "1220432697718083614", "1267521289330102344", "1146328960951668776", "1293373563457507463", "1245088094437507163", "1262491690900656264", "1314020996432400404", "1220513984273186816", "1293373563159449653", "1314020996721803306", "1285681070196396179", "1285465421050548345", "1282820582366511229", "1256321669467865097", "1285465421285429258", "1293373563239272458", "1271174154514595891", "1217625794382401577", "1228252219502100530", "1285465421029576704", "1243618548673417298", "1220432647453409384", "1266493591275044903", "1217626024540508170", "1232072520249643028", "1245088254647205991", "1237654867330469949", "1314020996570812506", "1314020996227006484", "1245087968759382207", "1144006094134456352", "1314020997166403624", "1144048390594908212", "1287835633762701382", "1212581390936178768", "1285465420995756065", "1217626509737459852", "1314020996491116575", "1309668861729312898", "1237650411410685972", "1245087661316898877", "1217627230818009171", "1256321669388308601", "1314020996310896672", "1274105879238676561", "1293373563432341574", "1314020996273016863", "1282816431943057460", "1220513995308400680", "1293373563264569416", "1228252042791878707", "1314020997078323200", "1237654031732703272", "1267521289355268154", "1298033986592837754", "1285465421214126100", "1245087724265013299", "1314020996990242816", "1314020996663087154", "1282820582282629171", "1282816431922085888", "1314020997107683411", "1237654124443734026", "1314020997137043578", "1266161342801383434", "1285465421096685639", "1237654692985700352", "1174459480348565554", "1314020997019602984", "1314020996252176444", "1144003752978829455", "1282816431901118474", "1285465421306400858", "1285465421239291904", "1285465420979245087", "1314020996692447234", "1144048977138946230", "1217627051217911848", "1217626219651006495", "1217625572168044604", "1286504131392962641", "1237650618777075712", "1207048049571139584", "1314020996289921154", "1237654615474962472", "1314020996927328276", "1286504131439366184", "1285465421016862730", "1217625289681801316", "1243619153688920206", "1217624148080332820", "1144049316009353338", "1245481938202918912", "1245088023452975104", "1314020996960882789", "1285465421121851445", "1243617981435478102", "1144049603109470370", "1285465421071519825", "1256321669426053192", "1245087912350187520", "1207049115339591681", "1144049924397334651", "1237649939027333232", "1237650103980920872", "1237650023794081823", "1237650179721527347", "1245087850177888356", "1285465421167988758", "1277733174797008931"];
 
+    async function setDiscordProfileEffectCache() {
+        url = api + PROFILE_EFFECTS;
+        pfxapiUrl = new URL(url);
+        pfxapiUrl.searchParams.append("tab", "discord");
+        const response = await fetch(pfxapiUrl, {
+            method: "GET",
+            headers: {
+                "Password": api_password,
+                "Token": api_token
+            }
+        });
+        const effectsData = await response.json();
+        discordProfileEffectsCache = effectsData.profile_effect_configs;
+    }
 
+    setDiscordProfileEffectCache()
+
+    async function setPplusProfileEffectCache() {
+        url = api + PROFILE_EFFECTS;
+        pfxapiUrl = new URL(url);
+        pfxapiUrl.searchParams.append("tab", "pplus");
+        const response = await fetch(pfxapiUrl, {
+            method: "GET",
+            headers: {
+                "Password": api_password,
+                "Token": api_token
+            }
+        });
+        const effectsData = await response.json();
+        pplusProfileEffectsCache = effectsData.profile_effect_configs;
+    }
+
+    setPplusProfileEffectCache()
 
     const params = new URLSearchParams(window.location.search);
 
@@ -2706,7 +2741,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             fetchFirstHomeData();
 
             function fetchFirstHomeData() {
-                let profileEffectsCache = null;
             
                 fetch(apiUrl, {
                     method: "GET",
@@ -2867,21 +2901,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 }
                                             
                                             
-                                                // Fetch profile effects API only if not already cached
-                                                if (!profileEffectsCache) {
-                                                    const response = await fetch(api + PROFILE_EFFECTS, {
-                                                        method: "GET",
-                                                        headers: {
-                                                            "Password": api_password,
-                                                            "Token": api_token
-                                                        }
-                                                    });
-                                                    const effectsData = await response.json();
-                                                    profileEffectsCache = effectsData.profile_effect_configs;
+                                                if (!discordProfileEffectsCache) {
+                                                    await setDiscordProfileEffectCache();
                                                 }
                                             
                                                 // Find matching profile effect
-                                                const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                             
                                                 if (matchingEffect) {
                                                     const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -3065,21 +3090,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     } else if (item.type === 1) {
                                                         // Profile effect
                                                         (async () => {
-                                                            // Fetch profile effects if not cached
-                                                            if (!profileEffectsCache) {
-                                                                const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                    method: "GET",
-                                                                    headers: {
-                                                                        "Password": api_password,
-                                                                        "Token": api_token
-                                                                    }
-                                                                });
-                                                                const effectsData = await response.json();
-                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                            if (!discordProfileEffectsCache) {
+                                                                await setDiscordProfileEffectCache();
                                                             }
                                             
                                                             // Find the matching effect
-                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                             
                                                             if (matchingEffect) {
                                                                 const effectImage = document.createElement("img");
@@ -3231,21 +3247,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             }
                                                         
                                                         
-                                                            // Fetch profile effects API only if not already cached
-                                                            if (!profileEffectsCache) {
-                                                                const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                    method: "GET",
-                                                                    headers: {
-                                                                        "Password": api_password,
-                                                                        "Token": api_token
-                                                                    }
-                                                                });
-                                                                const effectsData = await response.json();
-                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                            if (!discordProfileEffectsCache) {
+                                                                await setDiscordProfileEffectCache();
                                                             }
                                                         
                                                             // Find matching profile effect
-                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                         
                                                             if (matchingEffect) {
                                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -3354,16 +3361,30 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     previewHolder.classList.add('potion-card-preview-holder');
                                                         
                                                     previewHolder.innerHTML = `
-                                                        <svg class="potion-card-preview nitro-3-days-orb-preview" width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                        <rect y="16" width="187" height="140" fill="url(#pattern0_136_11)"/>
+                                                        <svg class="potion-card-preview nitro-3-days-orb-preview" width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M161.164 3.17212H30.5663C16.8601 3.17212 5.74902 14.3031 5.74902 28.0339V158.866C5.74902 172.597 16.8601 183.728 30.5663 183.728H161.164C174.87 183.728 185.982 172.597 185.982 158.866V28.0339C185.982 14.3031 174.87 3.17212 161.164 3.17212Z" fill="url(#paint0_linear_170_2)"/>
+                                                        <g filter="url(#filter0_d_170_2)">
+                                                        <path d="M100.125 107.318C106.339 107.318 111.376 102.266 111.376 96.0332C111.376 89.8007 106.339 84.7483 100.125 84.7483C93.9113 84.7483 88.874 89.8007 88.874 96.0332C88.874 102.266 93.9113 107.318 100.125 107.318Z" fill="white"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M55.1214 50.8938C52.0146 50.8938 49.496 53.42 49.496 56.5362C49.496 59.6525 52.0146 62.1787 55.1214 62.1787H71.9979C75.1048 62.1787 77.6235 64.7049 77.6235 67.8211C77.6235 70.9373 75.1048 73.4635 71.9979 73.4635H46.6832C43.5763 73.4635 41.0576 75.9897 41.0576 79.106C41.0576 82.2222 43.5763 84.7484 46.6832 84.7484H60.7469C63.8539 84.7484 66.3724 87.2746 66.3724 90.3908C66.3724 93.5071 63.8539 96.0333 60.7469 96.0333H49.496C46.389 96.0333 43.8704 98.5595 43.8704 101.676C43.8704 104.792 46.389 107.318 49.496 107.318H56.5393C61.5352 126.787 79.1553 141.173 100.125 141.173C124.981 141.173 145.13 120.963 145.13 96.0333C145.13 71.1035 124.981 50.8938 100.125 50.8938H55.1214ZM100.125 118.603C112.553 118.603 122.627 108.498 122.627 96.0333C122.627 83.5683 112.553 73.4635 100.125 73.4635C87.6979 73.4635 77.6235 83.5683 77.6235 96.0333C77.6235 108.498 87.6979 118.603 100.125 118.603Z" fill="white"/>
+                                                        <path d="M29.8064 84.7485C32.9133 84.7485 35.4319 82.2223 35.4319 79.1061C35.4319 75.9898 32.9133 73.4636 29.8064 73.4636H26.9936C23.8868 73.4636 21.3682 75.9898 21.3682 79.1061C21.3682 82.2223 23.8868 84.7485 26.9936 84.7485H29.8064Z" fill="white"/>
+                                                        </g>
                                                         <defs>
-                                                        <pattern id="pattern0_136_11" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                        <use xlink:href="#image0_136_11" transform="matrix(0.00369004 0 0 0.00492884 0 -0.000276753)"/>
-                                                        </pattern>
-                                                        <image id="image0_136_11" width="271" height="203" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
+                                                        <filter id="filter0_d_170_2" x="7.48094" y="42.5615" width="151.536" height="118.053" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                        <feOffset dy="5.55489"/>
+                                                        <feGaussianBlur stdDeviation="6.94361"/>
+                                                        <feComposite in2="hardAlpha" operator="out"/>
+                                                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_170_2"/>
+                                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_170_2" result="shape"/>
+                                                        </filter>
+                                                        <linearGradient id="paint0_linear_170_2" x1="160.748" y1="183.303" x2="46.3474" y2="36.4729" gradientUnits="userSpaceOnUse">
+                                                        <stop stop-color="#E978E6"/>
+                                                        <stop offset="1" stop-color="#2F3EBB"/>
+                                                        </linearGradient>
                                                         </defs>
                                                         </svg>
-    
                                                     `;
                                                 } else {
                                                     previewHolder.innerHTML = `
@@ -3392,6 +3413,74 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     });
                                                     card.addEventListener("mouseleave", () => {
                                                         plusMoreQuestionMark.src = `https://cdn.discordapp.com/assets/server_products/storefront/question-mark.png`;
+                                                    });
+                                                }
+                                            } else if (product.items[0].item_type === 'deco') {
+                                                product.items.forEach(item => {
+                                                    
+                                                    card.classList.add("type_0");
+                                                    // Set the innerHTML for the preview holder
+                                                    const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                    previewHolder.classList.add('avatar-decoration-image');
+                                                    
+                                                    // Set the initial image for the deco card
+                                                    const imgElement = document.createElement("img");
+                                                    imgElement.id = "shop-card-deco-image";
+                                                    imgElement.src = imgElement.src = item.static;
+                                                    
+                                                    previewHolder.appendChild(imgElement);
+    
+                                                    const bgimg = document.createElement("div");
+                                                    bgimg.id = "shop-card-deco-bg-image";
+                                                    
+                                                    previewHolder.appendChild(bgimg);
+                                            
+                                                    // Set the product details
+                                                    card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                    card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                    card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                            
+                                                    // Hover effect: Change the image src on mouse enter and leave
+                                                    if (localStorage.reduced_motion != "true") {
+                                                        card.addEventListener("mouseenter", () => {
+                                                            imgElement.src = item.animated;
+                                                            if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
+                                                                bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
+                                                            }
+                                                        });
+                                                
+                                                        card.addEventListener("mouseleave", () => {
+                                                            imgElement.src = item.static;
+                                                            bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
+                                                        });
+                                                    }
+                                                    
+                                                });
+                                            } else if (product.items[0].item_type === 'effect') {
+                                                card.classList.add("type_1");
+    
+                                                card.querySelector("[data-product-card-sku-id]").textContent = ``;
+                                                card.querySelector("[data-product-card-name]").textContent = product.name;
+                                                card.querySelector("[data-product-card-summary]").textContent = product.summary;
+                                                
+                                                const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
+                                                previewHolder.classList.add('profile-effect-image');
+                                            
+                                                previewHolder.innerHTML = `
+                                                    <img class="thumbnail-preview" src="${product.items[0].static}">
+                                                `;
+                                            
+                                                // Hover effect: change to the first effect URL (use 'src' from the 'effects' array)
+                                                const imgElement = card.querySelector("img");
+                                            
+                                                if (localStorage.reduced_motion != "true") {
+                                                    card.addEventListener("mouseenter", () => {
+                                                        imgElement.src = product.items[0].animated;
+                                                    });
+                                                
+                                                    card.addEventListener("mouseleave", () => {
+                                                        // Revert back to the original thumbnailPreviewSrc when hover ends
+                                                        imgElement.src = product.items[0].static;
                                                     });
                                                 }
                                             } else {
@@ -3565,6 +3654,10 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 `;
                                             }
     
+                                            if (product.items[0] && product.items[0].item_type && product.items[0].item_type === 'deco' || product.items[0] && product.items[0].item_type && product.items[0].item_type === 'effect' || product.sku_id === "0") {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = ``;
+                                            }
+    
                                             if (product.premium_type === 2) {
                                                 card.querySelector("[data-shop-card-tag-container]").innerHTML = `
                                                     <div class="premiumWheelBadge_c23530 textBadge_df8943 base_df8943 eyebrow_df8943 baseShapeRound_df8943" aria-label="This bonus item is yours to keep and use anytime with an active Nitro subscription." style="background-color: var(--status-danger);"><svg class="premiumWheel_c23530" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M15 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" class=""></path><path fill="currentColor" fill-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h3a1 1 0 1 1 0 2H5.5a1 1 0 0 0 0 2H8a1 1 0 1 1 0 2H6a1 1 0 1 0 0 2h1.25A8 8 0 1 0 15 4H7Zm8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" clip-rule="evenodd" class=""></path><path fill="currentColor" d="M2.5 10a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2h.5Z" class=""></path></svg></div>
@@ -3589,7 +3682,17 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         modalIsAlreadyOpen = true;
                                                         setTimeout(() => {
                                                             openItemModal();
-                                                        }, 500);
+                                                        }, 1000);
+                                                        card.classList.add("highlighted")
+    
+                                                        let highlightedGlint = document.createElement("div");
+    
+                                                        highlightedGlint.classList.add('shop-category-card-highlighted-glint');
+    
+                                                        card.appendChild(highlightedGlint);
+                                                        setTimeout(() => {
+                                                            highlightedGlint.remove();
+                                                        }, 3000);
                                                     }
                                                     
     
@@ -3841,21 +3944,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             }
                                                         
                                                         
-                                                            // Fetch profile effects API only if not already cached
-                                                            if (!profileEffectsCache) {
-                                                                const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                    method: "GET",
-                                                                    headers: {
-                                                                        "Password": api_password,
-                                                                        "Token": api_token
-                                                                    }
-                                                                });
-                                                                const effectsData = await response.json();
-                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                            if (!discordProfileEffectsCache) {
+                                                                await setDiscordProfileEffectCache();
                                                             }
                                                         
                                                             // Find matching profile effect
-                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
     
                                                             const previewHolder = modal.querySelector("[data-modal-preview-holder]");
                                                             const previewHolderLeft = modal.querySelector("[data-modal-left-preview-holder]");
@@ -4070,21 +4164,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     } else if (item.type === 1) {
                                                                         // Profile effect
                                                                         (async () => {
-                                                                            // Fetch profile effects if not cached
-                                                                            if (!profileEffectsCache) {
-                                                                                const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                    method: "GET",
-                                                                                    headers: {
-                                                                                        "Password": api_password,
-                                                                                        "Token": api_token
-                                                                                    }
-                                                                                });
-                                                                                const effectsData = await response.json();
-                                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            if (!discordProfileEffectsCache) {
+                                                                                await setDiscordProfileEffectCache();
                                                                             }
+                                                                            
                                                         
                                                                             // Find the matching effect
-                                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                                         
                                                                             if (matchingEffect) {
                                                                                 if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -4137,7 +4223,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         // Profile effect
                                                                         (async () => {
                                                                             // Fetch profile effects if not cached
-                                                                            if (!profileEffectsCache) {
+                                                                            if (!discordProfileEffectsCache) {
                                                                                 const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                     method: "GET",
                                                                                     headers: {
@@ -4146,11 +4232,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                     }
                                                                                 });
                                                                                 const effectsData = await response.json();
-                                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                                discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                             }
                                                         
                                                                             // Find the matching effect
-                                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                                         
                                                                             if (matchingEffect) {
                                                                                 const effectImage = document.createElement("img");
@@ -4299,21 +4385,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             }
                                                                         
                                                                         
-                                                                            // Fetch profile effects API only if not already cached
-                                                                            if (!profileEffectsCache) {
-                                                                                const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                    method: "GET",
-                                                                                    headers: {
-                                                                                        "Password": api_password,
-                                                                                        "Token": api_token
-                                                                                    }
-                                                                                });
-                                                                                const effectsData = await response.json();
-                                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            if (!discordProfileEffectsCache) {
+                                                                                await setDiscordProfileEffectCache();
                                                                             }
                                                                         
                                                                             // Find matching profile effect
-                                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                                         
                                                                             if (matchingEffect) {
                                                                                 if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -4412,7 +4489,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         
                                                                         
                                                                             // Fetch profile effects API only if not already cached
-                                                                            if (!profileEffectsCache) {
+                                                                            if (!discordProfileEffectsCache) {
                                                                                 const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                     method: "GET",
                                                                                     headers: {
@@ -4421,11 +4498,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                     }
                                                                                 });
                                                                                 const effectsData = await response.json();
-                                                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                                                                discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                             }
                                                                         
                                                                             // Find matching profile effect
-                                                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                                         
                                                                             if (matchingEffect) {
                                                                                 const previewHolder = modal.querySelector("[data-modal-preview-holder]");
@@ -4499,19 +4576,33 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         
                                                                 document.getElementById("modal-username-preview").textContent = localStorage.discord_username.toLowerCase();
                                                             } else if (product.sku_id === "1333912750274904064") {
-                                                                previewHolder.classList.add('modal-potion-img');
+                                                                previewHolder.classList.add('modal-preview-profile-container');
                                                                     
                                                                 previewHolder.innerHTML = `
-                                                                    <svg class="potion-card-preview nitro-3-days-orb-preview" width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                                    <rect y="16" width="187" height="140" fill="url(#pattern0_136_11)"/>
-                                                                    <defs>
-                                                                    <pattern id="pattern0_136_11" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                                    <use xlink:href="#image0_136_11" transform="matrix(0.00369004 0 0 0.00492884 0 -0.000276753)"/>
-                                                                    </pattern>
-                                                                    <image id="image0_136_11" width="271" height="203" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
-                                                                    </defs>
-                                                                    </svg>
-                
+                                                                    <div class="nitro-3-days-modal-orb-preview">
+                                                                        <img class="hero-img" src="https://cdn.discordapp.com/assets/content/81644099db353c3ea7cefa334f8d298d06b768a68a349de663d2151fd01eddc7.png"></img>
+                                                                        <svg class="nitro-title" aria-hidden="true" role="img" width="106" height="26" viewBox="0 0 106 26"><title>Nitro</title><g fill="none" fill-rule="evenodd"><path fill="white" d="M98.8266537 8.64800265L97.5788372 17.0822416C97.2940433 19.0754982 95.0485266 20.0010292 92.981582 20.0010292 91.0571496 20.0010292 89.1680861 19.0754982 89.4175111 17.2605602L90.6652125 8.64800265C90.9501215 6.76162212 93.1956383 5.80077257 95.2624676 5.80077257 97.3294121 5.80077257 99.1115628 6.76162212 98.8266537 8.64800265M96.2496839.0038079646L96.2503751.0000115044248 82.8208233.0000115044248C82.4777342.0000115044248 82.1864887.251383186 82.1368341.59030354L81.4839511 5.04596726C81.4228909 5.46254248 81.7462794 5.83609115 82.167825 5.83609115L84.6202551 5.83609115C84.8670304 5.83609115 85.0355795 6.08734779 84.9386897 6.31398496 84.6326976 7.03036549 84.4097703 7.8080646 84.2859219 8.64800265L83.0381053 17.2605602C82.2182861 23.0258876 87.0301735 25.9085513 92.2687909 25.9085513 97.7574094 25.9085513 103.139115 23.0258876 103.958934 17.2605602L105.206059 8.64800265C106.009634 2.99656903 101.367679.115400885 96.2496839.0038079646M15.5778562 11.7941867L15.6467505 15.9747796C15.648133 16.0607177 15.5902986 16.1363018 15.5068881 16.1574699L15.5067729 16.1574699 14.0843013 11.1148504C14.0822275 11.1071425 14.0795777 11.0996646 14.0763519 11.0923018L9.66308376.775018584C9.55432753.520885841 9.30421123.355912389 9.0273667.355912389L4.02607753.355912389C3.68126035.355912389 3.38920838.6097 3.34151232.950576106L.00682030635 24.7668062C-.0513596718 25.1820009.271568009 25.5526735.691385514 25.5526735L5.67355018 25.5526735C6.01882818 25.5526735 6.31122578 25.2981956 6.3583458 24.9566292L7.6643423 15.4949301C7.66560958 15.4857265 7.66618562 15.4762929 7.66607042 15.4669743L7.59475674 10.6052044 7.73715368 10.5697708 9.23116943 15.6125053C9.23335838 15.6196381 9.23589295 15.6267708 9.23888836 15.6336735L13.3663258 25.1370186C13.4758885 25.3893106 13.7250831 25.5526735 14.0004299 25.5526735L19.39573 25.5526735C19.7405472 25.5526735 20.0325992 25.2988858 20.0802953 24.9580097L23.4156785 1.14177965C23.4738585.726584956 23.1509308.355912389 22.7311133.355912389L17.782935.355912389C17.438233.355912389 17.146181.609469912 17.0983698.950346018L15.5795843 11.7654257C15.578317 11.7749743 15.577741 11.784523 15.5778562 11.7941867M25.2200758 25.5526274L30.2035078 25.5526274C30.5483249 25.5526274 30.8403769 25.2989549 30.888073 24.9579637L34.222765 1.14184867C34.280945.726653982 33.9580173.355981416 33.5381998.355981416L28.5547678.355981416C28.2100659.355981416 27.9180139.609653982 27.8702026.950645133L24.5355106 24.7667602C24.4773306 25.1819549 24.8002583 25.5526274 25.2200758 25.5526274M37.588782.910862832L36.9357838 5.3664115C36.8748388 5.78298673 37.1982273 6.15665044 37.6197729 6.15665044L42.8344271 6.15665044C43.2536686 6.15665044 43.5763658 6.52628761 43.5192227 6.94102212L41.0626451 24.7682788C41.005502 25.1830133 41.3281993 25.5526504 41.7474408 25.5526504L46.8027624 25.5526504C47.1481556 25.5526504 47.4405532 25.2980575 47.4875581 24.9564912L49.9960944 6.75280973C50.0430992 6.41112832 50.3354968 6.15665044 50.68089 6.15665044L56.2874814 6.15665044C56.6305704 6.15665044 56.9217007 5.90539381 56.9714705 5.56635841L57.6249296 1.11080973C57.6859898.694234513 57.3626013.320570796 56.9409404.320570796L38.2727712.320570796C37.9296821.320570796 37.6384366.571827434 37.588782.910862832M72.9157339 9.14614425C72.7371616 10.6051354 71.5970645 12.0642416 69.6364568 12.0642416L66.6908218 12.0642416C66.2704283 12.0642416 65.9472702 11.6925336 66.0063718 11.2768788L66.6298768 6.8920823C66.6782642 6.55178142 66.9700857 6.29891416 67.3143268 6.29891416L70.4562761 6.29891416C72.3453396 6.29891416 73.0936148 7.61571062 72.9157339 9.14614425M71.1691824.355958407L61.6845787.355958407C61.3397615.355958407 61.0477096.609630973 60.9998983.950622124L57.6652063 24.7667372C57.6070263 25.1819319 57.929954 25.5526044 58.3497715 25.5526044L63.4034802 25.5526044C63.7487582 25.5526044 64.0411558 25.2981265 64.0882759 24.9565602L65.0696166 17.8430292C65.0932342 17.6723035 65.2393178 17.5450646 65.4120144 17.5450646L66.0616716 17.5450646C66.1795293 17.5450646 66.2893224 17.6050027 66.3528019 17.7041708L71.1792055 25.2345071C71.3062798 25.4327283 71.5256356 25.5526044 71.7613509 25.5526044L78.0034289 25.5526044C78.5625328 25.5526044 78.8902992 24.9242327 78.5697909 24.4667018L73.5050221 17.2370912C73.383593 17.0637195 73.4460357 16.8224717 73.6364743 16.729631 76.8698986 15.1516841 78.7475566 13.5351973 79.3665685 9.03926814 80.0787836 3.13174602 76.3728918.355958407 71.1691824.355958407"></path></g></svg>
+                                                                        <div class="preview-perks">
+                                                                            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                            <p>Custom emojis anywhere</p>
+                                                                        </div>
+                                                                        <div class="preview-perks">
+                                                                            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                            <p>Custom profile</p>
+                                                                        </div>
+                                                                        <div class="preview-perks">
+                                                                            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                            <p>500 MB Uploads</p>
+                                                                        </div>
+                                                                        <div class="preview-perks">
+                                                                            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                            <p>HD video streaming</p>
+                                                                        </div>
+                                                                        <div class="preview-perks">
+                                                                            <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                            <p>Colour app themes and more!</p>
+                                                                        </div>
+                                                                    </div>
                                                                 `;
                                                             } else {
                                                                 previewHolder.innerHTML = `
@@ -5010,7 +5101,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             fetchFirstHomeData();
 
             function fetchFirstHomeData() {
-                let profileEffectsCache = null;
+                let discordProfileEffectsCache = null;
             
                 fetch(apiUrl, {
                     method: "GET",
@@ -5086,7 +5177,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                     `;
                                 } else {
                                     category.querySelector("[data-preview-new-categoey-button]").innerHTML = `
-                                        <button class="home-page-preview-button" onclick="setParams({page: 'pplus'}); location.reload();">${getTextString("SHOP_CATEGORY_BROWSE_THE_COLLECTION_1")}${apiCategory.name}${getTextString("SHOP_CATEGORY_BROWSE_THE_COLLECTION_2")}</button>
+                                        <button class="home-page-preview-button" onclick="setParams({page: 'pplus'}); addParams({itemSkuId: '${apiCategory.sku_id}'}); location.reload();">${getTextString("SHOP_CATEGORY_BROWSE_THE_COLLECTION_1")}${apiCategory.name}${getTextString("SHOP_CATEGORY_BROWSE_THE_COLLECTION_2")}</button>
                                     `;
                                 }
                             
@@ -5095,6 +5186,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                     for (const product of apiCategory.products) {
                                         const cardTemplate = document.querySelector("[data-shop-item-card-template]");
                                         const card = cardTemplate.content.cloneNode(true).children[0];
+
+                                        card.id = product.sku_id;
 
                                         if (product.type === NONE) {
                                             card.classList.add("type_100");
@@ -5109,7 +5202,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 // Set the initial image for the deco card
                                                 const imgElement = document.createElement("img");
                                                 imgElement.id = "shop-card-deco-image";
-                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                 
                                                 previewHolder.appendChild(imgElement);
 
@@ -5126,14 +5219,14 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 // Hover effect: Change the image src on mouse enter and leave
                                                 if (localStorage.reduced_motion != "true") {
                                                     card.addEventListener("mouseenter", () => {
-                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                         if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                             bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                         }
                                                     });
                                             
                                                     card.addEventListener("mouseleave", () => {
-                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                         bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
                                                     });
                                                 }
@@ -5157,23 +5250,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 // If items is an object and has type 1, get its id
                                                 itemId = product.items.id;
                                             }
-                                        
-                                        
-                                            // Fetch profile effects API only if not already cached
-                                            if (!profileEffectsCache) {
-                                                const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
-                                                    method: "GET",
-                                                    headers: {
-                                                        "Password": api_password,
-                                                        "Token": api_token
-                                                    }
-                                                });
-                                                const effectsData = await response.json();
-                                                profileEffectsCache = effectsData.profile_effect_configs;
+
+                                            if (!pplusProfileEffectsCache) {
+                                                await setPplusProfileEffectCache();
                                             }
                                         
                                             // Find matching profile effect
-                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                            const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
                                         
                                             if (matchingEffect) {
                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -5312,7 +5395,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 if (item.type === 0) {
                                                     // Avatar decoration
                                                     const decoImage = document.createElement("img");
-                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                     decoImage.alt = "Avatar Decoration";
                                                     decoImage.classList.add("avatar-decoration-image");
                                                     card.querySelector("[data-shop-card-preview-holder]").appendChild(decoImage);
@@ -5325,34 +5408,26 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     // Hover effect for decoration image
                                                     if (localStorage.reduced_motion != "true") {
                                                         card.addEventListener("mouseenter", () => {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                             if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                                 bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                             }
                                                         });
                                                         card.addEventListener("mouseleave", () => {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                             bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
                                                         });
                                                     }
                                                 } else if (item.type === 1) {
                                                     // Profile effect
-                                                    let profileEffectsCache = null; // Cache profile effects to avoid multiple fetches
                                         
                                                     (async () => {
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
+
+                                                        if (!pplusProfileEffectsCache) {
+                                                            await setPplusProfileEffectCache();
                                                         }
                                         
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === item.id);
                                         
                                                         if (matchingEffect) {
                                                             const effectImage = document.createElement("img");
@@ -5440,10 +5515,10 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         const decoImage = document.createElement("img");
                                                         const bgimg = document.createElement("div");
                                                         if (isFirstTimeLoadingVariant == true) {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                             isFirstTimeLoadingVariant = false;
                                                         } else {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                             if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                                 bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                             }
@@ -5459,13 +5534,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         // Hover effect for decoration image
                                                         if (localStorage.reduced_motion !== "true") {
                                                             card.addEventListener("mouseenter", () => {
-                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                 if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                                     bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                                 }
                                                             });
                                                             card.addEventListener("mouseleave", () => {
-                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                 bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
                                                             });
                                                         }
@@ -5485,23 +5560,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             // If items is an object and has type 1, get its id
                                                             itemId = selectedVariant.items.id;
                                                         }
-                                                    
-                                                    
-                                                        // Fetch profile effects API only if not already cached
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
+
+                                                        if (!pplusProfileEffectsCache) {
+                                                            await setPplusProfileEffectCache();
                                                         }
                                                     
                                                         // Find matching profile effect
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
                                                     
                                                         if (matchingEffect) {
                                                             const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -5598,14 +5663,32 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
 
 
-                                        if (product.emojiCopy === null && product.type != 'plus_more') {
-                                            card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
-                                                <button class="card-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb';" title="${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_REQUEST_PPLUS_EMOJI")}</button>
-                                            `;
-                                        } else if (product.type != 'plus_more') {
-                                            card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
-                                                <button class="card-button" onclick="copyEmoji('${product.emojiCopy}');" title="${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_COPY_PPLUS_EMOJI")}</button>
-                                            `;
+                                        if (localStorage.experiment_2025_03_copy_sku_card === "Treatment 1: Enabled" || localStorage.experiment_2025_03_copy_sku_card === "Treatment 2: w/ share button") {
+                                            if (product.emojiCopy === null && product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <div class="card-multi-button-container" card-multi-button-container>
+                                                        <button class="card-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb';" title="${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_REQUEST_PPLUS_EMOJI_v2")}</button>
+                                                        <button class="card-button" onclick="copyEmoji('${product.sku_id}'); copyNotice('copysku');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
+                                                    </div>
+                                                `;
+                                            } else if (product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <div class="card-multi-button-container" card-multi-button-container>
+                                                        <button class="card-button" onclick="copyEmoji('${product.emojiCopy}'); copyNotice('copyemoji');" title="${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_COPY_PPLUS_EMOJI_V2")}</button>
+                                                        <button class="card-button" onclick="copyEmoji('${product.sku_id}'); copyNotice('copysku');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
+                                                    </div>
+                                                `;
+                                            }
+                                        } else {
+                                            if (product.emojiCopy === null && product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <button class="card-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb';" title="${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_REQUEST_PPLUS_EMOJI")}</button>
+                                                `;
+                                            } else if (product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <button class="card-button" onclick="copyEmoji('${product.emojiCopy}');" title="${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_COPY_PPLUS_EMOJI")}</button>
+                                                `;
+                                            }
                                         }
 
                                         if (product.premium_type === 2) {
@@ -5620,11 +5703,31 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 card.classList.add('clickable');
 
                                                 card.addEventListener("click", (event) => {
-                                                    if (event.target.matches("[data-shop-card-var]")) {
+                                                    if (event.target.matches("[data-shop-card-var]") || event.target.matches(".card-button") || event.target.matches(".shareIcon_f4a996")) {
                                                     } else {
                                                         openItemModal();
+                                                        addParams({itemSkuId: product.sku_id})
                                                     }
                                                 });
+
+                                                const itemSKUForScroll = params.get("itemSkuId");
+
+                                                if (itemSKUForScroll === product.sku_id && modalIsAlreadyOpen != true) {
+                                                    modalIsAlreadyOpen = true;
+                                                    setTimeout(() => {
+                                                        openItemModal();
+                                                    }, 1000);
+                                                    card.classList.add("highlighted")
+
+                                                    let highlightedGlint = document.createElement("div");
+
+                                                    highlightedGlint.classList.add('shop-category-card-highlighted-glint');
+
+                                                    card.appendChild(highlightedGlint);
+                                                    setTimeout(() => {
+                                                        highlightedGlint.remove();
+                                                    }, 3000);
+                                                }
 
                                                 async function openItemModal() {
                                                     let modal = document.createElement("div");
@@ -5709,7 +5812,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
                                                                         <p class="options-preview-profile-displayname" id="options-preview-profile-displayname">${localStorage.discord_username}</p>
                                                                         <p class="options-preview-profile-username" id="modal-username-preview"></p>
-                                                                        <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/${item.animated}.png">
+                                                                        <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png">
                                                                         <div class="options-preview-profile-status-bg"></div>
                                                                         <div class="options-preview-profile-status-color"></div>
                                                                     </div>
@@ -5721,17 +5824,17 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                                                 const imgElement = document.createElement("img");
                                                                 imgElement.id = "shop-card-deco-image";
-                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
 
                                                                 previewHolderLeft.appendChild(imgElement);
 
                                                                 if (localStorage.reduced_motion != "true") {
                                                                     imgElement.addEventListener("mouseenter", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                     });
                                                                 
                                                                     imgElement.addEventListener("mouseleave", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                     });
                                                                 }
 
@@ -5741,18 +5844,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                                                 const imgElement = document.createElement("img");
                                                                 imgElement.id = "shop-card-deco-image";
-                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
 
                                                                 previewHolder.appendChild(imgElement);
 
                                                                 // Hover effect: Change the image src on mouse enter and leave
                                                                 if (localStorage.reduced_motion != "true") {
                                                                     document.getElementById('modalv2-inner-right').addEventListener("mouseenter", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                     });
                                                                 
                                                                     document.getElementById('modalv2-inner-right').addEventListener("mouseleave", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                     });
                                                                 }
                                                             }
@@ -5779,22 +5882,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             itemId = product.items.id;
                                                         }
                                                     
-                                                    
-                                                        // Fetch profile effects API only if not already cached
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
-                                                        }
-                                                    
                                                         // Find matching profile effect
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
 
                                                         const previewHolder = modal.querySelector("[data-modal-preview-holder]");
                                                         const previewHolderLeft = modal.querySelector("[data-modal-left-preview-holder]");
@@ -5941,8 +6030,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 <div class="nameplate-preview-status-bg"></div>
                                                                 <div class="nameplate-preview-status-color"></div>
                                                             </div>
-                                                            <div class="nameplate-fade-top"></div>
-                                                            <div class="nameplate-fade-bottom"></div>
                                                         `;
             
                                                         product.items.forEach(item => {
@@ -6002,25 +6089,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 
                                                                 if (item.type === 0) {
-                                                                    decosrc = item.animated
+                                                                    decosrc = item.asset
                                                                 } else if (item.type === 1) {
                                                                     // Profile effect
                                                                     (async () => {
-                                                                        // Fetch profile effects if not cached
-                                                                        if (!profileEffectsCache) {
-                                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                method: "GET",
-                                                                                headers: {
-                                                                                    "Password": api_password,
-                                                                                    "Token": api_token
-                                                                                }
-                                                                            });
-                                                                            const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
-                                                                        }
                                                     
                                                                         // Find the matching effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === item.id);
                                                     
                                                                         if (matchingEffect) {
                                                                             if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -6041,7 +6116,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
                                                                             <p class="options-preview-profile-displayname" id="options-preview-profile-displayname">${localStorage.discord_username}</p>
                                                                             <p class="options-preview-profile-username" id="modal-username-preview"></p>
-                                                                            <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/${decosrc}.png">
+                                                                            <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${decosrc}.png">
                                                                             <div class="options-preview-profile-status-bg"></div>
                                                                             <div class="options-preview-profile-status-color"></div>
                                                                             <img id="profileProfileEffectPreview" class="profile-profile-effect-preview" src="${effectUrl}">
@@ -6054,7 +6129,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             } else {
                                                                 if (item.type === 0) {
                                                                     const decoImage = document.createElement("img");
-                                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                     decoImage.alt = "Avatar Decoration";
                                                                     decoImage.classList.add("modal-avatar-decoration-img");
                                                                     modal.querySelector("[data-modal-preview-holder]").appendChild(decoImage);
@@ -6062,18 +6137,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     // Hover effect for decoration image
                                                                     if (localStorage.reduced_motion != "true") {
                                                                         document.getElementById('modalv2-inner-right').addEventListener("mouseenter", () => {
-                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                         });
 
                                                                         document.getElementById('modalv2-inner-right').addEventListener("mouseleave", () => {
-                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                         });
                                                                     }
                                                                 } else if (item.type === 1) {
                                                                     // Profile effect
                                                                     (async () => {
                                                                         // Fetch profile effects if not cached
-                                                                        if (!profileEffectsCache) {
+                                                                        if (!discordProfileEffectsCache) {
                                                                             const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                 method: "GET",
                                                                                 headers: {
@@ -6082,11 +6157,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 }
                                                                             });
                                                                             const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                         }
                                                     
                                                                         // Find the matching effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                                     
                                                                         if (matchingEffect) {
                                                                             const effectImage = document.createElement("img");
@@ -6191,7 +6266,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
                                                                                 <p class="options-preview-profile-displayname" id="options-preview-profile-displayname">${localStorage.discord_username}</p>
                                                                                 <p class="options-preview-profile-username" id="modal-username-preview"></p>
-                                                                                <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/${item.animated}.png">
+                                                                                <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png">
                                                                                 <div class="options-preview-profile-status-bg"></div>
                                                                                 <div class="options-preview-profile-status-color"></div>
                                                                             </div>
@@ -6201,18 +6276,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         previewHolderLeft.classList.add('modal-left-avatar-decoration-img');
 
                                                                         previewHolderLeft.innerHTML = `
-                                                                            <img id="shop-card-deco-image" src="https://cdn.yapper.shop/custom-collectibles/${item.static}.png" data-left-preview-deco-var>
+                                                                            <img id="shop-card-deco-image" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png" data-left-preview-deco-var>
                                                                         `;
 
                                                                         const imgElement = previewHolderLeft.querySelector("[data-left-preview-deco-var]");
                                                                         
                                                                         if (localStorage.reduced_motion != "true") {
                                                                             imgElement.addEventListener("mouseenter", () => {
-                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                             });
                                                                         
                                                                             imgElement.addEventListener("mouseleave", () => {
-                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                             });
                                                                         }
                                                                     });
@@ -6233,22 +6308,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             itemId = selectedVariant.items.id;
                                                                         }
                                                                     
-                                                                    
-                                                                        // Fetch profile effects API only if not already cached
-                                                                        if (!profileEffectsCache) {
-                                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                method: "GET",
-                                                                                headers: {
-                                                                                    "Password": api_password,
-                                                                                    "Token": api_token
-                                                                                }
-                                                                            });
-                                                                            const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
-                                                                        }
-                                                                    
                                                                         // Find matching profile effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
                                                                     
                                                                         if (matchingEffect) {
                                                                             if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -6347,7 +6408,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     
                                                                     
                                                                         // Fetch profile effects API only if not already cached
-                                                                        if (!profileEffectsCache) {
+                                                                        if (!discordProfileEffectsCache) {
                                                                             const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                 method: "GET",
                                                                                 headers: {
@@ -6356,11 +6417,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 }
                                                                             });
                                                                             const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                         }
                                                                     
                                                                         // Find matching profile effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                                     
                                                                         if (matchingEffect) {
                                                                             const previewHolder = modal.querySelector("[data-modal-preview-holder]");
@@ -6417,7 +6478,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page") {
                                                         if (typeof product.emojiCopy != 'undefined') {
                                                             button_container.innerHTML = `
-                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
+                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}'); copyNotice('copyemoji');` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
                                                             `;
                                                         } else {
                                                             button_container.innerHTML = `
@@ -6427,7 +6488,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
                                                         if (typeof product.emojiCopy != 'undefined') {
                                                             button_container.innerHTML = `
-                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
+                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}'); copyNotice('copyemoji');` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
                                                             `;
                                                             modal.querySelector("[data-download-product-card-button]").innerHTML = `
                                                                 <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
@@ -6570,6 +6631,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 modal.remove();
                                                                 modal_back.remove();
                                                             }, 300);
+                                                            removeParams('itemSkuId');
+                                                            modalIsAlreadyOpen = false;
                                                         }
                                                     });
 
@@ -6802,6 +6865,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 modal.remove();
                                                                 modal_back.remove();
                                                             }, 300);
+                                                            removeParams('itemSkuId');
+                                                            modalIsAlreadyOpen = false;
                                                         }
                                                     });
 
@@ -7043,8 +7108,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         
             // Fetch new data
 
-            let profileEffectsCache = null; // Cache for the profile effects data
-
             // Make the function async
             fetch(apiUrl, {
                 method: "GET",
@@ -7155,7 +7218,27 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                     category.querySelector("[data-shop-category-banner]").addEventListener("click", () => {
                                         openCategoryModal();
+                                        addParams({itemSkuId: apiCategory.sku_id})
                                     });
+
+                                    const itemSKUForScroll = params.get("itemSkuId");
+
+                                    if (itemSKUForScroll === apiCategory.sku_id && modalIsAlreadyOpen != true) {
+                                        modalIsAlreadyOpen = true;
+                                        setTimeout(() => {
+                                            openCategoryModal();
+                                        }, 1000);
+                                        category.querySelector("[data-shop-category-banner]").classList.add("highlighted")
+
+                                        let highlightedGlint = document.createElement("div");
+
+                                        highlightedGlint.classList.add('shop-category-highlighted-glint');
+
+                                        category.querySelector("[data-shop-category-banner]").appendChild(highlightedGlint);
+                                        setTimeout(() => {
+                                            highlightedGlint.remove();
+                                        }, 3000);
+                                    }
                                     
 
                                     async function openCategoryModal() {
@@ -7546,6 +7629,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     modal.remove();
                                                     modal_back.remove();
                                                 }, 300);
+                                                removeParams('itemSkuId');
+                                                modalIsAlreadyOpen = false;
                                             }
                                         });
 
@@ -7567,6 +7652,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                         const cardTemplate = document.querySelector("[data-shop-item-card-template]");
                                         const card = cardTemplate.content.cloneNode(true).children[0];
 
+                                        card.id = product.sku_id;
+
                                         if (product.type === NONE) {
                                             card.classList.add("type_100");
                                             card.classList.add('hidden')
@@ -7580,7 +7667,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 // Set the initial image for the deco card
                                                 const imgElement = document.createElement("img");
                                                 imgElement.id = "shop-card-deco-image";
-                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                 
                                                 previewHolder.appendChild(imgElement);
 
@@ -7597,14 +7684,14 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 // Hover effect: Change the image src on mouse enter and leave
                                                 if (localStorage.reduced_motion != "true") {
                                                     card.addEventListener("mouseenter", () => {
-                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                         if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                             bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                         }
                                                     });
                                             
                                                     card.addEventListener("mouseleave", () => {
-                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                         bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
                                                     });
                                                 }
@@ -7628,23 +7715,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 // If items is an object and has type 1, get its id
                                                 itemId = product.items.id;
                                             }
-                                        
-                                        
-                                            // Fetch profile effects API only if not already cached
-                                            if (!profileEffectsCache) {
-                                                const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
-                                                    method: "GET",
-                                                    headers: {
-                                                        "Password": api_password,
-                                                        "Token": api_token
-                                                    }
-                                                });
-                                                const effectsData = await response.json();
-                                                profileEffectsCache = effectsData.profile_effect_configs;
+
+                                            if (!pplusProfileEffectsCache) {
+                                                await setPplusProfileEffectCache();
                                             }
                                         
                                             // Find matching profile effect
-                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                            const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
                                         
                                             if (matchingEffect) {
                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -7783,7 +7860,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 if (item.type === 0) {
                                                     // Avatar decoration
                                                     const decoImage = document.createElement("img");
-                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                     decoImage.alt = "Avatar Decoration";
                                                     decoImage.classList.add("avatar-decoration-image");
                                                     card.querySelector("[data-shop-card-preview-holder]").appendChild(decoImage);
@@ -7796,34 +7873,26 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     // Hover effect for decoration image
                                                     if (localStorage.reduced_motion != "true") {
                                                         card.addEventListener("mouseenter", () => {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                             if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                                 bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                             }
                                                         });
                                                         card.addEventListener("mouseleave", () => {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                             bgimg.style.backgroundImage = `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAAEJCAYAAABoqrlaAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABjZSURBVHgB7Z07kBxVloaPNNA8JAESEnqBhEItgiAUISKIwAFrHHAWBxzWAYdxsDQOa+yuMxbOysIaR1jjMNY64Ow44CwQgSIkIZCEhJ7der9fIxHTX3bfJrtUj8yqzJv38X8RSVW3CqmyKu+f/zn33HOXmUiZDaXHDT2/WzF3rLRqzJaez8wdN0qH+1kkyDITMcMAZ8BPLzyuX3jufu+TGftdLI6Wfj5iEpBokUDEQVkIti88OiGIAQTiyMIxu/D4g4ngkUCECWLwqs2LAY/TliaIBGKxb+FxxkRQSCDCACfw5tyxy+YFwXd4EAoIBKKxb+FRgtExEojuQAjesHlhyFUQRuFCkW9MIUknSCD8UXYJb1o8+YNQII/xtf0uFkp8ekAC0S6IAPmDDyyupGIMOLH40kRrSCDawYUPb5tEoW2cs/jKFIY0jgSiORCCd21eFJRT6AaSmp+bEpyNIYGYHNzCBwuPIhwIPeQqJkQCMR4u4fiWSRhCx7kK5SrGQAJRDxdGvGfKLcSGwo8xkEBUQ8KQDoiDCz8kFCOQQAxHwpAuEooKSCD6I2HIBycUfzcVXz2EBOJhEIYPTcKQG0pm9kEC8TvMRnxiqmHIHQlFCQnEvCAgDJquFGUQCIQi6/xEzgLh8gwfmhCD2WvzQpEluQqEwglRh2zDjtwEAtfwsc2vlxCiLtmFHX+wfKA0es/c8YoJMR4s2ec6umnzzWySJweBwDXsnjv+NHdMmRCT4dbhEJ7SvTvp2onUBYJcw6emGQrRPM5NuBb/SZKyQJBr+LOp4Em0B9eWy2ftswRJMUmpugbRBbiI3ZaYm0jNQSAKJCK3mBB+cbkJNgY6YYmQkkDQ1ek/TIlI0R2IxB8XnicRcqQgEHwpJCJV2yBCwe2G9u3ccc8iJvYcBPmGPaaKSBEm0eclYnYQLt+wxoQIE5eXINy4ZBESq0CwyOq/TfkGET6IxDs2X3150CIjRoEgGfknEyIuXl94jCp5GZtAUPz07yZEnLjanGhEIiaBoPjpHRMibhAJkurfWATEMItBDPcXU2WkSAtWgzLDEfRir9AdBOKgJdoiRZh9Iy/xDwu4ViJkgXDiMG1CpEnwIhGqQEgcRC4ELRIhCoTEQeRGsCIRmkBIHESuBCkSoQkEWd3XTYg8WbNwBDMFGpJAUASlOgeRO7jnYOokQhEIyqdVISnEPC7E7rziMgSBQBw+NCFEGQoDO1/g1bVAsBT2zyaE6Af5OLpmd9bCrstSa+Ksv5q6TgsxDEqxP7KOms505SBcJyg1exFiOPQ8wWmTtPS+bqMrgVDnaSGqg8smcfmVeaYLgSAp+UcTQtQB141QfGse8S0QtIpTNyghxoNVzV5nNpabP1DAD00IMQk4cG9d3H3NYmCNmLFQe3ohJocZDWY2Wk9a+goxOBmtsRCiGbjhMrvRej7Ch0Cw45XyDkI0C/kI9gE9Yi3Sdg6CkOIDE0K0AQscWw3b2xYIOlEr7yBEOxBqfGIt0maIwZSmlm8L0S7cgFub+mxrFoM3/TcTQvigtfUabYUYrdoeIcQSWgs12ggxmLV4z4QQPmkl1GjaQWjWQojuYOw12j6haYHwWgYqhFhC46FGkwLBmvW3TQjRJYzDxvaxbXIWg1kLuQchuofZjPetAZpKUlLzoB4PQoQBoUYjCcsmQgxcg2YthAiLRhKWTTgI6sEbi3mEEI3Aas9/zh0/2ARM6iBwD0pMChEmE88qTioQqnkQImwmGqOTCITcQwesWLHCnn32WYuNp59+unjvwjuM0bFTAI/Y+Mg9tAwDauXKlbZq1arisTzAvv/+e7tz547FwOOPP247d+5c/Pnq1at28+ZNu3Xrlt24caN4LlqFsTpWLmLcOgit1mwB7rIIwerVq4vHP/xhcA6ZQbZ//36LgR07dthzzz038M8fPHhQCMXly5eLR85NNM5uG0MkxnUQcg8N8Nhjj9natWsrCUIviAlH6IOJ9zhMHIDzducDCMaVK1cKweD8YnFKgTOWixhHIJR7mAAGwZo1a4o8AgIxCS+88ELwAsF7rAuCwefjci2EIJznpUuX5C7G59WFo5ZIjCMQcg81caKwfv36Wi6hyt8bsosg9+BcwSSQe+HYtGmT3b17tzjfc+fOSSzq85bVFIi6OQjlHirCwHjqqads8+bNjYpCLyHnIkblHiYFsbh48aKdPXtWYUh1/s1q7KdR10HIPQzhkUceKVwCOYUm7pxV4N/hTj3OAOH9jhIvBuE48J7aFAcgRMNVcCCU58+fLwTj/v37JgbCsoi9VV9cx0HgHvaYVmw+RFshRFXOnDljx44dK54zaEh4MvinpqaKn3nOwaB1rxkHxILB5w7387179wqB4rmbsmzbPQyCBCcicfLkSbmK/uAe3reKLqKOQJCYVK/JEggDSThfbmEQDEwGxqRJz6ZAJEIoinKuYnZ21sQSPreKLqKOQKjfwwKIQtu5BdEcOB0chYRiEXbj+qjKC6te4UyPaEm3zYvDli1bbPlynxuji0kgvCIExGlRiCVszdyxzyq0ya96lb9loojhEQcRJ3x3Lg8jqk04VBEIFUYtUF5PIOIDJzE9PW2igKhgZEOZKgKhZjBzbNy4MZgkoBgfEsp8l6JgZNqgikBkX/uALd26dauJNFCosciuUS8YJRD4sexnLkhMasYiHQg1XnzxRROL6zMGMkog3rXMofipi4If0S4sBOu6fiUQJhKI7PMP46xGFHFAtSduInOGmoBhAoE4ZB1eIA5KTKYL360SlsVMxkAjMEwgsq59IIlFtaRIGxZ6yUUU2/X1ZZSDyBYlJvMAcdi2bZtlzkAzMEggsp698LFUWYQD33XmCcuBYcYggRhoOXJAicn80HdeTyBGFlCkSpUmqyI9yk1zM6XvmO8nEIQW2eYfmPoSeZK5i+i7NmP5gBdmCUVRmtbMF7mIh1ML/QQi2/BCcaiQi1iKHMQCcg8CMncRD5mDXoHYYJlOb8o9CEfG18JD479XILJ0D9wx5B6EI3MXsUQDegUiy/yD3IPoJeNrYqhAZNePiz0ktOxX9JKxi1hiEsoCwRxodgKh1XxiEJm6CHIQi/UQZYHIThy05kIMAweR6UrPRS3IWiCUexCjyNRh9hWI7BKUyj2IUWTaL6KvQGRV/6DCKFEFxGHdunWWGYtmwQlEdgnKDL90MSY0uM2MxUSlE4isxIHkpMILUZVMpzyLiKLsILJByUlRFzb/zYzCNGTpIOQeRF2YDs8sWblEILZbJhBPKjkp6oI4rFixwjJiSQ4imxmMDK2iaIjMQtPCNGQlENwFVDkpxgUHkVGYsZikXGmZJCkznK4SDYI4ZHQNFbqAQCi8EKIimdXPrHQOInlQfwmEmJTMwozpbByEpjZFE+QWZmQjEHIPoilWrVplmbAhmxBDDkI0RU4OgmAqeYGIrSntgwcP7MaNG3b58mW7f/9+cQBrSJ588skom+zevXvXrly5Yrdv3y7O586dO8X5TE1NFXH9M888E81u6oQZfAdXr161xCkEYr0lzlNPPWUxwCA6e/aszc7OLorCINweoqHXdTCITp482Xcw9f6OJfgUI8UgflxTOQgEkv22JZ6H2LJlS3G3CpkTJ07YoUOH7Pr16/bbb7+NfD1icunSJTt//nxheUPLrPP+OB/EgedVuHnzpp05c6Z4HkNIeO7cOUucSwjEe3NHshk8Bs727eEuNWHwHDhwwC5cuGDjgNPgQn3iiSeK8CMEEK6DBw8W4cQ4XLt2LVjhc3DDwe1VEfOYST5JGfICG8Rh//79Rb5hEhAJ7tYh3NF4Dz/++OPIEGkU5Cj4bKq6jy7IYfHWckuckKc3GdQMhKY4fPhwp3ExIQLvoSmcSEwqNm2Rw9R58nUQoao8OYdJnUM/EJ0uBpTLOTQNInHq1CkLkQwcxMrkHUSIyS4GE8m7NkAcjh8/br45ffp0o26o9+8OccYgg7LrtAUi1Ex4kza8H0yT+hxQbnq2TdoS1EnIoYlM0gIRSla/DHG6j8F78eJF84WPwctnFqKLCPEaa5KkBYLqvNBo+07rYJrQVy7C18DlnEJDDiJiQqzI8zWYEAfqCdqG82kr99CLT1dUlRBvQk2SrECEGB8SXvgaTMDah7bxafsRPT7DkOAmlHKiMlmBCNH6+RQHuHfvnrWND5dSJjSBgJS7pCMQzU/GB0CIqu774vbx7/muufAtslVYuTLZYuQbyQpELCs4YyfUKkefJDyTcUMhhhATohAjQjLbJk10SMIhxkyyAhGig/AtWj7ubL7PKUThl4OIjFCbw/i+kHwMJt93z1BDx0RF4iYCEd680YSE+mX5XhviI1HrO0EXqkAkGtIWScoZS4xQvyzX7NQXPv4tn+eDWwn1u000D5FmDiLkaSdf06+EWT7utvwbvkRi48aNFirLlyc5IZhmHUTIdm/Tpk1e3p/Prep9dVYKuZFt6E2Rx2QmyRAj5C8LcWj7Tsj5+xxMtN5vW/RoiR9yIjCWPT1qkmYOIvQvq20X4XtvCc5l27Zt1hYInk9HNA6JOgglKbuA9zc9PW1t4DbU8Q3/Zltb0sWwmU6iAnHEZVaSEokYppwYTE3fFblId+zYYV2B6DU9UPiMQt89LFEKTXACkVSiMpaiFXb8akokGJg7d+7s9NwRZt5DUyKxbt264jOKgQRzEEsE4qiJTmhCJAgruhYHB++B9zJpkpTP5KWXXrJYSLBQapb/ONljb4zXLQH4op5//nmLCQYTWXq2rKuzfJpz3bp1a7G1YEgXKO+FsAAncevWrVrnxGdBmMTnERuJbcX3zdzxg7uqkslBxKrk3Hlfe+21ou8izVmH9V9kEFFwtXnz5qCtLSLBe6UtHZvyDmpg49oD4hpi2LR3EHwXCfXHOMJ/Hin/ILqH5KWbDWBgccG5i46BRJPUmOJdhA+h4Hjw4EGxm1i5KxQlyjiNROsIYqYwDWUHQaIy6Y18YyPmu2k/EAHOKbXzSpTCNJQLyJMIM9QoRoiJ+cE9KQtEEjMZsqqiKxIqlpp1T8oCoTyEEAIWtaAsED+YEEIMEAh+GX1FJZlyIcRE9M1BQPRhhvZpEF0R4qY+Y7AkkugVCJVcC5E3SzSgVyCUhxAib4Y6CAmEEHkzVCBuWOQikUgcKCLk7t27FjkPTVT0a8WrPIQQebKv9xf9BOJrixzNZAjfJHLNPTT2+wlE9PUQqoUQvkngmuubXlg+4IVR10PIQQjfJJD72tfvl4OWPtJN5lWLFJJFoe3hyB3m8OHDRdMUNWKtz7lz54rDtdhPeUftjuibWhgkEF/OHR9bpITmIBCs/fv3L95lEIqTJ08WTVlD3xCmSxDV06dPF63cyt8pIhtKD05HAg6i7+zloLXR92zeQWywCPG5X+QouJh/+uknu3379pLfc8Ffu3ataMVG38Zly5YFvaeoT+ikdeTIETt69GjxGfX2eeSzo38nnbdC6f/B++G9Rgri8Pd+fzCsecIqi7SRrfuiQhCJqakpW716dXE3HNSTEfG4cOFC0YsSsaCnRaIbsQwEUSCEOHTokM3MzAytKWDrwpdfftkeffRRC4FffvmlcDoR87kNyDsuG/I/0X7ufy1iQtgrogwXPaHF7OzsyNe6/TUJQ1Jt0YYoOGGoUmTE5xBSY1veM4JGn83Ied8GdJRbNuJ/3GMRJysdJLXYDzMUcBLHjh0rBkcVnFjQyZrHWHMWuKgrV67Y9evXC5GsmisKTRiA0BCxT2DGjPBi96A/HCUQ71nEycoybr+FkAZXHUdRhhwL3aAJXRCP0GZsHGVB4C5bVRAdIQoD3xlJ5rrnEjCf2vykRF9GCUT0YUYZElpccCG5CXBCwUU3Tjbc7SuBaKxataoQDd+t5DkHRAB3RB6F5+OsTeBcmNkhzxCaU0rINZQZGF7AKIGAJMKMMqHlJhzccdkwZ9gmM3Xg/JxYkCxl8PE7Ht3hXteP8gBHuNweHfz+3r17xfNxhaAXXMKaNWsKcQit8XCCrsFBvdN/DntBFYFAHPZYguAmQtwclgvyu+++s1xAqNhVLLQtC1wdBq4hUYaGF1BFqrEf5CKmLDGYDmVq0Vn0UDh+/HgjDiIWXJ0Du4aFAm7h4MGDRX1DojCuPx31oqpeDg+aVJjhcEU3xM3E713fxZydzQ0SmYQXXX/+CPPPP/+cYq6hF8KLkSu3qwqEcxHJQrESsT+xNW6iqws1N/dQBnFcu3atdQHhBJ89FZwJNH6pwn9ZhVXbVQWCvyja0us6MDgRCiC551MosLXUR+QKIk2y0mcVKcJw6tSpwjVEXCpdl4Gl1b3USRczWf+2ZQIXC6EHNtPXPPyBAweyX6rO3dvHSteyMFCr0bveI3E+mztOVHlhHYEgzEAgstkB3C2oconM8tRg0+BaWI+ROwgEnzH5oDbIXBiAcVx5VrLuhDPTolEu4JoEl8h0jqLp0INBwYIfNbqZh9qKDRs22PLly60pJAyL4B4qN4SqKxDYkncswSnPKpSXaDeZzCQ5lmARztg0Oe3pckrMDGUuDFBparNMXYGgT0SyU551cBcegkHl37i9HFjJeOJEpXAwK5j2nCRh6XpK/Prrr8XflbkwOEhM1trWokolZS/kIP5mGeUiqsCFXLdDVG+nKbEUPtNdu3ZVdmmDOlCJAtzDbhuy7qIf4xS9y0X0oRx+uOmyUdWZCi2G4wb5sFADUbh8+XKRwxnUgUoU4B5qb2kxjoMAuYgKcOejLVq/pi+EFjlWTI4DC+t6Pz+EFWGo01ciY8ZyDzDusjm5iApwJyNXgRiU28nRf5L4WBd2NZg9ovcFhVS0o6PHJ4/KLVRmLPcA4zoIkIsQInzGdg8wyUQz5deVyjWFEJ3xlY0pDjBpJcoXFvk2fUIkDMKw1yZgUoFAHD4zIUSIfG4T0kQtKx1pahVfCCFaB/fwpU1IU8XuEyuVEKJRapVUD6IpgcBBjDWNIoRoHBKTjbj65pbLzecilLAUolsYg3utIZrsL84b+6dluBxciICgNqkxN9+kgwCmPSuvNRdCNMrE05q9tLFDCZsIZNOaToiA+MgaDvPbEAhUjH5hr5gQwhfMJDY+UdB0iOHYaxOUdwohatF4aOFoaxNEVnseNYUaQvig8dDC0eYuqQo1hGifVkILxyTLvavy17lj2oQQTcNN+H1rkbZyEGUqbfElhKgFY2q3tUybIYZDBVRCNA/O/P+tZXwIBBw05SOEaAoaNe01D/gIMRx7TVOfQkxKa1Oa/fCRpCzD7uBYI/WxFKI+hOtMaXq70foKMRyc4OW5400TQtSFTXe9NmfyLRDAYi6ci1rmC1Ed6h2+MM90IRCAChJuqD5CiNF8M3f8j3VAVwIB+2x+6nONCSEGQb7hE5tfvuCdLgWCE/7W5vMRSloK8TBu05tL1hG+ZzH6oZkNIR7G+4xFP7p0EA4+iB9NKz+FKPPx3HHCOiYEgQBUctY0/SkE0LK+9TLqKoQiEKDpTyE6ms4cREgCAUx/SiREriAOey0gQhMIkEiIHAlOHCBEgQCJhMiJIMUBQhUIkEiIHAhWHCBkgQCJhEiZoMUBQhcIkEiIFAleHCAGgQBE4qapbZ1IA+ocgpnKHEYsAgG0rWOvDURiyoSID6qG/zJ3/J9FQkwCAZSessALkdDaDRETblWm14YvkxKbQAAr21gfr1WgIhbcqszO11bUJUaBAKwaIkHDmQ0mRLjgGDpdsj0JsQoEIBJfmWY4RLjQnp6cQyfNXpogZoFwaIZDhAY3L3qc7LXICaFhTFMQauwxhRyiW8g3sN3kEUuAFByEw+UlEIgtJoR/XL4hmQ2iUhIIQCT+YcpLCP98ZvMONtp8Qz9SCjF6UcghfIBboDIyqvqGqqTmIMq4WY5nTftviHZwsxTR1TdUJWWBAOze1zbf7xKRUGGVaAJXMs16iqRCil5SFwgHGWUSmKtMbkJMBtcRicgkZilGkXIOYhC01//AlJsQ9Ug61zCIXBxEGecmEMdXTIjRJJ9rGESODqKMZjrEMHALn1tmrqFM7gLhUNghypCEDGp/iq6QQPwO4uCEQuQJwkA48cXC8+yRQDwMQvHh3PGWiZygZmavJVQm3QQSiMFIKPIg+zzDMCQQo5FQpImEoQISiOpIKNJAwlADCUR9JBTx4dblkHxUjqEGEojxQShonPuuaXo0VDQrMSESiGZgehRHoR4UYaAwoiEkEM3iwo9dJlfhG+cWvjSFEY0hgWgP3ATO4g3TMvO2QBRYzk9+QW6hBSQQ7YM4kKt4Y+FRTAaiwII7ROFrU26hVSQQfkEscBYIhcKQ6pSdwhGTKHhDAtEtry4cu0wJzl4IGfYtPCp86AgJRDg4d8Gx3fITDJxBWRDkEgJAAhEuCMb0wuHCkVTa5THLgAgctXlhUNgQKBKIuCiLBoKx3cJuxjuzcBxdeJQYRIYEIg0QiA09x/qF37s/a1pEZkqPHDdLz90hIYgcCURerOw5yvTOqNywpQN8ZsDvRcL8C4aF6dA8K7JrAAAADmVYSWZNTQAqAAAACAAAAAAAAADSU5MAAAAASUVORK5CYII=)`;
                                                         });
                                                     }
                                                 } else if (item.type === 1) {
                                                     // Profile effect
-                                                    let profileEffectsCache = null; // Cache profile effects to avoid multiple fetches
                                         
                                                     (async () => {
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
+
+                                                        if (!pplusProfileEffectsCache) {
+                                                            await setPplusProfileEffectCache();
                                                         }
                                         
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === item.id);
                                         
                                                         if (matchingEffect) {
                                                             const effectImage = document.createElement("img");
@@ -7911,10 +7980,10 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         const decoImage = document.createElement("img");
                                                         const bgimg = document.createElement("div");
                                                         if (isFirstTimeLoadingVariant == true) {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                             isFirstTimeLoadingVariant = false;
                                                         } else {
-                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                             if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                                 bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                             }
@@ -7930,13 +7999,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         // Hover effect for decoration image
                                                         if (localStorage.reduced_motion !== "true") {
                                                             card.addEventListener("mouseenter", () => {
-                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                 if (localStorage.discord_avatar != defaultAvatar1 && localStorage.discord_avatar != defaultAvatar2 && localStorage.discord_avatar != defaultAvatar3 && localStorage.discord_avatar != defaultAvatar4 && localStorage.discord_avatar != defaultAvatar5 && localStorage.discord_avatar != defaultAvatar6) {
                                                                     bgimg.style.backgroundImage = `url(${localStorage.discord_avatar})`
                                                                 }
                                                             });
                                                             card.addEventListener("mouseleave", () => {
-                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                 bgimg.style.backgroundImage = `url(data:image/png;base64,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)`;
                                                             });
                                                         }
@@ -7956,23 +8025,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             // If items is an object and has type 1, get its id
                                                             itemId = selectedVariant.items.id;
                                                         }
-                                                    
-                                                    
-                                                        // Fetch profile effects API only if not already cached
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILES_PLUS_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
+
+                                                        if (!pplusProfileEffectsCache) {
+                                                            await setPplusProfileEffectCache();
                                                         }
                                                     
                                                         // Find matching profile effect
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
                                                     
                                                         if (matchingEffect) {
                                                             const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -8069,14 +8128,32 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
 
 
-                                        if (product.emojiCopy === null && product.type != 'plus_more') {
-                                            card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
-                                                <button class="card-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb';" title="${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_REQUEST_PPLUS_EMOJI")}</button>
-                                            `;
-                                        } else if (product.type != 'plus_more') {
-                                            card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
-                                                <button class="card-button" onclick="copyEmoji('${product.emojiCopy}');" title="${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_COPY_PPLUS_EMOJI")}</button>
-                                            `;
+                                        if (localStorage.experiment_2025_03_copy_sku_card === "Treatment 1: Enabled" || localStorage.experiment_2025_03_copy_sku_card === "Treatment 2: w/ share button") {
+                                            if (product.emojiCopy === null && product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <div class="card-multi-button-container" card-multi-button-container>
+                                                        <button class="card-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb';" title="${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_REQUEST_PPLUS_EMOJI_v2")}</button>
+                                                        <button class="card-button" onclick="copyEmoji('${product.sku_id}'); copyNotice('copysku');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
+                                                    </div>
+                                                `;
+                                            } else if (product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <div class="card-multi-button-container" card-multi-button-container>
+                                                        <button class="card-button" onclick="copyEmoji('${product.emojiCopy}'); copyNotice('copyemoji');" title="${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_COPY_PPLUS_EMOJI_V2")}</button>
+                                                        <button class="card-button" onclick="copyEmoji('${product.sku_id}'); copyNotice('copysku');" title="${getTextString("CARD_COPU_SKU_ID_TITLE")}">${getTextString("CARD_COPU_SKU_ID")}</button>
+                                                    </div>
+                                                `;
+                                            }
+                                        } else {
+                                            if (product.emojiCopy === null && product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <button class="card-button" onclick="location.href='https://discord.gg/Mcwh7hGcWb';" title="${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_REQUEST_PPLUS_EMOJI")}</button>
+                                                `;
+                                            } else if (product.type != 'plus_more') {
+                                                card.querySelector("[data-product-card-open-in-shop]").innerHTML = `
+                                                    <button class="card-button" onclick="copyEmoji('${product.emojiCopy}');" title="${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}">${getTextString("CARD_COPY_PPLUS_EMOJI")}</button>
+                                                `;
+                                            }
                                         }
 
                                         if (product.premium_type === 2) {
@@ -8091,11 +8168,31 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 card.classList.add('clickable');
 
                                                 card.addEventListener("click", (event) => {
-                                                    if (event.target.matches("[data-shop-card-var]")) {
+                                                    if (event.target.matches("[data-shop-card-var]") || event.target.matches(".card-button") || event.target.matches(".shareIcon_f4a996")) {
                                                     } else {
                                                         openItemModal();
+                                                        addParams({itemSkuId: product.sku_id})
                                                     }
                                                 });
+
+                                                const itemSKUForScroll = params.get("itemSkuId");
+
+                                                if (itemSKUForScroll === product.sku_id && modalIsAlreadyOpen != true) {
+                                                    modalIsAlreadyOpen = true;
+                                                    setTimeout(() => {
+                                                        openItemModal();
+                                                    }, 1000);
+                                                    card.classList.add("highlighted")
+
+                                                    let highlightedGlint = document.createElement("div");
+
+                                                    highlightedGlint.classList.add('shop-category-card-highlighted-glint');
+
+                                                    card.appendChild(highlightedGlint);
+                                                    setTimeout(() => {
+                                                        highlightedGlint.remove();
+                                                    }, 3000);
+                                                }
 
                                                 async function openItemModal() {
                                                     let modal = document.createElement("div");
@@ -8180,7 +8277,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
                                                                         <p class="options-preview-profile-displayname" id="options-preview-profile-displayname">${localStorage.discord_username}</p>
                                                                         <p class="options-preview-profile-username" id="modal-username-preview"></p>
-                                                                        <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/${item.animated}.png">
+                                                                        <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png">
                                                                         <div class="options-preview-profile-status-bg"></div>
                                                                         <div class="options-preview-profile-status-color"></div>
                                                                     </div>
@@ -8192,17 +8289,17 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                                                 const imgElement = document.createElement("img");
                                                                 imgElement.id = "shop-card-deco-image";
-                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
 
                                                                 previewHolderLeft.appendChild(imgElement);
 
                                                                 if (localStorage.reduced_motion != "true") {
                                                                     imgElement.addEventListener("mouseenter", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                     });
                                                                 
                                                                     imgElement.addEventListener("mouseleave", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                     });
                                                                 }
 
@@ -8212,18 +8309,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
                                                                 const imgElement = document.createElement("img");
                                                                 imgElement.id = "shop-card-deco-image";
-                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
 
                                                                 previewHolder.appendChild(imgElement);
 
                                                                 // Hover effect: Change the image src on mouse enter and leave
                                                                 if (localStorage.reduced_motion != "true") {
                                                                     document.getElementById('modalv2-inner-right').addEventListener("mouseenter", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                     });
                                                                 
                                                                     document.getElementById('modalv2-inner-right').addEventListener("mouseleave", () => {
-                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                        imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                     });
                                                                 }
                                                             }
@@ -8250,22 +8347,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             itemId = product.items.id;
                                                         }
                                                     
-                                                    
-                                                        // Fetch profile effects API only if not already cached
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
-                                                        }
-                                                    
                                                         // Find matching profile effect
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
 
                                                         const previewHolder = modal.querySelector("[data-modal-preview-holder]");
                                                         const previewHolderLeft = modal.querySelector("[data-modal-left-preview-holder]");
@@ -8471,25 +8554,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             if (localStorage.experiment_2025_02_extra_options && localStorage.experiment_2025_02_extra_options != "Treatment 5: Enabled w/o currency picker" && localStorage.experiment_2025_02_extra_options != "Treatment -1: Disabled") {
                                                                 
                                                                 if (item.type === 0) {
-                                                                    decosrc = item.animated
+                                                                    decosrc = item.asset
                                                                 } else if (item.type === 1) {
                                                                     // Profile effect
                                                                     (async () => {
-                                                                        // Fetch profile effects if not cached
-                                                                        if (!profileEffectsCache) {
-                                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                method: "GET",
-                                                                                headers: {
-                                                                                    "Password": api_password,
-                                                                                    "Token": api_token
-                                                                                }
-                                                                            });
-                                                                            const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
-                                                                        }
                                                     
                                                                         // Find the matching effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === item.id);
                                                     
                                                                         if (matchingEffect) {
                                                                             if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -8510,7 +8581,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
                                                                             <p class="options-preview-profile-displayname" id="options-preview-profile-displayname">${localStorage.discord_username}</p>
                                                                             <p class="options-preview-profile-username" id="modal-username-preview"></p>
-                                                                            <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/${decosrc}.png">
+                                                                            <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${decosrc}.png">
                                                                             <div class="options-preview-profile-status-bg"></div>
                                                                             <div class="options-preview-profile-status-color"></div>
                                                                             <img id="profileProfileEffectPreview" class="profile-profile-effect-preview" src="${effectUrl}">
@@ -8523,7 +8594,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                             } else {
                                                                 if (item.type === 0) {
                                                                     const decoImage = document.createElement("img");
-                                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                    decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                     decoImage.alt = "Avatar Decoration";
                                                                     decoImage.classList.add("modal-avatar-decoration-img");
                                                                     modal.querySelector("[data-modal-preview-holder]").appendChild(decoImage);
@@ -8531,18 +8602,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     // Hover effect for decoration image
                                                                     if (localStorage.reduced_motion != "true") {
                                                                         document.getElementById('modalv2-inner-right').addEventListener("mouseenter", () => {
-                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                         });
 
                                                                         document.getElementById('modalv2-inner-right').addEventListener("mouseleave", () => {
-                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                            decoImage.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                         });
                                                                     }
                                                                 } else if (item.type === 1) {
                                                                     // Profile effect
                                                                     (async () => {
                                                                         // Fetch profile effects if not cached
-                                                                        if (!profileEffectsCache) {
+                                                                        if (!discordProfileEffectsCache) {
                                                                             const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                 method: "GET",
                                                                                 headers: {
@@ -8551,11 +8622,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 }
                                                                             });
                                                                             const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                         }
                                                     
                                                                         // Find the matching effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                                     
                                                                         if (matchingEffect) {
                                                                             const effectImage = document.createElement("img");
@@ -8660,7 +8731,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 <img id="profileAvatarPreview" class="profile-avatar-preview" src="${localStorage.discord_avatar}" alt="No image uploaded">
                                                                                 <p class="options-preview-profile-displayname" id="options-preview-profile-displayname">${localStorage.discord_username}</p>
                                                                                 <p class="options-preview-profile-username" id="modal-username-preview"></p>
-                                                                                <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/${item.animated}.png">
+                                                                                <img id="profileAvatarDecoPreview" class="profile-avatar-deco-preview" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png">
                                                                                 <div class="options-preview-profile-status-bg"></div>
                                                                                 <div class="options-preview-profile-status-color"></div>
                                                                             </div>
@@ -8670,18 +8741,18 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         previewHolderLeft.classList.add('modal-left-avatar-decoration-img');
 
                                                                         previewHolderLeft.innerHTML = `
-                                                                            <img id="shop-card-deco-image" src="https://cdn.yapper.shop/custom-collectibles/${item.static}.png" data-left-preview-deco-var>
+                                                                            <img id="shop-card-deco-image" src="https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png" data-left-preview-deco-var>
                                                                         `;
 
                                                                         const imgElement = previewHolderLeft.querySelector("[data-left-preview-deco-var]");
                                                                         
                                                                         if (localStorage.reduced_motion != "true") {
                                                                             imgElement.addEventListener("mouseenter", () => {
-                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.animated}.png`;
+                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/a_${item.asset}.png`;
                                                                             });
                                                                         
                                                                             imgElement.addEventListener("mouseleave", () => {
-                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/${item.static}.png`;
+                                                                                imgElement.src = `https://cdn.yapper.shop/custom-collectibles/avatar-decorations/${item.asset}.png`;
                                                                             });
                                                                         }
                                                                     });
@@ -8702,22 +8773,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                             itemId = selectedVariant.items.id;
                                                                         }
                                                                     
-                                                                    
-                                                                        // Fetch profile effects API only if not already cached
-                                                                        if (!profileEffectsCache) {
-                                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                method: "GET",
-                                                                                headers: {
-                                                                                    "Password": api_password,
-                                                                                    "Token": api_token
-                                                                                }
-                                                                            });
-                                                                            const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
-                                                                        }
-                                                                    
                                                                         // Find matching profile effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                        const matchingEffect = pplusProfileEffectsCache.find(effect => effect.id === itemId);
                                                                     
                                                                         if (matchingEffect) {
                                                                             if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -8816,7 +8873,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     
                                                                     
                                                                         // Fetch profile effects API only if not already cached
-                                                                        if (!profileEffectsCache) {
+                                                                        if (!discordProfileEffectsCache) {
                                                                             const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                 method: "GET",
                                                                                 headers: {
@@ -8825,11 +8882,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 }
                                                                             });
                                                                             const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                         }
                                                                     
                                                                         // Find matching profile effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                                     
                                                                         if (matchingEffect) {
                                                                             const previewHolder = modal.querySelector("[data-modal-preview-holder]");
@@ -8886,7 +8943,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 3: Enable modals w/ p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 4: Enable modals w/ p+ on p+ page") {
                                                         if (typeof product.emojiCopy != 'undefined') {
                                                             button_container.innerHTML = `
-                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
+                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}'); copyNotice('copyemoji');` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
                                                             `;
                                                         } else {
                                                             button_container.innerHTML = `
@@ -8896,7 +8953,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     } else if (localStorage.experiment_2025_02_shop_card_modals === "Treatment 5: Enable modals w/ data downloads and p+" || localStorage.experiment_2025_02_shop_card_modals === "Treatment 6: Enable modals w/ data downloads and p+ on p+ page") {
                                                         if (typeof product.emojiCopy != 'undefined') {
                                                             button_container.innerHTML = `
-                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}')` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
+                                                                <button class="card-button ${product.emojiCopy ? '' : 'card-button-no-emoji'}" onclick="${product.emojiCopy ? `copyEmoji('${product.emojiCopy}'); copyNotice('copyemoji');` : `redirectToGoogle()`}" title="${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI_TITLE")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI_TITLE")}`}">${product.emojiCopy ? `${getTextString("CARD_COPY_PPLUS_EMOJI")}` : `${getTextString("CARD_REQUEST_PPLUS_EMOJI")}`}</button>
                                                             `;
                                                             modal.querySelector("[data-download-product-card-button]").innerHTML = `
                                                                 <svg class="downloadIcon_modal" onclick="window.open('https://item.yapper.shop/sku/${product.sku_id}/data.zip');" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.0547 0.999993L11.0547 11.59L7.7547 8.28999C7.66429 8.186 7.55337 8.10181 7.4289 8.04271C7.30442 7.98361 7.16907 7.95088 7.03134 7.94656C6.89362 7.94224 6.75648 7.96643 6.62855 8.01761C6.50061 8.0688 6.38464 8.14587 6.28789 8.24399C6.19115 8.34212 6.11573 8.45917 6.06637 8.58782C6.01701 8.71647 5.99476 8.85393 6.00104 8.99159C6.00731 9.12924 6.04196 9.26411 6.10282 9.38773C6.16368 9.51136 6.24943 9.62107 6.3547 9.70999L11.3547 14.71C11.5416 14.8932 11.7929 14.9959 12.0547 14.9959C12.3164 14.9959 12.5678 14.8932 12.7547 14.71L17.7547 9.70999C17.92 9.51987 18.0074 9.27437 17.9995 9.02257C17.9916 8.77078 17.889 8.53124 17.7121 8.35185C17.5352 8.17245 17.2972 8.06642 17.0455 8.05496C16.7939 8.04349 16.5471 8.12743 16.3547 8.28999L13.0547 11.6L13.0547 0.999993C13.0547 0.734776 12.9493 0.480422 12.7618 0.292885C12.5743 0.105349 12.3199 -7.13283e-06 12.0547 -7.10964e-06C11.7895 -7.08645e-06 11.5351 0.105349 11.3476 0.292885C11.1601 0.480422 11.0547 0.734776 11.0547 0.999993Z" fill="currentColor"/><path d="M4 15C4 14.7348 4.10536 14.4804 4.29289 14.2929C4.48043 14.1054 4.73478 14 5 14H7C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12H5C4.20435 12 3.44129 12.3161 2.87868 12.8787C2.31607 13.4413 2 14.2044 2 15V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H19C19.7956 22 20.5587 21.6839 21.1213 21.1213C21.6839 20.5587 22 19.7956 22 19V15C22 14.2044 21.6839 13.4413 21.1213 12.8787C20.5587 12.3161 19.7956 12 19 12H17C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14H19C19.2652 14 19.5196 14.1054 19.7071 14.2929C19.8946 14.4804 20 14.7348 20 15V19C20 19.2652 19.8946 19.5196 19.7071 19.7071C19.5196 19.8946 19.2652 20 19 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V15Z" fill="currentColor"/></svg>
@@ -9039,6 +9096,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 modal.remove();
                                                                 modal_back.remove();
                                                             }, 300);
+                                                            removeParams('itemSkuId');
+                                                            modalIsAlreadyOpen = false;
                                                         }
                                                     });
 
@@ -9271,6 +9330,8 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 modal.remove();
                                                                 modal_back.remove();
                                                             }, 300);
+                                                            removeParams('itemSkuId');
+                                                            modalIsAlreadyOpen = false;
                                                         }
                                                     });
 
@@ -9387,10 +9448,29 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                         // Append card to output
                                         card.classList.add('shop-category-card-transparent')
                                         cardOutput.append(card);
+
+                                        scrollToSKU(product.sku_id);
                                     }
                                 }
             
                                 categoryOutput.append(category);
+
+                                scrollToSKU(apiCategory.sku_id);
+
+                                function scrollToSKU(sku_id) {
+                                    const itemSKUForScroll = params.get("itemSkuId");
+
+                                    if (itemSKUForScroll === sku_id) {
+                                        setTimeout(() => {
+                                            try {
+                                                document.getElementById(itemSKUForScroll).scrollIntoView({ behavior: "smooth" });
+                                            }
+                                            catch(error) {
+                                                scrollToSKU(sku_id)
+                                            }
+                                        }, 10);
+                                    }
+                                }
 
 
                                 const paper_beach2_banner = document.getElementById(PAPER_BEACH_V2);
@@ -10298,7 +10378,17 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                         modalIsAlreadyOpen = true;
                                         setTimeout(() => {
                                             openCategoryModal();
-                                        }, 500);
+                                        }, 1000);
+                                        category.querySelector("[data-shop-category-banner]").classList.add("highlighted")
+
+                                        let highlightedGlint = document.createElement("div");
+
+                                        highlightedGlint.classList.add('shop-category-highlighted-glint');
+
+                                        category.querySelector("[data-shop-category-banner]").appendChild(highlightedGlint);
+                                        setTimeout(() => {
+                                            highlightedGlint.remove();
+                                        }, 3000);
                                     }
                                     
 
@@ -10833,21 +10923,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             }
                                         
                                         
-                                            // Fetch profile effects API only if not already cached
-                                            if (!profileEffectsCache) {
-                                                const response = await fetch(api + PROFILE_EFFECTS, {
-                                                    method: "GET",
-                                                    headers: {
-                                                        "Password": api_password,
-                                                        "Token": api_token
-                                                    }
-                                                });
-                                                const effectsData = await response.json();
-                                                profileEffectsCache = effectsData.profile_effect_configs;
+                                            if (!discordProfileEffectsCache) {
+                                                await setDiscordProfileEffectCache();
                                             }
                                         
                                             // Find matching profile effect
-                                            const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                            const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                         
                                             if (matchingEffect) {
                                                 const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -11031,21 +11112,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 } else if (item.type === 1) {
                                                     // Profile effect
                                                     (async () => {
-                                                        // Fetch profile effects if not cached
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                        if (!discordProfileEffectsCache) {
+                                                            await setDiscordProfileEffectCache();
                                                         }
                                         
                                                         // Find the matching effect
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                         
                                                         if (matchingEffect) {
                                                             const effectImage = document.createElement("img");
@@ -11197,21 +11269,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         }
                                                     
                                                     
-                                                        // Fetch profile effects API only if not already cached
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                        if (!discordProfileEffectsCache) {
+                                                            await setDiscordProfileEffectCache();
                                                         }
                                                     
                                                         // Find matching profile effect
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                     
                                                         if (matchingEffect) {
                                                             const previewHolder = card.querySelector("[data-shop-card-preview-holder]");
@@ -11320,16 +11383,30 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                 previewHolder.classList.add('potion-card-preview-holder');
                                                     
                                                 previewHolder.innerHTML = `
-                                                    <svg class="potion-card-preview nitro-3-days-orb-preview" width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <rect y="16" width="187" height="140" fill="url(#pattern0_136_11)"/>
+                                                    <svg class="potion-card-preview nitro-3-days-orb-preview" width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M161.164 3.17212H30.5663C16.8601 3.17212 5.74902 14.3031 5.74902 28.0339V158.866C5.74902 172.597 16.8601 183.728 30.5663 183.728H161.164C174.87 183.728 185.982 172.597 185.982 158.866V28.0339C185.982 14.3031 174.87 3.17212 161.164 3.17212Z" fill="url(#paint0_linear_170_2)"/>
+                                                    <g filter="url(#filter0_d_170_2)">
+                                                    <path d="M100.125 107.318C106.339 107.318 111.376 102.266 111.376 96.0332C111.376 89.8007 106.339 84.7483 100.125 84.7483C93.9113 84.7483 88.874 89.8007 88.874 96.0332C88.874 102.266 93.9113 107.318 100.125 107.318Z" fill="white"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M55.1214 50.8938C52.0146 50.8938 49.496 53.42 49.496 56.5362C49.496 59.6525 52.0146 62.1787 55.1214 62.1787H71.9979C75.1048 62.1787 77.6235 64.7049 77.6235 67.8211C77.6235 70.9373 75.1048 73.4635 71.9979 73.4635H46.6832C43.5763 73.4635 41.0576 75.9897 41.0576 79.106C41.0576 82.2222 43.5763 84.7484 46.6832 84.7484H60.7469C63.8539 84.7484 66.3724 87.2746 66.3724 90.3908C66.3724 93.5071 63.8539 96.0333 60.7469 96.0333H49.496C46.389 96.0333 43.8704 98.5595 43.8704 101.676C43.8704 104.792 46.389 107.318 49.496 107.318H56.5393C61.5352 126.787 79.1553 141.173 100.125 141.173C124.981 141.173 145.13 120.963 145.13 96.0333C145.13 71.1035 124.981 50.8938 100.125 50.8938H55.1214ZM100.125 118.603C112.553 118.603 122.627 108.498 122.627 96.0333C122.627 83.5683 112.553 73.4635 100.125 73.4635C87.6979 73.4635 77.6235 83.5683 77.6235 96.0333C77.6235 108.498 87.6979 118.603 100.125 118.603Z" fill="white"/>
+                                                    <path d="M29.8064 84.7485C32.9133 84.7485 35.4319 82.2223 35.4319 79.1061C35.4319 75.9898 32.9133 73.4636 29.8064 73.4636H26.9936C23.8868 73.4636 21.3682 75.9898 21.3682 79.1061C21.3682 82.2223 23.8868 84.7485 26.9936 84.7485H29.8064Z" fill="white"/>
+                                                    </g>
                                                     <defs>
-                                                    <pattern id="pattern0_136_11" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                    <use xlink:href="#image0_136_11" transform="matrix(0.00369004 0 0 0.00492884 0 -0.000276753)"/>
-                                                    </pattern>
-                                                    <image id="image0_136_11" width="271" height="203" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ8AAADLCAMAAABH/+YaAAADAFBMVEUAAAD///8AAABpaWkAAAAAAAA5OTkAAAAnJycAAAAeHh4AAAAaGhoWFhYJCQkSERIICAgODg4AAABNNVANDQ0AAABwSngMDAwAAAALCwsAAAAKCgoAAACCV41DLT4JCQkAAAAJCQkAAAAqHikICAgAAABVN1AICAgAAACWYpAEBAQHBwcAAABrRnlYOlgwIS8EBASbZrEGBgaAU3UiGCAAAAAEBAQ2IzcDAwOjabVWOFQdFRwDAwNxSXQ1IzMQCxCrcIugZ8R/UoEcExsrHSs+KTyxc5eTX398UJWUX61jQWVJMEqtcKFRNU6VYH6aY69mQl+vcYyjacxwSGyDVZewcqaxcoygZ8B4TnG9e6Wsb9KEVJh/UnWub9eJWILCfqOHVpqsb9WiaYfAe6mPXI6tb9ecZYuTX6HKg5+/e7SscJKjaaysb+DEf7TNhKawcZCobL6vcNKgZ5zRiKKyc9fHgLyzdJaiaaukarGwcd6qbajHgMHKgqGxcqGtbr2ycuTPhqPHgMe2daeucMi3dd2xcr3OhbXGgMmzc+XWiqW4d63MhKfEfs2/e6exccWxcuLDfdHHgK7PhrK1dcLAfNm0dMrSiKW0c93FgLO+esXBfMO6d9jMhLfWiqvFf8XajajIgcC3duTQhra9ecjHgMW5d9jWiqy0c/DNhLzCfcy5d9rZjKrUiLnNhMHYjK7Cfc66d+e8edezcvPdj63Rh77Lgsa/e9XUiLfEfs68eePOhca1dPHej6vTiL/XirbIgM3Ae9i9eePRhsPdj63NhMnBfNvWirnIgNC6d+nfj63Yi7jTiMDPhcfCfdnMg8y9eea1dPPgkavFf9bZjLfVib/NhMzIgdK7eOrBe+DhkazgkK7ej7Ddj7LcjrTcjbTbjbbajbfajLjYi7rXi7zWir3Vib/UicHTiMLSh8TRh8bQhsfPhcnOhMvMg87LgtDKgtLJgdPIgdTHgNbGf9jFf9nFftvEfdzDfd7CfN/BfOHAe+K/euS9eea8eei4du+2dPNMR/0pAAAA2XRSTlMAAQECAgMEBAYGCAkKCw0ODxEREhMTFRUVFxcZGRobGxsdHR4fHyAhISMjJSUnJyYnKSkrKyosLy4wMDAxNDU0NjY5ODs9Pz5AQ0NDSUlMT05RUFNXWFlYWV9eXmFlZGZma2psbXN1dXZ3d3l7gIOCgoSFiYmLi4qRkpOVl5eXmJ2dnp6ioqSkp6ipq6qrqq6wsbKyt7a5ubq6vr/Aw8PJyMjLys/Q0tLU19bY2trc3d3d3uHh4+Pk5ubo6evq7Ozs7O7w8fHy8vP09fX09ff29vj4+vv7+/r8raIVsgAAPQZJREFUeNq0muV/5EyShJ/IUi8zMzMzMzMz836/+3r/0DEzL+/LzMzMaLcyblyqbss6vfrtgKWGlNrWTD4dGVlVsjjaLbyNIIuS0h/ZhzNZdwcGyBAmA0Dm/21ZxieR25ksqfZZ++0WKaPf+6z9eF+O7NCt2+dH9r1jiMRIyVFvx8ADPLxtQQhlyFsgQgDeO68Gir2nxd5zvLWzo61BcHiIRk/LJhIEHgA01H3Ze/bIKN1OKg+dh0ba6BKgAEjIENl2ECMd5fDgoFDk9hz/JG0T+KB25Iy2g3DTUSTQlAJhZ+kbKHzIPMLIkU0dbhCQ5Uc/6jmPAOCBRzwweh9H9zzmyA7Agw9/EOiBdbcmMS1lRrDaex+jM0YpcOSgmPZTWXoIs95DMYAhAQF5mPpQ4yL6VjD1SI959TOf/uSn05KtO9R0687+Nj7eXdUdgJ2H7QDTqMUDVtY76527d26+9t6WZ1OLIJWgVFNJ/cQbtj40Hk0gIKkdh+FxL37N2171VgNgMC0av7RPZfDBqL1e/8wjO1ukzR2quh5xX4126dnhwd2dvO7e2265+dLbsRJAiQcIrXisHtRTDwEfLo+MjGqmnUsfPPWt733TO0dZG8ZoplDG5zTFMn3bBB5Huvr+3Tt277np+huuufS+ZHCW9gpWH7nF0+w3D41HQLFaoZjgMR/59JtfNMl6ohS5HU6VM4U2/z69brvitXfdft8dV19z/Xn3QcpkZHMcG1rhECQCrDzRPMJQnFE7SwWSwaPf9qXvb5KeCGJyND1mIps/WB9gGuLbb7z9jpsuvfr8220qkIws6eojNd6AAZEnmgcOMoAiHEC4vPbzH3/1XGpmzkmmKcrtZUkmEx7Tq11/4213XHz5SfebBKNWLDQUGwoyPqE8BESWPiLpMEFkxDe/+BHmv8LlZPCYyZRHC2YhzCjqjhuvuPHCK89+MBFNGQwakTe+AihPqD6EwnJts5FBAC//+h9PWsfEHxb1gueFgTWrrVE8PXP9TTdceP6Zt1czTaFUGpR1PJJEggw+sf4hBwxAqNX58c9/C8/Xy1xvmcnFai8zWGZgTktS+xe8+JqLLj3jGtvUPXpg6yQAnHAexGYQRjgIvv/ZD82VxYIIWjgxjhbP+ejSJSanb7jq2tNOukqbbpNli0S4OYlPEA8BRHbZZRB9EAT6+bdfDTM1PtchDdP8LfuhDWPWjJcL6M4LL7rwpKto07oE5IMKwSfMT4NWLAVZhOQ/+hPMYn3MnwNvKmWx3xqYJzwvmEbkaoxJZNRvFNIjLOwT2F8IMtR6ixQ/+cmLNt/0pGGMc535r2uS4lKbmZTdssGaG6+66ORf7DghAWP6bt2KB5Qnrl4CiAiDKIjgR19418x3OD9SNQ+tpPm3pSFdizSnxrtOP+WCUx+InobEW2MlUgZ83DzCwpFBbbYKAqTPfflTwgfTluedcwoCy/L4swU6y013asycd/Fvz7hKSY5HI5E1BusE8MAE0WwkCIngnV/6AV6YlCwWfwsXeMw0o3keYuLXN111zpm/2Okj1UcebL4y4OOuFxkiyKKokSRH+dln3gpM0/I+BC0Ox2Qz319n4VnzepjqCMzdJ538v9cYUyE0GKNZr0+Af7TugiIL4UAf+1yd3U4zXjgcT/fmpvsz7zNrK3Mnpro5/1cnn7pDKsmhaAJtPSXy+HgQbuseBCFawTz105/4IFNRTz3Pk7QWZyPLfjpBKk+Zjl59+Tm/PeNqcI+ciHV1ENGDyOP2j4ACzUWKJanw2g9/sFbMqLVOwEROv8sxKS1M5A6y1czFmfCYjG9uvuQXJ1+kXrm3Y9WykYEEHx8Pt4Lp3MamEkHhre962/NfNBHFtMKtWR7znWNp/CEW7YgpSJ9x2kmn7pihZOytiyCM8rh4KNzKhXBBhEIrXvH6Nzz/3Z6ktjhQnSmqKQ95ub/M//aMad3yu//+9f0mIxPa+qrBKYPyePwDAmhAUN2iBE994Utf8LTHPJpu3bHZjiwDt2i1W/d29IIZZovrYvOdZQ7yvNn63pN+8293NIW0kUjk9i6Oj50HoMLGSEUQFFYEHc971jO71WqT9KPvf+T9j9zH0W5UPWzdrR/2lGc8+gUGWFxIns56l0hM4gkPWz7tP//3WjsjMd62XsDHwSNMSAmF4o0+wqUEQVej0q5YAVB66Kw11HcAIh//tFe96uXP3upZnh95TM8eEw/cqJz5b3sjkVTaSmUCZBhHHjMPCdd2q/BGHYriLoKiQSsFwQpWPVC2L62QIqPGz3n/W141dlpNpnUz+jgaEubARRPgtF/++mLbmCRL1lUzkY4EH6s+ZA4AkSQKJYKu4SiEVy35DYCmD8sazvLYt77vnZ6sMS7PXxZG+F7WR4vO+/dfXtbLHpYT2zgkDaA8jvlLgX07ddDRIR7WcFBkgTqi9FsYFPp9hdRbmO/+xBsfOov5Q2vBRRb8o50479T/OXvH1sHGi43IY62XomwNN0MxANHgJl1U5VCQq0Z2V6P+Es1BGhIe8cEPvXK8amZG2TJLych/MIkRiI1Grv/Pfz23D9fOMp7N2CiPhcfGM1yfkoYzg6GuqKUjKxAgGpB1R2S0e98CqkJ4+hc+i+VJC5ntL4sQvNSeN/2FAcjf/NO15kDjlUkZkcfYX1BSpAwpZCkGDER0UjYf6QuSLRBW00oDsSkZ3vOBd4z6yzyORc/E03HbtMbwgTfO+p9/v9ZsFQJEJnBsPIQCcLv3Uo/CEYWQCBWKi4qBQSWWhVpXXREARQ0LT/nyZ2envfPlMo3lxYHuuF5S3s53//Ef77Jt00YjstPIOnoeAhHOoDgclCxIYaEuiJZmKGRVj+lrhew9t6OSVU+Ry+AgX/061vSLtrxw/2WhwXiuRxvwmOZJv/jHO/uwXWe6fZfYKcue5xHGQ5AIT+0DAQUkAkKohsWFoHjlAA0dZMCALBeIFGrF1DV0n9xzVLPUcK2W4dzs2MKLxBoTj0+e8Q//dVduVkRAmzmNsKc8IEaYJnYv1Xh0dw4RWQiketz8Q4RFIANy1VG7xWna4B6C7j0ffyOedI95H1nWx/IExpNa+sVf/7o3drpZapvrQm6rgOFYwhC5eQqMsDfUFODRCATJgWp5FA0QVo4M5NJ3fQigrDsLD7KiIwYP4d0ffMdBh5ysK88cTEpicZarab8dYv3lP5/uPhJvugyNhVuK+5tltKmXkmRMKiagb0uGjoyoOFDrMfIwLul2O2hTuOJBRVbrO9VFasl86JOvnI6zZm1zrkjmNTHvwT74r9z29/98MWm8WSLajYwU3vAwzSr20ciND0mQRAojIRcLKFiS1CDRAZ2LIZBr/2D4W79BKwVUTIGgW/VF0fG5975yktbcPE6z6Zslz5CnNTMWzJV/8V83aB09VmLcFg+tBCTa1r5R0QdC673Y9QmRIEcWhvGpHLIUsrK238BdTTuG61htXHoEjUxkcWEYv0Yrmad+YzIgm6S60G9nXucXEM2cEZ/8N7+7AztpRYPoIxEkKlUsYUBU4xu+170dZBn2W40UhgoGiK0+RAEqGrkVSFmvdqFbr3AbpJd1KYJVRfKKz39wRvbTtDW3vt5C4aUCai+p6WI8//xXZybpJAXpmmkCYGnQRBU2KNsEnSCBbC4AOCOooJoKIKzWchFQFZIFHFkMctjEoBSUoaBQifCw1Tfe8sqZm43zIMDzdrF8i9ey5/7S8fY/+6frTLa93/+D3kQqmz7alAA1FMZD+nUPyGIklDHQQBZyVC6myEA39BeMjGpBWZT+YX1VhVzEiuhe9+kPAnhBHwuTFi3fi5muj03L8IK/+be77AEJpCEhRaIOt0lndikLrav9Qd+l2qR477VGMRRX9F0GQU0Xifg/0r4CTLLq6natfW5Vj8EAAwwkMAw+uDsE8jK487+45/1xd3ceyW/E3d39C1ECIYZbIBDcHQYdqbpnrwf33PNVF7dPd38vVcytpK36rt6+195HIkMdUulHJoGAQswG1Vg9dkWlPsjKNjr+oCeMwUFxassxNSjU9JXkSYHpVF7nTz/5i1xyZAmxuuU5B1BBjSIkgyomJcnjE0x4ZSuSogsSMBCUyURQRCUKoeXbAQjO9E00J1P4USnQTBMJjjGv2tWXBFIny52lq6HG4tNxQs6qr595LSIjHZIn1CJFsSIcYVSbmPRsYcgPog5t1K4UrnsLSVI4VTEIFC2GWNWVQACijJBRaKIOVarmbnb4gU+YpB/d+HTm5vf0rYeCfxlh/s9vnP2AIp3e4OCeGM5gP6VdpNuoyCdoEhyeZSXJhqWvBLO3TiAhIPujCnQKmDQcZEBFQ4DNmTN/r323faI41qMuGAx2Gw6dTjY1LSNCwlQa9esf/71uM11BqFt2CEMDRwvI5ts9YU6vD2AwXL3m3ituroGkNEiTJta6nrkbLl07hGZSIYY4ef4Ew97q/BHESbc2SPMMWGvDJbvl8nr3FruwlGWgkNB0Y3yf6ufd+a3HUn9IcDmAiGQs+mheYOI+O2y50fobYJemdLL6oXtuvPb8m1aykRaAYC4QY5ettthkg3UPHLdUxdZcuQ4sNpdp66dXXvPIXfGeJKi2YP5aG6617aKukEBF9FQoK/7lR2c3AjJWT3WGQHrDQz9q/62Wj/8yP7/y3D8/jHYoy2KrAnMP3n2vJVtPkmJOwz8VxOwdSz03lQpjZ912/V0PRx9oFA7OCWH++htttN0TOx0KTV1wFzWl8X3UpJ52e8YDUqsunEhZh9Y//oDtdsHjjNk/z/39mfeaZ1NLN3De4cv33rrYYcymsQBP0S90C0F/vPyqB1ZriJidPdqJvQnO7a+78ZbbLM2Qzkywm1JWHzWpD8JztQxUhIMT7djCCw9bkuAYJ1d976dnrMQkT2PzDj9i923GLBl03RZdGsMkeIp9xy7LKb/8/bLzVqwaRpQeYUFvw8W7brvuzP05OEuG59u/uFat/XCIjQXhHAqmcNDzngFMRVj9xlcvrNl+2AQdfvxzyilp+seCdxTYlY+pqhl/OvufD2tNiGNjZkA9uV2OiXnzt34UkZGSFOJ3dYzxSEBOjw6xtppQUxxy9g2ALXrDk3fBlIBc+sWf3S/mIA2bPHv5Xl1hSNfu/XUFumsHO/bjnLP+sfLx03ftu+fWZxaSdTffZdk6hSJZN2DvGNzvPCYgiEk2WIcI5xwYDCc+9VigICDf/avE/Dzm+cu7gtkl6JfsZVe1H8/XvvH359xfxywVwGSq9eMhCXFhRqQ8aeRdqcnae9OnLkg+1+GQxAj2Kw+yN57YsaX58c///P0DyI/eu/bbq5t9XpvHxTr2FCqQe4TM1R6/i5/94Y7VGQp467+ypIgYAdOCsnDxLvtvDEBFPFiwtY2AXNdA4YmUGUHOpbmte/LzgBIg//m125AfW7z936ar7XWyzNKl8D+vOO2Sh/NUrpu3sIQ4eiKAuamV7MnEOtvvs3SdLhKj38uLmeFVXz7LHY7UfpDknBNk2OslI2vaIe9+6cv/QPvgwS88tpuBdQuW5XEpjsvDeLj0+9/d0AjHoMmeaoTYglI9xi+qWwDQA0Aki1IBWHfxk5ZtjFI/G1JZwz//25uFHJQhmnMezcPyFxTNB/Dzj10sts8Tn7EcJf8GFfFgp3CXER3hQ/3wVytiUhVvJATN6zAPtedWXwUDAkBkQOZstNt+m5YKzJPeoPsX/OvXLquhRjAiHBDnEYZDx/EANI4HMiAnZDw0zn3M33P90kI4BjogsNxW1GfPXoEEgigMUVd1Di7zuoLgBoCshk2VPisOsO5BByZAOpcRDN2KCbX647+ovcFDiCBqzoeRu7/+2LL9+N4X/h4tgqGu6mOes7xrrMftR9eTlqzGeOnzYxc80MKRrkOKzmjwDDnV/Gcwgah6QwstXwBYf/cDty5UjHw6gT79O5fDEenuFJycbx6w2ZueVxQPfO7bl6UMFwh7vjTbj+lnQovjQJ2KX0vIveFz17aZUu29IYaEAy6wTqSEUFd1iIFCFYOCmwk9mKdeDlAt3OrQXaZMaCROUzK5+aMXrPHUxXUJzgUkWJ283y5FPN7y2+RfCGDjNz5n+qKeCmzzsniIAnDypQ+3shEwHIIOF0VEATF4U2KKoa4AgYm9RqCX1KXxNXP2OHyrqepj8OkCNnz+d7e5NwojQeL8AMCOeuHyEhzn/uf5K9E+gr/iyFH80bEfnSHjEV+uQCjOWP33eQ80fmRgjiEdacQrTTU5WvMFqM3FAy0GhKQqViXGwNyDDtzqcZmhMJLCzlunr/vzNy6LkuAuRESuBZNh01e8rKwuV5miAgDA9k4Od6qUVIUsPiNTzurwxT/eC4dikhBPpg2RQJrFr3vDihj2GvkIMQFSQW03B0lG1j1kv03QzRfGbr+j56v/79kPy3NQRi4wkKYjn3FsF4+U4J6/0hktxUNY8IJDx/OXoplQyRN34fjWr+8GoOgYgh5ZU6zhlt0uGIPTg1NM7VBa8iwKIFO/D1at/+S9NhnTyATDtJPN+PwvVkR3RItwONdOHLD1jjt8+VRwnPvNs+4GnU4AJLTL8YdsM3U2oFx/GY/WOWNd/JzP3uFAjTBsVIV1FVEzmlQDWePModwIrQgFhNivKzUEz9wi3+SEHRZ2+i/Tz+0+GoJc4UM4IiUH5weQRNjsmAO7gOD0P/z2jrpdMuIBFg17H7HvzmKBdtBcpwRExS78lZ+5dlhXdRjWTiE2TwdQM4ZICHCTWrJOEAiQoe6haXM1BrUBRAET2564ycLx0U3NQOHF6vdd8BAjYwNJTPJBQ2+7LY899vEB+zfOu+S2lZYbl4nOoP0O2P3AMQimMhr0jlAUZux46t8eaIQDQ8iFyChRihAEpWaztSWH1NOxHLQjtNwTpZ4wFjzpiI1mVz8dvX7q1/fFlMPAwbUIBqEym7fnsmWpZKhU+bjkuivPX+PK3U0HgsAet1u2/ZLlBaKTpl5iQBUZtb/8zr2xsRxCZI0ISopSFnbEVAUJ6RUilBvqFdl0dIKJVY8wbHTs3gvH7ccMDBHgz5++MUqS3EMjHyQNPQRfts6i9Td8bBkSANz10B233e5RgINK+79INbZ922WLFs0b1SHyMEezSKn9yJyJtbbXuNCIj/MyosDXPKotgNdCBDQIjogasobQ1KT6USF9JxGNaswqrWmBouVF94Re4h3tfOIOBf5pScPvOvnSWqkXU5PzA8zEEEgyVIvn9Ad9AMCDtzvQ+H+NCjKgDD0Frb1ovQaEBEB3yqXC+hsufuJeWf1y4tbVr0+feX90W0NHhCvCUdMFSEQdmk4fNl42b23MWV3fsfLSWkAVrV3lZKxABqVBggnvw+YfddBiAOUAtas2p5yxMkqKdDjXSkMb6AHWE2UiM5TKZRkwt6NanmkbJANUb7SrrhIzld8ALNpx52XLxOnICjrnC7cOmohUkY1XQRQlNNV8ivV6u2yz9QY9zAGwerDmoauvu+wej4FgI61EL/MWCc6NFWzp83fQOBNcwLSji9/50d11BoQL2uGvSgYSvZb7BVCoq5rRasstKRiERFuwTIBRGvfpAWCqYU3iqS86YqcmnO1QmfLltq//bbWa+HwQXC6phpTaQ26ujQ/c5wnzthlV1O6578F7Lr/g8pjCMZpgVE+92EcAG0B6JyUB6eT7JXuKv37yFo8pZvfGnqY2cyKrKBOenOIQlFOZimgxKMERVNWBQCWiqvtubb8yS4ilKme9YM9jdxVL41Di2Z+4u4YPqaiISFdsJxAQKaz3lOWLt3n83/be+2674IJrVtJSJ9kYYMmowipDhW2evcPoDUVNN7ycPO5bLh0iOpw1uYCtwoREuq7BMNoj5wCkFJu2EUiVO/UICgBIodfKAwKzhOSS3kkHLxvNV/JxqOjDf3sYjtojIobmXNNKeRTF3Z611bobTBXr/uP60/+yCqrqAPOgBpLQ2JBeL1ZJQLJ76prQ7ujRu89eCY9ClHNtAIZeHUKAUqZIgcoVKgKx+Q8IgAE0JX1NSw0IUEyFmdDUbLIN6TevC59x0tR/HgG47ZQr3TFkrYjGfsAJKeX4zzxib3HqNt4td/7y9PsyUzqoqifU/HnYQy/2lz5/+0k37tMz81LI/mDNoYRILiBIgoGqFJpkCRk+B5yINmoWAmgzBzLZkRhgEMXsfA3ApMoVdnjmnlOW8ijgW99bNcRQkTXcxUHKIQCLWO/4Q3dDuRh72Vm/uhEMdaBgMPRk6COgjx57T/tfa0PA7PIXAD/91p0xyuF0rgUwRSA0o0hCAAG3CLZUAGTJCq0cVCCofkxGlUw6koq9MalN9kBzXrzLJigQb990xaowrN3rMGi8S4o5GmV5557bTte91zUXff0WVzvjmSQWlSpWvVjt+oInTr77bidwXF1w+XvvHTTK4uJ8tpPWITZG1QPkBmSy1IjdQSGAsFZpejKE5mPBk5S0sy4AejHELCE48KnbAqK6ic7Zn7gdayAMFdGYEEZ4qEHxBcdvi6KaCQBu/f7PVijTtkgGVggI7KG/8A3bA+IYe708TAKsfv3lMTLSJS7AiHKNQJgg0/iGtzzz3lLzs4C6sYGGooBAmZPqIZvW1oZs9eKUBHTx+PJPH/YhFOEaooaaDqoA4Kkn7l7ilOWP4Iof/nIlqEBZa94TIHPB5zx57TFnWx71zQZ1UKeqEOeOVpxUsVLwUFdK+awAII4kizIxjxS2ppcIbgieiLjBDeZklo1GPha+YxdAVNdRvOmKRzCAxyYYkkNq3pVY8oF9MgTlPpYu+uwFqxsJjT1PY2uhUeUJ7PmowkAF0ejKBz5y2poYBYdzHgkTSYBVHZhMeshyEYO33VsnSMBiJVoCsVLwBAgVkB40U9sjyYCcnAxqZ5r2ipPvigMpuqKG7cQSYtMSPE7UTKQ64LTP3BIpMChP3/SpwJ5t/MYtJwPRhbPjYB6IyZRzjpFonjKDk1CTSUaLk0RUJoh5pZICG0/UxLNJcaDgQalD0gRIw14e7Ain7Cp692+E73/zwRpDxgaORjqqCAE86sXLpp2Pyrje+uVfptJu1aqMYULBKtgr9lk760m5FMWRg/nSg1lf5oEyBRmoPAxjjflsMyGx5ZQQVKsWVEURISalgUxkonwbkWvfIQaiXy96xy5Tp1MfPuMRyVFHxppwhyIFYL337LY4kyimZ13+6b9uiQRUoYmGQmiGozWBE47YcBR/cIZ4HTj9s3e7R0cEJ9jOwxEUQYw9xBEdnmi/Io0Ttsl2NAC9OlM22f6dkOua6G/16mVT19ffdOlgAI+119VQqYgMc3H5K5N4lDmE+briI79bpVgpEDAZKlaNBent/rINQY3wKLTekR3u++4ZwN0hzgXzMwOS7MV4SRQQZQJMBNsOSCMtJNCU7wCLaRy5EoKpzTfxtOVbaipxxbPuWIMakbVqOWPezxn+54huF6Vw/d0pK9S+oQf1YDT0YdXSdywu8j+65hR3vfLuJkp2sA8Y2e4GYibOZUGd1EKh8uwLCZhCUhwmmaIHNbkxidD00CpZ1YsVFr7iMFHdvzMueu+99Bijo4Y7WAcXIe5w8rLOoAcLtbcbTznPITR2iyR7ZLCAfvXB7cVR/4XqhMbjgPzvezwZVM71kX8BsmTk9x/XYoLtNU8DGZnkJu+dglFttkn0YJh74Hul7lAbgJ9/9n4hxsg1VS2nt2FO9dQXLhnrDRfNBwV8+GcrGzRSVKQKPYRgmnjdwZ3+S9m9AC/9J9yHaOSDgLWkyxx5U3BTggcSAIPoxlaGSNHcVIkKSGCkMaBq2FMK6C3Nyj3xJQcXQohvfHcFBqwxYITQSIcAhPen9HSm+aiExy9OGdQhElCgKagiq4BKL33yWpP1vczwSo9X/3NN7XLUnJApuVF6SGqRnGveje90pvlZb78mT/A3LpbWTrkAINATggKaBiKB/sbPOKk0H3vqaasiUinZIcHbIZxv7N71iSp53r+/9gFvK3IhGvtNFUQVTnyxJolRq/Kl8BR424WDJiwEQ+VMjCSBjYUQ6QDoRD4MIO/yMCStSv+PbDSXYgNPmoxiIAhUhmCau+GRB29Z4kt96PSHGFUrShJiGwJju48tmYUlzZcVz7/FRXMoKSuroD4Cj35ulo/0T0VWXQrYzxn4AIKzn4LwGPJwl5tM2cECyBMxgBtMlMGSTBGNVU8BEWiw2MABItBoXLrBUUcDKtze+84cRA7kqJ3ySABi4B7/sRhlfelcX3iJm6eev5rSUGNBePBbNRX/lJrafrzvrwP3KIk9OCwBkGflBAJCutU86OGGdp6WeXSdxvkL0T5GthgLHl4QEcL8RXscvGwa0vo7/7IquhwDRnPWSHaI+5zS4FFUeI2b2df9eZhnKwKMaQKrh0NenuXDR73EUr4PnHLmQHWDRyUDCGRlARhtRMjJD6YLs+0AwO2WzJs/pzfMmc74m6zd23bL7aBpFmK/80w15jRt9EFMahcO/R90XWN5Hug9p8EbvxRiMNL7sBBQHfxWjPE/yjM2KaH7VRzCawcrwWozirFyckQfbTM7ZDp/EAAjCMgIPHG37XdasuPs5j0odD/9zjNjHeG105U3+aLSMW8o6kuHZkPpzWdKkVDsu1Fm6KmHgKe8fG1l00Fo2lEKAB/7ZbKnYgDQgCvGSsxBBwHIPE/UWet7LUkHgQN2PeKAaaZ1qBmYycA7zoiRA9YSIhgFNj5i7y9h1tPHjb4kvojQDkankOyQxn5ohAcElP3Lf/6+VhwwkmxHiKUUS4FNTyzEZkK/TpX10RAmSJDkAce9uAv3dIQxdPB55xlDRQ0ZGRGTNAaYtv/E4jIeXS16+XnOiOQSAAT0SPbwlGxPNeLXF/BI/mWoIaM7mYxCGgoFY567D1BjPEXFkI0tEhjgHk97MSAWJ2ALS3LHIudTvwevpQiXA42XqAxc9IcOEEWTDPHIu1PVFaIRRFBlIeD4VzD3X8Sp1UWYjEctDd1BEyGwUY7cpm2dK0WNKuuEEAQagXVf+abifGeZmq3xzPtT36ijUMshucV2cpdzP75PZ9FWWeIueimiYlVTk+ogwcJTR/FY91fpbjd520UDDeHuNNABJK0BQIgxjFZfJFkBgKRWpgA7+s07qwMIqK6+lNtB+t6prKM0sNqGCA5LazSq13cpjFBJYn70PwMiyxdCgGnCK/Rfenxn/nbSpZPQvfmSGDHkUDSIyhmtyaJRTtDzBG7zNCalIT2Q/VOfI6rIH+vypCF28TvjbdEjh6hbYwqxIeYc8/7igofOmvcVn/p52gQUXERb/6+s6r/1SbmyVw4IOcLj328e+hDuIgASgEgHM/srAwRY8j9IOUyqlB54yk4o6UvHBxSLOVe8wGs0VSmrLYI5JdviQ8u6vatC72HFa66NyjOBIVm3Sn3M+8iWmIqfjKnj09UvvxUDDlCLrXvNFfT8zFGYkoS0uzsEIxFO+mLX7mf+evedS1pz25uuRORAolCDFsFAA+b8+4u78jH1ZhSe9qHVcAjRXBQt9kFWDEu+MklGu9F+B48TNFSMUc7HLZdqNEViQgMaLVBK2QsC0H/Ve4DuZjkVRukKdHrc+qnT12CISGBAEWi3VM3Z/TMlKninXviB8zSEM1IuIH1/xSoc8N6RERcolEZ20+OqNww1bAwqZ9yImzKXtuciGtF/85vHxHiqDXGUuk2Gcchu+8mX5LUQzRGJFI+RAeu8/pjp9wBnmFec/YmH1sDp8lBTwS21t7HOwW8E1Kl/FMsff/2A1z5ElGbCgzKAyvIRQA+9d72mdBBFuhQJ2uO29Yw3uwaMgLsCXKhkBvTD9l8uDiCOi8e7LxuqhhCB5l+wVE6e95rl6qz8pEr9bJx+aq2hatXgjDs+Q0xMYJAwgobeq95d3FBRLt502203vex2ryW3YWpvhDo0fSWu/bSXdu1HF/b7fv69h7xGhCNndGgIO7bJ+7fs0i3L/crVP/i21+51ZJwBDwLW5DYwAkwq0zvps933GJuyoKDu3XQU5vM/Y6zdksNNP53smSbWe/NBneVaXTN14aev1pCN/QAiFZiaDqj2/nD+TTRSagpCZ0K2weMzv68b+zGjfBBkCsoQ3GQIIMKun96mKx9QNx6bfiP2bX/+kGMoQd6CWCFQ6KO/7VtSex9C0aBe+OOzOFRNb3s3yvFpb+Fzntbha4/Et7tq5P7/OT/W7j6EOPOOz2RIjRTbgGetk5/NIh+3cxFL5wNd8cY7IgeMVA0wkWyNFQPW2fVlmwEoOicBV/zoL6sHdNRtuZHtb8qKm79ry+7+j7La4P433T7kGg5mIR95/UnI70ZzmzjslXtOycbqyEfBQ2Q8vvcTDhnpqIGQ4hyY+gxY2ABSEDHhMTguuN9jRM2hCTXFFN/KONGoC9RNKwv+5arXexykhtQs7AeQnC2snUti2PhFr+6s0i+xTAWqoDS3/fk/ajYGkXKLCCSJHgMDFu70tN3KsS0vOO2ChyLXQFgDJL+g9vv7a73m0DEfJ0zfz159/odjxFDDCM0i/jBHiJN28itgzq7PeXp538Uk3Z0+kteVH764ZoQjz+fJSFToK4R52x55eIn/ce+FZ17+kNeRjgEiPGT5gtHmbP+uXEFRafRmHI8ffHeIAb2Omk081rYUZApZPjBvv6P23rqUc4njRqzkb9FY1ERkiwIDRAY0Twucu+EBe+06ZZR69ZmX3LhKMSKqhsszn6unyq1ae1SqEqDOvEkHkPu/9tuo2qPXmtm/5ICdREASEKIK87c5bPNjBKBsIegQqHRB17RSjwnI+RBckUKsIFQgWRlCZeivvfTAE/U49yhefvEl994Aeerd1OZsph/YSJepv/mbt59cfpBm4lve9d6bhsz1j5nwMO/FANBkIBOJPqCveU/YZYeN191/2pPRysWcfL3tT/+5BpGRUaBFVCDaHgp6qKrFi5buctDk777nspsuu/fOVVAEB4iIivQYHFCV+i/rHPdijU/Cp5dywH7puzzGWh5rn4V/SQY1Lxg3ZPq/9TdZuvgJRB9Ae1gFsPC4qQudhQWuwpUfvgBRiG3vRgHZgiSu4PywYP3NNp+31aYAbr7x7rtuumd492AIIcYIr+neWOLUT0aQ9Xd40R6Pm5HX9Bs6Vv/6C1FYwwFjFGdxRCPM6K05ba4NC4d9tIMWPVjLFQubv62b8BfUSWgE5OwPqo6Ap4wuKDRAmCojQmIIzO1jbjNOEge8fxUwADyicbVyuhAJI0QiaLNnnDDVOvppNjXf/5Uz12CoGjE6Z7SnhEaMQhvJR+JqoZ2CtbaFve4b90XX3VPdDfv5A1d882fytJ2FdZqrbWugNIQ0K5h3+9cBaMbK4KjdU+0VNUAIAUDQhnu8bKOOj9O09uPmj//DY0y1OudM6kLQCGRnC9IYlI6w6MOQeB55SnrRCc+F2CF9Trfg98xTr4PDI6oICD0PCuqB6MfKCPSSBYsBEYDXkNrRoWEYgPCY11VTNmerZx/SPRRwev7YpSevHmDQKGDEDHiMbdQOAJuHKgT01PDDbAyQiT1fuDTfqjmyQaVKy4+p20//7wGc0XIOEnseiMQmbeEGesP2yHkohqFcjuSo28qaEBBitegZx47G52ayH1CKPn4QfQ1qpv7tbPLbBEfrYUAwoCImlPbx90T0Q3LNExu/dbvOgLqA6Yzald/7oUsWESnkLAQ9BfVjotWggQQYUkQtKg2HtjNvINTy6Ocvf84mEDrz2Z1+wyRjf/PnL8XAa4/RFTmjf2ltKklaDKQHMEB9mPUUVKlChWo40e7df0xhxk2pONPhPhd/5HzlHh0EBBJorJNC4rNSBimdPimX2xB1KhPmHUMVoNDb/dl7jyUIHfvRva6+6iP3DrhGEUPNLB/5sMrM+Ug2xNI8JioGBo0pzJz931HmBJdA+eOp10/q0dUVPSigyqMDoKUmWSSEyAjBERHR0iSoClSolp14VLduNMP87eqffD/6AEMMWMs5Czxy3unjp86FYKgUVGULEtgozJt3gB5fBKK6+EyyLHece8pDaQQZrCuB7fulIZ+YpiiAdsGBR6pGCvKZxK+Rot6yo/bbCF2nVp68VaMul8SopjoGV5wJDwNB+iQ4mn8VksHLMYhpIiBWaBRmannImHTjNeGG8//7kdqcERBoMbGfkaxCAwatabLDRbiiPLgaYwpAQAXatsuPW3u8Z5MwEafztxd88t7IAQfRG5BnIx8wIMQqhesg0jW0ShIM6I9Upr/fCzejqO5Nd6PDUeZ3w3n/83CEhygqceHTQCnRSErIFB0JqMEIutB25dSwEcKWTzlsU810nkVHX+7/xY+HGKDt7sNnxgNAzmDYigsTXTtYIsDCaDD0QwwB1eJX7yuqWzQs92haQB7JjUtRgYKRFJFOhGh5bGnQke1BFEKDfACJ7ZYfsimErhGXMM2e8qu+cali9Nrdo0vgLM8kBCpn8rcJFBMmZDQ1XgY9mJIN2eCIfx+/X3AsJCoC8vnbpDYGodoWqUBzAqyGvSGzBjioWNWZxxRI2/HgDIfYnfOYcokyBKw+/0v3xdprV40as5APA4jcoQsiE5eZ7bxaNqw5cOoRvR2ft3uX/FbeOZEvN178qdsdbWcbAAMottzWpBZVDdFBRCAiZBINAnc4Zr+NRnHp6E1n8rd3/fD3UQMM3L2GHLPwt4TQbuYnk+8FSaVBvuR0iRACYE3EukGyqAWjUT40+I7LfngWGM1br8FmttZBgsrtJHMIaKPZOhG8qv4+h++7sLjXbJrVmrzkK9c21iMqukuanf0YxaiAqWk8jGxIe1jjBBSIXg9ce8cPlSn4027JveB7pzmFCIAQEQQk1pIxf2UKzpNeUUCliQ32P+AAFi2Vj/Dp9Bvu/9UPmrR2ALUT/DPiQbS/FBAIEEaZYDQRbPPbPonAZEd63PR5hwudIKTARBxbPX/j+Z+7JXkNtbahPXiJSWagxIdNn0s9uXnLDtltpy7dZRbrUKBLv3FNjO5Db2f4zGeDh2XKFGhgIuaSIDIggVUO0TQR4qL9nrXZOH+qgIrYIcucfdrvHpJYg/m+KsUUnCUQkMUnQWJb7XrAkiVQ4ZwhQSX/BuhR8ZDHWkN3rwXHzPE6OHYKJRI6QZbgINCDkTT1UNFYqYf+pv/nyYBmFa/zcf4QV1z1q7OomMQDygFXo7BusaqTXLS/18L99ttsp2nSRU0jH+Il377aB6gx8JrRHXIQmFUGA8q8gkgwg9FmvEGoCKuCkqTMfVRA3j7m7Cixw5dWN/1vXu9c8ejRm1BMSgKLbbTuQnAFV/thBCzcYf/N9+3GeJrafnQaRivO+sW9jXdBTEsd4ZoZj0S4S9slrA5AMnOC0UMbiYQAVkp9E1jV3+KZhwF6vO+b6v7VpVLjzruu/t0lK0JMnyIsEmLrWdIFQu8Ju+68eMuNO8vfO5paokusuva7l9cYyusaXiu1PQnMzsO0LGZk9TGYN2E1SUvZjCZggQg9e8yClJu4VPEAyozIihsuufSCQKAmFNooDQGIBBDE/s6b77LR0nULmljYhzL+Vit+9ZfbGu8SozfeForgLA8mVIIhxSEwjUqIAEkGmAVVwRiMmL/p04/tbmYR2LVtpSbADffdcsUVV62wSOU4NP1X1b0Nlmy+y4INFq+Lrnp0e+Aq+Huc/93rPHrttZrGhUV044+yzzWAIMB8TgxaKUnWpFITpfYYAoy9eXs/d7vCDtACPb/TRcSdq1befdVNd6y8/gFQrAPrEOets9GiTTZZNHedxet1jUaX7zjdvpw7f/MTRMXYBusSovms8DAgcVOTc3Egy4ghB++mwApBPYYQTL2lRz+742VFUQU4CudZ3Lh6JR566IGVDw8AYN0F8xZgwdzFi8oMvu6BSipMrp7//Wvc6yaVi+0SSWh2eCQ42tcmcIfMg9ppKTZXY7CmLFSpQm9iz2ftBqjUzu5uJSv0mgXgbqzCSgCYiyXqCkVhORA13fEvuOm3vx2m4APtDA6ESGI2gOTemahmRgqtp7HkexFAEpV6tMo0ocDeBof8WxsmQbJCFNDJ9aZfNVsQh07+1jn+tpsqrPrjD+/ziEFDuIp5Px3L8tGFRITIsdU5shTBJzhACxYap2uav+RFhxSpdV1XU0ClWIftGJ+CJBbqH7z4d+c2NUKh4cAmZwvH7PHA2AlTIbacZSeMbaNKfRisVzWB+6I9n72dMLND7N5jWTLK2BTC35J83HTmWffKa29oMIhpxgLlfL8UhlBJS0DIwDxBxnai35quvAX1wd7SQ1/kVEHXCyT3EtGr8JFiNWXMkHe/bMVlv7ihIWhjgDqrC3z28pEmfnN8mCUlq01rPwxEn8YeA/rgxHZPW551G91wvXzvZTy6BqSkQNPGHyuv+tWFIzi8bq0HvJzfliABkEUkL1giyNblolJlrBIkEwt2elbi96gYfyinNgV16QDWNQ8seF2q2N+/8zdnPThUjBw0rMIoRzSHy62MR9n3tpqTUrxEkpRZJsMGCxXZY4XqiU85eFkSj/L5QFBXjcbKfh3b252CmfF4dY4pzX3n/OGGIYeRQw3SQKOU1kkX85fygxCy5sDa2jImde6CWQ8Vg1lVLT3xhBxjlFWhg0fHnMwsDgIljlumEh0X5/36UgxRY4iB6ghvD7Ogs5y/zAwL0sw+AVPSF3rPK4UQWKGvPkzrbP20g7ul0rK/LZ4LXLI75a8o18f+/sc/orEeXMMhBlB60CXU/794GAAIRsgMIIIHEmTT3lafVhl7tmiH5y7r3n7nBgo4FDLkcrmj+43devKNZ5718ADujXwwUSckl1NOEf/Cg0CAEvsw93ZJTKRGZgjs2Ub7HbVskmmb9mY6QLBU7BM1G/GAunSYO84+4441UGwSOQxZw/MZY+bCv4RH0hQgwNiyudX2YyqzRm2w5NCnbDJtSCVOHZmqMxhahqKIR2e19X2X/e4qHyqtcUKU11LKXBxO/xfxACkjvVKCwzy0PV2rAvpm6vW3PuKk7nhS10PM4rxoTe+GuwrT5Qc9cvmvL/Ma7rXHARyp6yK0JhX+r+KB1JiydAUTLKFChR4tGOb2tzv0GM18flTZzZSv5Zp11542L49cdcYlqxrL4bXXnmMPOtwaQMK/jAdSYbWBwo1Gkg0QE+qjZ8K8RwE5eqqhIGrSR8VyGFKsLqqMUlc+EhyXPexDRQzQtLDl3sKBNOXpxL8MiJFuBE0B5qlwmPPcAKtswU5HP2lKeZiJ6ja1NHUu1P8r7iyYK1d2LfwttXcOXGZmZmZm/s+PmecwMzMN2NJ6U3Y7O3XGu/IgmWtX7WHIV5J6qbslHXYd8N4f/+sv//0i4+hMRqaq7M5SVimB5Ax4KE6uMRIRtKZgiLkbKTOQzatklrWtT7e1/YFSy1NmivRvXr33L297lsu4prQnZx4vtVhFwv/fPsIyjQBJclsjCEfunVo07HTjDMTaVqbbPOTT628PB5eN9eW/ruJg9pbKnJiStI1JJX3+7ZnYB0EGbXabdnzu32KWZLQYYrjxS3/6wZbZX9OqBPA2jxN532bc2QLrPZL4jxnHVFxR9hiyzosuSlUIUvz/gRAyIYhe0BNoliGDjwg1HTFctZAfbRt7/8ac4i8GTpfn1/6lNoCu4nghi3kLiJyW6plSkdhQwFnYBwFGgYpG86JRI6wYFDt2bmoadtp98be/3Iqk8qFhh9fobm14jQ9381whF/DaHX9z27NtXK5lK/d76uGqDkM2CM6ACBLL6uLBgWge1GK+w9wUMQTDjZ/77a/rmmMBb3ZuPHU/eVuEbZc32rx24W/ufoGRkUk51dKkmGNdSiGXBaUzwQGqiKhwQ4qaP2MuHfccWDli2H3uZ1/66EkU19Y7bH2z7Rhyt4zTc1/7mdv+/o5XKFblYUYmTJ/Z0JKMUkahM7APEdSa0O0vZaqxI3ZiiFmFNPGhn//oo1sDFU86gjbtxAdt4lTlaz924V/uuTTBZdWqPCrbyCrFxAwEOo+ziSAGmlTNS+Kv6D2vY2CH5saz7//xT2764OvaxmyF081k57RIuj2+ydx61z8/PE59LEIVl6lMPD/ZZXpSLQGLMwJCi2wc3z6UaMR8Q3WOIuG5W+67PvXbD39g8wvd1h0bZ9+bqmzrjxoM/o9//9fnaqJGkolRcwxhnIEUBoqpJdjA2fCwcAAwuOEm96llDAotwl3cwMCNn/v55z6yOT/JwCES+MAxxWFXAWN4+sK/3v3iNK8s5ZrsK9gjVDG/KgqYoiDKZ8IDAQQQsZzrSg4FS2J3JLVG44hgID7w029+npMUTtfr27NrNwLMNX/k/n+98MClebIdron0yKRJ6VQZypAYm0JWnSWPajio1kWZFIjj0lF2gW/OgTj60h8++oFtibXFYfv43qcd6CLqlQv/ce/DTG0Ooc5ZjhVXWlVhXIWjqIqqUAqfkX0QFiZaRjUCEes605hT/2iNfj2VuOGDP/7eR/BWEDk9v/W213jjnPy+C//58It9DKQzyZqoStJ4cRSTsYRTsEWdEQ/Q/CLVWrzcleqS9LelL6nmoBr1li/9+sPv39woPmV7bDsD3Iiv4qUL/3HX8xcxsypltg4nSZXp53EtSQBEYRVnxiMA9TSG5t5tSCJiuXU474egXa+jes+vv/fhbUc5Zf8U/4+2yl565LZbH365mBcWJpI5gctUFpRNKakwE8iUoDg7HgQ+7lRGVEhh+irTYq3Rbcd1Mm/86Pe/+/7Xr6DbWA5COexQj972b489f7lw1thruZmqNKXK2OuA+RyqKkoG8FnyIFSEiDyu5nYIiUHzoS7RehXErldSfeVX73lfX3APgYDDI5YP83jywgN3P/MK3TqcJJMnTfO32D16VBQqqgDAnC0Ps/iLYq6zDrqdSN1hhghFE308a8V7v/WN7xo4jOMwhcP+8sQdtzz2xCsVhcel0r9ITVUk4wyhbBZdunyrjvtMeSCQWRxGhHsvTMQAg5ZaOzUG7wiagmF677e+/9WtsdOnqC1z8FTmkXseuOfxlykmYHYWrqicVE0kpfXqC9iYEtVxnDEP9nMJe4FqRfTjCBoDbbnBrEC7qD4d5p1f/tpPOC1+YDj96MHwyG0Xnn3+xWlxFUZVppKaiiRJl2wbkr7MxtSqozxzHoFR7+ZOLAsvAYuNtFhaJbmx5LvZa/7f9anv/AqwzMFvAHxqw9y777rvoWdfHmYcbZzwrElVXpwlMSlTLEm+av5MZHMOPCC87qbCgiQEwRJDGo1BGiKHkGYYMBcxv/fLP/rMpoEcdpJrCL14x333vPTMpYnCjEwUqcxkoqgsCjvDJRclmGIJqYDqfHgoKqheGNk1iJslIbXoy64abguQ3sB1uuHNn//iJz99+np7KJ6+cMejjz735EuXu20kV+zFRWrBgUaslL1AcCQuoJAx58SDqCgaDopllYlYe3L3slSijnw8CBwtNkJ72+c/dxXJYb3uQ5fxXnjg3kefe+aVV2YYLAJdkzXlMHrqYswGu7DKPXas1sG58SAsFf3iv6LCRFRjD6RpIBRqfVR8X3qZF+Q3feYTn/rSlm4/fN/hsXuffPClZ169ktOMwzknszjR2jKl74ap5O4qiaGAEhbFefFARMGMoFoOaIZxorxMwwylF5qFF73qxW2GNtz4jvd//KNfv/ae2FZAefChJ5986tKLFy8xLU6gqY2MdFehltY6StvGmKIoGUc5Y6ZRwPnxQLCuKTOOEBLhNai6BUGvt1MsNoIWIEBj0A1vev/VOobPvvtwbWrc+vQLT73w0iuXrhoG0+oo0HNZSKVniR5jh1AdRy91Dxt8/jyQLBMsT+twAtFq/uS4QxDsC5nzxBhh2iAdxdtufOdb33LDjW96z3G94MPPX3lmevXyM69cuTRdGi9fmlHQYYxRJ2zDzC7CRNrYlquiKEQVYXpljc+fBwTQiwBpWNpXytBaq/CRwm3mIYd3C4p1iHBHuUNHMSOD3YyKkSTrsi/DCiOKCRojo+yEpFws0cQkhbFZrESFnK1IYcCcMw8EMrSc9WmPIWEUx2EVGoqBqN1JGwHEvp5zgGlg85mgo6C7ywiYpEhSi5PMkQNjm8JRpKaWQLXFYTDnzgMkI/dVBoh9NSYBEagFYph2ah3IbCO1SximvevML0yv/94eBgBXhhHWuEGXYCS14CCjjAHKYO/HwnBdeAAy0PC+O5WhsRbcrdnvDghaRwK742GxyxN17QuANdtFFPSogSYSewImOROvORssykOl7CgF+DrxQABrVG2wr+hePk+EVRiiAW2hxYwEWu6t4wQaYLERZ3eYEVhwUKRrdh9nIndnwUqsAoqMAihA148H6t82V0RMLYcTnWX2SAYHUUfHNgINWXNzvt51jJYsobRpAjqG3ci4GwED5SQBM6oMpfR6Se44YwEgg9ICRRRwnXggZEA+0d9f0GoFEsgDbuus5UbAigSZHTAd1W6MmuNKYwyo+UcXB0aEDQlyKiMp1jZLaMLYkFFaYBSQzfY+clxHHhAY5HU/pAQEASEvrsPebSyGPZDe6xZkAfLcH2bCu8nI3dKzpbJNZFtQ0Pe8inTPVsLg8h5Gdxf5+vMgMDLNQHMYBXjfyQzCq2KF6OpjUSzL0/rExKgwsoVqHbeR6oEyFwWijMLOjsX9LWBxnP5HlESB6rrzIIy8rhHAUIEqJAhBtX1o3c/1z0Z0IQfD1JARGAGRLQFIREbiSCbEHsNJGFTFmt5PIMhQAhiuP4/9OkMI9yiCHIQlBFqdpLUSsKjTsJBbDgbUMrKP9coORH20dEF3FLlIwUSpZyWuSBVQMaNheerPyAPRY0jDEFHdWSoIxAJE6vILr9NEjBprbymzPjK9uhMxtTVmQAKJo2wZU2FnzGgMjio4oV04+Pw34IjbFQ7LLzcAAAAASUVORK5CYII="/>
+                                                    <filter id="filter0_d_170_2" x="7.48094" y="42.5615" width="151.536" height="118.053" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                                    <feOffset dy="5.55489"/>
+                                                    <feGaussianBlur stdDeviation="6.94361"/>
+                                                    <feComposite in2="hardAlpha" operator="out"/>
+                                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_170_2"/>
+                                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_170_2" result="shape"/>
+                                                    </filter>
+                                                    <linearGradient id="paint0_linear_170_2" x1="160.748" y1="183.303" x2="46.3474" y2="36.4729" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#E978E6"/>
+                                                    <stop offset="1" stop-color="#2F3EBB"/>
+                                                    </linearGradient>
                                                     </defs>
                                                     </svg>
-
                                                 `;
                                             } else {
                                                 previewHolder.innerHTML = `
@@ -11627,7 +11704,17 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                     modalIsAlreadyOpen = true;
                                                     setTimeout(() => {
                                                         openItemModal();
-                                                    }, 500);
+                                                    }, 1000);
+                                                    card.classList.add("highlighted")
+
+                                                    let highlightedGlint = document.createElement("div");
+
+                                                    highlightedGlint.classList.add('shop-category-card-highlighted-glint');
+
+                                                    card.appendChild(highlightedGlint);
+                                                    setTimeout(() => {
+                                                        highlightedGlint.remove();
+                                                    }, 3000);
                                                 }
                                                 
 
@@ -11879,21 +11966,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                         }
                                                     
                                                     
-                                                        // Fetch profile effects API only if not already cached
-                                                        if (!profileEffectsCache) {
-                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                method: "GET",
-                                                                headers: {
-                                                                    "Password": api_password,
-                                                                    "Token": api_token
-                                                                }
-                                                            });
-                                                            const effectsData = await response.json();
-                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                        if (!discordProfileEffectsCache) {
+                                                            await setDiscordProfileEffectCache();
                                                         }
                                                     
                                                         // Find matching profile effect
-                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
 
                                                         const previewHolder = modal.querySelector("[data-modal-preview-holder]");
                                                         const previewHolderLeft = modal.querySelector("[data-modal-left-preview-holder]");
@@ -12108,21 +12186,13 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                 } else if (item.type === 1) {
                                                                     // Profile effect
                                                                     (async () => {
-                                                                        // Fetch profile effects if not cached
-                                                                        if (!profileEffectsCache) {
-                                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                method: "GET",
-                                                                                headers: {
-                                                                                    "Password": api_password,
-                                                                                    "Token": api_token
-                                                                                }
-                                                                            });
-                                                                            const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                        if (!discordProfileEffectsCache) {
+                                                                            await setDiscordProfileEffectCache();
                                                                         }
+                                                                        
                                                     
                                                                         // Find the matching effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                                     
                                                                         if (matchingEffect) {
                                                                             if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -12175,7 +12245,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     // Profile effect
                                                                     (async () => {
                                                                         // Fetch profile effects if not cached
-                                                                        if (!profileEffectsCache) {
+                                                                        if (!discordProfileEffectsCache) {
                                                                             const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                 method: "GET",
                                                                                 headers: {
@@ -12184,11 +12254,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 }
                                                                             });
                                                                             const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                         }
                                                     
                                                                         // Find the matching effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === item.id);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === item.id);
                                                     
                                                                         if (matchingEffect) {
                                                                             const effectImage = document.createElement("img");
@@ -12337,21 +12407,12 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                         }
                                                                     
                                                                     
-                                                                        // Fetch profile effects API only if not already cached
-                                                                        if (!profileEffectsCache) {
-                                                                            const response = await fetch(api + PROFILE_EFFECTS, {
-                                                                                method: "GET",
-                                                                                headers: {
-                                                                                    "Password": api_password,
-                                                                                    "Token": api_token
-                                                                                }
-                                                                            });
-                                                                            const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                        if (!discordProfileEffectsCache) {
+                                                                            await setDiscordProfileEffectCache();
                                                                         }
                                                                     
                                                                         // Find matching profile effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                                     
                                                                         if (matchingEffect) {
                                                                             if (matchingEffect.effects && matchingEffect.effects.length > 0) {
@@ -12450,7 +12511,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                     
                                                                     
                                                                         // Fetch profile effects API only if not already cached
-                                                                        if (!profileEffectsCache) {
+                                                                        if (!discordProfileEffectsCache) {
                                                                             const response = await fetch(api + PROFILE_EFFECTS, {
                                                                                 method: "GET",
                                                                                 headers: {
@@ -12459,11 +12520,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                                                                 }
                                                                             });
                                                                             const effectsData = await response.json();
-                                                                            profileEffectsCache = effectsData.profile_effect_configs;
+                                                                            discordProfileEffectsCache = effectsData.profile_effect_configs;
                                                                         }
                                                                     
                                                                         // Find matching profile effect
-                                                                        const matchingEffect = profileEffectsCache.find(effect => effect.id === itemId);
+                                                                        const matchingEffect = discordProfileEffectsCache.find(effect => effect.id === itemId);
                                                                     
                                                                         if (matchingEffect) {
                                                                             const previewHolder = modal.querySelector("[data-modal-preview-holder]");
@@ -12537,19 +12598,33 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
     
                                                             document.getElementById("modal-username-preview").textContent = localStorage.discord_username.toLowerCase();
                                                         } else if (product.sku_id === "1333912750274904064") {
-                                                            previewHolder.classList.add('modal-potion-img');
+                                                            previewHolder.classList.add('modal-preview-profile-container');
                                                                 
                                                             previewHolder.innerHTML = `
-                                                                <svg class="potion-card-preview nitro-3-days-orb-preview" width="187" height="187" viewBox="0 0 187 187" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                                <rect y="16" width="187" height="140" fill="url(#pattern0_136_11)"/>
-                                                                <defs>
-                                                                <pattern id="pattern0_136_11" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                                                <use xlink:href="#image0_136_11" transform="matrix(0.00369004 0 0 0.00492884 0 -0.000276753)"/>
-                                                                </pattern>
-                                                                <image id="image0_136_11" width="271" height="203" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
-                                                                </defs>
-                                                                </svg>
-            
+                                                                <div class="nitro-3-days-modal-orb-preview">
+                                                                    <img class="hero-img" src="https://cdn.discordapp.com/assets/content/81644099db353c3ea7cefa334f8d298d06b768a68a349de663d2151fd01eddc7.png"></img>
+                                                                    <svg class="nitro-title" aria-hidden="true" role="img" width="106" height="26" viewBox="0 0 106 26"><title>Nitro</title><g fill="none" fill-rule="evenodd"><path fill="white" d="M98.8266537 8.64800265L97.5788372 17.0822416C97.2940433 19.0754982 95.0485266 20.0010292 92.981582 20.0010292 91.0571496 20.0010292 89.1680861 19.0754982 89.4175111 17.2605602L90.6652125 8.64800265C90.9501215 6.76162212 93.1956383 5.80077257 95.2624676 5.80077257 97.3294121 5.80077257 99.1115628 6.76162212 98.8266537 8.64800265M96.2496839.0038079646L96.2503751.0000115044248 82.8208233.0000115044248C82.4777342.0000115044248 82.1864887.251383186 82.1368341.59030354L81.4839511 5.04596726C81.4228909 5.46254248 81.7462794 5.83609115 82.167825 5.83609115L84.6202551 5.83609115C84.8670304 5.83609115 85.0355795 6.08734779 84.9386897 6.31398496 84.6326976 7.03036549 84.4097703 7.8080646 84.2859219 8.64800265L83.0381053 17.2605602C82.2182861 23.0258876 87.0301735 25.9085513 92.2687909 25.9085513 97.7574094 25.9085513 103.139115 23.0258876 103.958934 17.2605602L105.206059 8.64800265C106.009634 2.99656903 101.367679.115400885 96.2496839.0038079646M15.5778562 11.7941867L15.6467505 15.9747796C15.648133 16.0607177 15.5902986 16.1363018 15.5068881 16.1574699L15.5067729 16.1574699 14.0843013 11.1148504C14.0822275 11.1071425 14.0795777 11.0996646 14.0763519 11.0923018L9.66308376.775018584C9.55432753.520885841 9.30421123.355912389 9.0273667.355912389L4.02607753.355912389C3.68126035.355912389 3.38920838.6097 3.34151232.950576106L.00682030635 24.7668062C-.0513596718 25.1820009.271568009 25.5526735.691385514 25.5526735L5.67355018 25.5526735C6.01882818 25.5526735 6.31122578 25.2981956 6.3583458 24.9566292L7.6643423 15.4949301C7.66560958 15.4857265 7.66618562 15.4762929 7.66607042 15.4669743L7.59475674 10.6052044 7.73715368 10.5697708 9.23116943 15.6125053C9.23335838 15.6196381 9.23589295 15.6267708 9.23888836 15.6336735L13.3663258 25.1370186C13.4758885 25.3893106 13.7250831 25.5526735 14.0004299 25.5526735L19.39573 25.5526735C19.7405472 25.5526735 20.0325992 25.2988858 20.0802953 24.9580097L23.4156785 1.14177965C23.4738585.726584956 23.1509308.355912389 22.7311133.355912389L17.782935.355912389C17.438233.355912389 17.146181.609469912 17.0983698.950346018L15.5795843 11.7654257C15.578317 11.7749743 15.577741 11.784523 15.5778562 11.7941867M25.2200758 25.5526274L30.2035078 25.5526274C30.5483249 25.5526274 30.8403769 25.2989549 30.888073 24.9579637L34.222765 1.14184867C34.280945.726653982 33.9580173.355981416 33.5381998.355981416L28.5547678.355981416C28.2100659.355981416 27.9180139.609653982 27.8702026.950645133L24.5355106 24.7667602C24.4773306 25.1819549 24.8002583 25.5526274 25.2200758 25.5526274M37.588782.910862832L36.9357838 5.3664115C36.8748388 5.78298673 37.1982273 6.15665044 37.6197729 6.15665044L42.8344271 6.15665044C43.2536686 6.15665044 43.5763658 6.52628761 43.5192227 6.94102212L41.0626451 24.7682788C41.005502 25.1830133 41.3281993 25.5526504 41.7474408 25.5526504L46.8027624 25.5526504C47.1481556 25.5526504 47.4405532 25.2980575 47.4875581 24.9564912L49.9960944 6.75280973C50.0430992 6.41112832 50.3354968 6.15665044 50.68089 6.15665044L56.2874814 6.15665044C56.6305704 6.15665044 56.9217007 5.90539381 56.9714705 5.56635841L57.6249296 1.11080973C57.6859898.694234513 57.3626013.320570796 56.9409404.320570796L38.2727712.320570796C37.9296821.320570796 37.6384366.571827434 37.588782.910862832M72.9157339 9.14614425C72.7371616 10.6051354 71.5970645 12.0642416 69.6364568 12.0642416L66.6908218 12.0642416C66.2704283 12.0642416 65.9472702 11.6925336 66.0063718 11.2768788L66.6298768 6.8920823C66.6782642 6.55178142 66.9700857 6.29891416 67.3143268 6.29891416L70.4562761 6.29891416C72.3453396 6.29891416 73.0936148 7.61571062 72.9157339 9.14614425M71.1691824.355958407L61.6845787.355958407C61.3397615.355958407 61.0477096.609630973 60.9998983.950622124L57.6652063 24.7667372C57.6070263 25.1819319 57.929954 25.5526044 58.3497715 25.5526044L63.4034802 25.5526044C63.7487582 25.5526044 64.0411558 25.2981265 64.0882759 24.9565602L65.0696166 17.8430292C65.0932342 17.6723035 65.2393178 17.5450646 65.4120144 17.5450646L66.0616716 17.5450646C66.1795293 17.5450646 66.2893224 17.6050027 66.3528019 17.7041708L71.1792055 25.2345071C71.3062798 25.4327283 71.5256356 25.5526044 71.7613509 25.5526044L78.0034289 25.5526044C78.5625328 25.5526044 78.8902992 24.9242327 78.5697909 24.4667018L73.5050221 17.2370912C73.383593 17.0637195 73.4460357 16.8224717 73.6364743 16.729631 76.8698986 15.1516841 78.7475566 13.5351973 79.3665685 9.03926814 80.0787836 3.13174602 76.3728918.355958407 71.1691824.355958407"></path></g></svg>
+                                                                    <div class="preview-perks">
+                                                                        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                        <p>Custom emojis anywhere</p>
+                                                                    </div>
+                                                                    <div class="preview-perks">
+                                                                        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                        <p>Custom profile</p>
+                                                                    </div>
+                                                                    <div class="preview-perks">
+                                                                        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                        <p>500 MB Uploads</p>
+                                                                    </div>
+                                                                    <div class="preview-perks">
+                                                                        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                        <p>HD video streaming</p>
+                                                                    </div>
+                                                                    <div class="preview-perks">
+                                                                        <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="var(--white)" fill-rule="evenodd" d="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.4l3.3 3.29 7.3-7.3a1 1 0 0 1 1.4 0Z" clip-rule="evenodd" class=""></path></svg>
+                                                                        <p>Colour app themes and more!</p>
+                                                                    </div>
+                                                                </div>
                                                             `;
                                                         } else {
                                                             previewHolder.innerHTML = `
@@ -12975,7 +13050,7 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                                             catch(error) {
                                                 scrollToSKU(sku_id)
                                             }
-                                        }, 500);
+                                        }, 10);
                                     }
                                 }
 
@@ -13238,12 +13313,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         if (params.get("page") === "home") {
             document.title = `${getTextString("FEATURED_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "home");
                 if (localStorage.unreleased_discord_collectibles == "true") {
-                    url = api + HOME_PAGE_ALL;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiUrl = api + HOME_PAGE_ALL;
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiUrl = api + HOME_PAGE_ALL;
@@ -13274,12 +13348,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         } else if (params.get("page") === "shop") {
             document.title = `${getTextString("SHOP_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "shop");
                 if (localStorage.unreleased_discord_collectibles == "true") {
-                    url = api + COLLECTIBLES;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiUrl = api + COLLECTIBLES;
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiUrl = api + COLLECTIBLES_VARIANTS;
@@ -13293,12 +13366,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         } else if (params.get("page") === "orbs") {
             document.title = `${getTextString("ORB_SHOP_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_orbs_shop === "Treatment 2: Orb Shop done like default" || localStorage.experiment_2025_02_orbs_shop === "Treatment 3: Default + New tag") {
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "orbs");
                 if (localStorage.unreleased_discord_collectibles == "true") {
-                    url = api + ORBS_SHOP_DEFAULT;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiUrl = api + ORBS_SHOP_DEFAULT;
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
                 if (localStorage.experiment_2025_02_orbs_shop === "Treatment 3: Default + New tag") {
                     localStorage.dismissible_orbs_shop_new_tag = "Treatment 1: Seen"
@@ -13314,12 +13386,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         } else if (params.get("page") === "leaks") {
             document.title = `${getTextString("LEAKS_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "leaks");
                 if (localStorage.unreleased_discord_collectibles == "true") {
-                    url = api + LEAKS;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiUrl = api + LEAKS;
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiUrl = api + LEAKS;
@@ -13332,12 +13403,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         } else if (params.get("page") === "consumables") {
             document.title = `${getTextString("POTIONS_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "consumables");
                 if (localStorage.unreleased_discord_collectibles == "true") {
-                    url = api + CONSUMABLES;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiUrl = api + CONSUMABLES;
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiUrl = api + CONSUMABLES;
@@ -13351,16 +13421,14 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         } else if (params.get("page") === "miscellaneous") {
             document.title = `${getTextString("MISCELLANEOUS_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "miscellaneous");
+                if (localStorage.experiment_2025_03_items_with_no_sku == "Treatment 1: Enabled") {
+                    apiUrl.searchParams.append("include-no-sku-items", "true");
+                }
                 if (localStorage.unreleased_discord_collectibles == "true") {
-                    url = api + MISCELLANEOUS;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else if (localStorage.experiment_2025_03_items_with_no_sku == "Treatment 1: Enabled") {
-                    url = api + MISCELLANEOUS;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-no-sku-items", "true");
-                } else {
-                    apiUrl = api + MISCELLANEOUS;
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiUrl = api + MISCELLANEOUS;
@@ -13374,12 +13442,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         } else if (params.get("page") === "pplus-home") {
             document.title = `${getTextString("PROFILES_PLUS_FEATURED_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
-                if (localStorage.unreleased_profiles_plus == "true") {
-                    url = api + HOME_PAGE_PPLUS;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiUrl = api + HOME_PAGE_PPLUS;
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "pplus-home");
+                if (localStorage.unreleased_discord_collectibles == "true") {
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiUrl = api + HOME_PAGE_PPLUS;
@@ -13393,12 +13460,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         } else if (params.get("page") === "pplus") {
             document.title = `${getTextString("PROFILES_PLUS_BROWSE_ALL_TAB_DOCUMENT_TITLE")}${getTextString("DOCUMENT_TITLE_SITE_NAME")}`;
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
-                if (localStorage.unreleased_profiles_plus == "true") {
-                    url = api + PROFILES_PLUS;
-                    apiUrl = new URL(url);
-                    apiUrl.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiUrl = api + PROFILES_PLUS;
+                url = api + COLLECTIBLES_SHOP;
+                apiUrl = new URL(url);
+                apiUrl.searchParams.append("tab", "pplus");
+                if (localStorage.unreleased_discord_collectibles == "true") {
+                    apiUrl.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiUrl = api + PROFILES_PLUS;
@@ -13473,12 +13539,11 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             }
         } else {
             if (localStorage.experiment_2025_02_fetch_from_vercel_endpoits === "Treatment 1: Enabled") {
+                url = api + COLLECTIBLES_SHOP;
+                apiLeaks = new URL(url);
+                apiLeaks.searchParams.append("tab", "leaks");
                 if (localStorage.unreleased_discord_collectibles == "true") {
-                    url = api + LEAKS;
-                    apiLeaks = new URL(url);
-                    apiLeaks.searchParams.set("include-unpublished", "true");
-                } else {
-                    apiLeaks = api + LEAKS;
+                    apiLeaks.searchParams.append("include-unpublished", "true");
                 }
             } else {
                 apiLeaks = api + LEAKS;
@@ -15152,8 +15217,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                 </div>
                 <div id="theme-picker-container"></div>
                 <div id="accessibility-options-container"></div>
-                <div id="new-options-experiments-container"></div>
-                <div id="new-options-dismissible-content-container"></div>
                 <h1 class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_SIDEBAR_DOWNLOADS")}</h1>
                 <div>
                     <div class="experiment-card-holder" style="width: 300px; margin-left: auto; margin-right: auto;">
@@ -15187,7 +15250,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
 
             if (localStorage.experiment_2025_02_extra_options === "Treatment 4: Enabled" || localStorage.experiment_2025_02_extra_options === "Treatment 5: Enabled w/o currency picker" || localStorage.experiment_2025_02_extra_options === "Treatment 6: Settings like discord") {
                 document.getElementById("username-picker-container-dev").innerHTML = `
-                    <div id="staff-todo-list"></div>
                     <p class="center-text" style="font-size: 20px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_PROFILE")}</p>
                     <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_PROFILE_DESC")}</p>
                     <div class="options-option-card" id="options-text-input-option">
@@ -15221,17 +15283,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                         <p class="options-preview-profile-username" id="options-username-preview"></p>
                     </div>
                 `;
-
-                if (localStorage.dev === "true") {
-                    document.getElementById("staff-todo-list").innerHTML = `
-                        <p class="center-text" style="font-size: 20px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST")}</p>
-                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_1")}</p>
-                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_2")}</p>
-                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_3")}</p>
-                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_4")}</p>
-                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_5")}</p>
-                    `;
-                }
 
                 if (localStorage.experiment_2025_03_item_reviews === "Treatment 3: Simulate logged in") {
                     let cantChangeProfileWhenLoggedIn = document.createElement("div");
@@ -15556,143 +15607,6 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
                     // Append the cloned template to the content
                     content.appendChild(clone);
                 });
-            }
-
-
-            if (localStorage.dev == "true") {
-                document.getElementById("new-options-experiments-container").innerHTML = `
-
-                    <p class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">Experiments</p>
-
-                    <div class="options-option-card">
-                        <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_SIDEBAR_NO_FORCE_ROLLOUT")}</p>
-                        <input class="options-toggle-box" onclick="disabledExperimentForceRollout();" style="cursor: pointer; scale: 2; posision: center;" id="experiment-force-rollout" type="checkbox">
-                    </div>
-
-                    <div id="experiments-container-output"></div>
-
-                `;
-
-                if (localStorage.experiment_force_rollout == "false") {
-                    document.getElementById("experiment-force-rollout").checked = true;
-                }
-
-                experimentsList.forEach(({ title, id, name, treatments, needs_api_token, not_needed }) => {
-                    if (not_needed != "true") {
-                        try {
-
-                            let experimentCard = document.createElement("div");
-    
-                            experimentCard.classList.add('options-option-card');
-                            experimentCard.innerHTML = `
-                                <p class="option-card-title">${title}</p>
-                                <p class="new-experiment-subtext">${id}</p>
-                                <select id="${name}_treatment_container" class="experiment-treatment-picker">
-                                </select>
-                                <button class="new-experiment-clear-button" onclick="clearSetExperiment('${name}')">Clear</button>
-                            `;
-    
-                            if (needs_api_token === "true") {
-                                let apiNotice = document.createElement("p");
-    
-                                apiNotice.classList.add('new-experiment-subtext-api-notice');
-                                apiNotice.textContent = getTextString("OPTIONS_SIDEBAR_EXPERIMENTS_API_PASSWORD")
-    
-                                experimentCard.appendChild(apiNotice);
-                            }
-    
-    
-                            document.getElementById("experiments-container-output").appendChild(experimentCard);
-    
-                            const treatmentPicker = document.getElementById(`${name}_treatment_container`);
-                    
-                            if (!treatmentPicker) return; // Skip if element doesn't exist
-                    
-                            populateExperimentOptions(treatmentPicker, treatments);
-                    
-                            const storedTreatment = localStorage.getItem(name);
-                            if (storedTreatment) {
-                                treatmentPicker.value = storedTreatment;
-                            }
-                    
-                            treatmentPicker.addEventListener("change", () => {
-                                localStorage.setItem(name, treatmentPicker.value);
-                            });
-                    
-                        } catch (error) {
-                            console.error(`Error setting up experiment: ${name}`, error);
-                        }
-                    }
-                });
-                
-                function populateExperimentOptions(selectElement, treatments) {
-                    treatments.forEach((treatment) => {
-                        const optElement = document.createElement("option");
-                        optElement.value = treatment;
-                        optElement.textContent = treatment;
-                        selectElement.appendChild(optElement);
-                    });
-                }
-                
-
-
-
-
-
-
-
-                document.getElementById("new-options-dismissible-content-container").innerHTML = `
-
-                    <p class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_SIDEBAR_DISMISSIBLE_CONTENT")}</p>
-
-                    <div id="dismissible-content-container-output"></div>
-
-                `;
-
-                dismissibleContentList.forEach(({ title, id, name, treatments, needs_api_token }) => {
-                    try {
-
-                        let experimentCard = document.createElement("div");
-
-                        experimentCard.classList.add('options-option-card');
-                        experimentCard.innerHTML = `
-                            <p class="option-card-title">${title}</p>
-                            <p class="new-experiment-subtext">${id}</p>
-                            <select id="${name}_treatment_container" class="experiment-treatment-picker">
-                            </select>
-                        `;
-
-
-                        document.getElementById("dismissible-content-container-output").appendChild(experimentCard);
-
-                        const treatmentPicker = document.getElementById(`${name}_treatment_container`);
-                
-                        if (!treatmentPicker) return; // Skip if element doesn't exist
-                
-                        populateDismissibleContentOptions(treatmentPicker, treatments);
-                
-                        const storedTreatment = localStorage.getItem(name);
-                        if (storedTreatment) {
-                            treatmentPicker.value = storedTreatment;
-                        }
-                
-                        treatmentPicker.addEventListener("change", () => {
-                            localStorage.setItem(name, treatmentPicker.value);
-                        });
-                
-                    } catch (error) {
-                        console.error(`Error setting up experiment: ${name}`, error);
-                    }
-                });
-                
-                function populateDismissibleContentOptions(selectElement, treatments) {
-                    treatments.forEach((treatment) => {
-                        const optElement = document.createElement("option");
-                        optElement.value = treatment;
-                        optElement.textContent = treatment;
-                        selectElement.appendChild(optElement);
-                    });
-                }
             }
             if (localStorage.experiment_2025_03_extra_options_dismissible_content === "Treatment 1: V1") {
                 localStorage.dismissible_newProfileSettings = "Treatment 1: Seen"
@@ -16091,229 +16005,448 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
         }
     
     }
+
+    function scrollToSKUOverrride(type) {
+        if (type === "card") {
+            const sku_id = document.getElementById("scroll-to-sku-id-override-input").value;
+            document.getElementById("scroll-to-sku-id-override-button").disabled = true;
+            document.getElementById("scroll-to-sku-id-override-button").style.backgroundColor = 'var(--button-danger-background)';
+            setTimeout(() => {
+                try {
+                    document.getElementById(sku_id).scrollIntoView({ behavior: "smooth" });
+                }
+                catch(error) {
+                    scrollToSKU(sku_id)
+                }
+            }, 10);
+            document.getElementById(sku_id).classList.add("highlighted")
+
+            let highlightedGlint = document.createElement("div");
+
+            highlightedGlint.classList.add('shop-category-card-highlighted-glint');
+
+            document.getElementById(sku_id).appendChild(highlightedGlint);
+            setTimeout(() => {
+                highlightedGlint.remove();
+                document.getElementById(sku_id).classList.remove("highlighted");
+                document.getElementById("scroll-to-sku-id-override-button").disabled = false;
+                document.getElementById("scroll-to-sku-id-override-button").style.backgroundColor = '';
+            }, 3000);
+        } else if (type === "category") {
+            const sku_id = document.getElementById("scroll-to-category-sku-id-override-input").value;
+            document.getElementById("scroll-to-category-sku-id-override-button").disabled = true;
+            document.getElementById("scroll-to-category-sku-id-override-button").style.backgroundColor = 'var(--button-danger-background)';
+            setTimeout(() => {
+                try {
+                    document.getElementById(sku_id).scrollIntoView({ behavior: "smooth" });
+                }
+                catch(error) {
+                    scrollToSKU(sku_id)
+                }
+            }, 10);
+            document.getElementById(sku_id).classList.add("highlighted")
+
+            let highlightedGlint = document.createElement("div");
+
+            highlightedGlint.classList.add('shop-category-highlighted-glint');
+
+            document.getElementById(sku_id).appendChild(highlightedGlint);
+            setTimeout(() => {
+                highlightedGlint.remove();
+                document.getElementById(sku_id).classList.remove("highlighted");
+                document.getElementById("scroll-to-category-sku-id-override-button").disabled = false;
+                document.getElementById("scroll-to-category-sku-id-override-button").style.backgroundColor = '';
+            }, 3000);
+        }
+    }
     
+    
+    let dev_topbar_container = document.createElement("div");
+
+    dev_topbar_container.classList.add('dev-topbar-container');
+    dev_topbar_container.id = 'dev-topbar-container';
+
+    document.body.appendChild(dev_topbar_container);
     
     function openDevModal() {
         if (localStorage.dev == "true") {
-            document.getElementById('modal-housing').innerHTML = `
-            <div class="modal-housing-1" id="modal-housing-1">
-                <div class="dev-modal">
-                    <div class="dev-modal-inner">
-                        <h1 class="center-text" style="font-size: 54px; margin-top: -10px; margin-bottom: -5px;">${getTextString("OPTIONS_DEV_TITLE")}</h1>
-                        <p>${getTextString("OPTIONS_DEV_DESC")}</p>
-                        <button class="staff-close-button" onclick="closeDevModal()">${getTextString("OPTIONS_DEV_CLOSE")}</button>
-                        <button class="staff-safe-mode-button" onclick="turnOffDevMode()">${getTextString("OPTIONS_DEV_SAFE_MODE")}</button>
-                        <hr>
-                        <div>
-                            <h2>Debug</h2>
-                            <p class="experiment-subtext">Overrides</p>
-                            <div class="experiment-card-holder">
-                                <div class="experiment-card">
-                                    <p>Disable Client Reowrk (Possible to re-enable on old client)</p>
-                                    <p class="experiment-subtext">2024-12_disable_client_rework</p>
-                                    <button class="newish-experiment-button" onclick="disableClientReworkTrue()" id="2024-12_disable_client_rework-1">1</button>
-                                    <button class="newish-experiment-button" onclick="disableClientReworkFalse()" id="2024-12_disable_client_rework-00">-1</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Force Private API</p>
-                                    <p class="experiment-subtext">2024-12_force_all_api_to_fectch_private_api</p>
-                                    <button class="newish-experiment-button" onclick="forceAllApiToFectchPrivateApiTrue()" id="2024-12_force_all_api_to_fectch_private_api-1">1</button>
-                                    <button class="newish-experiment-button" onclick="forceAllApiToFectchPrivateApiFalse()" id="2024-12_force_all_api_to_fectch_private_api-2">-1</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Show Leaks Button</p>
-                                    <p class="experiment-subtext">2024-11_override_leaks_button</p>
-                                    <button class="newish-experiment-button" onclick="overrideLeaksButtonShow()" id="2024-11_override_leaks_button-1">1</button>
-                                    <button class="newish-experiment-button" onclick="overrideLeaksButtonHide()" id="2024-11_override_leaks_button-2">-1</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Project Joshua</p>
-                                    <p class="experiment-subtext">2024-11_unreleased_discord_collectibles</p>
-                                    <button class="newish-experiment-button" onclick="unreleasedDiscordCollectiblesTrue()" id="2024-11_unreleased_discord_collectibles-1">1</button>
-                                    <button class="newish-experiment-button" onclick="unreleasedDiscordCollectiblesFalse()" id="2024-11_unreleased_discord_collectibles-2">-1</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Unreleased Profiles Plus Items</p>
-                                    <p class="experiment-subtext">2024-09_profiles_plus</p>
-                                    <button class="newish-experiment-button" onclick="unreleasedProfilesPlusItemsTrue()" id="2024-09_profiles_plus-1">1</button>
-                                    <button class="newish-experiment-button" onclick="unreleasedProfilesPlusItemsFalse()" id="2024-09_profiles_plus-2">-1</button>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div>
-                            <h2>Modals</h2>
-                            <div class="experiment-card-holder">
-                                <div class="experiment-card">
-                                    <p>Lost</p>
-                                    <p class="experiment-subtext">modal no longer supported on client</p>
-                                    <button class="refresh-button" onclick="openLostModal()">Open</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Dev</p>
-                                    <button class="refresh-button" onclick="openDevModal()">Open</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Options</p>
-                                    <button class="refresh-button" onclick="openOptionsModal()">Open</button>
-                                </div>
-                                <div class="experiment-card">
-                                    <p>Downloads</p>
-                                    <button class="refresh-button" onclick="openDownloadsModal()">Open</button>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div>
-                            <h2>Local Storage Overrides</h2>
-                            <p class="experiment-subtext">Refresh the page for changes to take effect</p>
-                            <button class="refresh-button" onclick="localStorage.clear()">Delete All</button>
-                            <input type="text" class="dev-local-storage-input-1" id="keyInput" placeholder="Enter key">
-                            <input type="text" class="dev-local-storage-input-1" id="valueInput" placeholder="Enter value">
-                            <button class="refresh-button" onclick="saveToLocalStorage()">Save</button>
-                            <div id="storageItems"></div>
-                        </div>
-                        <hr>
-                        <div>
 
-                            <p>${getTextString("APP_VERSION")}${tcbx926n29}</p>
+
+            if (document.getElementById('dev-topbar-container').classList.contains('dev-topbar-container-expanded')) {
+                document.getElementById('dev-topbar-container').classList.remove("dev-topbar-container-expanded");
+            } else {
+                document.getElementById('dev-topbar-container').classList.add("dev-topbar-container-expanded");
+                document.getElementById('dev-topbar-container').innerHTML = `
+                    <h1 class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_DEV_TITLE")}</h1>
+                    <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_DEV_OPTIONS_DISCLAIMER")}</p>
+
+                    <div id="staff-todo-list">
+                        <p class="center-text" style="font-size: 20px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST")}</p>
+                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_1")}</p>
+                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_2")}</p>
+                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_3")}</p>
+                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_4")}</p>
+                        <p class="center-text" style="font-size: 15px; margin-top: 0px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_EXTRA_STAFF_TODO_LIST_5")}</p>
+                    </div>
+
+                    <div class="options-option-card-holder">
+                        <div class="options-option-card" id="unpublished-collectibles-box-option">
+                            <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_DEV_UNPUBLISHED_COLLECTIBLES")}</p>
+                            <input class="options-toggle-box" onclick="unreleasedDiscordCollectiblesToggle();" style="cursor: pointer; scale: 2; posision: center;" id="unpublished-collectibles-box" type="checkbox">
                         </div>
-                        <hr>
-                        <button class="staff-close-button" onclick="closeDevModal()">${getTextString("OPTIONS_DEV_CLOSE")}</button>
-                        <button class="staff-safe-mode-button" onclick="turnOffDevMode()">${getTextString("OPTIONS_DEV_SAFE_MODE")}</button>
+                    </div>
+
+                    <div class="experiment-card-holder" style="width: 300px; margin-left: auto; margin-right: auto;">
+                        <button class="card-button" onclick="disableClientRework();">${getTextString("OPTIONS_DEV_DISABLE_CLIENT_REWORK")}</button>
+                        <button class="card-button" onclick="openOldDevModal();">${getTextString("OPTIONS_DEV_OPEN_OLD_DEV_MODAL")}</button>
+                    </div>
+
+                    <div class="options-option-card" id="options-text-input-option">
+                        <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_DEV_HIGHLIGHT_SKU_ID")}</p>
+                        <input class="options-text-input" autocomplete="off" style="posision: center;" id="scroll-to-sku-id-override-input" value="1349486948942745695" type="text">
+                    </div>
+                    <div class="experiment-card-holder" style="width: 300px; margin-left: auto; margin-right: auto;">
+                        <button class="card-button" id="scroll-to-sku-id-override-button" onclick="scrollToSKUOverrride('card');">${getTextString("OPTIONS_DEV_HIGHLIGHT_SKU_CARD")}</button>
+                    </div>
+
+                    <div class="options-option-card" id="options-text-input-option">
+                        <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_DEV_HIGHLIGHT_CAT_SKU_ID")}</p>
+                        <input class="options-text-input" autocomplete="off" style="posision: center;" id="scroll-to-category-sku-id-override-input" value="1349486948942745691" type="text">
+                    </div>
+                    <div class="experiment-card-holder" style="width: 300px; margin-left: auto; margin-right: auto;">
+                        <button class="card-button" id="scroll-to-category-sku-id-override-button" onclick="scrollToSKUOverrride('category');">${getTextString("OPTIONS_DEV_HIGHLIGHT_SKU_CAT")}</button>
+                    </div>
+
+                    <p class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">Test Fetch API</p>
+
+                    <div class="options-option-card-holder">
+                        <div class="options-option-card"">
+                            <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_DEV_TEST_FETCH_NOSKUS")}</p>
+                            <input class="options-toggle-box" style="cursor: pointer; scale: 2; posision: center;" id="test-fetch-include-no-sku-items-box" type="checkbox">
+                        </div>
+                        <div class="options-option-card"">
+                            <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_DEV_TEST_FETCH_UNPUBLISHED")}</p>
+                            <input class="options-toggle-box" style="cursor: pointer; scale: 2; posision: center;" id="test-fetch-unpublished-collectibles-box" type="checkbox">
+                        </div>
+                    </div>
+
+                    <div id="test-fetch-apis-container"></div>
+
+                    <div id="new-options-experiments-container"></div>
+                    <div id="new-options-dismissible-content-container"></div>
+                    ${getTextString("APP_VERSION")}${tcbx926n29}
+                `;
+
+                document.getElementById("new-options-experiments-container").innerHTML = `
+    
+                    <p class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">Experiments</p>
+    
+                    <div class="options-option-card">
+                        <p class="option-card-title" style="color: var(--white);">${getTextString("OPTIONS_SIDEBAR_NO_FORCE_ROLLOUT")}</p>
+                        <input class="options-toggle-box" onclick="disabledExperimentForceRollout();" style="cursor: pointer; scale: 2; posision: center;" id="experiment-force-rollout" type="checkbox">
+                    </div>
+    
+                    <div id="experiments-container-output"></div>
+    
+                `;
+    
+                if (localStorage.experiment_force_rollout == "false") {
+                    document.getElementById("experiment-force-rollout").checked = true;
+                }
+    
+                experimentsList.forEach(({ title, id, name, treatments, needs_api_token, not_needed }) => {
+                    if (not_needed != "true") {
+                        try {
+    
+                            let experimentCard = document.createElement("div");
+        
+                            experimentCard.classList.add('options-option-card');
+                            experimentCard.innerHTML = `
+                                <p class="option-card-title">${title}</p>
+                                <p class="new-experiment-subtext">${id}</p>
+                                <select id="${name}_treatment_container" class="experiment-treatment-picker">
+                                </select>
+                                <button class="new-experiment-clear-button" onclick="clearSetExperiment('${name}')">Clear</button>
+                            `;
+        
+                            if (needs_api_token === "true") {
+                                let apiNotice = document.createElement("p");
+        
+                                apiNotice.classList.add('new-experiment-subtext-api-notice');
+                                apiNotice.textContent = getTextString("OPTIONS_SIDEBAR_EXPERIMENTS_API_PASSWORD")
+        
+                                experimentCard.appendChild(apiNotice);
+                            }
+        
+        
+                            document.getElementById("experiments-container-output").appendChild(experimentCard);
+        
+                            const treatmentPicker = document.getElementById(`${name}_treatment_container`);
+                    
+                            if (!treatmentPicker) return; // Skip if element doesn't exist
+                    
+                            populateExperimentOptions(treatmentPicker, treatments);
+                    
+                            const storedTreatment = localStorage.getItem(name);
+                            if (storedTreatment) {
+                                treatmentPicker.value = storedTreatment;
+                            }
+                    
+                            treatmentPicker.addEventListener("change", () => {
+                                localStorage.setItem(name, treatmentPicker.value);
+                            });
+                    
+                        } catch (error) {
+                            console.error(`Error setting up experiment: ${name}`, error);
+                        }
+                    }
+                });
+                
+                function populateExperimentOptions(selectElement, treatments) {
+                    treatments.forEach((treatment) => {
+                        const optElement = document.createElement("option");
+                        optElement.value = treatment;
+                        optElement.textContent = treatment;
+                        selectElement.appendChild(optElement);
+                    });
+                }
+
+
+                testFetchAPIList.forEach(({ title, id, name, treatments, needs_api_token, not_needed }) => {
+                    if (not_needed != "true") {
+                        try {
+    
+                            let experimentCard = document.createElement("div");
+        
+                            experimentCard.classList.add('options-option-card');
+                            experimentCard.innerHTML = `
+                                <p class="option-card-title">${title}</p>
+                                <p class="new-experiment-subtext">${id}</p>
+                                <select id="${name}_treatment_container" class="experiment-treatment-picker">
+                                </select>
+                                <button class="new-experiment-clear-button" onclick="testFetchAPI('${name}')">Fetch</button>
+                            `;
+        
+                            if (needs_api_token === "true") {
+                                let apiNotice = document.createElement("p");
+        
+                                apiNotice.classList.add('new-experiment-subtext-api-notice');
+                                apiNotice.textContent = getTextString("OPTIONS_SIDEBAR_EXPERIMENTS_TEST_FETCH_API")
+        
+                                experimentCard.appendChild(apiNotice);
+                            }
+        
+        
+                            document.getElementById("test-fetch-apis-container").appendChild(experimentCard);
+        
+                            const treatmentPicker = document.getElementById(`${name}_treatment_container`);
+                    
+                            if (!treatmentPicker) return; // Skip if element doesn't exist
+                    
+                            populateTestFetchOptions(treatmentPicker, treatments);
+                    
+                            const storedTreatment = localStorage.getItem(name);
+                            if (storedTreatment) {
+                                treatmentPicker.value = storedTreatment;
+                            }
+                    
+                            treatmentPicker.addEventListener("change", () => {
+                                localStorage.setItem(name, treatmentPicker.value);
+                            });
+                    
+                        } catch (error) {
+                            console.error(`Error setting up experiment: ${name}`, error);
+                        }
+                    }
+                });
+                
+                function populateTestFetchOptions(selectElement, treatments) {
+                    treatments.forEach((treatment) => {
+                        const optElement = document.createElement("option");
+                        optElement.value = treatment;
+                        optElement.textContent = treatment;
+                        selectElement.appendChild(optElement);
+                    });
+                }
+    
+    
+                document.getElementById("new-options-dismissible-content-container").innerHTML = `
+    
+                    <p class="center-text" style="font-size: 30px; margin-top: 20px; margin-bottom: 0px; color: var(--white);">${getTextString("OPTIONS_SIDEBAR_DISMISSIBLE_CONTENT")}</p>
+    
+                    <div id="dismissible-content-container-output"></div>
+    
+                `;
+    
+                dismissibleContentList.forEach(({ title, id, name, treatments, needs_api_token }) => {
+                    try {
+    
+                        let experimentCard = document.createElement("div");
+    
+                        experimentCard.classList.add('options-option-card');
+                        experimentCard.innerHTML = `
+                            <p class="option-card-title">${title}</p>
+                            <p class="new-experiment-subtext">${id}</p>
+                            <select id="${name}_treatment_container" class="experiment-treatment-picker">
+                            </select>
+                        `;
+    
+    
+                        document.getElementById("dismissible-content-container-output").appendChild(experimentCard);
+    
+                        const treatmentPicker = document.getElementById(`${name}_treatment_container`);
+                
+                        if (!treatmentPicker) return; // Skip if element doesn't exist
+                
+                        populateDismissibleContentOptions(treatmentPicker, treatments);
+                
+                        const storedTreatment = localStorage.getItem(name);
+                        if (storedTreatment) {
+                            treatmentPicker.value = storedTreatment;
+                        }
+                
+                        treatmentPicker.addEventListener("change", () => {
+                            localStorage.setItem(name, treatmentPicker.value);
+                        });
+                
+                    } catch (error) {
+                        console.error(`Error setting up experiment: ${name}`, error);
+                    }
+                });
+                
+                function populateDismissibleContentOptions(selectElement, treatments) {
+                    treatments.forEach((treatment) => {
+                        const optElement = document.createElement("option");
+                        optElement.value = treatment;
+                        optElement.textContent = treatment;
+                        selectElement.appendChild(optElement);
+                    });
+                }
+    
+                if (localStorage.unreleased_discord_collectibles == "true") {
+                    document.getElementById("unpublished-collectibles-box").checked = true;
+                }
+            }
+        } else {
+            console.error('403 (Forbidden)')
+        }
+    }
+
+    function disableClientRework() {
+        localStorage.full_client_rework = "false"
+        location.reload();
+    }
+
+    function unreleasedDiscordCollectiblesToggle() {
+        if (localStorage.unreleased_discord_collectibles === "none") {
+            localStorage.unreleased_discord_collectibles = "true"
+        } else {
+            localStorage.unreleased_discord_collectibles = "none"
+        }
+        fetchData(pageCheck());
+    }
+
+    function testFetchAPI(fetcherName) {
+        const endpoint = testFetchAPIList.find(api => api.name === fetcherName);
+
+        const { rollout } = endpoint;
+        const treatmentPicker = document.getElementById(`${fetcherName}_treatment_container`);
+
+        if (fetcherName === "testfetch_testfetchnew") {
+            url = api + "/" + "collectibles-shop";
+            testFetchURL = new URL(url);
+            testFetchURL.searchParams.append("tab", treatmentPicker.value);
+        } else if (fetcherName === "testfetch_testfetcheffects") {
+            url = api + "/" + "profile-effects";
+            testFetchURL = new URL(url);
+            testFetchURL.searchParams.append("tab", treatmentPicker.value);
+        } else {
+            url = api + "/" + treatmentPicker.value;
+            testFetchURL = new URL(url);
+        }
+        testFetchURL.searchParams.append("is-test-fetch", "true");
+        if (document.getElementById("test-fetch-include-no-sku-items-box").checked === true) {
+            testFetchURL.searchParams.append("include-no-sku-items", "true");
+        }
+        if (document.getElementById("test-fetch-unpublished-collectibles-box").checked === true) {
+            testFetchURL.searchParams.append("include-unpublished", "true");
+        }
+        
+        fetch(testFetchURL, {
+            method: "GET",
+            headers: {
+                "Password": api_password,
+                "Token": api_token
+            }
+        })
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(`Failed to test fetch: `, error);
+        });
+    }
+
+    function openOldDevModal() {
+        if (localStorage.dev == "true") {
+            openDevModal()
+            document.getElementById('modal-housing').innerHTML = `
+                <div class="modal-housing-1" id="modal-housing-1">
+                    <div class="dev-modal">
+                        <div class="dev-modal-inner">
+                            <h1 class="center-text" style="font-size: 54px; margin-top: -10px; margin-bottom: -5px;">${getTextString("OPTIONS_DEV_TITLE")}</h1>
+                            <p>${getTextString("OPTIONS_DEV_DESC")}</p>
+                            <button class="staff-close-button" onclick="closeDevModal()">${getTextString("OPTIONS_DEV_CLOSE")}</button>
+                            <button class="staff-safe-mode-button" onclick="turnOffDevMode()">${getTextString("OPTIONS_DEV_SAFE_MODE")}</button>
+                            <hr>
+                            <div>
+                                <h2>Modals</h2>
+                                <div class="experiment-card-holder">
+                                    <div class="experiment-card">
+                                        <p>Lost</p>
+                                        <p class="experiment-subtext">modal no longer supported on client</p>
+                                        <button class="refresh-button" onclick="openLostModal()">Open</button>
+                                    </div>
+                                    <div class="experiment-card">
+                                        <p>Dev</p>
+                                        <button class="refresh-button" onclick="openDevModal()">Open</button>
+                                    </div>
+                                    <div class="experiment-card">
+                                        <p>Options</p>
+                                        <button class="refresh-button" onclick="openOptionsModal()">Open</button>
+                                    </div>
+                                    <div class="experiment-card">
+                                        <p>Downloads</p>
+                                        <button class="refresh-button" onclick="openDownloadsModal()">Open</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h2>Local Storage Overrides</h2>
+                                <p class="experiment-subtext">Refresh the page for changes to take effect</p>
+                                <button class="refresh-button" onclick="localStorage.clear()">Delete All</button>
+                                <input type="text" class="dev-local-storage-input-1" id="keyInput" placeholder="Enter key">
+                                <input type="text" class="dev-local-storage-input-1" id="valueInput" placeholder="Enter value">
+                                <button class="refresh-button" onclick="saveToLocalStorage()">Save</button>
+                                <div id="storageItems"></div>
+                            </div>
+                            <hr>
+                            <div>
+
+                                <p>${getTextString("APP_VERSION")}${tcbx926n29}</p>
+                            </div>
+                            <hr>
+                            <button class="staff-close-button" onclick="closeDevModal()">${getTextString("OPTIONS_DEV_CLOSE")}</button>
+                            <button class="staff-safe-mode-button" onclick="turnOffDevMode()">${getTextString("OPTIONS_DEV_SAFE_MODE")}</button>
+                        </div>
                     </div>
                 </div>
-            </div>
             `;
     
-        
-        
-            // if (localStorage.top_selling_item != "true") {
-            //     if (localStorage.top_selling_item != "false") {
-            //         if (localStorage.top_selling_item != "two") {
-            //             document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('newish-experiment-button-selected');
-            //             document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('newish-experiment-button-selected');
-            //             document.getElementById("2024-11_top_selling_item_tag-0").classList.add('newish-experiment-button-selected');
-            //             document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('newish-experiment-button-selected');
-            //         }
-            //     }
-            // }
-        
-            // if (localStorage.top_selling_item == "two") {
-            //     document.getElementById("2024-11_top_selling_item_tag-2").classList.add('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('newish-experiment-button-selected');
-            // }
-            
-            // if (localStorage.top_selling_item == "true") {
-            //     document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-1").classList.add('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-00").classList.remove('newish-experiment-button-selected');
-            // }
-        
-            // if (localStorage.top_selling_item == "false") {
-            //     document.getElementById("2024-11_top_selling_item_tag-2").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-1").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-0").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_top_selling_item_tag-00").classList.add('newish-experiment-button-selected');
-            // }
-        
-        
-        
-            // if (localStorage.item_data_downloads != "true") {
-            //     if (localStorage.item_data_downloads != "false") {
-            //         if (localStorage.item_data_downloads != "two") {
-            //             document.getElementById("2024-11_item_data_downloads-2").classList.remove('newish-experiment-button-selected');
-            //             document.getElementById("2024-11_item_data_downloads-1").classList.remove('newish-experiment-button-selected');
-            //             document.getElementById("2024-11_item_data_downloads-0").classList.add('newish-experiment-button-selected');
-            //             document.getElementById("2024-11_item_data_downloads-00").classList.remove('newish-experiment-button-selected');
-            //         }
-            //     }
-            // }
-        
-            // if (localStorage.item_data_downloads == "two") {
-            //     document.getElementById("2024-11_item_data_downloads-2").classList.add('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-1").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-0").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-00").classList.remove('newish-experiment-button-selected');
-            // }
-            
-            // if (localStorage.item_data_downloads == "true") {
-            //     document.getElementById("2024-11_item_data_downloads-2").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-1").classList.add('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-0").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-00").classList.remove('newish-experiment-button-selected');
-            // }
-            
-            // if (localStorage.item_data_downloads == "false") {
-            //     document.getElementById("2024-11_item_data_downloads-2").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-1").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-0").classList.remove('newish-experiment-button-selected');
-            //     document.getElementById("2024-11_item_data_downloads-00").classList.add('newish-experiment-button-selected');
-            // }
-        
-        
-
-            if (localStorage.full_client_rework == "true") {
-                document.getElementById("2024-12_disable_client_rework-1").classList.remove('newish-experiment-button-selected');
-                document.getElementById("2024-12_disable_client_rework-00").classList.add('newish-experiment-button-selected');
-            }
-            
-            if (localStorage.full_client_rework != "true") {
-                document.getElementById("2024-12_disable_client_rework-1").classList.add('newish-experiment-button-selected');
-                document.getElementById("2024-12_disable_client_rework-00").classList.remove('newish-experiment-button-selected');
-            }
-
-
-
-            if (localStorage.force_all_api_to_fectch_private_api == "true") {
-                document.getElementById("2024-12_force_all_api_to_fectch_private_api-1").classList.add('newish-experiment-button-selected');
-                document.getElementById("2024-12_force_all_api_to_fectch_private_api-2").classList.remove('newish-experiment-button-selected');
-            }
-            
-            if (localStorage.force_all_api_to_fectch_private_api != "true") {
-                document.getElementById("2024-12_force_all_api_to_fectch_private_api-1").classList.remove('newish-experiment-button-selected');
-                document.getElementById("2024-12_force_all_api_to_fectch_private_api-2").classList.add('newish-experiment-button-selected');
-            }
-
-
-
-            if (localStorage.override_leaks_button == "true") {
-                document.getElementById("2024-11_override_leaks_button-1").classList.add('newish-experiment-button-selected');
-                document.getElementById("2024-11_override_leaks_button-2").classList.remove('newish-experiment-button-selected');
-            }
-            
-            if (localStorage.override_leaks_button != "true") {
-                document.getElementById("2024-11_override_leaks_button-1").classList.remove('newish-experiment-button-selected');
-                document.getElementById("2024-11_override_leaks_button-2").classList.add('newish-experiment-button-selected');
-            }
-
-
-
-            if (localStorage.unreleased_discord_collectibles == "true") {
-                document.getElementById("2024-11_unreleased_discord_collectibles-1").classList.add('newish-experiment-button-selected');
-                document.getElementById("2024-11_unreleased_discord_collectibles-2").classList.remove('newish-experiment-button-selected');
-            }
-            
-            if (localStorage.unreleased_discord_collectibles != "true") {
-                document.getElementById("2024-11_unreleased_discord_collectibles-1").classList.remove('newish-experiment-button-selected');
-                document.getElementById("2024-11_unreleased_discord_collectibles-2").classList.add('newish-experiment-button-selected');
-            }
-            
-            
-            if (localStorage.unreleased_profiles_plus == "true") {
-                document.getElementById("2024-09_profiles_plus-1").classList.add('newish-experiment-button-selected');
-            }
-            
-            if (localStorage.unreleased_profiles_plus != "true") {
-                document.getElementById("2024-09_profiles_plus-1").classList.remove('newish-experiment-button-selected');
-                document.getElementById("2024-09_profiles_plus-2").classList.add('newish-experiment-button-selected');
-            }
-        
             displayLocalStorage();
-        }else {
+        } else {
             console.error('403 (Forbidden)')
         }
     }
@@ -16850,7 +16983,30 @@ if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigat
             setTimeout(() => {
                 copyNotice.remove();
             }, 5000);
+        } else if (type === "copyemoji") {
+            let copyNotice = document.createElement("div");
+
+            copyNotice.classList.add('copy-notice-container');
+            copyNotice.innerHTML = `
+                <p>${getTextString("SHOP_EMOJI_COPY_SUCCESS")}</p>
+            `;
+                         
+            document.body.appendChild(copyNotice);
+            setTimeout(() => {
+                copyNotice.remove();
+            }, 5000);
         } else {
+            let copyNotice = document.createElement("div");
+
+            copyNotice.classList.add('copy-notice-container');
+            copyNotice.innerHTML = `
+                <p>${getTextString("SHOP_LINK_COPY_FAIL")}</p>
+            `;
+                         
+            document.body.appendChild(copyNotice);
+            setTimeout(() => {
+                copyNotice.remove();
+            }, 5000);
             console.warn('Invalid copyNotice')
         }
     }

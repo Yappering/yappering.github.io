@@ -306,6 +306,26 @@ body {
     transform: translate(0%);
 }
 
+.dev-topbar-container {
+    position: absolute;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--background-primary);
+    border: 2px solid var(--1);
+    width: 400px;
+    transform: translate(100%);
+    right: 0;
+    top: 80px;
+    height: 80%;
+    border-radius: 10px 0 0 10px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.dev-topbar-container-expanded {
+    transform: translate(0%);
+}
+
 .shop-housing {
     width: 100%;
     height: 100%;
@@ -773,6 +793,8 @@ body {
     border-radius: 10px;
     overflow: hidden;
 }
+
+
 
 
 .modal-left-avatar-decoration-img {
@@ -1917,7 +1939,7 @@ body {
 }
 
 .potion-card-preview-holder:has(.nitro-3-days-orb-preview) {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .potion-card-preview-holder:has(.profile-badge-orb-preview) {
@@ -1928,12 +1950,62 @@ body {
     scale: 0.65 !important;
 }
 
+.nitro-3-days-orb-preview {
+    scale: 0.65 !important;
+}
+
 .modal-potion-img .nitro-3-days-orb-preview {
     margin-left: 20px;
 }
 
 .modal-potion-img .profile-badge-orb-preview {
     margin-left: 20px;
+}
+
+.nitro-3-days-modal-orb-preview {
+    position: relative;
+    width: 280px;
+    height: 430px;
+    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(180deg,#000 -17.38%,#36266d 109.68%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.nitro-3-days-modal-orb-preview .hero-img {
+    display: block;
+    position: relative;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.nitro-3-days-modal-orb-preview .nitro-title {
+    display: block;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.nitro-3-days-modal-orb-preview .preview-perks {
+    display: block;
+    position: relative;
+    width: 250px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.nitro-3-days-modal-orb-preview .preview-perks svg {
+    position: absolute;
+}
+
+.nitro-3-days-modal-orb-preview .preview-perks p {
+    margin-left: 30px;
 }
 
 .discordLogo_be5025 {
@@ -2472,6 +2544,47 @@ data-share-product-card-button {
     overflow: hidden; /* Prevents content from overflowing */
     position: relative; /* Allows positioning of the card bottom */
     border: 2px solid var(--4);
+}
+
+.shop-category-card.highlighted {
+    box-shadow: unset;
+    animation: fsysuit4s6bnot 2s !important;
+}
+
+.shop-category-banner.highlighted {
+    box-shadow: unset;
+    animation: fsysuit4s6bnot 2s !important;
+}
+
+@keyframes fsysuit4s6bnot {
+    0% {box-shadow: 0 0 0px 0px #6c61ff;}
+    10% {box-shadow: 0 0 0px 0px #6c61ff;}
+    35% {box-shadow: 0 0 4px 5px #6c61ff;}
+    65% {box-shadow: 0 0 4px 5px #6c61ff;}
+    100% {box-shadow: 0 0 0px 0px #6c61ff;}
+}
+
+.shop-category-card-highlighted-glint {
+    position: absolute;
+    background-image: linear-gradient(rgba(255, 255, 255, 0),rgb(255, 255, 255) 200%) !important;
+    width: 1000px;
+    height: 400px;
+    animation: fb8723nd87fd7t 4s !important;
+    z-index: 5;
+}
+
+.shop-category-highlighted-glint {
+    position: absolute;
+    background-image: linear-gradient(rgba(255, 255, 255, 0),rgb(255, 255, 255) 200%) !important;
+    width: 1000px;
+    height: 400px;
+    animation: fb8723nd87fd7t 3s !important;
+    z-index: 5;
+}
+
+@keyframes fb8723nd87fd7t {
+    0% {transform: translate3d(-150%, 0px, 0px) rotate(-50deg);}
+    100% {transform: translate3d(150%, 0px, 0px) rotate(-50deg);}
 }
 
 .shop-category-card-transparent {
